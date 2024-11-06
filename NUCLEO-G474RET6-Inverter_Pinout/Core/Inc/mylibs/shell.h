@@ -17,6 +17,7 @@
 #define ASCII_BACK 0x08			// BACK = Backspace
 
 void Shell_Init(void);
+void Shell_Loop(void);
 
 
 #endif /* INC_MYLIBS_SHELL_H_ */
