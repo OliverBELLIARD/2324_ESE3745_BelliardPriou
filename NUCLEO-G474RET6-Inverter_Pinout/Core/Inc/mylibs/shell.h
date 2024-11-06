@@ -18,6 +18,7 @@
 
 void Shell_Init(void);
 void Shell_Loop(void);
+void set_PWM_ratio(double);
 
 
 #endif /* INC_MYLIBS_SHELL_H_ */

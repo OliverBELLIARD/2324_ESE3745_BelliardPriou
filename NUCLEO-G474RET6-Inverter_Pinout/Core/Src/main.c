@@ -71,12 +71,20 @@ int __io_putchar(int ch)
 
 /**
  * @brief	Sets the PWM for a channel of TIM1.
- * @param	uint32_t	Channel to modify
- * @return	float		Ratio to set.
+ * @return	float	Desired PWM duty cycle ratio (0.0 to 1.0).
  */
-void setPWMFromRatio(uint32_t channel, float ratio)
+void set_PWM_ratio(double ratio)
 {
-	__HAL_TIM_SET_COMPARE(&htim1, channel, (int)(ratio*PWM_MAX_VAL));
+	int main_pulse = (int)(ratio * PWM_MAX_VAL);
+
+	// Set main PWM pulse width for Channel 1 and Channel 2
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, main_pulse);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, main_pulse);
+
+	// Set PWM offset pulse width for complementary channels
+	// /!\ Offset has been set from the .ioc file
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1N, main_pulse);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2N, main_pulse);
 }
 
 /* USER CODE END 0 */
@@ -122,8 +130,7 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
 
-	setPWMFromRatio(TIM_CHANNEL_1, 0.25);
-	setPWMFromRatio(TIM_CHANNEL_2, 0.25);
+	set_PWM_ratio(0.25);
 
 	Shell_Init();
 	/* USER CODE END 2 */

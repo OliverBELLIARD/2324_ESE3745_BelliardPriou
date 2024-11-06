@@ -22,6 +22,11 @@ uint8_t brian[]="Brian is in the kitchen\r\n";
 uint8_t uartRxReceived;
 uint8_t uartRxBuffer[UART_RX_BUFFER_SIZE];
 uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
+uint8_t helpMessage[]=
+		"\r\nAvailable commands:"
+		"\r\n- help\tDisplays this help message."
+		"\r\n- cratio\tSets a new cyclic ratio."
+		"\r\n";
 
 char	 	cmdBuffer[CMD_BUFFER_SIZE];
 int 		idx_cmd;
@@ -73,8 +78,16 @@ void Shell_Loop(void){
 			HAL_UART_Transmit(&huart2, brian, sizeof(brian), HAL_MAX_DELAY);
 		}
 		else if(strcmp(argv[0],"help")==0){
+			/* Old code
 			int uartTxStringLength = snprintf((char *)uartTxBuffer, UART_TX_BUFFER_SIZE, "Print all available functions here\r\n");
 			HAL_UART_Transmit(&huart2, uartTxBuffer, uartTxStringLength, HAL_MAX_DELAY);
+			*/
+
+			// Up to date help message
+			HAL_UART_Transmit(&huart2, helpMessage, strlen((char *)helpMessage), HAL_MAX_DELAY);
+		}
+		else if(strcmp(argv[0],"cratio")==0){
+			set_PWM_ratio(atof(argv[1]));
 		}
 		else{
 			HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
