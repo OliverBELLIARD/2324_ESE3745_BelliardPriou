@@ -55,3 +55,14 @@ Vous allez devoir au cours du TP (pas maintenant), coder les fonctions suivantes
 - stop : qui éteind l'étage de puissance du moteur (pour l'instant nous ne ferons qu'afficher un message de "power off" dans la console)
 - tout autre fonction qui vous semble nécessaire
 - toute autre commande renverra un message dans la console "Command not found"
+
+## 6. Séance 1 - Commande MCC basique
+
+Commande de MCC - niveau basique
+
+Objectifs :
+- Générer 4 PWM en complémentaire décalée pour contrôler en boucle ouverte le moteur en respectant le cahier des charges,
+- Inclure le temps mort,
+- Vérifier les signaux de commande à l'oscilloscope,
+- Prendre en main le hacheur,
+- Faire un premier essai de commande moteur.
