@@ -96,3 +96,17 @@ Le traitement de cette chaine de caractère se faire de la manière suivant :
 - Conversion de tous les caractères représentant des chiffres XXXX en nombre entier
 - Vérification de la valeur (si la valeur est supérieur au maximum autorisé (bien spécifier cette valeur), on l'abaisse à cette valeur),
 - Application de cette vitesse au moteur à travers le registre gérant le rapport cyclique de la PWM
+
+### 6.3. Premiers tests
+
+Brancher le moteur en respectant les données constructeur du moteur.  
+  
+Faites vérifier l'ensemble des signaux par votre professeur.  
+  
+Faire un premier test dans les conditions suivantes (dans l'ordre) :
+- Rapport cyclique de 50%
+- Rapport cyclique de 70%
+  
+Quels problèmes observez vous ?  
+  
+Pour palier à ce problème, générer une montée progressive du rapport cyclique jusqu'à arriver à la vitesse cible commandé par la commande définie précédemment.  
