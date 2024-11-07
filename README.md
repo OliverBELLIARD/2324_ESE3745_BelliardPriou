@@ -72,9 +72,13 @@ Objectifs :
 Générer quatre PWM sur les bras de pont U et V pour controler le hacheur à partir du timer déjà attribué sur ces pins.  
 
 Cahier des charges :
-- Fréquence de la PWM : 20kHz
-- Temps mort minimum : à voir selon la datasheet des transistors (faire valider la valeur)
-- Résolution minimum : 10bits.
+- **Fréquence de la PWM : 20kHz** : Nous avons configurés le Timer1 en "Center Aligned Mode 1" (centré avec comptage et décomptage), ce qui veut dire que la fréquence que nous avons calculés doit prendre en compte la division par 2 sur la fréquence entrainée par cette configuration. Nous avons donc configurés notre période de comptage (AutoReload Register, *ARR*) à **4250-1**. Ce qui nous donne :  
+    170 000 000 / (2\*PSC\*ARR) = 170 000 000 / (2\*1\*(1+4250-1)) = 20 000 Hz  
+- **Temps mort minimum : à voir selon la datasheet des transistors (faire valider la valeur)** : Sur la maquette, nous trouvons le MOSFET de puissance IRF540NPbF, dans sa documentation présente dans le GitHub : [AAP_ENSEA_Inverter/datasheets/IRF540NPbF.pdf](https://github.com/DBXYD/AAP_ENSEA_Inverter/blob/master/datasheets/IRF540NPbF.pdf) nous observons les temps d'action des transistors :  
+    ![image](https://github.com/user-attachments/assets/670d02d1-0eef-4e65-9f36-6d6f07bfbfe8)  
+    On a alors un temps de monté total de : **td(on) + tr = 11 + 35 = 46 ns** et un temps de descente total de : **td(off) + tf = 39 + 35 = 74 ns**. Nous devons prendre en compte le pire des cas, le temps de descente total pour choisir un temps mort qui soit au dessus. Nous avons alors choisi, **200 ns > 74 ns**, ce qui correspond à 32 dans la configuration "Dead Time" du Timer1.  
+
+- **Résolution minimum : 10bits** : Nous avons besoin d'une valeur de comptage supérieure à 2¹⁰ = 1024. C'est pourquoi, en choisissant une valeur d'ARR = 4250-1 > 1024 nous respectons le cahier des charges.
   
 Pour les tests, fixer le rapport cyclique à 60%.  
 Une fois les PWM générées, les afficher sur un oscilloscope et les faire vérifier par votre professeur.  
