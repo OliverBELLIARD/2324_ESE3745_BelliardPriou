@@ -1,5 +1,6 @@
 # 2324_ESE3745_BelliardPriou
-> Noms : Oliver BELLIARD & Valérian PRIOU
+> Noms : Oliver BELLIARD & Valérian PRIOU  
+> Encadrant : Alexis MARTIN  
 
 ## 1. Objectifs
 A partir d'un hacheur complet et d'une carte Nucleo-STM32G474RE, vous devez :
