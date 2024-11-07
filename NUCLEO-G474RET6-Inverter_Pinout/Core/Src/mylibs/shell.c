@@ -6,6 +6,7 @@
  */
 #include "usart.h"
 #include "mylibs/shell.h"
+#include "tim.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -25,7 +26,8 @@ uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
 uint8_t helpMessage[]=
 		"\r\nAvailable commands:"
 		"\r\n- help\tDisplays this help message."
-		"\r\n- cratio\tSets a new cyclic ratio."
+		"\r\n- ratio\tSets a new cyclic ratio."
+		"\r\n- speed\tSets a new PWM speed."
 		"\r\n";
 
 char	 	cmdBuffer[CMD_BUFFER_SIZE];
@@ -78,16 +80,17 @@ void Shell_Loop(void){
 			HAL_UART_Transmit(&huart2, brian, sizeof(brian), HAL_MAX_DELAY);
 		}
 		else if(strcmp(argv[0],"help")==0){
-			/* Old code
-			int uartTxStringLength = snprintf((char *)uartTxBuffer, UART_TX_BUFFER_SIZE, "Print all available functions here\r\n");
-			HAL_UART_Transmit(&huart2, uartTxBuffer, uartTxStringLength, HAL_MAX_DELAY);
-			*/
-
-			// Up to date help message
 			HAL_UART_Transmit(&huart2, helpMessage, strlen((char *)helpMessage), HAL_MAX_DELAY);
 		}
-		else if(strcmp(argv[0],"cratio")==0){
-			set_PWM_ratio(atof(argv[1]));
+		else if(strcmp(argv[0],"ratio")==0){
+			if (argc > 1) {
+				set_PWM_ratio(atof(argv[1]));
+			}
+		}
+		else if(strcmp(argv[0],"speed")==0){
+			if (argc > 1) {
+				set_PWM_speed(atoi(argv[1]));
+			}
 		}
 		else{
 			HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
