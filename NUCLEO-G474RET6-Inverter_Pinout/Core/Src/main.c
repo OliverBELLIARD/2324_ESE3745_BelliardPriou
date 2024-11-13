@@ -64,9 +64,9 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 /**
- * @brief	Character transmission rewriting.
- * @param	int	Character to send.
- * @return	int	Character sent.
+ * @brief Sends a character via UART (overwrites the default character transmission).
+ * @param ch Character to send
+ * @return The sent character
  */
 int __io_putchar(int ch)
 {
@@ -75,9 +75,9 @@ int __io_putchar(int ch)
 }
 
 /**
- * @brief	Sets the offset PWM for all channel of TIM1 at a defined rate (PWM_VARIATION_RATE) recursively.
- * @param	int	Pulse to apply.
- * @attention	Global variable current_speed_PWM must be initialised.
+ * @brief Adjusts PWM pulse for TIM1 channels recursively at a defined rate.
+ * @param pulse Desired PWM pulse width
+ * @attention The global variable current_speed_PWM must be initialized.
  */
 void set_PWM(int pulse)
 {
@@ -108,8 +108,8 @@ void set_PWM(int pulse)
 }
 
 /**
- * @brief	Sets the PWM for a channel of TIM1. Can be called from the shell.
- * @return	double	Desired PWM duty cycle ratio (0.0 to 1.0) with a 12 bits resolution.
+ * @brief Sets the PWM duty cycle ratio for TIM1 channels.
+ * @param ratio Duty cycle ratio (0.0 to 1.0) with 12-bit resolution
  */
 void set_PWM_ratio(double ratio)
 {
@@ -123,8 +123,8 @@ void set_PWM_ratio(double ratio)
 }
 
 /**
- * @brief	Sets the PWM for a channel of TIM1. Can be called from the shell.
- * @return	int Desired PWM duty pulse (0 to PWM_MAX_VAL).
+ * @brief Sets a specific PWM pulse width for TIM1 channels.
+ * @param speed Desired PWM pulse width (0 to PWM_MAX_VAL)
  */
 void set_PWM_speed(int speed)
 {
@@ -136,7 +136,7 @@ void set_PWM_speed(int speed)
 }
 
 /**
- * Can be called from the shell.
+ * @brief Starts PWM on TIM1 channels. Initial base speed set to 0.5 duty cycle.
  */
 void start_PWM()
 {
@@ -153,7 +153,7 @@ void start_PWM()
 }
 
 /**
- * Can be called from the shell.
+ * @brief Stops PWM on TIM1 channels.
  */
 void stop_PWM()
 {
@@ -167,7 +167,7 @@ void stop_PWM()
 }
 
 /**
- * Can be called from the shell.
+ * @brief Resets the microcontroller.
  */
 void reset_inverter()
 {
