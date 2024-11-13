@@ -71,6 +71,16 @@ int __io_putchar(int ch)
 }
 
 /**
+ * @brief	Sets the offset PWM for all channel of TIM1.
+ * @param	int	pulse to apply.
+ */
+void set_PWM(int pulse)
+{
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, pulse);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, __HAL_TIM_GET_AUTORELOAD(&htim1) - pulse);
+}
+
+/**
  * @brief	Sets the PWM for a channel of TIM1.
  * @return	double	Desired PWM duty cycle ratio (0.0 to 1.0) with a 12 bits resolution.
  */
@@ -93,13 +103,13 @@ void set_PWM_ratio(double ratio)
 
 /**
  * @brief	Sets the PWM for a channel of TIM1.
- * @return	float	Desired PWM duty cycle ratio (0.0 to 1.0).
+ * @return	int Desired PWM duty pulse (0 to PWM_MAX_VAL).
  */
 void set_PWM_speed(int speed)
 {
 	if (speed > PWM_MAX_VAL)
 	{
-		speed = 1;
+		speed = PWM_MAX_VAL;
 	}
 	else if (speed < 0)
 	{
@@ -108,16 +118,6 @@ void set_PWM_speed(int speed)
 
 	// Set main PWM pulse width for Channel 1 and Channel 2
 	set_PWM(speed);
-}
-
-/**
- * @brief	Sets the offset PWM for all channel of TIM1.
- * @param	int	pulse to apply.
- */
-void set_PWM(int pulse)
-{
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, pulse);
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, __HAL_TIM_GET_AUTORELOAD(&htim1) - pulse);
 }
 
 /* USER CODE END 0 */
