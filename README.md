@@ -123,17 +123,11 @@ C'est cette fonction que nous appelons à chaque fois que nous modifions les rap
  */
 void set_PWM_speed(int speed)
 {
-	if (speed > PWM_MAX_VAL)
+	if (speed < PWM_MAX_VAL && speed > 0)
 	{
-		speed = PWM_MAX_VAL;
+		// Set main PWM pulse width for Channel 1 and Channel 2
+		set_PWM(speed);
 	}
-	else if (speed < 0)
-	{
-		speed = 0;
-	}
-
-	// Set main PWM pulse width for Channel 1 and Channel 2
-	set_PWM(speed);
 }
 ```
 
@@ -144,9 +138,56 @@ Brancher le moteur en respectant les données constructeur du moteur.
 Faites vérifier l'ensemble des signaux par votre professeur.  
   
 Faire un premier test dans les conditions suivantes (dans l'ordre) :
-- Rapport cyclique de 50%
-- Rapport cyclique de 70%
+- Rapport cyclique de 50% : ![alpha05](https://github.com/user-attachments/assets/29c9a350-cccc-4fc5-8c8c-b00f27681c4e)
+
+- Rapport cyclique de 70% : ![tek00010](https://github.com/user-attachments/assets/59552fd3-ca09-4721-ad08-95ff67e02ee3)
+
   
 Quels problèmes observez vous ?  
   
 Pour palier à ce problème, générer une montée progressive du rapport cyclique jusqu'à arriver à la vitesse cible commandé par la commande définie précédemment.  
+
+```c
+/**
+ * @brief	Sets the offset PWM for all channel of TIM1 at a defined rate (PWM_VARIATION_RATE) recursively.
+ * @param	int	Pulse to apply.
+ * @attention	Global variable current_speed_PWM must be initialised.
+ */
+void set_PWM(int pulse)
+{
+	if (pulse < current_speed_PWM)
+	{
+		current_speed_PWM -= 1;
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,
+				current_speed_PWM);
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,
+				__HAL_TIM_GET_AUTORELOAD(&htim1) - current_speed_PWM);
+
+		//printf("Réduction de la vitesse\r\n");
+		HAL_Delay(PWM_VARIATION_RATE);
+		set_PWM(pulse);
+	}
+	else if (pulse > current_speed_PWM)
+	{
+		current_speed_PWM += 1;
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,
+				current_speed_PWM);
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,
+				__HAL_TIM_GET_AUTORELOAD(&htim1) - current_speed_PWM);
+
+		//printf("Augmentation de la vitesse\r\n");
+		HAL_Delay(PWM_VARIATION_RATE);
+		set_PWM(pulse);
+	}
+}
+```
+Cette méthode, plus efficace avec des interruptions, permet de faire varier la vitesse à l'aide du CPU. Une optimisation est de dédier cette variation à une fonction par interruption avec un Timer.
+
+## 7. TP n°2 - Commande en boucle ouverte, mesure de Vitesse et de courant
+
+Dans cette partie vous devez :
+
+- Commander en boucle ouverte le moteur avec une accélération limitée,
+- Mesurer le courant aux endroits adéquat dans le montage,
+- Mesurer la vitesse à partir du codeur présent sur chaque moteur.
+
