@@ -86,19 +86,13 @@ void set_PWM(int pulse)
  */
 void set_PWM_ratio(double ratio)
 {
-	if (ratio > 1)
+	if (ratio < 1 && ratio > 0)
 	{
-		ratio = 1;
-	}
-	else if (ratio < 0)
-	{
-		ratio = 0;
-	}
+		int main_pulse = (int)(ratio * PWM_MAX_VAL);
 
-	int main_pulse = (int)(ratio * PWM_MAX_VAL);
-
-	// Set main PWM pulse width for Channel 1 and Channel 2
-	set_PWM(main_pulse);
+		// Set main PWM pulse width for Channel 1 and Channel 2
+		set_PWM(main_pulse);
+	}
 }
 
 /**
@@ -107,17 +101,11 @@ void set_PWM_ratio(double ratio)
  */
 void set_PWM_speed(int speed)
 {
-	if (speed > PWM_MAX_VAL)
+	if (speed < PWM_MAX_VAL && speed > 0)
 	{
-		speed = PWM_MAX_VAL;
+		// Set main PWM pulse width for Channel 1 and Channel 2
+		set_PWM(speed);
 	}
-	else if (speed < 0)
-	{
-		speed = 0;
-	}
-
-	// Set main PWM pulse width for Channel 1 and Channel 2
-	set_PWM(speed);
 }
 
 /* USER CODE END 0 */
