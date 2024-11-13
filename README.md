@@ -100,6 +100,42 @@ Le traitement de cette chaine de caractère se faire de la manière suivant :
 - Conversion de tous les caractères représentant des chiffres XXXX en nombre entier
 - Vérification de la valeur (si la valeur est supérieur au maximum autorisé (bien spécifier cette valeur), on l'abaisse à cette valeur),
 - Application de cette vitesse au moteur à travers le registre gérant le rapport cyclique de la PWM
+  
+Nous avons créé une fonction pour configurer la commande décalée des PWM facilement tel que ci dessous.
+
+```c
+/**
+ * @brief	Sets the offset PWM for all channel of TIM1.
+ * @param	int	pulse to apply.
+ */
+void set_PWM(int pulse)
+{
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, pulse);
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, __HAL_TIM_GET_AUTORELOAD(&htim1) - pulse);
+}
+```
+
+C'est cette fonction que nous appelons à chaque fois que nous modifions les rapports cycliques. Ainsi, la fonction appelé par la commande `speed` ressemble à ceci :
+```c
+/**
+ * @brief	Sets the PWM for a channel of TIM1.
+ * @return	int	Desired PWM duty pulse (0 to PWM_MAX_VAL).
+ */
+void set_PWM_speed(int speed)
+{
+	if (speed > PWM_MAX_VAL)
+	{
+		speed = PWM_MAX_VAL;
+	}
+	else if (speed < 0)
+	{
+		speed = 0;
+	}
+
+	// Set main PWM pulse width for Channel 1 and Channel 2
+	set_PWM(speed);
+}
+```
 
 ### 6.3. Premiers tests
 
