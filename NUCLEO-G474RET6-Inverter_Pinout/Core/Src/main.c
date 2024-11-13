@@ -38,8 +38,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define PWM_MAX_VAL 4250
-#define PWM_VARIATION_RATE 30
+#define PWM_MAX_VAL 4250		// Maximum PWM value (= TIM1->ARR)
+#define PWM_VARIATION_RATE 15	// Variation rate of the PWM pulse
 
 /* USER CODE END PD */
 
@@ -77,6 +77,7 @@ int __io_putchar(int ch)
 /**
  * @brief	Sets the offset PWM for all channel of TIM1 at a defined rate (PWM_VARIATION_RATE) recursively.
  * @param	int	Pulse to apply.
+ * @attention	Global variable current_speed_PWM must be initialised.
  */
 void set_PWM(int pulse)
 {
@@ -107,7 +108,7 @@ void set_PWM(int pulse)
 }
 
 /**
- * @brief	Sets the PWM for a channel of TIM1.
+ * @brief	Sets the PWM for a channel of TIM1. Can be called from the shell.
  * @return	double	Desired PWM duty cycle ratio (0.0 to 1.0) with a 12 bits resolution.
  */
 void set_PWM_ratio(double ratio)
@@ -122,7 +123,7 @@ void set_PWM_ratio(double ratio)
 }
 
 /**
- * @brief	Sets the PWM for a channel of TIM1.
+ * @brief	Sets the PWM for a channel of TIM1. Can be called from the shell.
  * @return	int Desired PWM duty pulse (0 to PWM_MAX_VAL).
  */
 void set_PWM_speed(int speed)
@@ -132,6 +133,46 @@ void set_PWM_speed(int speed)
 		// Set main PWM pulse width for Channel 1 and Channel 2
 		set_PWM(speed);
 	}
+}
+
+/**
+ * Can be called from the shell.
+ */
+void start_PWM()
+{
+	// TIM1 Channel 1 Initialisation
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
+
+	// TIM1 Channel 2 Initialisation
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+	current_speed_PWM = (int)(PWM_MAX_VAL/2)+1; // We initialize the base speed to 0 (cyclic rate 0.5)
+	set_PWM_ratio(0.5);
+}
+
+/**
+ * Can be called from the shell.
+ */
+void stop_PWM()
+{
+	// We disable Tim1 channel 1
+	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+	HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1);
+
+	// We disable Tim1 channel 2
+	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_2);
+}
+
+/**
+ * Can be called from the shell.
+ */
+void reset_inverter()
+{
+	// Reset le microcontroller
+	NVIC_SystemReset();
 }
 
 /* USER CODE END 0 */
@@ -171,14 +212,7 @@ int main(void)
 	MX_USART2_UART_Init();
 	MX_USART3_UART_Init();
 	/* USER CODE BEGIN 2 */
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
-
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
-
-	current_speed_PWM = 2125;
-	set_PWM_ratio(0.6);
+	start_PWM();
 
 	Shell_Init();
 	/* USER CODE END 2 */

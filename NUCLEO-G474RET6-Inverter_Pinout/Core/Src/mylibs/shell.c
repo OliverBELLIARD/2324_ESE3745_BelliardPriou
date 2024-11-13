@@ -29,6 +29,9 @@ uint8_t helpMessage[]=
 		"\r\n- help\tDisplays this help message."
 		"\r\n- ratio\tSets a new cyclic ratio."
 		"\r\n- speed\tSets a new PWM speed."
+		"\r\n- start\tStarts the PWM generation."
+		"\r\n- stop\tStops the PWM generation."
+		"\r\n- reset\tResets the microcontroller."
 		"\r\n";
 
 char	 	cmdBuffer[CMD_BUFFER_SIZE];
@@ -92,6 +95,15 @@ void Shell_Loop(void){
 			if (argc > 1) {
 				set_PWM_speed(atoi(argv[1]));
 			}
+		}
+		else if(strcmp(argv[0],"start")==0){
+			start_PWM();
+		}
+		else if(strcmp(argv[0],"stop")==0){
+			stop_PWM();
+		}
+		else if(strcmp(argv[0],"reset")==0){
+			reset_inverter();
 		}
 		else{
 			HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);

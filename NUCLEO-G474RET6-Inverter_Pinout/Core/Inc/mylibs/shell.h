@@ -20,6 +20,8 @@ void Shell_Init(void);
 void Shell_Loop(void);
 void set_PWM_ratio(double);
 void set_PWM_speed(int);
-
+void start_PWM(void);
+void stop_PWM(void);
+void reset_inverter(void);
 
 #endif /* INC_MYLIBS_SHELL_H_ */
