@@ -32,6 +32,7 @@ uint8_t helpMessage[]=
 		"\r\n- start\tStarts the PWM generation."
 		"\r\n- stop\tStops the PWM generation."
 		"\r\n- reset\tResets the microcontroller."
+		"\r\n- current\tPrints the measured current of U."
 		"\r\n";
 
 char	 	cmdBuffer[CMD_BUFFER_SIZE];
