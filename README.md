@@ -87,6 +87,8 @@ Cahier des charges :
 Pour les tests, fixer le rapport cyclique à 60%.  
 Une fois les PWM générées, les afficher sur un oscilloscope et les faire vérifier par votre professeur.  
 
+  ![tek00006](https://github.com/user-attachments/assets/bb5c0ea3-d72b-4e38-a1f7-1b7a16e0b04d)
+  
 ### 6.2. Commande de vitesse
 
 Pour controler la vitesse du moteur, nous allons envoyer une séquence via la liaison UART (par l'USB) de la forme :  
