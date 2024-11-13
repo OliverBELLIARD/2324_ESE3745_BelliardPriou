@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "mylibs/shell.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,7 +72,7 @@ int __io_putchar(int ch)
 
 /**
  * @brief	Sets the PWM for a channel of TIM1.
- * @return	float	Desired PWM duty cycle ratio (0.0 to 1.0).
+ * @return	double	Desired PWM duty cycle ratio (0.0 to 1.0) with a 12 bits resolution.
  */
 void set_PWM_ratio(double ratio)
 {

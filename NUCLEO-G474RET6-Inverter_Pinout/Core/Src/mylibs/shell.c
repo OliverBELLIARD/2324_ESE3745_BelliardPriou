@@ -9,6 +9,7 @@
 #include "tim.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 uint8_t prompt[]="user@Nucleo-STM32G474RET6>>";
 uint8_t started[]=

@@ -1,7 +1,7 @@
-../Core/Src/main.c:66:5:__io_putchar	1
-../Core/Src/main.c:76:6:set_PWM_ratio	3
-../Core/Src/main.c:98:6:set_PWM_speed	3
-../Core/Src/main.c:120:5:main	1
-../Core/Src/main.c:178:6:SystemClock_Config	3
-../Core/Src/main.c:231:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:248:6:Error_Handler	1
+../Core/Src/main.c:67:5:__io_putchar	1
+../Core/Src/main.c:77:6:set_PWM_ratio	3
+../Core/Src/main.c:99:6:set_PWM_speed	3
+../Core/Src/main.c:121:5:main	1
+../Core/Src/main.c:179:6:SystemClock_Config	3
+../Core/Src/main.c:232:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:249:6:Error_Handler	1
