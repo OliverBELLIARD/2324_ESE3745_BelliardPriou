@@ -191,3 +191,23 @@ Dans cette partie vous devez :
 - Mesurer le courant aux endroits adéquat dans le montage,
 - Mesurer la vitesse à partir du codeur présent sur chaque moteur.
 
+### 7.1. Commande de la vitesse
+
+Rajouter quelques fonctionnalités à votre projet :
+  
+- Commande start : permet de fixer le rapport cyclique à 50% (vitesse nulle) et d'activer la génération des pwm (HAL_TIM_PWM_Start et HAL_TIMEx_PWMN_Start),
+  ```c
+  
+- Commande stop : permet de désactiver la génération des PWM.
+- Commande speed XXXX : permet de définir le rapport cyclique à XXXX/PWM_MAX, mais afin de réduire l'appel à courant, vous devez établir une montée progressive à cette vitesse en quelques secondes. Vous pouvez effectuer une rampe entre la valeur actuelle et la valeur cible avec un incrément bien réfléchi de la PWM à un intervalle de temps régulier. Par la suite votre asservissement fera cela tout seul.
+
+### 7.2. Mesure du courant
+
+A partir de la documentation (schéma KiCad) :
+  
+- Définir quel(s) courant(s) vous devez mesurer,
+- Définir les fonctions de transfert des capteurs de mesure de courant (lecture datasheet),
+- Déterminer les pin du stm32 utilisés pour faire ces mesures de courant,
+- Etablir une première mesure de courant avec les ADC en Pooling. Faites des tests à vitesse nulle, non nulle, et en charge (rajouter un couple resistif en consommant du courant sur la machine synchrone couplée à la MCC).
+- Une fois cette mesure validée, modifier la méthode d'acquisition de ces données en établissant une mesure à interval de temps régulier avec la mise en place d'une la chaine d'acquisition Timer/ADC/DMA.
+- Vous pouvez utiliser le même timer que celui de la génération des PWM pour que les mesures de courant soit synchrone aux PWM. Pour vérifier cela, utiliser un GPIO disponible sur la carte pour établir une impulsion lors de la mesure de la valeur.
