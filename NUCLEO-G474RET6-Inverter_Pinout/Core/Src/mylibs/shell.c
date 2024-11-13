@@ -105,6 +105,9 @@ void Shell_Loop(void){
 		else if(strcmp(argv[0],"reset")==0){
 			reset_inverter();
 		}
+		else if(strcmp(argv[0],"current")==0){
+			read_current();
+		}
 		else{
 			HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 		}

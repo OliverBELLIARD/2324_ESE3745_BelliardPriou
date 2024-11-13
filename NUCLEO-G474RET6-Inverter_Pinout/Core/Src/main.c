@@ -89,7 +89,6 @@ void set_PWM(int pulse)
 		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,
 				__HAL_TIM_GET_AUTORELOAD(&htim1) - current_speed_PWM);
 
-		//printf("Réduction de la vitesse\r\n");
 		HAL_Delay(PWM_VARIATION_RATE);
 		set_PWM(pulse);
 	}
@@ -101,7 +100,6 @@ void set_PWM(int pulse)
 		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,
 				__HAL_TIM_GET_AUTORELOAD(&htim1) - current_speed_PWM);
 
-		//printf("Augmentation de la vitesse\r\n");
 		HAL_Delay(PWM_VARIATION_RATE);
 		set_PWM(pulse);
 	}
@@ -175,6 +173,23 @@ void reset_inverter()
 	NVIC_SystemReset();
 }
 
+void read_current()
+{
+	uint32_t adc_value = 0;
+	double current = 0;
+
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, 100);
+	adc_value = HAL_ADC_GetValue(&hadc1);
+
+	printf("\r\nRAW adc: %d\r\n", (int)adc_value);
+
+	// Convertion taking into account the offset due to the unsigned ADC measure
+	current = -3.3/2 + adc_value*0.05;
+
+	printf("\r\nMeasured current: %.6f\r\n", current);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -212,6 +227,8 @@ int main(void)
 	MX_USART2_UART_Init();
 	MX_USART3_UART_Init();
 	/* USER CODE BEGIN 2 */
+	HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+
 	start_PWM();
 
 	Shell_Init();

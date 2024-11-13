@@ -23,5 +23,6 @@ void set_PWM_speed(int);
 void start_PWM(void);
 void stop_PWM(void);
 void reset_inverter(void);
+void read_current(void);
 
 #endif /* INC_MYLIBS_SHELL_H_ */
