@@ -80,6 +80,8 @@ Cahier des charges :
     On a alors un temps de monté total de : **td(on) + tr = 11 + 35 = 46 ns** et un temps de descente total de : **td(off) + tf = 39 + 35 = 74 ns**. Nous devons prendre en compte le pire des cas, le temps de descente total pour choisir un temps mort qui soit au dessus. Nous avons alors choisi, **200 ns > 74 ns**, ce qui correspond à :  
     Temps mort souhaité * Fréquence le l'horloge du timer / PSC = 200\ * 10⁻⁹\*170\*10⁶ / 1 = **34 unités** dans la configuration "Dead Time" du Timer1.  
 
+![temps_mort](https://github.com/user-attachments/assets/17bbb334-58f0-4a34-b710-eb53d945609a)
+  
 - **Résolution minimum : 10bits** : Nous avons besoin d'une valeur de comptage supérieure à 2¹⁰ = 1024. C'est pourquoi, en choisissant une valeur d'ARR = 4250-1 > 1024 nous respectons le cahier des charges.
   
 Pour les tests, fixer le rapport cyclique à 60%.  
