@@ -35,7 +35,9 @@ Pour une meilleure lisibilité du code :
     
 ## 3. Github et Doxygen
 Installer Doxygen et faire une première documentation (https://doxygen.nl/index.html)  
-> To launch Doxygen GUI, `doxywizard` must be typed in the terminal.
+> To launch Doxygen GUI, `doxywizard` must be typed in the terminal.  
+  
+La documentation est accessible à l'emplacement : [Documentation/html/index.html](https://github.com/OliverBELLIARD/2324_ESE3745_BelliardPriou/blob/main/Documentation/html/index.html)
 
 ## 4. PCB
 Tout le projet Kicad de la cartes est disponible dans l'archive Inverter_Kicad_Project.  
