@@ -148,6 +148,8 @@ Quels problèmes observez vous ?
 Pour palier à ce problème, générer une montée progressive du rapport cyclique jusqu'à arriver à la vitesse cible commandé par la commande définie précédemment.  
 
 ```c
+#define PWM_VARIATION_RATE 3
+
 /**
  * @brief	Sets the offset PWM for all channel of TIM1 at a defined rate (PWM_VARIATION_RATE) recursively.
  * @param	int	Pulse to apply.
@@ -181,7 +183,7 @@ void set_PWM(int pulse)
 	}
 }
 ```
-Cette méthode, plus efficace avec des interruptions, permet de faire varier la vitesse à l'aide du CPU. Une optimisation est de dédier cette variation à une fonction par interruption avec un Timer.
+Cette méthode qui pourrait être plus efficace avec des interruptions, permet de faire varier la vitesse à l'aide du CPU. Une optimisation est de dédier cette variation à une fonction par interruption avec un Timer pour que la variation progressive soit non bloquante.
 
 ## 7. TP n°2 - Commande en boucle ouverte, mesure de Vitesse et de courant
 
@@ -195,11 +197,127 @@ Dans cette partie vous devez :
 
 Rajouter quelques fonctionnalités à votre projet :
   
-- Commande start : permet de fixer le rapport cyclique à 50% (vitesse nulle) et d'activer la génération des pwm (HAL_TIM_PWM_Start et HAL_TIMEx_PWMN_Start),
-  ```c
-  
-- Commande stop : permet de désactiver la génération des PWM.
+- Commande start : permet de fixer le rapport cyclique à 50% (vitesse nulle) et d'activer la génération des pwm (`HAL_TIM_PWM_Start` et `HAL_TIMEx_PWMN_Start`) :
+	```c
+	/**
+	* @brief Starts PWM on TIM1 channels. Initial base speed set to 0.5 duty cycle.
+	*/
+	void start_PWM()
+	{
+		// TIM1 Channel 1 Initialisation
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+		HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
+
+		// TIM1 Channel 2 Initialisation
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+		HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+		current_speed_PWM = (int)(PWM_MAX_VAL/2)+1; // We initialize the base speed to 0 (cyclic rate 0.5)
+		set_PWM_ratio(0.5);
+	}
+	```
+- Commande stop : permet de désactiver la génération des PWM :
+	```c
+	/**
+	* @brief Stops PWM on TIM1 channels.
+	*/
+	void stop_PWM()
+	{
+		// We disable Tim1 channel 1
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+		HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1);
+
+		// We disable Tim1 channel 2
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+		HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_2);
+	}
+	```
 - Commande speed XXXX : permet de définir le rapport cyclique à XXXX/PWM_MAX, mais afin de réduire l'appel à courant, vous devez établir une montée progressive à cette vitesse en quelques secondes. Vous pouvez effectuer une rampe entre la valeur actuelle et la valeur cible avec un incrément bien réfléchi de la PWM à un intervalle de temps régulier. Par la suite votre asservissement fera cela tout seul.
+Nous avons modifié notre variation progressive en utilisant un timer à la place de la récursivité pour avoir un changement de vitesse non bloquant :
+	1. Nous avons alors utilisé le TIM2 en activant ses interruptions périodiques.
+	2. Ensuite nous appelons la fonction qui compare la vitesse courrante à une consigne pour l'ajuster (`set_PWM()`) dans la fonction de Callback.
+	3. Notre code ressemble alors à ce ci :
+	```c
+	int current_speed_PWM;
+	int requested_speed_PWM;
+
+	/**
+	* @brief Adjusts PWM pulse for TIM1 channels.
+	* @param pulse Desired PWM pulse width
+	* @attention The global variables current_speed_PWM and requested_speed_PWM must be initialized.
+	*/
+	void set_PWM()
+	{
+		if (requested_speed_PWM < current_speed_PWM)
+		{
+			current_speed_PWM -= 1;
+			__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,
+					current_speed_PWM);
+			__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,
+					__HAL_TIM_GET_AUTORELOAD(&htim1) - current_speed_PWM);
+		}
+		else if (requested_speed_PWM > current_speed_PWM)
+		{
+			current_speed_PWM += 1;
+			__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,
+					current_speed_PWM);
+			__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,
+					__HAL_TIM_GET_AUTORELOAD(&htim1) - current_speed_PWM);
+		}
+	}
+
+	/**
+	* @brief Sets the PWM duty cycle ratio for TIM1 channels.
+	* @param ratio Duty cycle ratio (0.0 to 1.0) with 12-bit resolution
+	*/
+	void set_PWM_ratio(double ratio)
+	{
+		if (ratio < 1 && ratio > 0)
+		{
+			// Set main PWM pulse width for Channel 1 and Channel 2
+			requested_speed_PWM = (int)(ratio * PWM_MAX_VAL);
+		}
+	}
+
+	/**
+	* @brief Sets a specific PWM pulse width for TIM1 channels.
+	* @param speed Desired PWM pulse width (0 to PWM_MAX_VAL)
+	*/
+	void set_PWM_speed(int speed)
+	{
+		if (speed < PWM_MAX_VAL && speed > 0)
+		{
+			// Set main PWM pulse width for Channel 1 and Channel 2
+			requested_speed_PWM = speed;
+		}
+	}
+
+	/**
+	* @brief  Period elapsed callback in non blocking mode
+	* @note   This function is called  when TIM6 interrupt took place, inside
+	* HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+	* a global variable "uwTick" used as application time base.
+	* @param  htim : TIM handle
+	* @retval None
+	*/
+	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+	{
+		/* USER CODE BEGIN Callback 0 */
+
+		if (htim->Instance == TIM2) {
+			set_PWM();
+		}
+
+		/* USER CODE END Callback 0 */
+		if (htim->Instance == TIM6) {
+			HAL_IncTick();
+		}
+		/* USER CODE BEGIN Callback 1 */
+
+		/* USER CODE END Callback 1 */
+	}
+	```
+	4. Ce sont les seuls changement nécessaires car les commandes appellent ces fonctions pour faire varier la vitesse.
 
 ### 7.2. Mesure du courant
 
@@ -212,8 +330,108 @@ A partir de la documentation (schéma KiCad) :
 - Une fois cette mesure validée, modifier la méthode d'acquisition de ces données en établissant une mesure à interval de temps régulier avec la mise en place d'une la chaine d'acquisition Timer/ADC/DMA.
 - Vous pouvez utiliser le même timer que celui de la génération des PWM pour que les mesures de courant soit synchrone aux PWM. Pour vérifier cela, utiliser un GPIO disponible sur la carte pour établir une impulsion lors de la mesure de la valeur.
   
-![tek00009](https://github.com/user-attachments/assets/0ce8823a-54de-4afb-9af6-251b9874e68d)
+Nous voulons mesurer le courant U_Imes, accessible grâce à la mesure du Arm_IRF540NBbF, numérisé par l'ADC1, branché au pin PA1.
 
+Pour mesurer le courrant en Pooling dans un premier temps nous avons ajouté une commande `current` qui appelle la fonction `read_current()` que nous avons codé de la façon suivante :
+```c
+/**
+ * @brief Reads the current U_Imes.
+ */
+void read_current()
+{
+	uint32_t adc_value = 0;
+	double current = 0;
+	double tension = 0;
+
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, 100);
+	adc_value = HAL_ADC_GetValue(&hadc1);
+
+	printf("\r\nRAW adc: %d\r\n", (int)adc_value);
+
+	// Convertion taking into account the offset due to the unsigned ADC measure
+	/**
+	 * Convertion taking into account the offset due to the unsigned ADC measure:
+	 * 	Sensor resolution: 50 mV/A
+	 * 	Vout = 3.3/2 + 0.05*Imeasured
+	 **/
+	tension = ADC_VCC * ((int)(adc_value) - ADC_OFFSET) / ADC_MAX_VAL;
+	current = (tension) / ADC_CURRENT_RESOLUTION;
+
+	printf("\r\nMeasured tension: %f V\r\n", tension);
+	printf("\r\nMeasured current: %f A\r\n", current);
+}
+```
+En ajoutant la calibration du ADC1 dans la fonction `main()` :
+```c
+HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+```
+Avec cette méthode nous observons des mesures quasiment aléatoires dans les valeurs de courant mesurées. Cela est du à notre courant qui fluctue beaucoup avec les PWM. Nous devons mesurer périodiquement, au même rythme que les PWM. Pour celà nous pouvons utiliser le DMA, avec des mesures déclenchés par le timer 1, celui qui génère les PWM. En configurant le TIM1 pour :  
+	- `Master/Slave Mode (MSM bit)` : Enable  
+	- `Trigger Event Selection TRGO` : Update Event  
+Et l'ADC1 pour :  
+	- `Enable Regular Conversions` : Enable  
+	- `External Trigger Conversion Source` : Timer 1 Trigger Out Event 
+  
+Notre nouveau code pour lire les mesures avec la commande `current` ressemble alors à ce ci :
+```c
+#define ADC_CURRENT_RESOLUTION 0.05
+#define ADC_VCC 3.3
+#define ADC_MAX_VAL 4096
+#define ADC_OFFSET 2421
+#define ADC_BUFF_SIZE 1
+
+uint32_t pData[ADC_BUFF_SIZE];
+
+double U_Imes = 0;
+double Uadc = 0;
+
+/**
+ * @brief Reads the current U_Imes.
+ */
+void read_current()
+{
+	// Read ADC1 DMA to update pData
+	printf("\r\nRAW ADC value: %d\r\n", (int)(pData[0]));
+
+	/**
+	 * Convertion taking into account the offset due to the unsigned ADC measure:
+	 * 	Resolution: 50 mV/A
+	 * 	Vout = 3.3/2 + 0.05*Imeasured
+	 **/
+	Uadc = ADC_VCC * ((int)(pData[0]) - ADC_OFFSET) / ADC_MAX_VAL;
+	U_Imes = (Uadc) / ADC_CURRENT_RESOLUTION;
+
+	printf("\r\nMeasured tension: %f V\r\n", Uadc);
+	printf("\r\nMeasured current: %f A\r\n", U_Imes);
+}
+
+/**
+ * @brief  Conversion complete callback in non-blocking mode. Updates the data read from the DMA.
+ * @param hadc ADC handle
+ * @retval None
+ */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+	if (hadc->Instance == ADC1)
+		HAL_ADC_Start_DMA(hadc, pData, ADC_BUFF_SIZE);
+}
+```
+Sans oublier d'inclure dans la fonction `main()` :
+```c
+HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+HAL_ADC_Start_DMA(&hadc1, pData, ADC_BUFF_SIZE);
+```
+  
+Avec cette nouvelle méthode, nous avons des mesures de courrant plus cohérentes et il est cette fois-ci possible d'observer les variations de courrant en faisant varier le rapport cyclique ou la charge du moteur.  
+Il est à noter que nous avons observé un offset de courrant quand le rapport cyclique valait 0.5. D'où la constante `ADC_OFFSET` pour ramener la mesure du courrant à zéro au rapport cyclique 0.5.  
+  
+Cet écart est observable sur la capture d'oscilloscope ci dessous :  
+  
+![tek00009](https://github.com/user-attachments/assets/0ce8823a-54de-4afb-9af6-251b9874e68d)
+  
+On observe une tension de 1.59 V issue de la sonde de tension sur PA1. Ce qui nous donne une valeur d'ADC 4096/1.56 = 2626, proche du `ADC_OFFSET` mesuré.
+  
 ### 7.3. Mesure de vitesse
 A partir de la documentation (schéma KiCad, datasheets et expérimentation) :
 
@@ -223,3 +441,10 @@ A partir de la documentation (schéma KiCad, datasheets et expérimentation) :
 - Déterminer les pin du stm32 utilisés pour faire cette mesure de vitesse,
 - Déterminer la fréquence à laquelle vous allez faire l'asservissement en vitesse du moteur.
 - Etablir le code de mesure de vitesse et le tester.
+
+Nous pouvons mesurer la vitesse grâce à l'encodeur présent sur le Moteur.
+
+## 8. TP n°3 Asservissement
+Dans cette partie vous devez :
+- Etablir l'asservissement en vitesse du moteur,
+- Etablir l'asservissement en courant du moteur.
