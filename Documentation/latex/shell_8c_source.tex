@@ -1,0 +1,137 @@
+\doxysection{shell.\+c}
+\hypertarget{shell_8c_source}{}\label{shell_8c_source}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mylibs/shell.c@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mylibs/shell.c}}
+\mbox{\hyperlink{shell_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{usart_8h}{usart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shell_8h}{mylibs/shell.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tim_8h}{tim.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00021}\mbox{\hyperlink{shell_8c_a8b893859891afe33d4bba72ba06fd381}{00021}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a8b893859891afe33d4bba72ba06fd381}{prompt}}[]\ =\ \textcolor{stringliteral}{"{}user@Nucleo-\/STM32G474RET6>>"{}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00024}\mbox{\hyperlink{shell_8c_a835573497a60b314a9bf5a6fcac9602a}{00024}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a835573497a60b314a9bf5a6fcac9602a}{started}}[]\ =}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00025}00025\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00026}00026\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n|\ Welcome\ on\ Nucleo-\/STM32G474\ |"{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00027}00027\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00030}\mbox{\hyperlink{shell_8c_a98a2c452a5e7053154e9f49a4cad4e98}{00030}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a98a2c452a5e7053154e9f49a4cad4e98}{newline}}[]\ =\ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00033}\mbox{\hyperlink{shell_8c_a73072efaa96faae50fbceb96dc409a43}{00033}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a73072efaa96faae50fbceb96dc409a43}{backspace}}[]\ =\ \textcolor{stringliteral}{"{}\(\backslash\)b\ \(\backslash\)b"{}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00036}\mbox{\hyperlink{shell_8c_a25205e7c6d817620c1d9f7351a817a04}{00036}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a25205e7c6d817620c1d9f7351a817a04}{cmdNotFound}}[]\ =\ \textcolor{stringliteral}{"{}Command\ not\ found\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00039}\mbox{\hyperlink{shell_8c_a438d322744fd2053e4b031aea2ad1cbe}{00039}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a438d322744fd2053e4b031aea2ad1cbe}{brian}}[]\ =\ \textcolor{stringliteral}{"{}Brian\ is\ in\ the\ kitchen\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00042}\mbox{\hyperlink{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc}{00042}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc}{uartRxReceived}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00045}\mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{00045}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uartRxBuffer}}[\mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\_RX\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00048}\mbox{\hyperlink{shell_8c_a3f98e2db2fa0d8f0cfd87b887576207f}{00048}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a3f98e2db2fa0d8f0cfd87b887576207f}{uartTxBuffer}}[\mbox{\hyperlink{shell_8h_a05f5d709605c6317c97e4974bec3402a}{UART\_TX\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00051}\mbox{\hyperlink{shell_8c_a59e1969bb35fb5ddc69a02e5b3f7347b}{00051}}\ uint8\_t\ \mbox{\hyperlink{shell_8c_a59e1969bb35fb5ddc69a02e5b3f7347b}{helpMessage}}[]\ =}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00052}00052\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)nAvailable\ commands:"{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00053}00053\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ help\(\backslash\)tDisplays\ this\ help\ message."{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00054}00054\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ ratio\(\backslash\)tSets\ a\ new\ cyclic\ ratio."{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00055}00055\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ speed\(\backslash\)tSets\ a\ new\ PWM\ speed."{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00056}00056\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ start\(\backslash\)tStarts\ the\ PWM\ generation."{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00057}00057\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ stop\(\backslash\)tStops\ the\ PWM\ generation."{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00058}00058\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ reset\(\backslash\)tResets\ the\ microcontroller."{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00059}00059\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ current\(\backslash\)tPrints\ the\ measured\ current\ of\ U."{}}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00060}00060\ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00063}\mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{00063}}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{cmdBuffer}}[\mbox{\hyperlink{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75}{CMD\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00066}\mbox{\hyperlink{shell_8c_a53cf6ebd0848970afbf70c176bec9314}{00066}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shell_8c_a53cf6ebd0848970afbf70c176bec9314}{idx\_cmd}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00069}\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{00069}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[\mbox{\hyperlink{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc}{MAX\_ARGS}}];}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00072}\mbox{\hyperlink{shell_8c_ad1447518f4372828b8435ae82e48499e}{00072}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shell_8c_ad1447518f4372828b8435ae82e48499e}{argc}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00075}\mbox{\hyperlink{shell_8c_a1d71425d9df28667d528833a4db10432}{00075}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{shell_8c_a1d71425d9df28667d528833a4db10432}{token}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00078}\mbox{\hyperlink{shell_8c_a83a0d9b47b936e62d1d68aea902883ac}{00078}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shell_8c_a83a0d9b47b936e62d1d68aea902883ac}{newCmdReady}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00085}\mbox{\hyperlink{shell_8h_a1e1a7212cd1e25d36ce85620f03f996e}{00085}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8c_a1e1a7212cd1e25d36ce85620f03f996e}{Shell\_Init}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00086}00086\ \ \ \ \ memset(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}},\ NULL,\ \mbox{\hyperlink{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc}{MAX\_ARGS}}*\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}*));}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00087}00087\ \ \ \ \ memset(\mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{cmdBuffer}},\ NULL,\ \mbox{\hyperlink{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75}{CMD\_BUFFER\_SIZE}}*\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00088}00088\ \ \ \ \ memset(\mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uartRxBuffer}},\ NULL,\ \mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\_RX\_BUFFER\_SIZE}}*\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00089}00089\ \ \ \ \ memset(\mbox{\hyperlink{shell_8c_a3f98e2db2fa0d8f0cfd87b887576207f}{uartTxBuffer}},\ NULL,\ \mbox{\hyperlink{shell_8h_a05f5d709605c6317c97e4974bec3402a}{UART\_TX\_BUFFER\_SIZE}}*\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00091}00091\ \ \ \ \ HAL\_UART\_Receive\_IT(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uartRxBuffer}},\ \mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\_RX\_BUFFER\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00092}00092\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a835573497a60b314a9bf5a6fcac9602a}{started}},\ strlen((\textcolor{keywordtype}{char}\ *)\mbox{\hyperlink{shell_8c_a835573497a60b314a9bf5a6fcac9602a}{started}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00093}00093\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a8b893859891afe33d4bba72ba06fd381}{prompt}},\ strlen((\textcolor{keywordtype}{char}\ *)\mbox{\hyperlink{shell_8c_a8b893859891afe33d4bba72ba06fd381}{prompt}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00101}\mbox{\hyperlink{shell_8h_a9f70d5542e7f7f470ff7cd7d482caeb7}{00101}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8c_a9f70d5542e7f7f470ff7cd7d482caeb7}{Shell\_Loop}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc}{uartRxReceived}})\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uartRxBuffer}}[0])\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{shell_8h_a089ed4925403ab02a05e603967c74579}{ASCII\_CR}}:\ \textcolor{comment}{//\ Nouvelle\ ligne,\ instruction\ à\ traiter}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a98a2c452a5e7053154e9f49a4cad4e98}{newline}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{shell_8c_a98a2c452a5e7053154e9f49a4cad4e98}{newline}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{cmdBuffer}}[\mbox{\hyperlink{shell_8c_a53cf6ebd0848970afbf70c176bec9314}{idx\_cmd}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_ad1447518f4372828b8435ae82e48499e}{argc}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a1d71425d9df28667d528833a4db10432}{token}}\ =\ strtok(\mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{cmdBuffer}},\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{shell_8c_a1d71425d9df28667d528833a4db10432}{token}}!=NULL)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[\mbox{\hyperlink{shell_8c_ad1447518f4372828b8435ae82e48499e}{argc}}++]\ =\ \mbox{\hyperlink{shell_8c_a1d71425d9df28667d528833a4db10432}{token}};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a1d71425d9df28667d528833a4db10432}{token}}\ =\ strtok(NULL,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a53cf6ebd0848970afbf70c176bec9314}{idx\_cmd}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a83a0d9b47b936e62d1d68aea902883ac}{newCmdReady}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{shell_8h_a681f208df4071753dd6a7a71d0f5780e}{ASCII\_BACK}}:\ \textcolor{comment}{//\ Suppression\ du\ dernier\ caractère}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{cmdBuffer}}[\mbox{\hyperlink{shell_8c_a53cf6ebd0848970afbf70c176bec9314}{idx\_cmd}}-\/-\/]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a73072efaa96faae50fbceb96dc409a43}{backspace}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{shell_8c_a73072efaa96faae50fbceb96dc409a43}{backspace}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{comment}{//\ Nouveau\ caractère}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{cmdBuffer}}[\mbox{\hyperlink{shell_8c_a53cf6ebd0848970afbf70c176bec9314}{idx\_cmd}}++]\ =\ \mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uartRxBuffer}}[0];}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uartRxBuffer}},\ \mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\_RX\_BUFFER\_SIZE}},\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc}{uartRxReceived}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00126}00126\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{shell_8c_a83a0d9b47b936e62d1d68aea902883ac}{newCmdReady}})\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}WhereisBrian?"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a438d322744fd2053e4b031aea2ad1cbe}{brian}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{shell_8c_a438d322744fd2053e4b031aea2ad1cbe}{brian}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}help"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a59e1969bb35fb5ddc69a02e5b3f7347b}{helpMessage}},\ strlen((\textcolor{keywordtype}{char}\ *)\mbox{\hyperlink{shell_8c_a59e1969bb35fb5ddc69a02e5b3f7347b}{helpMessage}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}ratio"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{shell_8c_ad1447518f4372828b8435ae82e48499e}{argc}}\ >\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8h_ab5c61f6cca95944497de9d5c1a7a0e53}{set\_PWM\_ratio}}(atof(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[1]));}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}speed"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{shell_8c_ad1447518f4372828b8435ae82e48499e}{argc}}\ >\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8h_a53873ca97f4eff976cda4093424c60b1}{set\_PWM\_speed}}(atoi(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[1]));}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}start"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8h_a933ee4c92795bba0229662fbf0a8b144}{start\_PWM}}();}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}stop"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8h_a5dbeee862c827ec0736b6e79c42859a9}{stop\_PWM}}();}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}reset"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8h_aca90e0598a78eabb24f644da77050761}{reset\_inverter}}();}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}}[0],\textcolor{stringliteral}{"{}current"{}})==0)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8h_ae52eb9986b1b73a2f95b46d26cd690b4}{read\_current}}();}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a25205e7c6d817620c1d9f7351a817a04}{cmdNotFound}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{shell_8c_a25205e7c6d817620c1d9f7351a817a04}{cmdNotFound}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a8b893859891afe33d4bba72ba06fd381}{prompt}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{shell_8c_a8b893859891afe33d4bba72ba06fd381}{prompt}}),\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8c_a83a0d9b47b936e62d1d68aea902883ac}{newCmdReady}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00163}00163\ \}}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00172}\mbox{\hyperlink{shell_8c_ae494a9643f29b87d6d81e5264e60e57b}{00172}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8c_ae494a9643f29b87d6d81e5264e60e57b}{HAL\_UART\_RxCpltCallback}}(UART\_HandleTypeDef\ *\ huart)\{}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00173}00173\ \ \ \ \ \mbox{\hyperlink{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc}{uartRxReceived}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00174}00174\ \ \ \ \ HAL\_UART\_Receive\_IT(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ \mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uartRxBuffer}},\ \mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\_RX\_BUFFER\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{shell_8c_source_l00175}00175\ \}}
+
+\end{DoxyCode}

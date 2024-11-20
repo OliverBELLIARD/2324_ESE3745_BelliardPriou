@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__STM32G4xx__System__Private__Defines" xml:lang="en-US">
+<title>STM32G4xx_System_Private_Defines</title>
+<indexterm><primary>STM32G4xx_System_Private_Defines</primary></indexterm>
+Collaboration diagram for STM32G4xx_System_Private_Defines:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__STM32G4xx__System__Private__Defines.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

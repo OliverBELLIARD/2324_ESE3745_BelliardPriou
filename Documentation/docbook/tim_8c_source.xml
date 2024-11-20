@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_tim_8c_source" xml:lang="en-US">
+<title>tim.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/tim.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_tim_8c_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00019"/>00019 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00020"/>00020 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00021"/>00021 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_tim_8h">tim.h</link>&quot;</emphasis>
+<anchor xml:id="_tim_8c_source_1l00022"/>00022 
+<anchor xml:id="_tim_8c_source_1l00023"/>00023 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00024"/>00024 
+<anchor xml:id="_tim_8c_source_1l00025"/>00025 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00026"/>00026 
+<anchor xml:id="_tim_8c_source_1l00027"/><link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">00027</link> TIM_HandleTypeDef&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>;
+<anchor xml:id="_tim_8c_source_1l00028"/><link linkend="_tim_8h_1a2c80fd5510e2990a59a5c90d745c716c">00028</link> TIM_HandleTypeDef&#32;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>;
+<anchor xml:id="_tim_8c_source_1l00029"/><link linkend="_tim_8h_1aac3d2c59ee0e3bbae1b99529a154eb62">00029</link> TIM_HandleTypeDef&#32;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>;
+<anchor xml:id="_tim_8c_source_1l00030"/>00030 
+<anchor xml:id="_tim_8c_source_1l00031"/>00031 <emphasis role="comment">/*&#32;TIM1&#32;init&#32;function&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00032"/><link linkend="_tim_8h_1ad1f9d42690163f73f73e5b820c81ca14">00032</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1ad1f9d42690163f73f73e5b820c81ca14">MX_TIM1_Init</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_tim_8c_source_1l00033"/>00033 {
+<anchor xml:id="_tim_8c_source_1l00034"/>00034 
+<anchor xml:id="_tim_8c_source_1l00035"/>00035 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00036"/>00036 
+<anchor xml:id="_tim_8c_source_1l00037"/>00037 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00038"/>00038 
+<anchor xml:id="_tim_8c_source_1l00039"/>00039 &#32;&#32;TIM_MasterConfigTypeDef&#32;sMasterConfig&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00040"/>00040 &#32;&#32;TIM_OC_InitTypeDef&#32;sConfigOC&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00041"/>00041 &#32;&#32;TIM_BreakDeadTimeConfigTypeDef&#32;sBreakDeadTimeConfig&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00042"/>00042 
+<anchor xml:id="_tim_8c_source_1l00043"/>00043 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00044"/>00044 
+<anchor xml:id="_tim_8c_source_1l00045"/>00045 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00046"/>00046 &#32;&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>.Instance&#32;=&#32;TIM1;
+<anchor xml:id="_tim_8c_source_1l00047"/>00047 &#32;&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>.Init.Prescaler&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00048"/>00048 &#32;&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>.Init.CounterMode&#32;=&#32;TIM_COUNTERMODE_CENTERALIGNED1;
+<anchor xml:id="_tim_8c_source_1l00049"/>00049 &#32;&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>.Init.Period&#32;=&#32;4249;
+<anchor xml:id="_tim_8c_source_1l00050"/>00050 &#32;&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>.Init.ClockDivision&#32;=&#32;TIM_CLOCKDIVISION_DIV1;
+<anchor xml:id="_tim_8c_source_1l00051"/>00051 &#32;&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>.Init.RepetitionCounter&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00052"/>00052 &#32;&#32;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>.Init.AutoReloadPreload&#32;=&#32;TIM_AUTORELOAD_PRELOAD_ENABLE;
+<anchor xml:id="_tim_8c_source_1l00053"/>00053 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIM_PWM_Init(&amp;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00054"/>00054 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00056"/>00056 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00057"/>00057 &#32;&#32;sMasterConfig.MasterOutputTrigger&#32;=&#32;TIM_TRGO_UPDATE;
+<anchor xml:id="_tim_8c_source_1l00058"/>00058 &#32;&#32;sMasterConfig.MasterOutputTrigger2&#32;=&#32;TIM_TRGO2_RESET;
+<anchor xml:id="_tim_8c_source_1l00059"/>00059 &#32;&#32;sMasterConfig.MasterSlaveMode&#32;=&#32;TIM_MASTERSLAVEMODE_ENABLE;
+<anchor xml:id="_tim_8c_source_1l00060"/>00060 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIMEx_MasterConfigSynchronization(&amp;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;&amp;sMasterConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00061"/>00061 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00062"/>00062 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00063"/>00063 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00064"/>00064 &#32;&#32;sConfigOC.OCMode&#32;=&#32;TIM_OCMODE_PWM1;
+<anchor xml:id="_tim_8c_source_1l00065"/>00065 &#32;&#32;sConfigOC.Pulse&#32;=&#32;3000;
+<anchor xml:id="_tim_8c_source_1l00066"/>00066 &#32;&#32;sConfigOC.OCPolarity&#32;=&#32;TIM_OCPOLARITY_HIGH;
+<anchor xml:id="_tim_8c_source_1l00067"/>00067 &#32;&#32;sConfigOC.OCNPolarity&#32;=&#32;TIM_OCNPOLARITY_HIGH;
+<anchor xml:id="_tim_8c_source_1l00068"/>00068 &#32;&#32;sConfigOC.OCFastMode&#32;=&#32;TIM_OCFAST_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00069"/>00069 &#32;&#32;sConfigOC.OCIdleState&#32;=&#32;TIM_OCIDLESTATE_RESET;
+<anchor xml:id="_tim_8c_source_1l00070"/>00070 &#32;&#32;sConfigOC.OCNIdleState&#32;=&#32;TIM_OCNIDLESTATE_RESET;
+<anchor xml:id="_tim_8c_source_1l00071"/>00071 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIM_PWM_ConfigChannel(&amp;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;&amp;sConfigOC,&#32;TIM_CHANNEL_1)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00072"/>00072 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00073"/>00073 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00074"/>00074 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00075"/>00075 &#32;&#32;sConfigOC.Pulse&#32;=&#32;5000;
+<anchor xml:id="_tim_8c_source_1l00076"/>00076 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIM_PWM_ConfigChannel(&amp;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;&amp;sConfigOC,&#32;TIM_CHANNEL_2)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00077"/>00077 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00079"/>00079 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00080"/>00080 &#32;&#32;sConfigOC.Pulse&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00081"/>00081 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIM_PWM_ConfigChannel(&amp;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;&amp;sConfigOC,&#32;TIM_CHANNEL_3)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00082"/>00082 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00084"/>00084 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00085"/>00085 &#32;&#32;sBreakDeadTimeConfig.OffStateRunMode&#32;=&#32;TIM_OSSR_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00086"/>00086 &#32;&#32;sBreakDeadTimeConfig.OffStateIDLEMode&#32;=&#32;TIM_OSSI_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00087"/>00087 &#32;&#32;sBreakDeadTimeConfig.LockLevel&#32;=&#32;TIM_LOCKLEVEL_OFF;
+<anchor xml:id="_tim_8c_source_1l00088"/>00088 &#32;&#32;sBreakDeadTimeConfig.DeadTime&#32;=&#32;34;
+<anchor xml:id="_tim_8c_source_1l00089"/>00089 &#32;&#32;sBreakDeadTimeConfig.BreakState&#32;=&#32;TIM_BREAK_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00090"/>00090 &#32;&#32;sBreakDeadTimeConfig.BreakPolarity&#32;=&#32;TIM_BREAKPOLARITY_HIGH;
+<anchor xml:id="_tim_8c_source_1l00091"/>00091 &#32;&#32;sBreakDeadTimeConfig.BreakFilter&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00092"/>00092 &#32;&#32;sBreakDeadTimeConfig.BreakAFMode&#32;=&#32;TIM_BREAK_AFMODE_INPUT;
+<anchor xml:id="_tim_8c_source_1l00093"/>00093 &#32;&#32;sBreakDeadTimeConfig.Break2State&#32;=&#32;TIM_BREAK2_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00094"/>00094 &#32;&#32;sBreakDeadTimeConfig.Break2Polarity&#32;=&#32;TIM_BREAK2POLARITY_HIGH;
+<anchor xml:id="_tim_8c_source_1l00095"/>00095 &#32;&#32;sBreakDeadTimeConfig.Break2Filter&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00096"/>00096 &#32;&#32;sBreakDeadTimeConfig.Break2AFMode&#32;=&#32;TIM_BREAK_AFMODE_INPUT;
+<anchor xml:id="_tim_8c_source_1l00097"/>00097 &#32;&#32;sBreakDeadTimeConfig.AutomaticOutput&#32;=&#32;TIM_AUTOMATICOUTPUT_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00098"/>00098 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIMEx_ConfigBreakDeadTime(&amp;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;&amp;sBreakDeadTimeConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00099"/>00099 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00101"/>00101 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00102"/>00102 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00103"/>00103 
+<anchor xml:id="_tim_8c_source_1l00104"/>00104 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00105"/>00105 &#32;&#32;<link linkend="_tim_8c_1a708f19bbc41b292fccf38f2d9796c46a">HAL_TIM_MspPostInit</link>(&amp;<link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>);
+<anchor xml:id="_tim_8c_source_1l00106"/>00106 
+<anchor xml:id="_tim_8c_source_1l00107"/>00107 }
+<anchor xml:id="_tim_8c_source_1l00108"/>00108 <emphasis role="comment">/*&#32;TIM2&#32;init&#32;function&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00109"/><link linkend="_tim_8h_1a4b8ff887fd3fdf26605e35927e4ff202">00109</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1a4b8ff887fd3fdf26605e35927e4ff202">MX_TIM2_Init</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_tim_8c_source_1l00110"/>00110 {
+<anchor xml:id="_tim_8c_source_1l00111"/>00111 
+<anchor xml:id="_tim_8c_source_1l00112"/>00112 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00113"/>00113 
+<anchor xml:id="_tim_8c_source_1l00114"/>00114 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00115"/>00115 
+<anchor xml:id="_tim_8c_source_1l00116"/>00116 &#32;&#32;TIM_ClockConfigTypeDef&#32;sClockSourceConfig&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00117"/>00117 &#32;&#32;TIM_MasterConfigTypeDef&#32;sMasterConfig&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00118"/>00118 
+<anchor xml:id="_tim_8c_source_1l00119"/>00119 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00120"/>00120 
+<anchor xml:id="_tim_8c_source_1l00121"/>00121 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00122"/>00122 &#32;&#32;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>.Instance&#32;=&#32;TIM2;
+<anchor xml:id="_tim_8c_source_1l00123"/>00123 &#32;&#32;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>.Init.Prescaler&#32;=&#32;170-1;
+<anchor xml:id="_tim_8c_source_1l00124"/>00124 &#32;&#32;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>.Init.CounterMode&#32;=&#32;TIM_COUNTERMODE_UP;
+<anchor xml:id="_tim_8c_source_1l00125"/>00125 &#32;&#32;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>.Init.Period&#32;=&#32;3332;
+<anchor xml:id="_tim_8c_source_1l00126"/>00126 &#32;&#32;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>.Init.ClockDivision&#32;=&#32;TIM_CLOCKDIVISION_DIV1;
+<anchor xml:id="_tim_8c_source_1l00127"/>00127 &#32;&#32;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>.Init.AutoReloadPreload&#32;=&#32;TIM_AUTORELOAD_PRELOAD_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00128"/>00128 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIM_Base_Init(&amp;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00129"/>00129 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00131"/>00131 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00132"/>00132 &#32;&#32;sClockSourceConfig.ClockSource&#32;=&#32;TIM_CLOCKSOURCE_INTERNAL;
+<anchor xml:id="_tim_8c_source_1l00133"/>00133 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIM_ConfigClockSource(&amp;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>,&#32;&amp;sClockSourceConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00134"/>00134 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00136"/>00136 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00137"/>00137 &#32;&#32;sMasterConfig.MasterOutputTrigger&#32;=&#32;TIM_TRGO_RESET;
+<anchor xml:id="_tim_8c_source_1l00138"/>00138 &#32;&#32;sMasterConfig.MasterSlaveMode&#32;=&#32;TIM_MASTERSLAVEMODE_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00139"/>00139 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIMEx_MasterConfigSynchronization(&amp;<link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>,&#32;&amp;sMasterConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00140"/>00140 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00142"/>00142 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00143"/>00143 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00144"/>00144 
+<anchor xml:id="_tim_8c_source_1l00145"/>00145 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00146"/>00146 
+<anchor xml:id="_tim_8c_source_1l00147"/>00147 }
+<anchor xml:id="_tim_8c_source_1l00148"/>00148 <emphasis role="comment">/*&#32;TIM3&#32;init&#32;function&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00149"/><link linkend="_tim_8h_1a7912f2916786a2c33cb6fb8259ade58c">00149</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1a7912f2916786a2c33cb6fb8259ade58c">MX_TIM3_Init</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_tim_8c_source_1l00150"/>00150 {
+<anchor xml:id="_tim_8c_source_1l00151"/>00151 
+<anchor xml:id="_tim_8c_source_1l00152"/>00152 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM3_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00153"/>00153 
+<anchor xml:id="_tim_8c_source_1l00154"/>00154 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM3_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00155"/>00155 
+<anchor xml:id="_tim_8c_source_1l00156"/>00156 &#32;&#32;TIM_HallSensor_InitTypeDef&#32;sConfig&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00157"/>00157 &#32;&#32;TIM_MasterConfigTypeDef&#32;sMasterConfig&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00158"/>00158 
+<anchor xml:id="_tim_8c_source_1l00159"/>00159 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM3_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00160"/>00160 
+<anchor xml:id="_tim_8c_source_1l00161"/>00161 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM3_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00162"/>00162 &#32;&#32;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>.Instance&#32;=&#32;TIM3;
+<anchor xml:id="_tim_8c_source_1l00163"/>00163 &#32;&#32;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>.Init.Prescaler&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00164"/>00164 &#32;&#32;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>.Init.CounterMode&#32;=&#32;TIM_COUNTERMODE_UP;
+<anchor xml:id="_tim_8c_source_1l00165"/>00165 &#32;&#32;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>.Init.Period&#32;=&#32;65535;
+<anchor xml:id="_tim_8c_source_1l00166"/>00166 &#32;&#32;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>.Init.ClockDivision&#32;=&#32;TIM_CLOCKDIVISION_DIV1;
+<anchor xml:id="_tim_8c_source_1l00167"/>00167 &#32;&#32;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>.Init.AutoReloadPreload&#32;=&#32;TIM_AUTORELOAD_PRELOAD_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00168"/>00168 &#32;&#32;sConfig.IC1Polarity&#32;=&#32;TIM_ICPOLARITY_RISING;
+<anchor xml:id="_tim_8c_source_1l00169"/>00169 &#32;&#32;sConfig.IC1Prescaler&#32;=&#32;TIM_ICPSC_DIV1;
+<anchor xml:id="_tim_8c_source_1l00170"/>00170 &#32;&#32;sConfig.IC1Filter&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00171"/>00171 &#32;&#32;sConfig.Commutation_Delay&#32;=&#32;0;
+<anchor xml:id="_tim_8c_source_1l00172"/>00172 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIMEx_HallSensor_Init(&amp;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>,&#32;&amp;sConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00173"/>00173 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00175"/>00175 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00176"/>00176 &#32;&#32;sMasterConfig.MasterOutputTrigger&#32;=&#32;TIM_TRGO_OC2REF;
+<anchor xml:id="_tim_8c_source_1l00177"/>00177 &#32;&#32;sMasterConfig.MasterSlaveMode&#32;=&#32;TIM_MASTERSLAVEMODE_DISABLE;
+<anchor xml:id="_tim_8c_source_1l00178"/>00178 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_TIMEx_MasterConfigSynchronization(&amp;<link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link>,&#32;&amp;sMasterConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_tim_8c_source_1l00179"/>00179 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00180"/>00180 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_tim_8c_source_1l00181"/>00181 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00182"/>00182 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM3_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00183"/>00183 
+<anchor xml:id="_tim_8c_source_1l00184"/>00184 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM3_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00185"/>00185 
+<anchor xml:id="_tim_8c_source_1l00186"/>00186 }
+<anchor xml:id="_tim_8c_source_1l00187"/>00187 
+<anchor xml:id="_tim_8c_source_1l00188"/><link linkend="_tim_8c_1acc04a9bb2813334b6e3585d1f16e5199">00188</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1acc04a9bb2813334b6e3585d1f16e5199">HAL_TIM_PWM_MspInit</link>(TIM_HandleTypeDef*&#32;tim_pwmHandle)
+<anchor xml:id="_tim_8c_source_1l00189"/>00189 {
+<anchor xml:id="_tim_8c_source_1l00190"/>00190 
+<anchor xml:id="_tim_8c_source_1l00191"/>00191 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(tim_pwmHandle-&gt;Instance==TIM1)
+<anchor xml:id="_tim_8c_source_1l00192"/>00192 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00193"/>00193 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00194"/>00194 
+<anchor xml:id="_tim_8c_source_1l00195"/>00195 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00196"/>00196 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;TIM1&#32;clock&#32;enable&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;__HAL_RCC_TIM1_CLK_ENABLE();
+<anchor xml:id="_tim_8c_source_1l00198"/>00198 
+<anchor xml:id="_tim_8c_source_1l00199"/>00199 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;TIM1&#32;interrupt&#32;Init&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00200"/>00200 &#32;&#32;&#32;&#32;HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn,&#32;0,&#32;0);
+<anchor xml:id="_tim_8c_source_1l00201"/>00201 &#32;&#32;&#32;&#32;HAL_NVIC_EnableIRQ(TIM1_TRG_COM_TIM17_IRQn);
+<anchor xml:id="_tim_8c_source_1l00202"/>00202 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00203"/>00203 
+<anchor xml:id="_tim_8c_source_1l00204"/>00204 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00205"/>00205 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00206"/>00206 }
+<anchor xml:id="_tim_8c_source_1l00207"/>00207 
+<anchor xml:id="_tim_8c_source_1l00208"/><link linkend="_tim_8c_1a59716af159bfbbb6023b31354fb23af8">00208</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1a59716af159bfbbb6023b31354fb23af8">HAL_TIM_Base_MspInit</link>(TIM_HandleTypeDef*&#32;tim_baseHandle)
+<anchor xml:id="_tim_8c_source_1l00209"/>00209 {
+<anchor xml:id="_tim_8c_source_1l00210"/>00210 
+<anchor xml:id="_tim_8c_source_1l00211"/>00211 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(tim_baseHandle-&gt;Instance==TIM2)
+<anchor xml:id="_tim_8c_source_1l00212"/>00212 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00213"/>00213 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00214"/>00214 
+<anchor xml:id="_tim_8c_source_1l00215"/>00215 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;TIM2&#32;clock&#32;enable&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00217"/>00217 &#32;&#32;&#32;&#32;__HAL_RCC_TIM2_CLK_ENABLE();
+<anchor xml:id="_tim_8c_source_1l00218"/>00218 
+<anchor xml:id="_tim_8c_source_1l00219"/>00219 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;TIM2&#32;interrupt&#32;Init&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00220"/>00220 &#32;&#32;&#32;&#32;HAL_NVIC_SetPriority(TIM2_IRQn,&#32;0,&#32;0);
+<anchor xml:id="_tim_8c_source_1l00221"/>00221 &#32;&#32;&#32;&#32;HAL_NVIC_EnableIRQ(TIM2_IRQn);
+<anchor xml:id="_tim_8c_source_1l00222"/>00222 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00223"/>00223 
+<anchor xml:id="_tim_8c_source_1l00224"/>00224 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00225"/>00225 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00226"/>00226 }
+<anchor xml:id="_tim_8c_source_1l00227"/>00227 
+<anchor xml:id="_tim_8c_source_1l00228"/><link linkend="_tim_8c_1a6af1ce8c30614bff6202b8320cd6c9e0">00228</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1a6af1ce8c30614bff6202b8320cd6c9e0">HAL_TIMEx_HallSensor_MspInit</link>(TIM_HandleTypeDef*&#32;timex_hallsensorHandle)
+<anchor xml:id="_tim_8c_source_1l00229"/>00229 {
+<anchor xml:id="_tim_8c_source_1l00230"/>00230 
+<anchor xml:id="_tim_8c_source_1l00231"/>00231 &#32;&#32;GPIO_InitTypeDef&#32;GPIO_InitStruct&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00232"/>00232 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(timex_hallsensorHandle-&gt;Instance==TIM3)
+<anchor xml:id="_tim_8c_source_1l00233"/>00233 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00234"/>00234 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM3_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00235"/>00235 
+<anchor xml:id="_tim_8c_source_1l00236"/>00236 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM3_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00237"/>00237 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;TIM3&#32;clock&#32;enable&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00238"/>00238 &#32;&#32;&#32;&#32;__HAL_RCC_TIM3_CLK_ENABLE();
+<anchor xml:id="_tim_8c_source_1l00239"/>00239 
+<anchor xml:id="_tim_8c_source_1l00240"/>00240 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOA_CLK_ENABLE();
+<anchor xml:id="_tim_8c_source_1l00241"/>00241 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOC_CLK_ENABLE();
+<anchor xml:id="_tim_8c_source_1l00247"/>00247 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;GPIO_PIN_4|GPIO_PIN_6;
+<anchor xml:id="_tim_8c_source_1l00248"/>00248 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_AF_PP;
+<anchor xml:id="_tim_8c_source_1l00249"/>00249 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_tim_8c_source_1l00250"/>00250 &#32;&#32;&#32;&#32;GPIO_InitStruct.Speed&#32;=&#32;GPIO_SPEED_FREQ_LOW;
+<anchor xml:id="_tim_8c_source_1l00251"/>00251 &#32;&#32;&#32;&#32;GPIO_InitStruct.Alternate&#32;=&#32;GPIO_AF2_TIM3;
+<anchor xml:id="_tim_8c_source_1l00252"/>00252 &#32;&#32;&#32;&#32;HAL_GPIO_Init(GPIOA,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_tim_8c_source_1l00253"/>00253 
+<anchor xml:id="_tim_8c_source_1l00254"/>00254 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;GPIO_PIN_8;
+<anchor xml:id="_tim_8c_source_1l00255"/>00255 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_AF_PP;
+<anchor xml:id="_tim_8c_source_1l00256"/>00256 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_tim_8c_source_1l00257"/>00257 &#32;&#32;&#32;&#32;GPIO_InitStruct.Speed&#32;=&#32;GPIO_SPEED_FREQ_LOW;
+<anchor xml:id="_tim_8c_source_1l00258"/>00258 &#32;&#32;&#32;&#32;GPIO_InitStruct.Alternate&#32;=&#32;GPIO_AF2_TIM3;
+<anchor xml:id="_tim_8c_source_1l00259"/>00259 &#32;&#32;&#32;&#32;HAL_GPIO_Init(GPIOC,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_tim_8c_source_1l00260"/>00260 
+<anchor xml:id="_tim_8c_source_1l00261"/>00261 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM3_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00262"/>00262 
+<anchor xml:id="_tim_8c_source_1l00263"/>00263 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM3_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00264"/>00264 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00265"/>00265 }
+<anchor xml:id="_tim_8c_source_1l00266"/><link linkend="_tim_8h_1ae70bce6c39d0b570a7523b86738cec4b">00266</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1a708f19bbc41b292fccf38f2d9796c46a">HAL_TIM_MspPostInit</link>(TIM_HandleTypeDef*&#32;timHandle)
+<anchor xml:id="_tim_8c_source_1l00267"/>00267 {
+<anchor xml:id="_tim_8c_source_1l00268"/>00268 
+<anchor xml:id="_tim_8c_source_1l00269"/>00269 &#32;&#32;GPIO_InitTypeDef&#32;GPIO_InitStruct&#32;=&#32;{0};
+<anchor xml:id="_tim_8c_source_1l00270"/>00270 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(timHandle-&gt;Instance==TIM1)
+<anchor xml:id="_tim_8c_source_1l00271"/>00271 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00272"/>00272 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_MspPostInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00273"/>00273 
+<anchor xml:id="_tim_8c_source_1l00274"/>00274 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_MspPostInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00275"/>00275 
+<anchor xml:id="_tim_8c_source_1l00276"/>00276 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOB_CLK_ENABLE();
+<anchor xml:id="_tim_8c_source_1l00277"/>00277 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOA_CLK_ENABLE();
+<anchor xml:id="_tim_8c_source_1l00286"/>00286 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1abda004ed89d7aabfddf6498f5cd0f110">U_PWM_L_Pin</link>|<link linkend="_main_8h_1a8ebdcf94a58c2a3d79df0351f1ab33e2">V_PWM_L_Pin</link>;
+<anchor xml:id="_tim_8c_source_1l00287"/>00287 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_AF_PP;
+<anchor xml:id="_tim_8c_source_1l00288"/>00288 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_tim_8c_source_1l00289"/>00289 &#32;&#32;&#32;&#32;GPIO_InitStruct.Speed&#32;=&#32;GPIO_SPEED_FREQ_LOW;
+<anchor xml:id="_tim_8c_source_1l00290"/>00290 &#32;&#32;&#32;&#32;GPIO_InitStruct.Alternate&#32;=&#32;GPIO_AF6_TIM1;
+<anchor xml:id="_tim_8c_source_1l00291"/>00291 &#32;&#32;&#32;&#32;HAL_GPIO_Init(GPIOB,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_tim_8c_source_1l00292"/>00292 
+<anchor xml:id="_tim_8c_source_1l00293"/>00293 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1af45b9ee0b8d6ec6f565c53f29a283fe5">W_PWM_L_Pin</link>;
+<anchor xml:id="_tim_8c_source_1l00294"/>00294 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_AF_PP;
+<anchor xml:id="_tim_8c_source_1l00295"/>00295 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_tim_8c_source_1l00296"/>00296 &#32;&#32;&#32;&#32;GPIO_InitStruct.Speed&#32;=&#32;GPIO_SPEED_FREQ_LOW;
+<anchor xml:id="_tim_8c_source_1l00297"/>00297 &#32;&#32;&#32;&#32;GPIO_InitStruct.Alternate&#32;=&#32;GPIO_AF4_TIM1;
+<anchor xml:id="_tim_8c_source_1l00298"/>00298 &#32;&#32;&#32;&#32;HAL_GPIO_Init(<link linkend="_main_8h_1a642a780428f3c5d141730a84fdcd27aa">W_PWM_L_GPIO_Port</link>,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_tim_8c_source_1l00299"/>00299 
+<anchor xml:id="_tim_8c_source_1l00300"/>00300 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1aa0bbdc58329bf9aee4bfe9d4c35d4ebc">U_PWM_H_Pin</link>|<link linkend="_main_8h_1a040066f224c282af6e6eb94777ae42c3">V_PWM_H_Pin</link>|<link linkend="_main_8h_1a94d00a00a533573ad4a6ac07b833fa6b">W_PWM_H_Pin</link>;
+<anchor xml:id="_tim_8c_source_1l00301"/>00301 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_AF_PP;
+<anchor xml:id="_tim_8c_source_1l00302"/>00302 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_tim_8c_source_1l00303"/>00303 &#32;&#32;&#32;&#32;GPIO_InitStruct.Speed&#32;=&#32;GPIO_SPEED_FREQ_LOW;
+<anchor xml:id="_tim_8c_source_1l00304"/>00304 &#32;&#32;&#32;&#32;GPIO_InitStruct.Alternate&#32;=&#32;GPIO_AF6_TIM1;
+<anchor xml:id="_tim_8c_source_1l00305"/>00305 &#32;&#32;&#32;&#32;HAL_GPIO_Init(GPIOA,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_tim_8c_source_1l00306"/>00306 
+<anchor xml:id="_tim_8c_source_1l00307"/>00307 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_MspPostInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00308"/>00308 
+<anchor xml:id="_tim_8c_source_1l00309"/>00309 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_MspPostInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00310"/>00310 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00311"/>00311 
+<anchor xml:id="_tim_8c_source_1l00312"/>00312 }
+<anchor xml:id="_tim_8c_source_1l00313"/>00313 
+<anchor xml:id="_tim_8c_source_1l00314"/><link linkend="_tim_8c_1ab862d9bf6ab68a9201719c992c3f4b43">00314</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1ab862d9bf6ab68a9201719c992c3f4b43">HAL_TIM_PWM_MspDeInit</link>(TIM_HandleTypeDef*&#32;tim_pwmHandle)
+<anchor xml:id="_tim_8c_source_1l00315"/>00315 {
+<anchor xml:id="_tim_8c_source_1l00316"/>00316 
+<anchor xml:id="_tim_8c_source_1l00317"/>00317 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(tim_pwmHandle-&gt;Instance==TIM1)
+<anchor xml:id="_tim_8c_source_1l00318"/>00318 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00319"/>00319 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00320"/>00320 
+<anchor xml:id="_tim_8c_source_1l00321"/>00321 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00322"/>00322 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Peripheral&#32;clock&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00323"/>00323 &#32;&#32;&#32;&#32;__HAL_RCC_TIM1_CLK_DISABLE();
+<anchor xml:id="_tim_8c_source_1l00324"/>00324 
+<anchor xml:id="_tim_8c_source_1l00325"/>00325 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;TIM1&#32;interrupt&#32;Deinit&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00326"/>00326 &#32;&#32;&#32;&#32;HAL_NVIC_DisableIRQ(TIM1_TRG_COM_TIM17_IRQn);
+<anchor xml:id="_tim_8c_source_1l00327"/>00327 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00328"/>00328 
+<anchor xml:id="_tim_8c_source_1l00329"/>00329 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00330"/>00330 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00331"/>00331 }
+<anchor xml:id="_tim_8c_source_1l00332"/>00332 
+<anchor xml:id="_tim_8c_source_1l00333"/><link linkend="_tim_8c_1adee8ed7d3ebb3a217c27ac10af86ce2f">00333</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1adee8ed7d3ebb3a217c27ac10af86ce2f">HAL_TIM_Base_MspDeInit</link>(TIM_HandleTypeDef*&#32;tim_baseHandle)
+<anchor xml:id="_tim_8c_source_1l00334"/>00334 {
+<anchor xml:id="_tim_8c_source_1l00335"/>00335 
+<anchor xml:id="_tim_8c_source_1l00336"/>00336 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(tim_baseHandle-&gt;Instance==TIM2)
+<anchor xml:id="_tim_8c_source_1l00337"/>00337 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00338"/>00338 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00339"/>00339 
+<anchor xml:id="_tim_8c_source_1l00340"/>00340 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00341"/>00341 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Peripheral&#32;clock&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00342"/>00342 &#32;&#32;&#32;&#32;__HAL_RCC_TIM2_CLK_DISABLE();
+<anchor xml:id="_tim_8c_source_1l00343"/>00343 
+<anchor xml:id="_tim_8c_source_1l00344"/>00344 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;TIM2&#32;interrupt&#32;Deinit&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00345"/>00345 &#32;&#32;&#32;&#32;HAL_NVIC_DisableIRQ(TIM2_IRQn);
+<anchor xml:id="_tim_8c_source_1l00346"/>00346 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00347"/>00347 
+<anchor xml:id="_tim_8c_source_1l00348"/>00348 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00349"/>00349 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00350"/>00350 }
+<anchor xml:id="_tim_8c_source_1l00351"/>00351 
+<anchor xml:id="_tim_8c_source_1l00352"/><link linkend="_tim_8c_1ae662978799bfda775e08d9baf88252f4">00352</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_tim_8c_1ae662978799bfda775e08d9baf88252f4">HAL_TIMEx_HallSensor_MspDeInit</link>(TIM_HandleTypeDef*&#32;timex_hallsensorHandle)
+<anchor xml:id="_tim_8c_source_1l00353"/>00353 {
+<anchor xml:id="_tim_8c_source_1l00354"/>00354 
+<anchor xml:id="_tim_8c_source_1l00355"/>00355 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(timex_hallsensorHandle-&gt;Instance==TIM3)
+<anchor xml:id="_tim_8c_source_1l00356"/>00356 &#32;&#32;{
+<anchor xml:id="_tim_8c_source_1l00357"/>00357 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM3_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00358"/>00358 
+<anchor xml:id="_tim_8c_source_1l00359"/>00359 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM3_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00360"/>00360 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Peripheral&#32;clock&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00361"/>00361 &#32;&#32;&#32;&#32;__HAL_RCC_TIM3_CLK_DISABLE();
+<anchor xml:id="_tim_8c_source_1l00362"/>00362 
+<anchor xml:id="_tim_8c_source_1l00368"/>00368 &#32;&#32;&#32;&#32;HAL_GPIO_DeInit(GPIOA,&#32;GPIO_PIN_4|GPIO_PIN_6);
+<anchor xml:id="_tim_8c_source_1l00369"/>00369 
+<anchor xml:id="_tim_8c_source_1l00370"/>00370 &#32;&#32;&#32;&#32;HAL_GPIO_DeInit(GPIOC,&#32;GPIO_PIN_8);
+<anchor xml:id="_tim_8c_source_1l00371"/>00371 
+<anchor xml:id="_tim_8c_source_1l00372"/>00372 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM3_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00373"/>00373 
+<anchor xml:id="_tim_8c_source_1l00374"/>00374 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM3_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00375"/>00375 &#32;&#32;}
+<anchor xml:id="_tim_8c_source_1l00376"/>00376 }
+<anchor xml:id="_tim_8c_source_1l00377"/>00377 
+<anchor xml:id="_tim_8c_source_1l00378"/>00378 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;1&#32;*/</emphasis>
+<anchor xml:id="_tim_8c_source_1l00379"/>00379 
+<anchor xml:id="_tim_8c_source_1l00380"/>00380 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;1&#32;*/</emphasis>
+</programlisting></section>

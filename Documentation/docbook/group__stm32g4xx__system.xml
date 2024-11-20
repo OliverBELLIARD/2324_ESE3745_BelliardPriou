@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__stm32g4xx__system" xml:lang="en-US">
+<title>Stm32g4xx_system</title>
+<indexterm><primary>Stm32g4xx_system</primary></indexterm>
+Collaboration diagram for Stm32g4xx_system:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__stm32g4xx__system.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Modules    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_group__STM32G4xx__System__Private__Includes">STM32G4xx_System_Private_Includes</link></para>
+</listitem>
+            <listitem><para><link linkend="_group__STM32G4xx__System__Private__TypesDefinitions">STM32G4xx_System_Private_TypesDefinitions</link></para>
+</listitem>
+            <listitem><para><link linkend="_group__STM32G4xx__System__Private__Defines">STM32G4xx_System_Private_Defines</link></para>
+</listitem>
+            <listitem><para><link linkend="_group__STM32G4xx__System__Private__Macros">STM32G4xx_System_Private_Macros</link></para>
+</listitem>
+            <listitem><para><link linkend="_group__STM32G4xx__System__Private__Variables">STM32G4xx_System_Private_Variables</link></para>
+</listitem>
+            <listitem><para><link linkend="_group__STM32G4xx__System__Private__FunctionPrototypes">STM32G4xx_System_Private_FunctionPrototypes</link></para>
+</listitem>
+            <listitem><para><link linkend="_group__STM32G4xx__System__Private__Functions">STM32G4xx_System_Private_Functions</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+</section>
+    <xi:include href="group__STM32G4xx__System__Private__Includes.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__STM32G4xx__System__Private__TypesDefinitions.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__STM32G4xx__System__Private__Defines.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__STM32G4xx__System__Private__Macros.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__STM32G4xx__System__Private__Variables.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__STM32G4xx__System__Private__FunctionPrototypes.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="group__STM32G4xx__System__Private__Functions.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</section>

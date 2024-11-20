@@ -1,0 +1,330 @@
+\doxysection{/home/oliver/\+Documents/3\+A/\+Actionneur\+\_\+\+Automatique\+\_\+appliqee/2324\+\_\+\+ESE3745\+\_\+\+Belliard\+Priou/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Inc/mylibs/shell.h File Reference}
+\hypertarget{shell_8h}{}\label{shell_8h}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Inc/mylibs/shell.h@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Inc/mylibs/shell.h}}
+
+
+Header file for the shell interface.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\+\_\+\+RX\+\_\+\+BUFFER\+\_\+\+SIZE}}~1
+\begin{DoxyCompactList}\small\item\em UART receive buffer size. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{shell_8h_a05f5d709605c6317c97e4974bec3402a}{UART\+\_\+\+TX\+\_\+\+BUFFER\+\_\+\+SIZE}}~64
+\begin{DoxyCompactList}\small\item\em UART transmit buffer size. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75}{CMD\+\_\+\+BUFFER\+\_\+\+SIZE}}~64
+\begin{DoxyCompactList}\small\item\em Command buffer size. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc}{MAX\+\_\+\+ARGS}}~9
+\begin{DoxyCompactList}\small\item\em Maximum number of command arguments. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{shell_8h_aca3b498f5936dbe4f3076a47c3e1810d}{ASCII\+\_\+\+LF}}~0x0A
+\begin{DoxyCompactList}\small\item\em ASCII value for line feed. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{shell_8h_a089ed4925403ab02a05e603967c74579}{ASCII\+\_\+\+CR}}~0x0D
+\begin{DoxyCompactList}\small\item\em ASCII value for carriage return. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{shell_8h_a681f208df4071753dd6a7a71d0f5780e}{ASCII\+\_\+\+BACK}}~0x08
+\begin{DoxyCompactList}\small\item\em ASCII value for backspace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shell_8h_a1e1a7212cd1e25d36ce85620f03f996e}{Shell\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the shell interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8h_a9f70d5542e7f7f470ff7cd7d482caeb7}{Shell\+\_\+\+Loop}} (void)
+\begin{DoxyCompactList}\small\item\em Main loop for the shell interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8h_ab5c61f6cca95944497de9d5c1a7a0e53}{set\+\_\+\+PWM\+\_\+ratio}} (double ratio)
+\begin{DoxyCompactList}\small\item\em Sets the PWM duty cycle ratio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8h_a53873ca97f4eff976cda4093424c60b1}{set\+\_\+\+PWM\+\_\+speed}} (int speed)
+\begin{DoxyCompactList}\small\item\em Sets the PWM speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8h_a933ee4c92795bba0229662fbf0a8b144}{start\+\_\+\+PWM}} (void)
+\begin{DoxyCompactList}\small\item\em Starts the PWM generation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8h_a5dbeee862c827ec0736b6e79c42859a9}{stop\+\_\+\+PWM}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the PWM generation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8h_aca90e0598a78eabb24f644da77050761}{reset\+\_\+inverter}} (void)
+\begin{DoxyCompactList}\small\item\em Resets the microcontroller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8h_ae52eb9986b1b73a2f95b46d26cd690b4}{read\+\_\+current}} (void)
+\begin{DoxyCompactList}\small\item\em Reads and prints the current value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the shell interface. 
+
+This header defines constants, macros, and function prototypes for the shell interface used in the project. The shell provides a command-\/line interface over UART for controlling various functionalities of the system. 
+
+Definition in file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{shell_8h_a681f208df4071753dd6a7a71d0f5780e}\label{shell_8h_a681f208df4071753dd6a7a71d0f5780e} 
+\index{shell.h@{shell.h}!ASCII\_BACK@{ASCII\_BACK}}
+\index{ASCII\_BACK@{ASCII\_BACK}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{ASCII\_BACK}{ASCII\_BACK}}
+{\footnotesize\ttfamily \#define ASCII\+\_\+\+BACK~0x08}
+
+
+
+ASCII value for backspace. 
+
+Backspace character used for editing command input. 
+
+Definition at line \mbox{\hyperlink{shell_8h_source_l00067}{67}} of file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+\Hypertarget{shell_8h_a089ed4925403ab02a05e603967c74579}\label{shell_8h_a089ed4925403ab02a05e603967c74579} 
+\index{shell.h@{shell.h}!ASCII\_CR@{ASCII\_CR}}
+\index{ASCII\_CR@{ASCII\_CR}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{ASCII\_CR}{ASCII\_CR}}
+{\footnotesize\ttfamily \#define ASCII\+\_\+\+CR~0x0D}
+
+
+
+ASCII value for carriage return. 
+
+Carriage return (CR) character used in command-\/line communication. 
+
+Definition at line \mbox{\hyperlink{shell_8h_source_l00060}{60}} of file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+\Hypertarget{shell_8h_aca3b498f5936dbe4f3076a47c3e1810d}\label{shell_8h_aca3b498f5936dbe4f3076a47c3e1810d} 
+\index{shell.h@{shell.h}!ASCII\_LF@{ASCII\_LF}}
+\index{ASCII\_LF@{ASCII\_LF}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{ASCII\_LF}{ASCII\_LF}}
+{\footnotesize\ttfamily \#define ASCII\+\_\+\+LF~0x0A}
+
+
+
+ASCII value for line feed. 
+
+Line feed (LF) character used in command-\/line communication. 
+
+Definition at line \mbox{\hyperlink{shell_8h_source_l00053}{53}} of file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+\Hypertarget{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75}\label{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75} 
+\index{shell.h@{shell.h}!CMD\_BUFFER\_SIZE@{CMD\_BUFFER\_SIZE}}
+\index{CMD\_BUFFER\_SIZE@{CMD\_BUFFER\_SIZE}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{CMD\_BUFFER\_SIZE}{CMD\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define CMD\+\_\+\+BUFFER\+\_\+\+SIZE~64}
+
+
+
+Command buffer size. 
+
+Defines the size of the command buffer used to store incoming commands. 
+
+Definition at line \mbox{\hyperlink{shell_8h_source_l00039}{39}} of file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+\Hypertarget{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc}\label{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc} 
+\index{shell.h@{shell.h}!MAX\_ARGS@{MAX\_ARGS}}
+\index{MAX\_ARGS@{MAX\_ARGS}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_ARGS}{MAX\_ARGS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+ARGS~9}
+
+
+
+Maximum number of command arguments. 
+
+Defines the maximum number of arguments a single command can have. 
+
+Definition at line \mbox{\hyperlink{shell_8h_source_l00046}{46}} of file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+\Hypertarget{shell_8h_a5bdd6772c246436bb14377095de79b31}\label{shell_8h_a5bdd6772c246436bb14377095de79b31} 
+\index{shell.h@{shell.h}!UART\_RX\_BUFFER\_SIZE@{UART\_RX\_BUFFER\_SIZE}}
+\index{UART\_RX\_BUFFER\_SIZE@{UART\_RX\_BUFFER\_SIZE}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{UART\_RX\_BUFFER\_SIZE}{UART\_RX\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+RX\+\_\+\+BUFFER\+\_\+\+SIZE~1}
+
+
+
+UART receive buffer size. 
+
+Defines the size of the UART receive buffer. 
+
+Definition at line \mbox{\hyperlink{shell_8h_source_l00025}{25}} of file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+\Hypertarget{shell_8h_a05f5d709605c6317c97e4974bec3402a}\label{shell_8h_a05f5d709605c6317c97e4974bec3402a} 
+\index{shell.h@{shell.h}!UART\_TX\_BUFFER\_SIZE@{UART\_TX\_BUFFER\_SIZE}}
+\index{UART\_TX\_BUFFER\_SIZE@{UART\_TX\_BUFFER\_SIZE}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{UART\_TX\_BUFFER\_SIZE}{UART\_TX\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+TX\+\_\+\+BUFFER\+\_\+\+SIZE~64}
+
+
+
+UART transmit buffer size. 
+
+Defines the size of the UART transmit buffer. 
+
+Definition at line \mbox{\hyperlink{shell_8h_source_l00032}{32}} of file \mbox{\hyperlink{shell_8h_source}{shell.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{shell_8h_ae52eb9986b1b73a2f95b46d26cd690b4}\label{shell_8h_ae52eb9986b1b73a2f95b46d26cd690b4} 
+\index{shell.h@{shell.h}!read\_current@{read\_current}}
+\index{read\_current@{read\_current}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{read\_current()}{read\_current()}}
+{\footnotesize\ttfamily void read\+\_\+current (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads and prints the current value. 
+
+Reads the ADC value, converts it to the current measurement, and outputs the result via UART.
+
+Reads and prints the current value.
+
+Converts the ADC value to a voltage and calculates the current based on the sensor\textquotesingle{}s resolution. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00179}{179}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{shell_8h_aca90e0598a78eabb24f644da77050761}\label{shell_8h_aca90e0598a78eabb24f644da77050761} 
+\index{shell.h@{shell.h}!reset\_inverter@{reset\_inverter}}
+\index{reset\_inverter@{reset\_inverter}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{reset\_inverter()}{reset\_inverter()}}
+{\footnotesize\ttfamily void reset\+\_\+inverter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Resets the microcontroller. 
+
+Performs a system reset using the NVIC\+\_\+\+System\+Reset() function. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00168}{168}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{shell_8h_ab5c61f6cca95944497de9d5c1a7a0e53}\label{shell_8h_ab5c61f6cca95944497de9d5c1a7a0e53} 
+\index{shell.h@{shell.h}!set\_PWM\_ratio@{set\_PWM\_ratio}}
+\index{set\_PWM\_ratio@{set\_PWM\_ratio}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{set\_PWM\_ratio()}{set\_PWM\_ratio()}}
+{\footnotesize\ttfamily void set\+\_\+\+PWM\+\_\+ratio (\begin{DoxyParamCaption}\item[{double}]{ratio }\end{DoxyParamCaption})}
+
+
+
+Sets the PWM duty cycle ratio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ratio} & The desired PWM duty cycle ratio (0.\+0 to 1.\+0).\\
+\hline
+\end{DoxyParams}
+Sets the PWM duty cycle ratio.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ratio} & Duty cycle ratio (0.\+0 to 1.\+0). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00116}{116}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{shell_8h_a53873ca97f4eff976cda4093424c60b1}\label{shell_8h_a53873ca97f4eff976cda4093424c60b1} 
+\index{shell.h@{shell.h}!set\_PWM\_speed@{set\_PWM\_speed}}
+\index{set\_PWM\_speed@{set\_PWM\_speed}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{set\_PWM\_speed()}{set\_PWM\_speed()}}
+{\footnotesize\ttfamily void set\+\_\+\+PWM\+\_\+speed (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Sets the PWM speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & The desired PWM speed, in absolute units.\\
+\hline
+\end{DoxyParams}
+Sets the PWM speed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & Desired PWM pulse width (0 to PWM\+\_\+\+MAX\+\_\+\+VAL). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00128}{128}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{shell_8h_a1e1a7212cd1e25d36ce85620f03f996e}\label{shell_8h_a1e1a7212cd1e25d36ce85620f03f996e} 
+\index{shell.h@{shell.h}!Shell\_Init@{Shell\_Init}}
+\index{Shell\_Init@{Shell\_Init}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{Shell\_Init()}{Shell\_Init()}}
+{\footnotesize\ttfamily void Shell\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the shell interface. 
+
+Sets up the shell, initializes buffers, and configures UART interrupts for receiving input. Displays a welcome message and starts the prompt.
+
+Sets up UART reception, clears buffers, and displays the startup message. 
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00085}{85}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{shell_8h_a9f70d5542e7f7f470ff7cd7d482caeb7}\label{shell_8h_a9f70d5542e7f7f470ff7cd7d482caeb7} 
+\index{shell.h@{shell.h}!Shell\_Loop@{Shell\_Loop}}
+\index{Shell\_Loop@{Shell\_Loop}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{Shell\_Loop()}{Shell\_Loop()}}
+{\footnotesize\ttfamily void Shell\+\_\+\+Loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main loop for the shell interface. 
+
+Processes received UART input, parses commands, and executes the corresponding functionality. Supports various commands for controlling PWM, resetting the system, and reading the current.
+
+Main loop for the shell interface.
+
+Processes received UART data, parses commands, and executes them. 
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00101}{101}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{shell_8h_a933ee4c92795bba0229662fbf0a8b144}\label{shell_8h_a933ee4c92795bba0229662fbf0a8b144} 
+\index{shell.h@{shell.h}!start\_PWM@{start\_PWM}}
+\index{start\_PWM@{start\_PWM}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{start\_PWM()}{start\_PWM()}}
+{\footnotesize\ttfamily void start\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Starts the PWM generation. 
+
+Configures and starts the PWM signal generation on the TIM1 channels.
+
+Starts the PWM generation.
+
+Initializes the PWM channels with a base speed corresponding to a 50\% duty cycle. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00141}{141}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{shell_8h_a5dbeee862c827ec0736b6e79c42859a9}\label{shell_8h_a5dbeee862c827ec0736b6e79c42859a9} 
+\index{shell.h@{shell.h}!stop\_PWM@{stop\_PWM}}
+\index{stop\_PWM@{stop\_PWM}!shell.h@{shell.h}}
+\doxysubsubsection{\texorpdfstring{stop\_PWM()}{stop\_PWM()}}
+{\footnotesize\ttfamily void stop\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stops the PWM generation. 
+
+Disables the PWM signal generation on the TIM1 channels.
+
+Stops the PWM generation. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00156}{156}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 10

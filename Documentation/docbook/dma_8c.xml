@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dma_8c" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/dma.c File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/dma.c</primary></indexterm>
+<para>
+
+<para>This file provides code for the configuration of all the requested memory to memory DMA transfers. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;dma.h&quot;<?linebreak?></programlisting>Include dependency graph for dma.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dma_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_dma_8c_1a323249dac769f9855c10b4ec9446b707">MX_DMA_Init</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file provides code for the configuration of all the requested memory to memory DMA transfers. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2024 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_dma_8c_source">dma.c</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_dma_8c_1a323249dac769f9855c10b4ec9446b707"/><section>
+    <title>MX_DMA_Init()</title>
+<indexterm><primary>MX_DMA_Init</primary><secondary>dma.c</secondary></indexterm>
+<indexterm><primary>dma.c</primary><secondary>MX_DMA_Init</secondary></indexterm>
+<para><computeroutput>void MX_DMA_Init (void )</computeroutput></para>
+<para>Enable DMA controller clock </para>
+<para>
+Definition at line <link linkend="_dma_8c_source_1l00039">39</link> of file <link linkend="_dma_8c_source">dma.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dma_8c_a323249dac769f9855c10b4ec9446b707_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

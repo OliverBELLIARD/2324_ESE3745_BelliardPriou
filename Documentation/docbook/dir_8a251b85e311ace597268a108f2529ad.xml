@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_8a251b85e311ace597268a108f2529ad" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core Directory Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core Directory Reference</primary></indexterm>
+Directory dependency graph for Core:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_8a251b85e311ace597268a108f2529ad_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_2ba5ebc6d54b701373799274d3aa5ed8">Inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_f144d9c9c2e05e321eafd86937aa81c6">Src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

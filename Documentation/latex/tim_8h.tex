@@ -1,0 +1,136 @@
+\doxysection{/home/oliver/\+Documents/3\+A/\+Actionneur\+\_\+\+Automatique\+\_\+appliqee/2324\+\_\+\+ESE3745\+\_\+\+Belliard\+Priou/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Inc/tim.h File Reference}
+\hypertarget{tim_8h}{}\label{tim_8h}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Inc/tim.h@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Inc/tim.h}}
+
+
+This file contains all the function prototypes for the \doxylink{tim_8c}{tim.\+c} file.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+Include dependency graph for tim.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tim_8h_ad1f9d42690163f73f73e5b820c81ca14}{MX\+\_\+\+TIM1\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8h_a4b8ff887fd3fdf26605e35927e4ff202}{MX\+\_\+\+TIM2\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8h_a7912f2916786a2c33cb6fb8259ade58c}{MX\+\_\+\+TIM3\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8h_ae70bce6c39d0b570a7523b86738cec4b}{HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8h_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8h_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the function prototypes for the \doxylink{tim_8c}{tim.\+c} file. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+Definition in file \mbox{\hyperlink{tim_8h_source}{tim.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tim_8h_ae70bce6c39d0b570a7523b86738cec4b}\label{tim_8h_ae70bce6c39d0b570a7523b86738cec4b} 
+\index{tim.h@{tim.h}!HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}}
+\index{HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}!tim.h@{tim.h}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_MspPostInit()}{HAL\_TIM\_MspPostInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
+
+TIM1 GPIO Configuration PB13 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1N PB14 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH2N PB15 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH3N PA8 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1 PA9 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH2 PA10 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH3
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00266}{266}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{tim_8h_ad1f9d42690163f73f73e5b820c81ca14}\label{tim_8h_ad1f9d42690163f73f73e5b820c81ca14} 
+\index{tim.h@{tim.h}!MX\_TIM1\_Init@{MX\_TIM1\_Init}}
+\index{MX\_TIM1\_Init@{MX\_TIM1\_Init}!tim.h@{tim.h}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM1\_Init()}{MX\_TIM1\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00032}{32}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{tim_8h_a4b8ff887fd3fdf26605e35927e4ff202}\label{tim_8h_a4b8ff887fd3fdf26605e35927e4ff202} 
+\index{tim.h@{tim.h}!MX\_TIM2\_Init@{MX\_TIM2\_Init}}
+\index{MX\_TIM2\_Init@{MX\_TIM2\_Init}!tim.h@{tim.h}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM2\_Init()}{MX\_TIM2\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM2\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00109}{109}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{tim_8h_a7912f2916786a2c33cb6fb8259ade58c}\label{tim_8h_a7912f2916786a2c33cb6fb8259ade58c} 
+\index{tim.h@{tim.h}!MX\_TIM3\_Init@{MX\_TIM3\_Init}}
+\index{MX\_TIM3\_Init@{MX\_TIM3\_Init}!tim.h@{tim.h}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM3\_Init()}{MX\_TIM3\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM3\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00149}{149}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{tim_8h_a25fc663547539bc49fecc0011bd76ab5}\label{tim_8h_a25fc663547539bc49fecc0011bd76ab5} 
+\index{tim.h@{tim.h}!htim1@{htim1}}
+\index{htim1@{htim1}!tim.h@{tim.h}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim1\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00027}{27}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+
+\Hypertarget{tim_8h_a2c80fd5510e2990a59a5c90d745c716c}\label{tim_8h_a2c80fd5510e2990a59a5c90d745c716c} 
+\index{tim.h@{tim.h}!htim2@{htim2}}
+\index{htim2@{htim2}!tim.h@{tim.h}}
+\doxysubsubsection{\texorpdfstring{htim2}{htim2}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim2\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00028}{28}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+
+\Hypertarget{tim_8h_aac3d2c59ee0e3bbae1b99529a154eb62}\label{tim_8h_aac3d2c59ee0e3bbae1b99529a154eb62} 
+\index{tim.h@{tim.h}!htim3@{htim3}}
+\index{htim3@{htim3}!tim.h@{tim.h}}
+\doxysubsubsection{\texorpdfstring{htim3}{htim3}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim3\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00029}{29}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+

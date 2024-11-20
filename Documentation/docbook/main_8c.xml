@@ -1,0 +1,711 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/main.c File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/main.c</primary></indexterm>
+<para>
+
+<para>: Main program body </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;main.h&quot;<?linebreak?>#include &quot;adc.h&quot;<?linebreak?>#include &quot;dma.h&quot;<?linebreak?>#include &quot;tim.h&quot;<?linebreak?>#include &quot;usart.h&quot;<?linebreak?>#include &quot;gpio.h&quot;<?linebreak?>#include &quot;mylibs/shell.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting>Include dependency graph for main.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_main_8c_1a82ee9a95304128460364d63f0e613e03">PWM_MAX_VAL</link>&#160;&#160;&#160;4250</para>
+
+<para>Maximum PWM value, corresponding to TIM1-&gt;ARR. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a338e171d482819a9b2b701e516c2c915">PWM_VARIATION_RATE</link>&#160;&#160;&#160;2</para>
+
+<para>Rate of variation for PWM pulse adjustment. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a90cbfa2d30b53b54267566c665cde830">ADC_CURRENT_RESOLUTION</link>&#160;&#160;&#160;0.05</para>
+
+<para>Current sensor resolution in volts per ampere. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1afc89a90f8514178f04427b7d29096390">ADC_VCC</link>&#160;&#160;&#160;3.3</para>
+
+<para>ADC supply voltage. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a3a63fb6f00694ff9f4318b4142c5c868">ADC_MAX_VAL</link>&#160;&#160;&#160;4096</para>
+
+<para>Maximum ADC digital value (12-bit resolution). </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a827907ee6183e98bb8a50727540d4bb1">ADC_OFFSET</link>&#160;&#160;&#160;2421</para>
+
+<para>Offset value for ADC measurements. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7">ADC_BUFF_SIZE</link>&#160;&#160;&#160;1</para>
+
+<para>Size of the ADC data buffer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_main_8c_1abc513dd972081ae765b6949a62872eb7">__io_putchar</link> (int ch)</para>
+
+<para>Sends a character via UART (overrides default character transmission). </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1ae4a663d85b1c26ea11de0fb08b00c027">set_PWM</link> ()</para>
+
+<para>Adjusts the PWM pulse for TIM1 channels. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1ab5c61f6cca95944497de9d5c1a7a0e53">set_PWM_ratio</link> (double ratio)</para>
+
+<para>Sets the PWM duty cycle ratio for TIM1 channels. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1a53873ca97f4eff976cda4093424c60b1">set_PWM_speed</link> (int speed)</para>
+
+<para>Sets a specific PWM pulse width for TIM1 channels. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1acc0471f81d01eeb7ce92087321f5d7d7">start_PWM</link> ()</para>
+
+<para>Starts PWM on TIM1 channels. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1a46410d8579351c44306a0986025f244a">stop_PWM</link> ()</para>
+
+<para>Stops PWM on TIM1 channels. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1afa0edc0b7d3e2e6206177babb5dacee8">reset_inverter</link> ()</para>
+
+<para>Resets the microcontroller. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1aa721b5468d6af9957f3b6d3064a61760">read_current</link> ()</para>
+
+<para>Reads and prints the measured current using the ADC. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1af20a88180db1113be1e89266917d148b">HAL_ADC_ConvCpltCallback</link> (ADC_HandleTypeDef *hadc)</para>
+
+<para>ADC conversion complete callback. Restarts DMA for continuous conversion. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe">main</link> (void)</para>
+
+<para>Main entry point of the application. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</link> (void)</para>
+
+<para>Configures the system clock. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1a8a3b0ad512a6e6c6157440b68d395eac">HAL_TIM_PeriodElapsedCallback</link> (TIM_HandleTypeDef *htim)</para>
+
+<para>Timer period elapsed callback. Updates PWM when TIM2 interrupt occurs. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link> (void)</para>
+
+<para>Error handler function. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1a2532ff72b1a2ff82f65e8c2a5a4dde00">assert_failed</link> (uint8_t *file, uint32_t line)</para>
+
+<para>Assert failed callback. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link></para>
+
+<para>Current PWM speed value. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1a5ac7bf439f479d7cf7106cef76006654">requested_speed_PWM</link></para>
+
+<para>Requested PWM speed value. </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63">pData</link> [<link linkend="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7">ADC_BUFF_SIZE</link>]</para>
+
+<para>Buffer to store ADC data. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>: Main program body </para>
+
+<para>Entry point of the application, containing the main loop and peripheral initializations.</para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS.</para>
+<para>
+Definition in file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7"/><section>
+    <title>ADC_BUFF_SIZE</title>
+<indexterm><primary>ADC_BUFF_SIZE</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ADC_BUFF_SIZE</secondary></indexterm>
+<para><computeroutput>#define ADC_BUFF_SIZE&#160;&#160;&#160;1</computeroutput></para><para>
+
+<para>Size of the ADC data buffer. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00059">59</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a90cbfa2d30b53b54267566c665cde830"/><section>
+    <title>ADC_CURRENT_RESOLUTION</title>
+<indexterm><primary>ADC_CURRENT_RESOLUTION</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ADC_CURRENT_RESOLUTION</secondary></indexterm>
+<para><computeroutput>#define ADC_CURRENT_RESOLUTION&#160;&#160;&#160;0.05</computeroutput></para><para>
+
+<para>Current sensor resolution in volts per ampere. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00047">47</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a3a63fb6f00694ff9f4318b4142c5c868"/><section>
+    <title>ADC_MAX_VAL</title>
+<indexterm><primary>ADC_MAX_VAL</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ADC_MAX_VAL</secondary></indexterm>
+<para><computeroutput>#define ADC_MAX_VAL&#160;&#160;&#160;4096</computeroutput></para><para>
+
+<para>Maximum ADC digital value (12-bit resolution). </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00053">53</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a827907ee6183e98bb8a50727540d4bb1"/><section>
+    <title>ADC_OFFSET</title>
+<indexterm><primary>ADC_OFFSET</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ADC_OFFSET</secondary></indexterm>
+<para><computeroutput>#define ADC_OFFSET&#160;&#160;&#160;2421</computeroutput></para><para>
+
+<para>Offset value for ADC measurements. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00056">56</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1afc89a90f8514178f04427b7d29096390"/><section>
+    <title>ADC_VCC</title>
+<indexterm><primary>ADC_VCC</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ADC_VCC</secondary></indexterm>
+<para><computeroutput>#define ADC_VCC&#160;&#160;&#160;3.3</computeroutput></para><para>
+
+<para>ADC supply voltage. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00050">50</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a82ee9a95304128460364d63f0e613e03"/><section>
+    <title>PWM_MAX_VAL</title>
+<indexterm><primary>PWM_MAX_VAL</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>PWM_MAX_VAL</secondary></indexterm>
+<para><computeroutput>#define PWM_MAX_VAL&#160;&#160;&#160;4250</computeroutput></para><para>
+
+<para>Maximum PWM value, corresponding to TIM1-&gt;ARR. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00041">41</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a338e171d482819a9b2b701e516c2c915"/><section>
+    <title>PWM_VARIATION_RATE</title>
+<indexterm><primary>PWM_VARIATION_RATE</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>PWM_VARIATION_RATE</secondary></indexterm>
+<para><computeroutput>#define PWM_VARIATION_RATE&#160;&#160;&#160;2</computeroutput></para><para>
+
+<para>Rate of variation for PWM pulse adjustment. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00044">44</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_main_8c_1abc513dd972081ae765b6949a62872eb7"/><section>
+    <title>__io_putchar()</title>
+<indexterm><primary>__io_putchar</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>__io_putchar</secondary></indexterm>
+<para><computeroutput>int __io_putchar (int ch)</computeroutput></para><para>
+
+<para>Sends a character via UART (overrides default character transmission). </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ch</entry><entry>
+<para>Character to send. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The sent character. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00082">82</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a2532ff72b1a2ff82f65e8c2a5a4dde00"/><section>
+    <title>assert_failed()</title>
+<indexterm><primary>assert_failed</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>assert_failed</secondary></indexterm>
+<para><computeroutput>void assert_failed (uint8_t * file, uint32_t line)</computeroutput></para><para>
+
+<para>Assert failed callback. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>file</entry><entry>
+<para>File where the assertion occurred. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>line</entry><entry>
+<para>Line number of the assertion. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00281">281</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a1730ffe1e560465665eb47d9264826f9"/><section>
+    <title>Error_Handler()</title>
+<indexterm><primary>Error_Handler</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>Error_Handler</secondary></indexterm>
+<para><computeroutput>void Error_Handler (void )</computeroutput></para><para>
+
+<para>Error handler function. </para>
+</para>
+
+<para>Called in case of an unrecoverable error. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00268">268</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_a1730ffe1e560465665eb47d9264826f9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1af20a88180db1113be1e89266917d148b"/><section>
+    <title>HAL_ADC_ConvCpltCallback()</title>
+<indexterm><primary>HAL_ADC_ConvCpltCallback</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>HAL_ADC_ConvCpltCallback</secondary></indexterm>
+<para><computeroutput>void HAL_ADC_ConvCpltCallback (ADC_HandleTypeDef * hadc)</computeroutput></para><para>
+
+<para>ADC conversion complete callback. Restarts DMA for continuous conversion. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>hadc</entry><entry>
+<para>ADC handle. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00194">194</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a8a3b0ad512a6e6c6157440b68d395eac"/><section>
+    <title>HAL_TIM_PeriodElapsedCallback()</title>
+<indexterm><primary>HAL_TIM_PeriodElapsedCallback</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>HAL_TIM_PeriodElapsedCallback</secondary></indexterm>
+<para><computeroutput>void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim)</computeroutput></para><para>
+
+<para>Timer period elapsed callback. Updates PWM when TIM2 interrupt occurs. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>htim</entry><entry>
+<para>Timer handle. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00250">250</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_a8a3b0ad512a6e6c6157440b68d395eac_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (void )</computeroutput></para><para>
+
+<para>Main entry point of the application. </para>
+</para>
+
+<para>Initializes peripherals, starts the PWM, and enters the infinite loop where the shell command interface runs. 
+                <formalpara>
+                    <title>
+Return values</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>
+<para>Always returns 0. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00209">209</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1aa721b5468d6af9957f3b6d3064a61760"/><section>
+    <title>read_current()</title>
+<indexterm><primary>read_current</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>read_current</secondary></indexterm>
+<para><computeroutput>void read_current (void )</computeroutput></para><para>
+
+<para>Reads and prints the measured current using the ADC. </para>
+</para>
+
+<para>Reads and prints the current value.</para>
+
+<para>Converts the ADC value to a voltage and calculates the current based on the sensor&apos;s resolution. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00179">179</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_aa721b5468d6af9957f3b6d3064a61760_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1afa0edc0b7d3e2e6206177babb5dacee8"/><section>
+    <title>reset_inverter()</title>
+<indexterm><primary>reset_inverter</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>reset_inverter</secondary></indexterm>
+<para><computeroutput>void reset_inverter (void )</computeroutput></para><para>
+
+<para>Resets the microcontroller. </para>
+</para>
+
+<para>Performs a system reset using the NVIC_SystemReset() function. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00168">168</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_afa0edc0b7d3e2e6206177babb5dacee8_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1ae4a663d85b1c26ea11de0fb08b00c027"/><section>
+    <title>set_PWM()</title>
+<indexterm><primary>set_PWM</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>set_PWM</secondary></indexterm>
+<para><computeroutput>void set_PWM ( )</computeroutput></para><para>
+
+<para>Adjusts the PWM pulse for TIM1 channels. </para>
+</para>
+
+<para>This function modifies the <computeroutput>current_speed_PWM</computeroutput> to gradually approach <computeroutput>requested_speed_PWM</computeroutput> and sets the appropriate pulse widths for TIM1 channels. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00094">94</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_ae4a663d85b1c26ea11de0fb08b00c027_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1ab5c61f6cca95944497de9d5c1a7a0e53"/><section>
+    <title>set_PWM_ratio()</title>
+<indexterm><primary>set_PWM_ratio</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>set_PWM_ratio</secondary></indexterm>
+<para><computeroutput>void set_PWM_ratio (double ratio)</computeroutput></para><para>
+
+<para>Sets the PWM duty cycle ratio for TIM1 channels. </para>
+</para>
+
+<para>Sets the PWM duty cycle ratio.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ratio</entry><entry>
+<para>Duty cycle ratio (0.0 to 1.0). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00116">116</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_ab5c61f6cca95944497de9d5c1a7a0e53_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1a53873ca97f4eff976cda4093424c60b1"/><section>
+    <title>set_PWM_speed()</title>
+<indexterm><primary>set_PWM_speed</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>set_PWM_speed</secondary></indexterm>
+<para><computeroutput>void set_PWM_speed (int speed)</computeroutput></para><para>
+
+<para>Sets a specific PWM pulse width for TIM1 channels. </para>
+</para>
+
+<para>Sets the PWM speed.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>speed</entry><entry>
+<para>Desired PWM pulse width (0 to PWM_MAX_VAL). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00128">128</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_a53873ca97f4eff976cda4093424c60b1_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1acc0471f81d01eeb7ce92087321f5d7d7"/><section>
+    <title>start_PWM()</title>
+<indexterm><primary>start_PWM</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>start_PWM</secondary></indexterm>
+<para><computeroutput>void start_PWM (void )</computeroutput></para><para>
+
+<para>Starts PWM on TIM1 channels. </para>
+</para>
+
+<para>Starts the PWM generation.</para>
+
+<para>Initializes the PWM channels with a base speed corresponding to a 50% duty cycle. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00141">141</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_acc0471f81d01eeb7ce92087321f5d7d7_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_acc0471f81d01eeb7ce92087321f5d7d7_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1a46410d8579351c44306a0986025f244a"/><section>
+    <title>stop_PWM()</title>
+<indexterm><primary>stop_PWM</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>stop_PWM</secondary></indexterm>
+<para><computeroutput>void stop_PWM (void )</computeroutput></para><para>
+
+<para>Stops PWM on TIM1 channels. </para>
+</para>
+
+<para>Stops the PWM generation. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00156">156</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_a46410d8579351c44306a0986025f244a_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1a70af21c671abfcc773614a9a4f63d920"/><section>
+    <title>SystemClock_Config()</title>
+<indexterm><primary>SystemClock_Config</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>SystemClock_Config</secondary></indexterm>
+<para><computeroutput>void SystemClock_Config (void )</computeroutput></para><para>
+
+<para>Configures the system clock. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00241">241</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de"/><section>
+    <title>current_speed_PWM</title>
+<indexterm><primary>current_speed_PWM</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>current_speed_PWM</secondary></indexterm>
+<para><computeroutput>int current_speed_PWM</computeroutput></para><para>
+
+<para>Current PWM speed value. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00063">63</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63"/><section>
+    <title>pData</title>
+<indexterm><primary>pData</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>pData</secondary></indexterm>
+<para><computeroutput>uint32_t pData[<link linkend="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7">ADC_BUFF_SIZE</link>]</computeroutput></para><para>
+
+<para>Buffer to store ADC data. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00069">69</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a5ac7bf439f479d7cf7106cef76006654"/><section>
+    <title>requested_speed_PWM</title>
+<indexterm><primary>requested_speed_PWM</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>requested_speed_PWM</secondary></indexterm>
+<para><computeroutput>int requested_speed_PWM</computeroutput></para><para>
+
+<para>Requested PWM speed value. </para>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00066">66</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_shell_8h_source" xml:lang="en-US">
+<title>shell.h</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/mylibs/shell.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_shell_8h_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_shell_8h_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;shell.h</emphasis>
+<anchor xml:id="_shell_8h_source_1l00003"/>00003 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_shell_8h_source_1l00004"/>00004 <emphasis role="comment">&#32;*&#32;&#32;Created&#32;on:&#32;Oct&#32;1,&#32;2023</emphasis>
+<anchor xml:id="_shell_8h_source_1l00005"/>00005 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;&#32;Author:&#32;nicolas</emphasis>
+<anchor xml:id="_shell_8h_source_1l00006"/>00006 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_shell_8h_source_1l00007"/>00007 
+<anchor xml:id="_shell_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#ifndef&#32;INC_MYLIBS_SHELL_H_</emphasis>
+<anchor xml:id="_shell_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#define&#32;INC_MYLIBS_SHELL_H_</emphasis>
+<anchor xml:id="_shell_8h_source_1l00010"/>00010 
+<anchor xml:id="_shell_8h_source_1l00025"/><link linkend="_shell_8h_1a5bdd6772c246436bb14377095de79b31">00025</link> <emphasis role="preprocessor">#define&#32;UART_RX_BUFFER_SIZE&#32;1</emphasis>
+<anchor xml:id="_shell_8h_source_1l00026"/>00026 
+<anchor xml:id="_shell_8h_source_1l00032"/><link linkend="_shell_8h_1a05f5d709605c6317c97e4974bec3402a">00032</link> <emphasis role="preprocessor">#define&#32;UART_TX_BUFFER_SIZE&#32;64</emphasis>
+<anchor xml:id="_shell_8h_source_1l00033"/>00033 
+<anchor xml:id="_shell_8h_source_1l00039"/><link linkend="_shell_8h_1a8a0465f8e8bbe71e4d6e8011e975bf75">00039</link> <emphasis role="preprocessor">#define&#32;CMD_BUFFER_SIZE&#32;64</emphasis>
+<anchor xml:id="_shell_8h_source_1l00040"/>00040 
+<anchor xml:id="_shell_8h_source_1l00046"/><link linkend="_shell_8h_1a29b7451465deac204c5f7cb1f9c6e1fc">00046</link> <emphasis role="preprocessor">#define&#32;MAX_ARGS&#32;9</emphasis>
+<anchor xml:id="_shell_8h_source_1l00047"/>00047 
+<anchor xml:id="_shell_8h_source_1l00053"/><link linkend="_shell_8h_1aca3b498f5936dbe4f3076a47c3e1810d">00053</link> <emphasis role="preprocessor">#define&#32;ASCII_LF&#32;0x0A</emphasis>
+<anchor xml:id="_shell_8h_source_1l00054"/>00054 
+<anchor xml:id="_shell_8h_source_1l00060"/><link linkend="_shell_8h_1a089ed4925403ab02a05e603967c74579">00060</link> <emphasis role="preprocessor">#define&#32;ASCII_CR&#32;0x0D</emphasis>
+<anchor xml:id="_shell_8h_source_1l00061"/>00061 
+<anchor xml:id="_shell_8h_source_1l00067"/><link linkend="_shell_8h_1a681f208df4071753dd6a7a71d0f5780e">00067</link> <emphasis role="preprocessor">#define&#32;ASCII_BACK&#32;0x08</emphasis>
+<anchor xml:id="_shell_8h_source_1l00068"/>00068 
+<anchor xml:id="_shell_8h_source_1l00075"/>00075 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1a1e1a7212cd1e25d36ce85620f03f996e">Shell_Init</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_shell_8h_source_1l00076"/>00076 
+<anchor xml:id="_shell_8h_source_1l00084"/>00084 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1a9f70d5542e7f7f470ff7cd7d482caeb7">Shell_Loop</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_shell_8h_source_1l00085"/>00085 
+<anchor xml:id="_shell_8h_source_1l00091"/>00091 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1ab5c61f6cca95944497de9d5c1a7a0e53">set_PWM_ratio</link>(<emphasis role="keywordtype">double</emphasis>&#32;ratio);
+<anchor xml:id="_shell_8h_source_1l00092"/>00092 
+<anchor xml:id="_shell_8h_source_1l00098"/>00098 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1a53873ca97f4eff976cda4093424c60b1">set_PWM_speed</link>(<emphasis role="keywordtype">int</emphasis>&#32;speed);
+<anchor xml:id="_shell_8h_source_1l00099"/>00099 
+<anchor xml:id="_shell_8h_source_1l00105"/>00105 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1a933ee4c92795bba0229662fbf0a8b144">start_PWM</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_shell_8h_source_1l00106"/>00106 
+<anchor xml:id="_shell_8h_source_1l00112"/>00112 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1a5dbeee862c827ec0736b6e79c42859a9">stop_PWM</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_shell_8h_source_1l00113"/>00113 
+<anchor xml:id="_shell_8h_source_1l00119"/>00119 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1aca90e0598a78eabb24f644da77050761">reset_inverter</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_shell_8h_source_1l00120"/>00120 
+<anchor xml:id="_shell_8h_source_1l00127"/>00127 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8h_1ae52eb9986b1b73a2f95b46d26cd690b4">read_current</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_shell_8h_source_1l00128"/>00128 
+<anchor xml:id="_shell_8h_source_1l00129"/>00129 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;INC_MYLIBS_SHELL_H_&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+</programlisting></section>

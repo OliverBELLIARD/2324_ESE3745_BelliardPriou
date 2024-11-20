@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8h" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/main.h File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/main.h</primary></indexterm>
+<para>
+
+<para>: Header for <link linkend="_main_8c">main.c</link> file. This file contains the common defines of the application. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;stm32g4xx_hal.h&quot;<?linebreak?></programlisting>Include dependency graph for main.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_main_8h_1a158931264dc3c964aeb8282d0755b665">USR_BTN_Pin</link>&#160;&#160;&#160;GPIO_PIN_13</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1aff83915dc06a1ac4ee242533045c6f43">USR_BTN_GPIO_Port</link>&#160;&#160;&#160;GPIOC</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a0d56b69f5247cccd56940c5f01d99521">USR_BTN_EXTI_IRQn</link>&#160;&#160;&#160;EXTI15_10_IRQn</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a5b096511c8f8e1c2b1e53aacd0b476e8">U_VPh_Pin</link>&#160;&#160;&#160;GPIO_PIN_0</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a694f3f2a7762e5346582a34a84fc70d1">U_VPh_GPIO_Port</link>&#160;&#160;&#160;GPIOC</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a27faebf82c8e12ddccb0a5ff98f8c7fd">W_VPh_Pin</link>&#160;&#160;&#160;GPIO_PIN_1</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a6c8d2416e77da856269129f83f224674">W_VPh_GPIO_Port</link>&#160;&#160;&#160;GPIOC</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a3f5d378c3afdbf9ad6f63a412f2f8913">Bus_Imes_Pin</link>&#160;&#160;&#160;GPIO_PIN_2</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a825e3f437e6ae14b4f602b59d5a26767">Bus_Imes_GPIO_Port</link>&#160;&#160;&#160;GPIOC</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a6dc981b6346185b1302c57dbbf5a65fa">V_VPh_Pin</link>&#160;&#160;&#160;GPIO_PIN_3</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1aeb7e9d19e04d93b06f348717b3f205c2">V_VPh_GPIO_Port</link>&#160;&#160;&#160;GPIOC</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a3ecf27242083c046aa6cdc2258b4444a">Bus_V_Pin</link>&#160;&#160;&#160;GPIO_PIN_0</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1ad6d947a22b3a7605abdd773e431fd52f">Bus_V_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a6ce1aad5e7bc4002cbc27a683994c484">U_Imes_Pin</link>&#160;&#160;&#160;GPIO_PIN_1</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a2f2cb22ae33ad64d46d21fd7076e1403">U_Imes_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a0aa7801f202f2b77085347074a1f2948">USR_LED_Pin</link>&#160;&#160;&#160;GPIO_PIN_5</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a0b60cb7e96ec15462f633f32f5fb197a">USR_LED_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1abda004ed89d7aabfddf6498f5cd0f110">U_PWM_L_Pin</link>&#160;&#160;&#160;GPIO_PIN_13</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1abe6439e47b2efacdc3b35670b999772f">U_PWM_L_GPIO_Port</link>&#160;&#160;&#160;GPIOB</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a8ebdcf94a58c2a3d79df0351f1ab33e2">V_PWM_L_Pin</link>&#160;&#160;&#160;GPIO_PIN_14</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a4021d0a4208c3a520e5e1d89f1280957">V_PWM_L_GPIO_Port</link>&#160;&#160;&#160;GPIOB</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1af45b9ee0b8d6ec6f565c53f29a283fe5">W_PWM_L_Pin</link>&#160;&#160;&#160;GPIO_PIN_15</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a642a780428f3c5d141730a84fdcd27aa">W_PWM_L_GPIO_Port</link>&#160;&#160;&#160;GPIOB</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1aa0bbdc58329bf9aee4bfe9d4c35d4ebc">U_PWM_H_Pin</link>&#160;&#160;&#160;GPIO_PIN_8</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a373a1411575bccb8d3a2d58daf0d6284">U_PWM_H_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a040066f224c282af6e6eb94777ae42c3">V_PWM_H_Pin</link>&#160;&#160;&#160;GPIO_PIN_9</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a09cd18e04822ef5490b612492e7f6059">V_PWM_H_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a94d00a00a533573ad4a6ac07b833fa6b">W_PWM_H_Pin</link>&#160;&#160;&#160;GPIO_PIN_10</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a1d0b8b15cb3e5f45444b5233c4b8cc5b">W_PWM_H_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a20d0c61c6be06f9e3dd0476996f108ad">T_SWDIO_Pin</link>&#160;&#160;&#160;GPIO_PIN_13</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a5b133bbad2494c84e7268b552def76d1">T_SWDIO_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a3c891e8c1436da67e20c097ed3ae73cf">T_SWCLK_Pin</link>&#160;&#160;&#160;GPIO_PIN_14</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1aa13afc64c30db4eed10d4747f962a5b0">T_SWCLK_GPIO_Port</link>&#160;&#160;&#160;GPIOA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1af92be3f05c2e7de721bfc1b218e5b855">NRST_SafetyUC_Pin</link>&#160;&#160;&#160;GPIO_PIN_2</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a772b3d279496291b8571727e70b28e5f">NRST_SafetyUC_GPIO_Port</link>&#160;&#160;&#160;GPIOD</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a8a7de51b6e3a34adee7ad40319fa24bd">T_SWO_Pin</link>&#160;&#160;&#160;GPIO_PIN_3</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8h_1a92aa264efbd0d858501f267e64b03140">T_SWO_GPIO_Port</link>&#160;&#160;&#160;GPIOB</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link> (void)</para>
+
+<para>Error handler function. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>: Header for <link linkend="_main_8c">main.c</link> file. This file contains the common defines of the application. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_main_8h_1a825e3f437e6ae14b4f602b59d5a26767"/><section>
+    <title>Bus_Imes_GPIO_Port</title>
+<indexterm><primary>Bus_Imes_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>Bus_Imes_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define Bus_Imes_GPIO_Port&#160;&#160;&#160;GPIOC</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00068">68</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a3f5d378c3afdbf9ad6f63a412f2f8913"/><section>
+    <title>Bus_Imes_Pin</title>
+<indexterm><primary>Bus_Imes_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>Bus_Imes_Pin</secondary></indexterm>
+<para><computeroutput>#define Bus_Imes_Pin&#160;&#160;&#160;GPIO_PIN_2</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00067">67</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1ad6d947a22b3a7605abdd773e431fd52f"/><section>
+    <title>Bus_V_GPIO_Port</title>
+<indexterm><primary>Bus_V_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>Bus_V_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define Bus_V_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00072">72</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a3ecf27242083c046aa6cdc2258b4444a"/><section>
+    <title>Bus_V_Pin</title>
+<indexterm><primary>Bus_V_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>Bus_V_Pin</secondary></indexterm>
+<para><computeroutput>#define Bus_V_Pin&#160;&#160;&#160;GPIO_PIN_0</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00071">71</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a772b3d279496291b8571727e70b28e5f"/><section>
+    <title>NRST_SafetyUC_GPIO_Port</title>
+<indexterm><primary>NRST_SafetyUC_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>NRST_SafetyUC_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define NRST_SafetyUC_GPIO_Port&#160;&#160;&#160;GPIOD</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00094">94</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1af92be3f05c2e7de721bfc1b218e5b855"/><section>
+    <title>NRST_SafetyUC_Pin</title>
+<indexterm><primary>NRST_SafetyUC_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>NRST_SafetyUC_Pin</secondary></indexterm>
+<para><computeroutput>#define NRST_SafetyUC_Pin&#160;&#160;&#160;GPIO_PIN_2</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00093">93</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1aa13afc64c30db4eed10d4747f962a5b0"/><section>
+    <title>T_SWCLK_GPIO_Port</title>
+<indexterm><primary>T_SWCLK_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>T_SWCLK_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define T_SWCLK_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00092">92</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a3c891e8c1436da67e20c097ed3ae73cf"/><section>
+    <title>T_SWCLK_Pin</title>
+<indexterm><primary>T_SWCLK_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>T_SWCLK_Pin</secondary></indexterm>
+<para><computeroutput>#define T_SWCLK_Pin&#160;&#160;&#160;GPIO_PIN_14</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00091">91</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a5b133bbad2494c84e7268b552def76d1"/><section>
+    <title>T_SWDIO_GPIO_Port</title>
+<indexterm><primary>T_SWDIO_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>T_SWDIO_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define T_SWDIO_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00090">90</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a20d0c61c6be06f9e3dd0476996f108ad"/><section>
+    <title>T_SWDIO_Pin</title>
+<indexterm><primary>T_SWDIO_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>T_SWDIO_Pin</secondary></indexterm>
+<para><computeroutput>#define T_SWDIO_Pin&#160;&#160;&#160;GPIO_PIN_13</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00089">89</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a92aa264efbd0d858501f267e64b03140"/><section>
+    <title>T_SWO_GPIO_Port</title>
+<indexterm><primary>T_SWO_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>T_SWO_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define T_SWO_GPIO_Port&#160;&#160;&#160;GPIOB</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00096">96</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a8a7de51b6e3a34adee7ad40319fa24bd"/><section>
+    <title>T_SWO_Pin</title>
+<indexterm><primary>T_SWO_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>T_SWO_Pin</secondary></indexterm>
+<para><computeroutput>#define T_SWO_Pin&#160;&#160;&#160;GPIO_PIN_3</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00095">95</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a2f2cb22ae33ad64d46d21fd7076e1403"/><section>
+    <title>U_Imes_GPIO_Port</title>
+<indexterm><primary>U_Imes_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_Imes_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define U_Imes_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00074">74</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a6ce1aad5e7bc4002cbc27a683994c484"/><section>
+    <title>U_Imes_Pin</title>
+<indexterm><primary>U_Imes_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_Imes_Pin</secondary></indexterm>
+<para><computeroutput>#define U_Imes_Pin&#160;&#160;&#160;GPIO_PIN_1</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00073">73</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a373a1411575bccb8d3a2d58daf0d6284"/><section>
+    <title>U_PWM_H_GPIO_Port</title>
+<indexterm><primary>U_PWM_H_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_PWM_H_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define U_PWM_H_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00084">84</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1aa0bbdc58329bf9aee4bfe9d4c35d4ebc"/><section>
+    <title>U_PWM_H_Pin</title>
+<indexterm><primary>U_PWM_H_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_PWM_H_Pin</secondary></indexterm>
+<para><computeroutput>#define U_PWM_H_Pin&#160;&#160;&#160;GPIO_PIN_8</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00083">83</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1abe6439e47b2efacdc3b35670b999772f"/><section>
+    <title>U_PWM_L_GPIO_Port</title>
+<indexterm><primary>U_PWM_L_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_PWM_L_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define U_PWM_L_GPIO_Port&#160;&#160;&#160;GPIOB</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00078">78</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1abda004ed89d7aabfddf6498f5cd0f110"/><section>
+    <title>U_PWM_L_Pin</title>
+<indexterm><primary>U_PWM_L_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_PWM_L_Pin</secondary></indexterm>
+<para><computeroutput>#define U_PWM_L_Pin&#160;&#160;&#160;GPIO_PIN_13</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00077">77</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a694f3f2a7762e5346582a34a84fc70d1"/><section>
+    <title>U_VPh_GPIO_Port</title>
+<indexterm><primary>U_VPh_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_VPh_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define U_VPh_GPIO_Port&#160;&#160;&#160;GPIOC</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00064">64</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a5b096511c8f8e1c2b1e53aacd0b476e8"/><section>
+    <title>U_VPh_Pin</title>
+<indexterm><primary>U_VPh_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>U_VPh_Pin</secondary></indexterm>
+<para><computeroutput>#define U_VPh_Pin&#160;&#160;&#160;GPIO_PIN_0</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00063">63</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a0d56b69f5247cccd56940c5f01d99521"/><section>
+    <title>USR_BTN_EXTI_IRQn</title>
+<indexterm><primary>USR_BTN_EXTI_IRQn</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>USR_BTN_EXTI_IRQn</secondary></indexterm>
+<para><computeroutput>#define USR_BTN_EXTI_IRQn&#160;&#160;&#160;EXTI15_10_IRQn</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00062">62</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1aff83915dc06a1ac4ee242533045c6f43"/><section>
+    <title>USR_BTN_GPIO_Port</title>
+<indexterm><primary>USR_BTN_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>USR_BTN_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define USR_BTN_GPIO_Port&#160;&#160;&#160;GPIOC</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00061">61</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a158931264dc3c964aeb8282d0755b665"/><section>
+    <title>USR_BTN_Pin</title>
+<indexterm><primary>USR_BTN_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>USR_BTN_Pin</secondary></indexterm>
+<para><computeroutput>#define USR_BTN_Pin&#160;&#160;&#160;GPIO_PIN_13</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00060">60</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a0b60cb7e96ec15462f633f32f5fb197a"/><section>
+    <title>USR_LED_GPIO_Port</title>
+<indexterm><primary>USR_LED_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>USR_LED_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define USR_LED_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00076">76</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a0aa7801f202f2b77085347074a1f2948"/><section>
+    <title>USR_LED_Pin</title>
+<indexterm><primary>USR_LED_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>USR_LED_Pin</secondary></indexterm>
+<para><computeroutput>#define USR_LED_Pin&#160;&#160;&#160;GPIO_PIN_5</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00075">75</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a09cd18e04822ef5490b612492e7f6059"/><section>
+    <title>V_PWM_H_GPIO_Port</title>
+<indexterm><primary>V_PWM_H_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>V_PWM_H_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define V_PWM_H_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00086">86</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a040066f224c282af6e6eb94777ae42c3"/><section>
+    <title>V_PWM_H_Pin</title>
+<indexterm><primary>V_PWM_H_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>V_PWM_H_Pin</secondary></indexterm>
+<para><computeroutput>#define V_PWM_H_Pin&#160;&#160;&#160;GPIO_PIN_9</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00085">85</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a4021d0a4208c3a520e5e1d89f1280957"/><section>
+    <title>V_PWM_L_GPIO_Port</title>
+<indexterm><primary>V_PWM_L_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>V_PWM_L_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define V_PWM_L_GPIO_Port&#160;&#160;&#160;GPIOB</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00080">80</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a8ebdcf94a58c2a3d79df0351f1ab33e2"/><section>
+    <title>V_PWM_L_Pin</title>
+<indexterm><primary>V_PWM_L_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>V_PWM_L_Pin</secondary></indexterm>
+<para><computeroutput>#define V_PWM_L_Pin&#160;&#160;&#160;GPIO_PIN_14</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00079">79</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1aeb7e9d19e04d93b06f348717b3f205c2"/><section>
+    <title>V_VPh_GPIO_Port</title>
+<indexterm><primary>V_VPh_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>V_VPh_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define V_VPh_GPIO_Port&#160;&#160;&#160;GPIOC</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00070">70</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a6dc981b6346185b1302c57dbbf5a65fa"/><section>
+    <title>V_VPh_Pin</title>
+<indexterm><primary>V_VPh_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>V_VPh_Pin</secondary></indexterm>
+<para><computeroutput>#define V_VPh_Pin&#160;&#160;&#160;GPIO_PIN_3</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00069">69</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a1d0b8b15cb3e5f45444b5233c4b8cc5b"/><section>
+    <title>W_PWM_H_GPIO_Port</title>
+<indexterm><primary>W_PWM_H_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>W_PWM_H_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define W_PWM_H_GPIO_Port&#160;&#160;&#160;GPIOA</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00088">88</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a94d00a00a533573ad4a6ac07b833fa6b"/><section>
+    <title>W_PWM_H_Pin</title>
+<indexterm><primary>W_PWM_H_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>W_PWM_H_Pin</secondary></indexterm>
+<para><computeroutput>#define W_PWM_H_Pin&#160;&#160;&#160;GPIO_PIN_10</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00087">87</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a642a780428f3c5d141730a84fdcd27aa"/><section>
+    <title>W_PWM_L_GPIO_Port</title>
+<indexterm><primary>W_PWM_L_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>W_PWM_L_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define W_PWM_L_GPIO_Port&#160;&#160;&#160;GPIOB</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00082">82</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1af45b9ee0b8d6ec6f565c53f29a283fe5"/><section>
+    <title>W_PWM_L_Pin</title>
+<indexterm><primary>W_PWM_L_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>W_PWM_L_Pin</secondary></indexterm>
+<para><computeroutput>#define W_PWM_L_Pin&#160;&#160;&#160;GPIO_PIN_15</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00081">81</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a6c8d2416e77da856269129f83f224674"/><section>
+    <title>W_VPh_GPIO_Port</title>
+<indexterm><primary>W_VPh_GPIO_Port</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>W_VPh_GPIO_Port</secondary></indexterm>
+<para><computeroutput>#define W_VPh_GPIO_Port&#160;&#160;&#160;GPIOC</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00066">66</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+<anchor xml:id="_main_8h_1a27faebf82c8e12ddccb0a5ff98f8c7fd"/><section>
+    <title>W_VPh_Pin</title>
+<indexterm><primary>W_VPh_Pin</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>W_VPh_Pin</secondary></indexterm>
+<para><computeroutput>#define W_VPh_Pin&#160;&#160;&#160;GPIO_PIN_1</computeroutput></para><para>
+Definition at line <link linkend="_main_8h_source_1l00065">65</link> of file <link linkend="_main_8h_source">main.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_main_8h_1a1730ffe1e560465665eb47d9264826f9"/><section>
+    <title>Error_Handler()</title>
+<indexterm><primary>Error_Handler</primary><secondary>main.h</secondary></indexterm>
+<indexterm><primary>main.h</primary><secondary>Error_Handler</secondary></indexterm>
+<para><computeroutput>void Error_Handler (void )</computeroutput></para><para>
+
+<para>Error handler function. </para>
+</para>
+
+<para>Called in case of an unrecoverable error. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00268">268</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8h_a1730ffe1e560465665eb47d9264826f9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

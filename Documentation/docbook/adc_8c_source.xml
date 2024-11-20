@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_adc_8c_source" xml:lang="en-US">
+<title>adc.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/adc.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_adc_8c_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00019"/>00019 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00020"/>00020 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00021"/>00021 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_adc_8h">adc.h</link>&quot;</emphasis>
+<anchor xml:id="_adc_8c_source_1l00022"/>00022 
+<anchor xml:id="_adc_8c_source_1l00023"/>00023 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00024"/>00024 
+<anchor xml:id="_adc_8c_source_1l00025"/>00025 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00026"/>00026 
+<anchor xml:id="_adc_8c_source_1l00027"/><link linkend="_adc_8h_1a22b804736f5648d52f639b2647d4ed13">00027</link> ADC_HandleTypeDef&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>;
+<anchor xml:id="_adc_8c_source_1l00028"/><link linkend="_adc_8h_1acd9221f1aa19aebfe0b744947f2daf49">00028</link> ADC_HandleTypeDef&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>;
+<anchor xml:id="_adc_8c_source_1l00029"/><link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">00029</link> DMA_HandleTypeDef&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>;
+<anchor xml:id="_adc_8c_source_1l00030"/>00030 
+<anchor xml:id="_adc_8c_source_1l00031"/>00031 <emphasis role="comment">/*&#32;ADC1&#32;init&#32;function&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00032"/><link linkend="_adc_8h_1acccd58aa70215a6b184ad242312ffd0c">00032</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_adc_8c_1acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_adc_8c_source_1l00033"/>00033 {
+<anchor xml:id="_adc_8c_source_1l00034"/>00034 
+<anchor xml:id="_adc_8c_source_1l00035"/>00035 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00036"/>00036 
+<anchor xml:id="_adc_8c_source_1l00037"/>00037 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00038"/>00038 
+<anchor xml:id="_adc_8c_source_1l00039"/>00039 &#32;&#32;ADC_MultiModeTypeDef&#32;multimode&#32;=&#32;{0};
+<anchor xml:id="_adc_8c_source_1l00040"/>00040 &#32;&#32;ADC_ChannelConfTypeDef&#32;sConfig&#32;=&#32;{0};
+<anchor xml:id="_adc_8c_source_1l00041"/>00041 
+<anchor xml:id="_adc_8c_source_1l00042"/>00042 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00043"/>00043 
+<anchor xml:id="_adc_8c_source_1l00044"/>00044 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00045"/>00045 
+<anchor xml:id="_adc_8c_source_1l00048"/>00048 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Instance&#32;=&#32;ADC1;
+<anchor xml:id="_adc_8c_source_1l00049"/>00049 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.ClockPrescaler&#32;=&#32;ADC_CLOCK_SYNC_PCLK_DIV4;
+<anchor xml:id="_adc_8c_source_1l00050"/>00050 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.Resolution&#32;=&#32;ADC_RESOLUTION_12B;
+<anchor xml:id="_adc_8c_source_1l00051"/>00051 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.DataAlign&#32;=&#32;ADC_DATAALIGN_RIGHT;
+<anchor xml:id="_adc_8c_source_1l00052"/>00052 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.GainCompensation&#32;=&#32;0;
+<anchor xml:id="_adc_8c_source_1l00053"/>00053 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.ScanConvMode&#32;=&#32;ADC_SCAN_DISABLE;
+<anchor xml:id="_adc_8c_source_1l00054"/>00054 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.EOCSelection&#32;=&#32;ADC_EOC_SINGLE_CONV;
+<anchor xml:id="_adc_8c_source_1l00055"/>00055 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.LowPowerAutoWait&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00056"/>00056 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.ContinuousConvMode&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00057"/>00057 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.NbrOfConversion&#32;=&#32;1;
+<anchor xml:id="_adc_8c_source_1l00058"/>00058 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.DiscontinuousConvMode&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00059"/>00059 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.ExternalTrigConv&#32;=&#32;ADC_EXTERNALTRIG_T1_TRGO;
+<anchor xml:id="_adc_8c_source_1l00060"/>00060 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.ExternalTrigConvEdge&#32;=&#32;ADC_EXTERNALTRIGCONVEDGE_RISING;
+<anchor xml:id="_adc_8c_source_1l00061"/>00061 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.DMAContinuousRequests&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00062"/>00062 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.Overrun&#32;=&#32;ADC_OVR_DATA_PRESERVED;
+<anchor xml:id="_adc_8c_source_1l00063"/>00063 &#32;&#32;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>.Init.OversamplingMode&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00064"/>00064 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_ADC_Init(&amp;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00065"/>00065 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00067"/>00067 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00068"/>00068 
+<anchor xml:id="_adc_8c_source_1l00071"/>00071 &#32;&#32;multimode.Mode&#32;=&#32;ADC_MODE_INDEPENDENT;
+<anchor xml:id="_adc_8c_source_1l00072"/>00072 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_ADCEx_MultiModeConfigChannel(&amp;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>,&#32;&amp;multimode)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00073"/>00073 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00075"/>00075 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00076"/>00076 
+<anchor xml:id="_adc_8c_source_1l00079"/>00079 &#32;&#32;sConfig.Channel&#32;=&#32;ADC_CHANNEL_2;
+<anchor xml:id="_adc_8c_source_1l00080"/>00080 &#32;&#32;sConfig.Rank&#32;=&#32;ADC_REGULAR_RANK_1;
+<anchor xml:id="_adc_8c_source_1l00081"/>00081 &#32;&#32;sConfig.SamplingTime&#32;=&#32;ADC_SAMPLETIME_2CYCLES_5;
+<anchor xml:id="_adc_8c_source_1l00082"/>00082 &#32;&#32;sConfig.SingleDiff&#32;=&#32;ADC_SINGLE_ENDED;
+<anchor xml:id="_adc_8c_source_1l00083"/>00083 &#32;&#32;sConfig.OffsetNumber&#32;=&#32;ADC_OFFSET_NONE;
+<anchor xml:id="_adc_8c_source_1l00084"/>00084 &#32;&#32;sConfig.Offset&#32;=&#32;0;
+<anchor xml:id="_adc_8c_source_1l00085"/>00085 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_ADC_ConfigChannel(&amp;<link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>,&#32;&amp;sConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00086"/>00086 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00088"/>00088 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00089"/>00089 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00090"/>00090 
+<anchor xml:id="_adc_8c_source_1l00091"/>00091 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00092"/>00092 
+<anchor xml:id="_adc_8c_source_1l00093"/>00093 }
+<anchor xml:id="_adc_8c_source_1l00094"/>00094 <emphasis role="comment">/*&#32;ADC2&#32;init&#32;function&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00095"/><link linkend="_adc_8h_1a101e2e3433dfe72bbbd0ae3a84489263">00095</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_adc_8c_1a101e2e3433dfe72bbbd0ae3a84489263">MX_ADC2_Init</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_adc_8c_source_1l00096"/>00096 {
+<anchor xml:id="_adc_8c_source_1l00097"/>00097 
+<anchor xml:id="_adc_8c_source_1l00098"/>00098 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00099"/>00099 
+<anchor xml:id="_adc_8c_source_1l00100"/>00100 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2_Init&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00101"/>00101 
+<anchor xml:id="_adc_8c_source_1l00102"/>00102 &#32;&#32;ADC_ChannelConfTypeDef&#32;sConfig&#32;=&#32;{0};
+<anchor xml:id="_adc_8c_source_1l00103"/>00103 
+<anchor xml:id="_adc_8c_source_1l00104"/>00104 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00105"/>00105 
+<anchor xml:id="_adc_8c_source_1l00106"/>00106 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2_Init&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00107"/>00107 
+<anchor xml:id="_adc_8c_source_1l00110"/>00110 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Instance&#32;=&#32;ADC2;
+<anchor xml:id="_adc_8c_source_1l00111"/>00111 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.ClockPrescaler&#32;=&#32;ADC_CLOCK_SYNC_PCLK_DIV4;
+<anchor xml:id="_adc_8c_source_1l00112"/>00112 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.Resolution&#32;=&#32;ADC_RESOLUTION_12B;
+<anchor xml:id="_adc_8c_source_1l00113"/>00113 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.DataAlign&#32;=&#32;ADC_DATAALIGN_RIGHT;
+<anchor xml:id="_adc_8c_source_1l00114"/>00114 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.GainCompensation&#32;=&#32;0;
+<anchor xml:id="_adc_8c_source_1l00115"/>00115 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.ScanConvMode&#32;=&#32;ADC_SCAN_DISABLE;
+<anchor xml:id="_adc_8c_source_1l00116"/>00116 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.EOCSelection&#32;=&#32;ADC_EOC_SINGLE_CONV;
+<anchor xml:id="_adc_8c_source_1l00117"/>00117 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.LowPowerAutoWait&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00118"/>00118 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.ContinuousConvMode&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00119"/>00119 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.NbrOfConversion&#32;=&#32;1;
+<anchor xml:id="_adc_8c_source_1l00120"/>00120 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.DiscontinuousConvMode&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00121"/>00121 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.ExternalTrigConv&#32;=&#32;ADC_SOFTWARE_START;
+<anchor xml:id="_adc_8c_source_1l00122"/>00122 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.ExternalTrigConvEdge&#32;=&#32;ADC_EXTERNALTRIGCONVEDGE_NONE;
+<anchor xml:id="_adc_8c_source_1l00123"/>00123 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.DMAContinuousRequests&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00124"/>00124 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.Overrun&#32;=&#32;ADC_OVR_DATA_PRESERVED;
+<anchor xml:id="_adc_8c_source_1l00125"/>00125 &#32;&#32;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>.Init.OversamplingMode&#32;=&#32;DISABLE;
+<anchor xml:id="_adc_8c_source_1l00126"/>00126 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_ADC_Init(&amp;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00127"/>00127 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00129"/>00129 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00130"/>00130 
+<anchor xml:id="_adc_8c_source_1l00133"/>00133 &#32;&#32;sConfig.Channel&#32;=&#32;ADC_CHANNEL_6;
+<anchor xml:id="_adc_8c_source_1l00134"/>00134 &#32;&#32;sConfig.Rank&#32;=&#32;ADC_REGULAR_RANK_1;
+<anchor xml:id="_adc_8c_source_1l00135"/>00135 &#32;&#32;sConfig.SamplingTime&#32;=&#32;ADC_SAMPLETIME_2CYCLES_5;
+<anchor xml:id="_adc_8c_source_1l00136"/>00136 &#32;&#32;sConfig.SingleDiff&#32;=&#32;ADC_SINGLE_ENDED;
+<anchor xml:id="_adc_8c_source_1l00137"/>00137 &#32;&#32;sConfig.OffsetNumber&#32;=&#32;ADC_OFFSET_NONE;
+<anchor xml:id="_adc_8c_source_1l00138"/>00138 &#32;&#32;sConfig.Offset&#32;=&#32;0;
+<anchor xml:id="_adc_8c_source_1l00139"/>00139 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_ADC_ConfigChannel(&amp;<link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>,&#32;&amp;sConfig)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00140"/>00140 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00142"/>00142 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00143"/>00143 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00144"/>00144 
+<anchor xml:id="_adc_8c_source_1l00145"/>00145 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2_Init&#32;2&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00146"/>00146 
+<anchor xml:id="_adc_8c_source_1l00147"/>00147 }
+<anchor xml:id="_adc_8c_source_1l00148"/>00148 
+<anchor xml:id="_adc_8c_source_1l00149"/>00149 <emphasis role="keyword">static</emphasis>&#32;uint32_t&#32;HAL_RCC_ADC12_CLK_ENABLED=0;
+<anchor xml:id="_adc_8c_source_1l00150"/>00150 
+<anchor xml:id="_adc_8c_source_1l00151"/><link linkend="_adc_8c_1ac3139540667c403c5dfd37a99c610b1c">00151</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_adc_8c_1ac3139540667c403c5dfd37a99c610b1c">HAL_ADC_MspInit</link>(ADC_HandleTypeDef*&#32;adcHandle)
+<anchor xml:id="_adc_8c_source_1l00152"/>00152 {
+<anchor xml:id="_adc_8c_source_1l00153"/>00153 
+<anchor xml:id="_adc_8c_source_1l00154"/>00154 &#32;&#32;GPIO_InitTypeDef&#32;GPIO_InitStruct&#32;=&#32;{0};
+<anchor xml:id="_adc_8c_source_1l00155"/>00155 &#32;&#32;RCC_PeriphCLKInitTypeDef&#32;PeriphClkInit&#32;=&#32;{0};
+<anchor xml:id="_adc_8c_source_1l00156"/>00156 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(adcHandle-&gt;Instance==ADC1)
+<anchor xml:id="_adc_8c_source_1l00157"/>00157 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00158"/>00158 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00159"/>00159 
+<anchor xml:id="_adc_8c_source_1l00160"/>00160 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00161"/>00161 
+<anchor xml:id="_adc_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;PeriphClkInit.PeriphClockSelection&#32;=&#32;RCC_PERIPHCLK_ADC12;
+<anchor xml:id="_adc_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;PeriphClkInit.Adc12ClockSelection&#32;=&#32;RCC_ADC12CLKSOURCE_SYSCLK;
+<anchor xml:id="_adc_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_RCCEx_PeriphCLKConfig(&amp;PeriphClkInit)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00170"/>00170 
+<anchor xml:id="_adc_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC1&#32;clock&#32;enable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;HAL_RCC_ADC12_CLK_ENABLED++;
+<anchor xml:id="_adc_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(HAL_RCC_ADC12_CLK_ENABLED==1){
+<anchor xml:id="_adc_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;__HAL_RCC_ADC12_CLK_ENABLE();
+<anchor xml:id="_adc_8c_source_1l00175"/>00175 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00176"/>00176 
+<anchor xml:id="_adc_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOC_CLK_ENABLE();
+<anchor xml:id="_adc_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOA_CLK_ENABLE();
+<anchor xml:id="_adc_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOB_CLK_ENABLE();
+<anchor xml:id="_adc_8c_source_1l00186"/>00186 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1a3f5d378c3afdbf9ad6f63a412f2f8913">Bus_Imes_Pin</link>;
+<anchor xml:id="_adc_8c_source_1l00187"/>00187 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_ANALOG;
+<anchor xml:id="_adc_8c_source_1l00188"/>00188 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_adc_8c_source_1l00189"/>00189 &#32;&#32;&#32;&#32;HAL_GPIO_Init(<link linkend="_main_8h_1a825e3f437e6ae14b4f602b59d5a26767">Bus_Imes_GPIO_Port</link>,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_adc_8c_source_1l00190"/>00190 
+<anchor xml:id="_adc_8c_source_1l00191"/>00191 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1a6ce1aad5e7bc4002cbc27a683994c484">U_Imes_Pin</link>;
+<anchor xml:id="_adc_8c_source_1l00192"/>00192 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_ANALOG;
+<anchor xml:id="_adc_8c_source_1l00193"/>00193 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_adc_8c_source_1l00194"/>00194 &#32;&#32;&#32;&#32;HAL_GPIO_Init(<link linkend="_main_8h_1a2f2cb22ae33ad64d46d21fd7076e1403">U_Imes_GPIO_Port</link>,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_adc_8c_source_1l00195"/>00195 
+<anchor xml:id="_adc_8c_source_1l00196"/>00196 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;GPIO_PIN_0|GPIO_PIN_1;
+<anchor xml:id="_adc_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_ANALOG;
+<anchor xml:id="_adc_8c_source_1l00198"/>00198 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_adc_8c_source_1l00199"/>00199 &#32;&#32;&#32;&#32;HAL_GPIO_Init(GPIOB,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_adc_8c_source_1l00200"/>00200 
+<anchor xml:id="_adc_8c_source_1l00201"/>00201 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC1&#32;DMA&#32;Init&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00202"/>00202 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC1&#32;Init&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00203"/>00203 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Instance&#32;=&#32;DMA1_Channel1;
+<anchor xml:id="_adc_8c_source_1l00204"/>00204 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.Request&#32;=&#32;DMA_REQUEST_ADC1;
+<anchor xml:id="_adc_8c_source_1l00205"/>00205 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.Direction&#32;=&#32;DMA_PERIPH_TO_MEMORY;
+<anchor xml:id="_adc_8c_source_1l00206"/>00206 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.PeriphInc&#32;=&#32;DMA_PINC_DISABLE;
+<anchor xml:id="_adc_8c_source_1l00207"/>00207 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.MemInc&#32;=&#32;DMA_MINC_ENABLE;
+<anchor xml:id="_adc_8c_source_1l00208"/>00208 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.PeriphDataAlignment&#32;=&#32;DMA_PDATAALIGN_HALFWORD;
+<anchor xml:id="_adc_8c_source_1l00209"/>00209 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.MemDataAlignment&#32;=&#32;DMA_MDATAALIGN_HALFWORD;
+<anchor xml:id="_adc_8c_source_1l00210"/>00210 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.Mode&#32;=&#32;DMA_NORMAL;
+<anchor xml:id="_adc_8c_source_1l00211"/>00211 &#32;&#32;&#32;&#32;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>.Init.Priority&#32;=&#32;DMA_PRIORITY_LOW;
+<anchor xml:id="_adc_8c_source_1l00212"/>00212 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_DMA_Init(&amp;<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00213"/>00213 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00215"/>00215 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00216"/>00216 
+<anchor xml:id="_adc_8c_source_1l00217"/>00217 &#32;&#32;&#32;&#32;__HAL_LINKDMA(adcHandle,DMA_Handle,<link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>);
+<anchor xml:id="_adc_8c_source_1l00218"/>00218 
+<anchor xml:id="_adc_8c_source_1l00219"/>00219 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC1&#32;interrupt&#32;Init&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00220"/>00220 &#32;&#32;&#32;&#32;HAL_NVIC_SetPriority(ADC1_2_IRQn,&#32;0,&#32;0);
+<anchor xml:id="_adc_8c_source_1l00221"/>00221 &#32;&#32;&#32;&#32;HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
+<anchor xml:id="_adc_8c_source_1l00222"/>00222 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00223"/>00223 
+<anchor xml:id="_adc_8c_source_1l00224"/>00224 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00225"/>00225 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00226"/>00226 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(adcHandle-&gt;Instance==ADC2)
+<anchor xml:id="_adc_8c_source_1l00227"/>00227 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00228"/>00228 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00229"/>00229 
+<anchor xml:id="_adc_8c_source_1l00230"/>00230 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2_MspInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00231"/>00231 
+<anchor xml:id="_adc_8c_source_1l00234"/>00234 &#32;&#32;&#32;&#32;PeriphClkInit.PeriphClockSelection&#32;=&#32;RCC_PERIPHCLK_ADC12;
+<anchor xml:id="_adc_8c_source_1l00235"/>00235 &#32;&#32;&#32;&#32;PeriphClkInit.Adc12ClockSelection&#32;=&#32;RCC_ADC12CLKSOURCE_SYSCLK;
+<anchor xml:id="_adc_8c_source_1l00236"/>00236 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(HAL_RCCEx_PeriphCLKConfig(&amp;PeriphClkInit)&#32;!=&#32;HAL_OK)
+<anchor xml:id="_adc_8c_source_1l00237"/>00237 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>();
+<anchor xml:id="_adc_8c_source_1l00239"/>00239 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00240"/>00240 
+<anchor xml:id="_adc_8c_source_1l00241"/>00241 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC2&#32;clock&#32;enable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00242"/>00242 &#32;&#32;&#32;&#32;HAL_RCC_ADC12_CLK_ENABLED++;
+<anchor xml:id="_adc_8c_source_1l00243"/>00243 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(HAL_RCC_ADC12_CLK_ENABLED==1){
+<anchor xml:id="_adc_8c_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;__HAL_RCC_ADC12_CLK_ENABLE();
+<anchor xml:id="_adc_8c_source_1l00245"/>00245 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00246"/>00246 
+<anchor xml:id="_adc_8c_source_1l00247"/>00247 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOC_CLK_ENABLE();
+<anchor xml:id="_adc_8c_source_1l00248"/>00248 &#32;&#32;&#32;&#32;__HAL_RCC_GPIOA_CLK_ENABLE();
+<anchor xml:id="_adc_8c_source_1l00255"/>00255 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1a5b096511c8f8e1c2b1e53aacd0b476e8">U_VPh_Pin</link>|<link linkend="_main_8h_1a27faebf82c8e12ddccb0a5ff98f8c7fd">W_VPh_Pin</link>|<link linkend="_main_8h_1a6dc981b6346185b1302c57dbbf5a65fa">V_VPh_Pin</link>;
+<anchor xml:id="_adc_8c_source_1l00256"/>00256 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_ANALOG;
+<anchor xml:id="_adc_8c_source_1l00257"/>00257 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_adc_8c_source_1l00258"/>00258 &#32;&#32;&#32;&#32;HAL_GPIO_Init(GPIOC,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_adc_8c_source_1l00259"/>00259 
+<anchor xml:id="_adc_8c_source_1l00260"/>00260 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1a3ecf27242083c046aa6cdc2258b4444a">Bus_V_Pin</link>;
+<anchor xml:id="_adc_8c_source_1l00261"/>00261 &#32;&#32;&#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_ANALOG;
+<anchor xml:id="_adc_8c_source_1l00262"/>00262 &#32;&#32;&#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_adc_8c_source_1l00263"/>00263 &#32;&#32;&#32;&#32;HAL_GPIO_Init(<link linkend="_main_8h_1ad6d947a22b3a7605abdd773e431fd52f">Bus_V_GPIO_Port</link>,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_adc_8c_source_1l00264"/>00264 
+<anchor xml:id="_adc_8c_source_1l00265"/>00265 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC2&#32;interrupt&#32;Init&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00266"/>00266 &#32;&#32;&#32;&#32;HAL_NVIC_SetPriority(ADC1_2_IRQn,&#32;0,&#32;0);
+<anchor xml:id="_adc_8c_source_1l00267"/>00267 &#32;&#32;&#32;&#32;HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
+<anchor xml:id="_adc_8c_source_1l00268"/>00268 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00269"/>00269 
+<anchor xml:id="_adc_8c_source_1l00270"/>00270 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2_MspInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00271"/>00271 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00272"/>00272 }
+<anchor xml:id="_adc_8c_source_1l00273"/>00273 
+<anchor xml:id="_adc_8c_source_1l00274"/><link linkend="_adc_8c_1a3f61f2c2af0f122f81a87af8ad7b4360">00274</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_adc_8c_1a3f61f2c2af0f122f81a87af8ad7b4360">HAL_ADC_MspDeInit</link>(ADC_HandleTypeDef*&#32;adcHandle)
+<anchor xml:id="_adc_8c_source_1l00275"/>00275 {
+<anchor xml:id="_adc_8c_source_1l00276"/>00276 
+<anchor xml:id="_adc_8c_source_1l00277"/>00277 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(adcHandle-&gt;Instance==ADC1)
+<anchor xml:id="_adc_8c_source_1l00278"/>00278 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00279"/>00279 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00280"/>00280 
+<anchor xml:id="_adc_8c_source_1l00281"/>00281 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00282"/>00282 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Peripheral&#32;clock&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00283"/>00283 &#32;&#32;&#32;&#32;HAL_RCC_ADC12_CLK_ENABLED--;
+<anchor xml:id="_adc_8c_source_1l00284"/>00284 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(HAL_RCC_ADC12_CLK_ENABLED==0){
+<anchor xml:id="_adc_8c_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;__HAL_RCC_ADC12_CLK_DISABLE();
+<anchor xml:id="_adc_8c_source_1l00286"/>00286 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00287"/>00287 
+<anchor xml:id="_adc_8c_source_1l00294"/>00294 &#32;&#32;&#32;&#32;HAL_GPIO_DeInit(<link linkend="_main_8h_1a825e3f437e6ae14b4f602b59d5a26767">Bus_Imes_GPIO_Port</link>,&#32;<link linkend="_main_8h_1a3f5d378c3afdbf9ad6f63a412f2f8913">Bus_Imes_Pin</link>);
+<anchor xml:id="_adc_8c_source_1l00295"/>00295 
+<anchor xml:id="_adc_8c_source_1l00296"/>00296 &#32;&#32;&#32;&#32;HAL_GPIO_DeInit(<link linkend="_main_8h_1a2f2cb22ae33ad64d46d21fd7076e1403">U_Imes_GPIO_Port</link>,&#32;<link linkend="_main_8h_1a6ce1aad5e7bc4002cbc27a683994c484">U_Imes_Pin</link>);
+<anchor xml:id="_adc_8c_source_1l00297"/>00297 
+<anchor xml:id="_adc_8c_source_1l00298"/>00298 &#32;&#32;&#32;&#32;HAL_GPIO_DeInit(GPIOB,&#32;GPIO_PIN_0|GPIO_PIN_1);
+<anchor xml:id="_adc_8c_source_1l00299"/>00299 
+<anchor xml:id="_adc_8c_source_1l00300"/>00300 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC1&#32;DMA&#32;DeInit&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00301"/>00301 &#32;&#32;&#32;&#32;HAL_DMA_DeInit(adcHandle-&gt;DMA_Handle);
+<anchor xml:id="_adc_8c_source_1l00302"/>00302 
+<anchor xml:id="_adc_8c_source_1l00303"/>00303 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC1&#32;interrupt&#32;Deinit&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00304"/>00304 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1:ADC1_2_IRQn&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00309"/>00309 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;HAL_NVIC_DisableIRQ(ADC1_2_IRQn);&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00310"/>00310 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1:ADC1_2_IRQn&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00311"/>00311 
+<anchor xml:id="_adc_8c_source_1l00312"/>00312 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00313"/>00313 
+<anchor xml:id="_adc_8c_source_1l00314"/>00314 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00315"/>00315 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00316"/>00316 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(adcHandle-&gt;Instance==ADC2)
+<anchor xml:id="_adc_8c_source_1l00317"/>00317 &#32;&#32;{
+<anchor xml:id="_adc_8c_source_1l00318"/>00318 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00319"/>00319 
+<anchor xml:id="_adc_8c_source_1l00320"/>00320 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2_MspDeInit&#32;0&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00321"/>00321 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Peripheral&#32;clock&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00322"/>00322 &#32;&#32;&#32;&#32;HAL_RCC_ADC12_CLK_ENABLED--;
+<anchor xml:id="_adc_8c_source_1l00323"/>00323 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(HAL_RCC_ADC12_CLK_ENABLED==0){
+<anchor xml:id="_adc_8c_source_1l00324"/>00324 &#32;&#32;&#32;&#32;&#32;&#32;__HAL_RCC_ADC12_CLK_DISABLE();
+<anchor xml:id="_adc_8c_source_1l00325"/>00325 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00326"/>00326 
+<anchor xml:id="_adc_8c_source_1l00333"/>00333 &#32;&#32;&#32;&#32;HAL_GPIO_DeInit(GPIOC,&#32;<link linkend="_main_8h_1a5b096511c8f8e1c2b1e53aacd0b476e8">U_VPh_Pin</link>|<link linkend="_main_8h_1a27faebf82c8e12ddccb0a5ff98f8c7fd">W_VPh_Pin</link>|<link linkend="_main_8h_1a6dc981b6346185b1302c57dbbf5a65fa">V_VPh_Pin</link>);
+<anchor xml:id="_adc_8c_source_1l00334"/>00334 
+<anchor xml:id="_adc_8c_source_1l00335"/>00335 &#32;&#32;&#32;&#32;HAL_GPIO_DeInit(<link linkend="_main_8h_1ad6d947a22b3a7605abdd773e431fd52f">Bus_V_GPIO_Port</link>,&#32;<link linkend="_main_8h_1a3ecf27242083c046aa6cdc2258b4444a">Bus_V_Pin</link>);
+<anchor xml:id="_adc_8c_source_1l00336"/>00336 
+<anchor xml:id="_adc_8c_source_1l00337"/>00337 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;ADC2&#32;interrupt&#32;Deinit&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00338"/>00338 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2:ADC1_2_IRQn&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00343"/>00343 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;HAL_NVIC_DisableIRQ(ADC1_2_IRQn);&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00344"/>00344 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2:ADC1_2_IRQn&#32;disable&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00345"/>00345 
+<anchor xml:id="_adc_8c_source_1l00346"/>00346 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC2_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00347"/>00347 
+<anchor xml:id="_adc_8c_source_1l00348"/>00348 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC2_MspDeInit&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00349"/>00349 &#32;&#32;}
+<anchor xml:id="_adc_8c_source_1l00350"/>00350 }
+<anchor xml:id="_adc_8c_source_1l00351"/>00351 
+<anchor xml:id="_adc_8c_source_1l00352"/>00352 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;1&#32;*/</emphasis>
+<anchor xml:id="_adc_8c_source_1l00353"/>00353 
+<anchor xml:id="_adc_8c_source_1l00354"/>00354 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;1&#32;*/</emphasis>
+</programlisting></section>

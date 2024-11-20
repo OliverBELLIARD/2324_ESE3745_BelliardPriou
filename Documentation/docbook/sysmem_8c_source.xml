@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_sysmem_8c_source" xml:lang="en-US">
+<title>sysmem.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/sysmem.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_sysmem_8c_source_1l00001"/>00001 
+<anchor xml:id="_sysmem_8c_source_1l00023"/>00023 <emphasis role="comment">/*&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00024"/>00024 <emphasis role="preprocessor">#include&#32;&lt;errno.h&gt;</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00026"/>00026 
+<anchor xml:id="_sysmem_8c_source_1l00030"/>00030 <emphasis role="keyword">static</emphasis>&#32;uint8_t&#32;*__sbrk_heap_end&#32;=&#32;NULL;
+<anchor xml:id="_sysmem_8c_source_1l00031"/>00031 
+<anchor xml:id="_sysmem_8c_source_1l00053"/><link linkend="_sysmem_8c_1a68125648bcce70b6bb3aa0be50e99700">00053</link> <emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_sysmem_8c_1a68125648bcce70b6bb3aa0be50e99700">_sbrk</link>(ptrdiff_t&#32;incr)
+<anchor xml:id="_sysmem_8c_source_1l00054"/>00054 {
+<anchor xml:id="_sysmem_8c_source_1l00055"/>00055 &#32;&#32;<emphasis role="keyword">extern</emphasis>&#32;uint8_t&#32;_end;&#32;<emphasis role="comment">/*&#32;Symbol&#32;defined&#32;in&#32;the&#32;linker&#32;script&#32;*/</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00056"/>00056 &#32;&#32;<emphasis role="keyword">extern</emphasis>&#32;uint8_t&#32;_estack;&#32;<emphasis role="comment">/*&#32;Symbol&#32;defined&#32;in&#32;the&#32;linker&#32;script&#32;*/</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00057"/>00057 &#32;&#32;<emphasis role="keyword">extern</emphasis>&#32;uint32_t&#32;_Min_Stack_Size;&#32;<emphasis role="comment">/*&#32;Symbol&#32;defined&#32;in&#32;the&#32;linker&#32;script&#32;*/</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00058"/>00058 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint32_t&#32;stack_limit&#32;=&#32;(uint32_t)&amp;_estack&#32;-&#32;(uint32_t)&amp;_Min_Stack_Size;
+<anchor xml:id="_sysmem_8c_source_1l00059"/>00059 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;*max_heap&#32;=&#32;(uint8_t&#32;*)stack_limit;
+<anchor xml:id="_sysmem_8c_source_1l00060"/>00060 &#32;&#32;uint8_t&#32;*prev_heap_end;
+<anchor xml:id="_sysmem_8c_source_1l00061"/>00061 
+<anchor xml:id="_sysmem_8c_source_1l00062"/>00062 &#32;&#32;<emphasis role="comment">/*&#32;Initialize&#32;heap&#32;end&#32;at&#32;first&#32;call&#32;*/</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00063"/>00063 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(NULL&#32;==&#32;__sbrk_heap_end)
+<anchor xml:id="_sysmem_8c_source_1l00064"/>00064 &#32;&#32;{
+<anchor xml:id="_sysmem_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;__sbrk_heap_end&#32;=&#32;&amp;_end;
+<anchor xml:id="_sysmem_8c_source_1l00066"/>00066 &#32;&#32;}
+<anchor xml:id="_sysmem_8c_source_1l00067"/>00067 
+<anchor xml:id="_sysmem_8c_source_1l00068"/>00068 &#32;&#32;<emphasis role="comment">/*&#32;Protect&#32;heap&#32;from&#32;growing&#32;into&#32;the&#32;reserved&#32;MSP&#32;stack&#32;*/</emphasis>
+<anchor xml:id="_sysmem_8c_source_1l00069"/>00069 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(__sbrk_heap_end&#32;+&#32;incr&#32;&gt;&#32;max_heap)
+<anchor xml:id="_sysmem_8c_source_1l00070"/>00070 &#32;&#32;{
+<anchor xml:id="_sysmem_8c_source_1l00071"/>00071 &#32;&#32;&#32;&#32;errno&#32;=&#32;ENOMEM;
+<anchor xml:id="_sysmem_8c_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(<emphasis role="keywordtype">void</emphasis>&#32;*)-1;
+<anchor xml:id="_sysmem_8c_source_1l00073"/>00073 &#32;&#32;}
+<anchor xml:id="_sysmem_8c_source_1l00074"/>00074 
+<anchor xml:id="_sysmem_8c_source_1l00075"/>00075 &#32;&#32;prev_heap_end&#32;=&#32;__sbrk_heap_end;
+<anchor xml:id="_sysmem_8c_source_1l00076"/>00076 &#32;&#32;__sbrk_heap_end&#32;+=&#32;incr;
+<anchor xml:id="_sysmem_8c_source_1l00077"/>00077 
+<anchor xml:id="_sysmem_8c_source_1l00078"/>00078 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(<emphasis role="keywordtype">void</emphasis>&#32;*)prev_heap_end;
+<anchor xml:id="_sysmem_8c_source_1l00079"/>00079 }
+</programlisting></section>

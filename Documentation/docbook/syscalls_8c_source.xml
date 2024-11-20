@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_syscalls_8c_source" xml:lang="en-US">
+<title>syscalls.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/syscalls.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_syscalls_8c_source_1l00001"/>00001 
+<anchor xml:id="_syscalls_8c_source_1l00023"/>00023 <emphasis role="comment">/*&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00024"/>00024 <emphasis role="preprocessor">#include&#32;&lt;sys/stat.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&lt;errno.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00027"/>00027 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00028"/>00028 <emphasis role="preprocessor">#include&#32;&lt;signal.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00029"/>00029 <emphasis role="preprocessor">#include&#32;&lt;time.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00030"/>00030 <emphasis role="preprocessor">#include&#32;&lt;sys/time.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00031"/>00031 <emphasis role="preprocessor">#include&#32;&lt;sys/times.h&gt;</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00032"/>00032 
+<anchor xml:id="_syscalls_8c_source_1l00033"/>00033 
+<anchor xml:id="_syscalls_8c_source_1l00034"/>00034 <emphasis role="comment">/*&#32;Variables&#32;*/</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00035"/>00035 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1aa53ed4b191897a1bfc205aa1da005d24">__io_putchar</link>(<emphasis role="keywordtype">int</emphasis>&#32;ch)&#32;<link linkend="_syscalls_8c_1af9aace1b44b73111e15aa39f06f43456">__attribute__</link>((weak));
+<anchor xml:id="_syscalls_8c_source_1l00036"/><link linkend="_syscalls_8c_1ad0122671640a3af49792ddaa59e8294e">00036</link> <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1ad0122671640a3af49792ddaa59e8294e">__io_getchar</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<link linkend="_syscalls_8c_1af9aace1b44b73111e15aa39f06f43456">__attribute__</link>((weak));
+<anchor xml:id="_syscalls_8c_source_1l00037"/>00037 
+<anchor xml:id="_syscalls_8c_source_1l00038"/>00038 
+<anchor xml:id="_syscalls_8c_source_1l00039"/>00039 <emphasis role="keywordtype">char</emphasis>&#32;*__env[1]&#32;=&#32;{&#32;0&#32;};
+<anchor xml:id="_syscalls_8c_source_1l00040"/><link linkend="_syscalls_8c_1aa006daaf11f1e2e45a6ababaf463212b">00040</link> <emphasis role="keywordtype">char</emphasis>&#32;**<link linkend="_syscalls_8c_1aa006daaf11f1e2e45a6ababaf463212b">environ</link>&#32;=&#32;__env;
+<anchor xml:id="_syscalls_8c_source_1l00041"/>00041 
+<anchor xml:id="_syscalls_8c_source_1l00042"/>00042 
+<anchor xml:id="_syscalls_8c_source_1l00043"/>00043 <emphasis role="comment">/*&#32;Functions&#32;*/</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00044"/><link linkend="_syscalls_8c_1a25c7f100d498300fff65568c2fcfe639">00044</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_syscalls_8c_1a25c7f100d498300fff65568c2fcfe639">initialise_monitor_handles</link>()
+<anchor xml:id="_syscalls_8c_source_1l00045"/>00045 {
+<anchor xml:id="_syscalls_8c_source_1l00046"/>00046 }
+<anchor xml:id="_syscalls_8c_source_1l00047"/>00047 
+<anchor xml:id="_syscalls_8c_source_1l00048"/><link linkend="_syscalls_8c_1a945e539df8e0f66d3c73c533fe1968ee">00048</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a945e539df8e0f66d3c73c533fe1968ee">_getpid</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_syscalls_8c_source_1l00049"/>00049 {
+<anchor xml:id="_syscalls_8c_source_1l00050"/>00050 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_syscalls_8c_source_1l00051"/>00051 }
+<anchor xml:id="_syscalls_8c_source_1l00052"/>00052 
+<anchor xml:id="_syscalls_8c_source_1l00053"/><link linkend="_syscalls_8c_1a062a5101199c3128edd5170f2575bb10">00053</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a062a5101199c3128edd5170f2575bb10">_kill</link>(<emphasis role="keywordtype">int</emphasis>&#32;pid,&#32;<emphasis role="keywordtype">int</emphasis>&#32;sig)
+<anchor xml:id="_syscalls_8c_source_1l00054"/>00054 {
+<anchor xml:id="_syscalls_8c_source_1l00055"/>00055 &#32;&#32;(void)pid;
+<anchor xml:id="_syscalls_8c_source_1l00056"/>00056 &#32;&#32;(void)sig;
+<anchor xml:id="_syscalls_8c_source_1l00057"/>00057 &#32;&#32;errno&#32;=&#32;EINVAL;
+<anchor xml:id="_syscalls_8c_source_1l00058"/>00058 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00059"/>00059 }
+<anchor xml:id="_syscalls_8c_source_1l00060"/>00060 
+<anchor xml:id="_syscalls_8c_source_1l00061"/><link linkend="_syscalls_8c_1abc96bd69b58b2deaddb484478d911c1b">00061</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_syscalls_8c_1abc96bd69b58b2deaddb484478d911c1b">_exit</link>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;status)
+<anchor xml:id="_syscalls_8c_source_1l00062"/>00062 {
+<anchor xml:id="_syscalls_8c_source_1l00063"/>00063 &#32;&#32;<link linkend="_syscalls_8c_1a062a5101199c3128edd5170f2575bb10">_kill</link>(status,&#32;-1);
+<anchor xml:id="_syscalls_8c_source_1l00064"/>00064 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)&#32;{}&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Make&#32;sure&#32;we&#32;hang&#32;here&#32;*/</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00065"/>00065 }
+<anchor xml:id="_syscalls_8c_source_1l00066"/>00066 
+<anchor xml:id="_syscalls_8c_source_1l00067"/><link linkend="_syscalls_8c_1af9aace1b44b73111e15aa39f06f43456">00067</link> <link linkend="_syscalls_8c_1af9aace1b44b73111e15aa39f06f43456">__attribute__</link>((weak))&#32;<emphasis role="keywordtype">int</emphasis>&#32;_read(<emphasis role="keywordtype">int</emphasis>&#32;file,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*ptr,&#32;<emphasis role="keywordtype">int</emphasis>&#32;len)
+<anchor xml:id="_syscalls_8c_source_1l00068"/>00068 {
+<anchor xml:id="_syscalls_8c_source_1l00069"/>00069 &#32;&#32;(void)file;
+<anchor xml:id="_syscalls_8c_source_1l00070"/>00070 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;DataIdx;
+<anchor xml:id="_syscalls_8c_source_1l00071"/>00071 
+<anchor xml:id="_syscalls_8c_source_1l00072"/>00072 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(DataIdx&#32;=&#32;0;&#32;DataIdx&#32;&lt;&#32;len;&#32;DataIdx++)
+<anchor xml:id="_syscalls_8c_source_1l00073"/>00073 &#32;&#32;{
+<anchor xml:id="_syscalls_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;*ptr++&#32;=&#32;<link linkend="_syscalls_8c_1ad0122671640a3af49792ddaa59e8294e">__io_getchar</link>();
+<anchor xml:id="_syscalls_8c_source_1l00075"/>00075 &#32;&#32;}
+<anchor xml:id="_syscalls_8c_source_1l00076"/>00076 
+<anchor xml:id="_syscalls_8c_source_1l00077"/>00077 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;len;
+<anchor xml:id="_syscalls_8c_source_1l00078"/>00078 }
+<anchor xml:id="_syscalls_8c_source_1l00079"/>00079 
+<anchor xml:id="_syscalls_8c_source_1l00080"/>00080 <link linkend="_syscalls_8c_1af9aace1b44b73111e15aa39f06f43456">__attribute__</link>((weak))&#32;<emphasis role="keywordtype">int</emphasis>&#32;_write(<emphasis role="keywordtype">int</emphasis>&#32;file,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*ptr,&#32;<emphasis role="keywordtype">int</emphasis>&#32;len)
+<anchor xml:id="_syscalls_8c_source_1l00081"/>00081 {
+<anchor xml:id="_syscalls_8c_source_1l00082"/>00082 &#32;&#32;(void)file;
+<anchor xml:id="_syscalls_8c_source_1l00083"/>00083 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;DataIdx;
+<anchor xml:id="_syscalls_8c_source_1l00084"/>00084 
+<anchor xml:id="_syscalls_8c_source_1l00085"/>00085 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(DataIdx&#32;=&#32;0;&#32;DataIdx&#32;&lt;&#32;len;&#32;DataIdx++)
+<anchor xml:id="_syscalls_8c_source_1l00086"/>00086 &#32;&#32;{
+<anchor xml:id="_syscalls_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;<link linkend="_syscalls_8c_1aa53ed4b191897a1bfc205aa1da005d24">__io_putchar</link>(*ptr++);
+<anchor xml:id="_syscalls_8c_source_1l00088"/>00088 &#32;&#32;}
+<anchor xml:id="_syscalls_8c_source_1l00089"/>00089 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;len;
+<anchor xml:id="_syscalls_8c_source_1l00090"/>00090 }
+<anchor xml:id="_syscalls_8c_source_1l00091"/>00091 
+<anchor xml:id="_syscalls_8c_source_1l00092"/><link linkend="_syscalls_8c_1a5aab5e2acfd600e3667dc915a2bbc7cb">00092</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a5aab5e2acfd600e3667dc915a2bbc7cb">_close</link>(<emphasis role="keywordtype">int</emphasis>&#32;file)
+<anchor xml:id="_syscalls_8c_source_1l00093"/>00093 {
+<anchor xml:id="_syscalls_8c_source_1l00094"/>00094 &#32;&#32;(void)file;
+<anchor xml:id="_syscalls_8c_source_1l00095"/>00095 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00096"/>00096 }
+<anchor xml:id="_syscalls_8c_source_1l00097"/>00097 
+<anchor xml:id="_syscalls_8c_source_1l00098"/>00098 
+<anchor xml:id="_syscalls_8c_source_1l00099"/><link linkend="_syscalls_8c_1a41eef54307912a82d20e71c3d47315aa">00099</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a41eef54307912a82d20e71c3d47315aa">_fstat</link>(<emphasis role="keywordtype">int</emphasis>&#32;file,&#32;<emphasis role="keyword">struct</emphasis>&#32;stat&#32;*st)
+<anchor xml:id="_syscalls_8c_source_1l00100"/>00100 {
+<anchor xml:id="_syscalls_8c_source_1l00101"/>00101 &#32;&#32;(void)file;
+<anchor xml:id="_syscalls_8c_source_1l00102"/>00102 &#32;&#32;st-&gt;st_mode&#32;=&#32;S_IFCHR;
+<anchor xml:id="_syscalls_8c_source_1l00103"/>00103 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_syscalls_8c_source_1l00104"/>00104 }
+<anchor xml:id="_syscalls_8c_source_1l00105"/>00105 
+<anchor xml:id="_syscalls_8c_source_1l00106"/><link linkend="_syscalls_8c_1ad3134a3dc296622b8d1c5456e481505b">00106</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1ad3134a3dc296622b8d1c5456e481505b">_isatty</link>(<emphasis role="keywordtype">int</emphasis>&#32;file)
+<anchor xml:id="_syscalls_8c_source_1l00107"/>00107 {
+<anchor xml:id="_syscalls_8c_source_1l00108"/>00108 &#32;&#32;(void)file;
+<anchor xml:id="_syscalls_8c_source_1l00109"/>00109 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_syscalls_8c_source_1l00110"/>00110 }
+<anchor xml:id="_syscalls_8c_source_1l00111"/>00111 
+<anchor xml:id="_syscalls_8c_source_1l00112"/><link linkend="_syscalls_8c_1a7a61311bdf1cb025fc07dc2bdae22ce4">00112</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a7a61311bdf1cb025fc07dc2bdae22ce4">_lseek</link>(<emphasis role="keywordtype">int</emphasis>&#32;file,&#32;<emphasis role="keywordtype">int</emphasis>&#32;ptr,&#32;<emphasis role="keywordtype">int</emphasis>&#32;dir)
+<anchor xml:id="_syscalls_8c_source_1l00113"/>00113 {
+<anchor xml:id="_syscalls_8c_source_1l00114"/>00114 &#32;&#32;(void)file;
+<anchor xml:id="_syscalls_8c_source_1l00115"/>00115 &#32;&#32;(void)ptr;
+<anchor xml:id="_syscalls_8c_source_1l00116"/>00116 &#32;&#32;(void)dir;
+<anchor xml:id="_syscalls_8c_source_1l00117"/>00117 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_syscalls_8c_source_1l00118"/>00118 }
+<anchor xml:id="_syscalls_8c_source_1l00119"/>00119 
+<anchor xml:id="_syscalls_8c_source_1l00120"/><link linkend="_syscalls_8c_1a270c9113047edd8d64186710ad76062b">00120</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a270c9113047edd8d64186710ad76062b">_open</link>(<emphasis role="keywordtype">char</emphasis>&#32;*path,&#32;<emphasis role="keywordtype">int</emphasis>&#32;flags,&#32;...)
+<anchor xml:id="_syscalls_8c_source_1l00121"/>00121 {
+<anchor xml:id="_syscalls_8c_source_1l00122"/>00122 &#32;&#32;(void)path;
+<anchor xml:id="_syscalls_8c_source_1l00123"/>00123 &#32;&#32;(void)flags;
+<anchor xml:id="_syscalls_8c_source_1l00124"/>00124 &#32;&#32;<emphasis role="comment">/*&#32;Pretend&#32;like&#32;we&#32;always&#32;fail&#32;*/</emphasis>
+<anchor xml:id="_syscalls_8c_source_1l00125"/>00125 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00126"/>00126 }
+<anchor xml:id="_syscalls_8c_source_1l00127"/>00127 
+<anchor xml:id="_syscalls_8c_source_1l00128"/><link linkend="_syscalls_8c_1aeef0c3372d04caa1bcc99fed2ab6ec72">00128</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1aeef0c3372d04caa1bcc99fed2ab6ec72">_wait</link>(<emphasis role="keywordtype">int</emphasis>&#32;*status)
+<anchor xml:id="_syscalls_8c_source_1l00129"/>00129 {
+<anchor xml:id="_syscalls_8c_source_1l00130"/>00130 &#32;&#32;(void)status;
+<anchor xml:id="_syscalls_8c_source_1l00131"/>00131 &#32;&#32;errno&#32;=&#32;ECHILD;
+<anchor xml:id="_syscalls_8c_source_1l00132"/>00132 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00133"/>00133 }
+<anchor xml:id="_syscalls_8c_source_1l00134"/>00134 
+<anchor xml:id="_syscalls_8c_source_1l00135"/><link linkend="_syscalls_8c_1a70b2f211d665cded5637065aa2bb89dc">00135</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a70b2f211d665cded5637065aa2bb89dc">_unlink</link>(<emphasis role="keywordtype">char</emphasis>&#32;*name)
+<anchor xml:id="_syscalls_8c_source_1l00136"/>00136 {
+<anchor xml:id="_syscalls_8c_source_1l00137"/>00137 &#32;&#32;(void)name;
+<anchor xml:id="_syscalls_8c_source_1l00138"/>00138 &#32;&#32;errno&#32;=&#32;ENOENT;
+<anchor xml:id="_syscalls_8c_source_1l00139"/>00139 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00140"/>00140 }
+<anchor xml:id="_syscalls_8c_source_1l00141"/>00141 
+<anchor xml:id="_syscalls_8c_source_1l00142"/><link linkend="_syscalls_8c_1aaf727ebf57cd64d6c58b23e6ee4a4a69">00142</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1aaf727ebf57cd64d6c58b23e6ee4a4a69">_times</link>(<emphasis role="keyword">struct</emphasis>&#32;tms&#32;*buf)
+<anchor xml:id="_syscalls_8c_source_1l00143"/>00143 {
+<anchor xml:id="_syscalls_8c_source_1l00144"/>00144 &#32;&#32;(void)buf;
+<anchor xml:id="_syscalls_8c_source_1l00145"/>00145 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00146"/>00146 }
+<anchor xml:id="_syscalls_8c_source_1l00147"/>00147 
+<anchor xml:id="_syscalls_8c_source_1l00148"/><link linkend="_syscalls_8c_1a4711e961db985ed2c850a8be6597af50">00148</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a4711e961db985ed2c850a8be6597af50">_stat</link>(<emphasis role="keywordtype">char</emphasis>&#32;*file,&#32;<emphasis role="keyword">struct</emphasis>&#32;stat&#32;*st)
+<anchor xml:id="_syscalls_8c_source_1l00149"/>00149 {
+<anchor xml:id="_syscalls_8c_source_1l00150"/>00150 &#32;&#32;(void)file;
+<anchor xml:id="_syscalls_8c_source_1l00151"/>00151 &#32;&#32;st-&gt;st_mode&#32;=&#32;S_IFCHR;
+<anchor xml:id="_syscalls_8c_source_1l00152"/>00152 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_syscalls_8c_source_1l00153"/>00153 }
+<anchor xml:id="_syscalls_8c_source_1l00154"/>00154 
+<anchor xml:id="_syscalls_8c_source_1l00155"/><link linkend="_syscalls_8c_1a31da4cd5328defa76a9e2246992aba12">00155</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a31da4cd5328defa76a9e2246992aba12">_link</link>(<emphasis role="keywordtype">char</emphasis>&#32;*old,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<emphasis role="keyword">new</emphasis>)
+<anchor xml:id="_syscalls_8c_source_1l00156"/>00156 {
+<anchor xml:id="_syscalls_8c_source_1l00157"/>00157 &#32;&#32;(void)old;
+<anchor xml:id="_syscalls_8c_source_1l00158"/>00158 &#32;&#32;(void)<emphasis role="keyword">new</emphasis>;
+<anchor xml:id="_syscalls_8c_source_1l00159"/>00159 &#32;&#32;errno&#32;=&#32;EMLINK;
+<anchor xml:id="_syscalls_8c_source_1l00160"/>00160 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00161"/>00161 }
+<anchor xml:id="_syscalls_8c_source_1l00162"/>00162 
+<anchor xml:id="_syscalls_8c_source_1l00163"/><link linkend="_syscalls_8c_1a6cb6331c9d166180903d5fb78b9c9dd7">00163</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1a6cb6331c9d166180903d5fb78b9c9dd7">_fork</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_syscalls_8c_source_1l00164"/>00164 {
+<anchor xml:id="_syscalls_8c_source_1l00165"/>00165 &#32;&#32;errno&#32;=&#32;EAGAIN;
+<anchor xml:id="_syscalls_8c_source_1l00166"/>00166 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00167"/>00167 }
+<anchor xml:id="_syscalls_8c_source_1l00168"/>00168 
+<anchor xml:id="_syscalls_8c_source_1l00169"/><link linkend="_syscalls_8c_1ad2a07db8fdf26151eb98ba5711fad8c5">00169</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_syscalls_8c_1ad2a07db8fdf26151eb98ba5711fad8c5">_execve</link>(<emphasis role="keywordtype">char</emphasis>&#32;*name,&#32;<emphasis role="keywordtype">char</emphasis>&#32;**<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>,&#32;<emphasis role="keywordtype">char</emphasis>&#32;**env)
+<anchor xml:id="_syscalls_8c_source_1l00170"/>00170 {
+<anchor xml:id="_syscalls_8c_source_1l00171"/>00171 &#32;&#32;(void)name;
+<anchor xml:id="_syscalls_8c_source_1l00172"/>00172 &#32;&#32;(void)<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>;
+<anchor xml:id="_syscalls_8c_source_1l00173"/>00173 &#32;&#32;(void)env;
+<anchor xml:id="_syscalls_8c_source_1l00174"/>00174 &#32;&#32;errno&#32;=&#32;ENOMEM;
+<anchor xml:id="_syscalls_8c_source_1l00175"/>00175 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_syscalls_8c_source_1l00176"/>00176 }
+</programlisting></section>

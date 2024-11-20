@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_shell_8c_source" xml:lang="en-US">
+<title>shell.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/mylibs/shell.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_shell_8c_source_1l00001"/>00001 
+<anchor xml:id="_shell_8c_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_usart_8h">usart.h</link>&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00014"/>00014 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_shell_8h">mylibs/shell.h</link>&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00015"/>00015 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_tim_8h">tim.h</link>&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00016"/>00016 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00017"/>00017 <emphasis role="preprocessor">#include&#32;&lt;string.h&gt;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00018"/>00018 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00019"/>00019 
+<anchor xml:id="_shell_8c_source_1l00021"/><link linkend="_shell_8c_1a8b893859891afe33d4bba72ba06fd381">00021</link> uint8_t&#32;<link linkend="_shell_8c_1a8b893859891afe33d4bba72ba06fd381">prompt</link>[]&#32;=&#32;<emphasis role="stringliteral">&quot;user@Nucleo-STM32G474RET6&gt;&gt;&quot;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00022"/>00022 
+<anchor xml:id="_shell_8c_source_1l00024"/><link linkend="_shell_8c_1a835573497a60b314a9bf5a6fcac9602a">00024</link> uint8_t&#32;<link linkend="_shell_8c_1a835573497a60b314a9bf5a6fcac9602a">started</link>[]&#32;=
+<anchor xml:id="_shell_8c_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n*-----------------------------*&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n|&#32;Welcome&#32;on&#32;Nucleo-STM32G474&#32;|&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n*-----------------------------*\r\n&quot;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00028"/>00028 
+<anchor xml:id="_shell_8c_source_1l00030"/><link linkend="_shell_8c_1a98a2c452a5e7053154e9f49a4cad4e98">00030</link> uint8_t&#32;<link linkend="_shell_8c_1a98a2c452a5e7053154e9f49a4cad4e98">newline</link>[]&#32;=&#32;<emphasis role="stringliteral">&quot;\r\n&quot;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00031"/>00031 
+<anchor xml:id="_shell_8c_source_1l00033"/><link linkend="_shell_8c_1a73072efaa96faae50fbceb96dc409a43">00033</link> uint8_t&#32;<link linkend="_shell_8c_1a73072efaa96faae50fbceb96dc409a43">backspace</link>[]&#32;=&#32;<emphasis role="stringliteral">&quot;\b&#32;\b&quot;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00034"/>00034 
+<anchor xml:id="_shell_8c_source_1l00036"/><link linkend="_shell_8c_1a25205e7c6d817620c1d9f7351a817a04">00036</link> uint8_t&#32;<link linkend="_shell_8c_1a25205e7c6d817620c1d9f7351a817a04">cmdNotFound</link>[]&#32;=&#32;<emphasis role="stringliteral">&quot;Command&#32;not&#32;found\r\n&quot;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00037"/>00037 
+<anchor xml:id="_shell_8c_source_1l00039"/><link linkend="_shell_8c_1a438d322744fd2053e4b031aea2ad1cbe">00039</link> uint8_t&#32;<link linkend="_shell_8c_1a438d322744fd2053e4b031aea2ad1cbe">brian</link>[]&#32;=&#32;<emphasis role="stringliteral">&quot;Brian&#32;is&#32;in&#32;the&#32;kitchen\r\n&quot;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00040"/>00040 
+<anchor xml:id="_shell_8c_source_1l00042"/><link linkend="_shell_8c_1a9f01ffb72325e6328a2239d6de7f4abc">00042</link> uint8_t&#32;<link linkend="_shell_8c_1a9f01ffb72325e6328a2239d6de7f4abc">uartRxReceived</link>;
+<anchor xml:id="_shell_8c_source_1l00043"/>00043 
+<anchor xml:id="_shell_8c_source_1l00045"/><link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">00045</link> uint8_t&#32;<link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">uartRxBuffer</link>[<link linkend="_shell_8h_1a5bdd6772c246436bb14377095de79b31">UART_RX_BUFFER_SIZE</link>];
+<anchor xml:id="_shell_8c_source_1l00046"/>00046 
+<anchor xml:id="_shell_8c_source_1l00048"/><link linkend="_shell_8c_1a3f98e2db2fa0d8f0cfd87b887576207f">00048</link> uint8_t&#32;<link linkend="_shell_8c_1a3f98e2db2fa0d8f0cfd87b887576207f">uartTxBuffer</link>[<link linkend="_shell_8h_1a05f5d709605c6317c97e4974bec3402a">UART_TX_BUFFER_SIZE</link>];
+<anchor xml:id="_shell_8c_source_1l00049"/>00049 
+<anchor xml:id="_shell_8c_source_1l00051"/><link linkend="_shell_8c_1a59e1969bb35fb5ddc69a02e5b3f7347b">00051</link> uint8_t&#32;<link linkend="_shell_8c_1a59e1969bb35fb5ddc69a02e5b3f7347b">helpMessage</link>[]&#32;=
+<anchor xml:id="_shell_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\nAvailable&#32;commands:&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n-&#32;help\tDisplays&#32;this&#32;help&#32;message.&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n-&#32;ratio\tSets&#32;a&#32;new&#32;cyclic&#32;ratio.&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n-&#32;speed\tSets&#32;a&#32;new&#32;PWM&#32;speed.&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n-&#32;start\tStarts&#32;the&#32;PWM&#32;generation.&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n-&#32;stop\tStops&#32;the&#32;PWM&#32;generation.&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00058"/>00058 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n-&#32;reset\tResets&#32;the&#32;microcontroller.&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n-&#32;current\tPrints&#32;the&#32;measured&#32;current&#32;of&#32;U.&quot;</emphasis>
+<anchor xml:id="_shell_8c_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\r\n&quot;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00061"/>00061 
+<anchor xml:id="_shell_8c_source_1l00063"/><link linkend="_shell_8c_1a755c320507955b333af8919b434c80dd">00063</link> <emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_shell_8c_1a755c320507955b333af8919b434c80dd">cmdBuffer</link>[<link linkend="_shell_8h_1a8a0465f8e8bbe71e4d6e8011e975bf75">CMD_BUFFER_SIZE</link>];
+<anchor xml:id="_shell_8c_source_1l00064"/>00064 
+<anchor xml:id="_shell_8c_source_1l00066"/><link linkend="_shell_8c_1a53cf6ebd0848970afbf70c176bec9314">00066</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_shell_8c_1a53cf6ebd0848970afbf70c176bec9314">idx_cmd</link>;
+<anchor xml:id="_shell_8c_source_1l00067"/>00067 
+<anchor xml:id="_shell_8c_source_1l00069"/><link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">00069</link> <emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[<link linkend="_shell_8h_1a29b7451465deac204c5f7cb1f9c6e1fc">MAX_ARGS</link>];
+<anchor xml:id="_shell_8c_source_1l00070"/>00070 
+<anchor xml:id="_shell_8c_source_1l00072"/><link linkend="_shell_8c_1ad1447518f4372828b8435ae82e48499e">00072</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_shell_8c_1ad1447518f4372828b8435ae82e48499e">argc</link>&#32;=&#32;0;
+<anchor xml:id="_shell_8c_source_1l00073"/>00073 
+<anchor xml:id="_shell_8c_source_1l00075"/><link linkend="_shell_8c_1a1d71425d9df28667d528833a4db10432">00075</link> <emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_shell_8c_1a1d71425d9df28667d528833a4db10432">token</link>;
+<anchor xml:id="_shell_8c_source_1l00076"/>00076 
+<anchor xml:id="_shell_8c_source_1l00078"/><link linkend="_shell_8c_1a83a0d9b47b936e62d1d68aea902883ac">00078</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_shell_8c_1a83a0d9b47b936e62d1d68aea902883ac">newCmdReady</link>&#32;=&#32;0;
+<anchor xml:id="_shell_8c_source_1l00079"/>00079 
+<anchor xml:id="_shell_8c_source_1l00085"/><link linkend="_shell_8h_1a1e1a7212cd1e25d36ce85620f03f996e">00085</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8c_1a1e1a7212cd1e25d36ce85620f03f996e">Shell_Init</link>(<emphasis role="keywordtype">void</emphasis>){
+<anchor xml:id="_shell_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;memset(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>,&#32;NULL,&#32;<link linkend="_shell_8h_1a29b7451465deac204c5f7cb1f9c6e1fc">MAX_ARGS</link>*<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>*));
+<anchor xml:id="_shell_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;memset(<link linkend="_shell_8c_1a755c320507955b333af8919b434c80dd">cmdBuffer</link>,&#32;NULL,&#32;<link linkend="_shell_8h_1a8a0465f8e8bbe71e4d6e8011e975bf75">CMD_BUFFER_SIZE</link>*<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>));
+<anchor xml:id="_shell_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;memset(<link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">uartRxBuffer</link>,&#32;NULL,&#32;<link linkend="_shell_8h_1a5bdd6772c246436bb14377095de79b31">UART_RX_BUFFER_SIZE</link>*<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>));
+<anchor xml:id="_shell_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;memset(<link linkend="_shell_8c_1a3f98e2db2fa0d8f0cfd87b887576207f">uartTxBuffer</link>,&#32;NULL,&#32;<link linkend="_shell_8h_1a05f5d709605c6317c97e4974bec3402a">UART_TX_BUFFER_SIZE</link>*<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>));
+<anchor xml:id="_shell_8c_source_1l00090"/>00090 
+<anchor xml:id="_shell_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;HAL_UART_Receive_IT(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">uartRxBuffer</link>,&#32;<link linkend="_shell_8h_1a5bdd6772c246436bb14377095de79b31">UART_RX_BUFFER_SIZE</link>);
+<anchor xml:id="_shell_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a835573497a60b314a9bf5a6fcac9602a">started</link>,&#32;strlen((<emphasis role="keywordtype">char</emphasis>&#32;*)<link linkend="_shell_8c_1a835573497a60b314a9bf5a6fcac9602a">started</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a8b893859891afe33d4bba72ba06fd381">prompt</link>,&#32;strlen((<emphasis role="keywordtype">char</emphasis>&#32;*)<link linkend="_shell_8c_1a8b893859891afe33d4bba72ba06fd381">prompt</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00094"/>00094 }
+<anchor xml:id="_shell_8c_source_1l00095"/>00095 
+<anchor xml:id="_shell_8c_source_1l00101"/><link linkend="_shell_8h_1a9f70d5542e7f7f470ff7cd7d482caeb7">00101</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8c_1a9f70d5542e7f7f470ff7cd7d482caeb7">Shell_Loop</link>(<emphasis role="keywordtype">void</emphasis>){
+<anchor xml:id="_shell_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_shell_8c_1a9f01ffb72325e6328a2239d6de7f4abc">uartRxReceived</link>){
+<anchor xml:id="_shell_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>(<link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">uartRxBuffer</link>[0]){
+<anchor xml:id="_shell_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_shell_8h_1a089ed4925403ab02a05e603967c74579">ASCII_CR</link>:&#32;<emphasis role="comment">//&#32;Nouvelle&#32;ligne,&#32;instruction&#32;à&#32;traiter</emphasis>
+<anchor xml:id="_shell_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a98a2c452a5e7053154e9f49a4cad4e98">newline</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<link linkend="_shell_8c_1a98a2c452a5e7053154e9f49a4cad4e98">newline</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a755c320507955b333af8919b434c80dd">cmdBuffer</link>[<link linkend="_shell_8c_1a53cf6ebd0848970afbf70c176bec9314">idx_cmd</link>]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1ad1447518f4372828b8435ae82e48499e">argc</link>&#32;=&#32;0;
+<anchor xml:id="_shell_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a1d71425d9df28667d528833a4db10432">token</link>&#32;=&#32;strtok(<link linkend="_shell_8c_1a755c320507955b333af8919b434c80dd">cmdBuffer</link>,&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>);
+<anchor xml:id="_shell_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>(<link linkend="_shell_8c_1a1d71425d9df28667d528833a4db10432">token</link>!=NULL){
+<anchor xml:id="_shell_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[<link linkend="_shell_8c_1ad1447518f4372828b8435ae82e48499e">argc</link>++]&#32;=&#32;<link linkend="_shell_8c_1a1d71425d9df28667d528833a4db10432">token</link>;
+<anchor xml:id="_shell_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a1d71425d9df28667d528833a4db10432">token</link>&#32;=&#32;strtok(NULL,&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>);
+<anchor xml:id="_shell_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a53cf6ebd0848970afbf70c176bec9314">idx_cmd</link>&#32;=&#32;0;
+<anchor xml:id="_shell_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a83a0d9b47b936e62d1d68aea902883ac">newCmdReady</link>&#32;=&#32;1;
+<anchor xml:id="_shell_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_shell_8h_1a681f208df4071753dd6a7a71d0f5780e">ASCII_BACK</link>:&#32;<emphasis role="comment">//&#32;Suppression&#32;du&#32;dernier&#32;caractère</emphasis>
+<anchor xml:id="_shell_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a755c320507955b333af8919b434c80dd">cmdBuffer</link>[<link linkend="_shell_8c_1a53cf6ebd0848970afbf70c176bec9314">idx_cmd</link>--]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a73072efaa96faae50fbceb96dc409a43">backspace</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<link linkend="_shell_8c_1a73072efaa96faae50fbceb96dc409a43">backspace</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_shell_8c_source_1l00120"/>00120 
+<anchor xml:id="_shell_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:&#32;<emphasis role="comment">//&#32;Nouveau&#32;caractère</emphasis>
+<anchor xml:id="_shell_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a755c320507955b333af8919b434c80dd">cmdBuffer</link>[<link linkend="_shell_8c_1a53cf6ebd0848970afbf70c176bec9314">idx_cmd</link>++]&#32;=&#32;<link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">uartRxBuffer</link>[0];
+<anchor xml:id="_shell_8c_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">uartRxBuffer</link>,&#32;<link linkend="_shell_8h_1a5bdd6772c246436bb14377095de79b31">UART_RX_BUFFER_SIZE</link>,&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a9f01ffb72325e6328a2239d6de7f4abc">uartRxReceived</link>&#32;=&#32;0;
+<anchor xml:id="_shell_8c_source_1l00126"/>00126 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00127"/>00127 
+<anchor xml:id="_shell_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_shell_8c_1a83a0d9b47b936e62d1d68aea902883ac">newCmdReady</link>){
+<anchor xml:id="_shell_8c_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;WhereisBrian?&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a438d322744fd2053e4b031aea2ad1cbe">brian</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<link linkend="_shell_8c_1a438d322744fd2053e4b031aea2ad1cbe">brian</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;help&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a59e1969bb35fb5ddc69a02e5b3f7347b">helpMessage</link>,&#32;strlen((<emphasis role="keywordtype">char</emphasis>&#32;*)<link linkend="_shell_8c_1a59e1969bb35fb5ddc69a02e5b3f7347b">helpMessage</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;ratio&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_shell_8c_1ad1447518f4372828b8435ae82e48499e">argc</link>&#32;&gt;&#32;1)&#32;{
+<anchor xml:id="_shell_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8h_1ab5c61f6cca95944497de9d5c1a7a0e53">set_PWM_ratio</link>(atof(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[1]));
+<anchor xml:id="_shell_8c_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;speed&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_shell_8c_1ad1447518f4372828b8435ae82e48499e">argc</link>&#32;&gt;&#32;1)&#32;{
+<anchor xml:id="_shell_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8h_1a53873ca97f4eff976cda4093424c60b1">set_PWM_speed</link>(atoi(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[1]));
+<anchor xml:id="_shell_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;start&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8h_1a933ee4c92795bba0229662fbf0a8b144">start_PWM</link>();
+<anchor xml:id="_shell_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;stop&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8h_1a5dbeee862c827ec0736b6e79c42859a9">stop_PWM</link>();
+<anchor xml:id="_shell_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;reset&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8h_1aca90e0598a78eabb24f644da77050761">reset_inverter</link>();
+<anchor xml:id="_shell_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(strcmp(<link linkend="_shell_8c_1a097621c7310da407a3cc4a6ae4568c56">argv</link>[0],<emphasis role="stringliteral">&quot;current&quot;</emphasis>)==0){
+<anchor xml:id="_shell_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8h_1ae52eb9986b1b73a2f95b46d26cd690b4">read_current</link>();
+<anchor xml:id="_shell_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>{
+<anchor xml:id="_shell_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a25205e7c6d817620c1d9f7351a817a04">cmdNotFound</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<link linkend="_shell_8c_1a25205e7c6d817620c1d9f7351a817a04">cmdNotFound</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a8b893859891afe33d4bba72ba06fd381">prompt</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<link linkend="_shell_8c_1a8b893859891afe33d4bba72ba06fd381">prompt</link>),&#32;HAL_MAX_DELAY);
+<anchor xml:id="_shell_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a83a0d9b47b936e62d1d68aea902883ac">newCmdReady</link>&#32;=&#32;0;
+<anchor xml:id="_shell_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_shell_8c_source_1l00163"/>00163 }
+<anchor xml:id="_shell_8c_source_1l00164"/>00164 
+<anchor xml:id="_shell_8c_source_1l00172"/><link linkend="_shell_8c_1ae494a9643f29b87d6d81e5264e60e57b">00172</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_shell_8c_1ae494a9643f29b87d6d81e5264e60e57b">HAL_UART_RxCpltCallback</link>(UART_HandleTypeDef&#32;*&#32;huart){
+<anchor xml:id="_shell_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<link linkend="_shell_8c_1a9f01ffb72325e6328a2239d6de7f4abc">uartRxReceived</link>&#32;=&#32;1;
+<anchor xml:id="_shell_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;HAL_UART_Receive_IT(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;<link linkend="_shell_8c_1a2542ac6d4440b9e1c4a6435c55c79df3">uartRxBuffer</link>,&#32;<link linkend="_shell_8h_1a5bdd6772c246436bb14377095de79b31">UART_RX_BUFFER_SIZE</link>);
+<anchor xml:id="_shell_8c_source_1l00175"/>00175 }
+</programlisting></section>

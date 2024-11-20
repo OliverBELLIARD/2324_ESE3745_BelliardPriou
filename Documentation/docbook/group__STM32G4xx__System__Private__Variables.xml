@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__STM32G4xx__System__Private__Variables" xml:lang="en-US">
+<title>STM32G4xx_System_Private_Variables</title>
+<indexterm><primary>STM32G4xx_System_Private_Variables</primary></indexterm>
+Collaboration diagram for STM32G4xx_System_Private_Variables:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__STM32G4xx__System__Private__Variables.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_group__STM32G4xx__System__Private__Variables_1gaa3cd3e43291e81e795d642b79b6088e6">SystemCoreClock</link> = <link linkend="_stm32g4xx__hal__conf_8h_1aaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE</link></para>
+</listitem>
+            <listitem><para>const uint8_t <link linkend="_group__STM32G4xx__System__Private__Variables_1ga6e1d9cd666f0eacbfde31e9932a93466">AHBPrescTable</link> [16] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U}</para>
+</listitem>
+            <listitem><para>const uint8_t <link linkend="_group__STM32G4xx__System__Private__Variables_1ga5b4f8b768465842cf854a8f993b375e9">APBPrescTable</link> [8] = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U}</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_group__STM32G4xx__System__Private__Variables_1ga6e1d9cd666f0eacbfde31e9932a93466"/><section>
+    <title>AHBPrescTable</title>
+<indexterm><primary>AHBPrescTable</primary><secondary>STM32G4xx_System_Private_Variables</secondary></indexterm>
+<indexterm><primary>STM32G4xx_System_Private_Variables</primary><secondary>AHBPrescTable</secondary></indexterm>
+<para><computeroutput>const uint8_t AHBPrescTable[16] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U}</computeroutput></para><para>
+Definition at line <link linkend="_system__stm32g4xx_8c_source_1l00154">154</link> of file <link linkend="_system__stm32g4xx_8c_source">system_stm32g4xx.c</link>.</para>
+</section>
+<anchor xml:id="_group__STM32G4xx__System__Private__Variables_1ga5b4f8b768465842cf854a8f993b375e9"/><section>
+    <title>APBPrescTable</title>
+<indexterm><primary>APBPrescTable</primary><secondary>STM32G4xx_System_Private_Variables</secondary></indexterm>
+<indexterm><primary>STM32G4xx_System_Private_Variables</primary><secondary>APBPrescTable</secondary></indexterm>
+<para><computeroutput>const uint8_t APBPrescTable[8] = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U}</computeroutput></para><para>
+Definition at line <link linkend="_system__stm32g4xx_8c_source_1l00155">155</link> of file <link linkend="_system__stm32g4xx_8c_source">system_stm32g4xx.c</link>.</para>
+</section>
+<anchor xml:id="_group__STM32G4xx__System__Private__Variables_1gaa3cd3e43291e81e795d642b79b6088e6"/><section>
+    <title>SystemCoreClock</title>
+<indexterm><primary>SystemCoreClock</primary><secondary>STM32G4xx_System_Private_Variables</secondary></indexterm>
+<indexterm><primary>STM32G4xx_System_Private_Variables</primary><secondary>SystemCoreClock</secondary></indexterm>
+<para><computeroutput>uint32_t SystemCoreClock = <link linkend="_stm32g4xx__hal__conf_8h_1aaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE</link></computeroutput></para><para>
+Definition at line <link linkend="_system__stm32g4xx_8c_source_1l00152">152</link> of file <link linkend="_system__stm32g4xx_8c_source">system_stm32g4xx.c</link>.</para>
+</section>
+</section>
+</section>

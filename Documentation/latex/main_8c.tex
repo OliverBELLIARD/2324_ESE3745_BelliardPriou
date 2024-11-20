@@ -1,0 +1,508 @@
+\doxysection{/home/oliver/\+Documents/3\+A/\+Actionneur\+\_\+\+Automatique\+\_\+appliqee/2324\+\_\+\+ESE3745\+\_\+\+Belliard\+Priou/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/main.c@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}adc.\+h"{}}\newline
+{\ttfamily \#include "{}dma.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include "{}usart.\+h"{}}\newline
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+{\ttfamily \#include "{}mylibs/shell.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a82ee9a95304128460364d63f0e613e03}{PWM\+\_\+\+MAX\+\_\+\+VAL}}~4250
+\begin{DoxyCompactList}\small\item\em Maximum PWM value, corresponding to TIM1-\/\texorpdfstring{$>$}{>}ARR. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a338e171d482819a9b2b701e516c2c915}{PWM\+\_\+\+VARIATION\+\_\+\+RATE}}~2
+\begin{DoxyCompactList}\small\item\em Rate of variation for PWM pulse adjustment. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a90cbfa2d30b53b54267566c665cde830}{ADC\+\_\+\+CURRENT\+\_\+\+RESOLUTION}}~0.\+05
+\begin{DoxyCompactList}\small\item\em Current sensor resolution in volts per ampere. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_afc89a90f8514178f04427b7d29096390}{ADC\+\_\+\+VCC}}~3.\+3
+\begin{DoxyCompactList}\small\item\em ADC supply voltage. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a3a63fb6f00694ff9f4318b4142c5c868}{ADC\+\_\+\+MAX\+\_\+\+VAL}}~4096
+\begin{DoxyCompactList}\small\item\em Maximum ADC digital value (12-\/bit resolution). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a827907ee6183e98bb8a50727540d4bb1}{ADC\+\_\+\+OFFSET}}~2421
+\begin{DoxyCompactList}\small\item\em Offset value for ADC measurements. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}{ADC\+\_\+\+BUFF\+\_\+\+SIZE}}~1
+\begin{DoxyCompactList}\small\item\em Size of the ADC data buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_abc513dd972081ae765b6949a62872eb7}{\+\_\+\+\_\+io\+\_\+putchar}} (int ch)
+\begin{DoxyCompactList}\small\item\em Sends a character via UART (overrides default character transmission). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ae4a663d85b1c26ea11de0fb08b00c027}{set\+\_\+\+PWM}} ()
+\begin{DoxyCompactList}\small\item\em Adjusts the PWM pulse for TIM1 channels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ab5c61f6cca95944497de9d5c1a7a0e53}{set\+\_\+\+PWM\+\_\+ratio}} (double ratio)
+\begin{DoxyCompactList}\small\item\em Sets the PWM duty cycle ratio for TIM1 channels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a53873ca97f4eff976cda4093424c60b1}{set\+\_\+\+PWM\+\_\+speed}} (int speed)
+\begin{DoxyCompactList}\small\item\em Sets a specific PWM pulse width for TIM1 channels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_acc0471f81d01eeb7ce92087321f5d7d7}{start\+\_\+\+PWM}} ()
+\begin{DoxyCompactList}\small\item\em Starts PWM on TIM1 channels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a46410d8579351c44306a0986025f244a}{stop\+\_\+\+PWM}} ()
+\begin{DoxyCompactList}\small\item\em Stops PWM on TIM1 channels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_afa0edc0b7d3e2e6206177babb5dacee8}{reset\+\_\+inverter}} ()
+\begin{DoxyCompactList}\small\item\em Resets the microcontroller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_aa721b5468d6af9957f3b6d3064a61760}{read\+\_\+current}} ()
+\begin{DoxyCompactList}\small\item\em Reads and prints the measured current using the ADC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_af20a88180db1113be1e89266917d148b}{HAL\+\_\+\+ADC\+\_\+\+Conv\+Cplt\+Callback}} (ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc)
+\begin{DoxyCompactList}\small\item\em ADC conversion complete callback. Restarts DMA for continuous conversion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main entry point of the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em Configures the system clock. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}{HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\begin{DoxyCompactList}\small\item\em Timer period elapsed callback. Updates PWM when TIM2 interrupt occurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Error handler function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a2532ff72b1a2ff82f65e8c2a5a4dde00}{assert\+\_\+failed}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}file, uint32\+\_\+t line)
+\begin{DoxyCompactList}\small\item\em Assert failed callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\+\_\+speed\+\_\+\+PWM}}
+\begin{DoxyCompactList}\small\item\em Current PWM speed value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a5ac7bf439f479d7cf7106cef76006654}{requested\+\_\+speed\+\_\+\+PWM}}
+\begin{DoxyCompactList}\small\item\em Requested PWM speed value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}{p\+Data}} \mbox{[}\mbox{\hyperlink{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}{ADC\+\_\+\+BUFF\+\_\+\+SIZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Buffer to store ADC data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+Entry point of the application, containing the main loop and peripheral initializations.
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS.
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}\label{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7} 
+\index{main.c@{main.c}!ADC\_BUFF\_SIZE@{ADC\_BUFF\_SIZE}}
+\index{ADC\_BUFF\_SIZE@{ADC\_BUFF\_SIZE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_BUFF\_SIZE}{ADC\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+BUFF\+\_\+\+SIZE~1}
+
+
+
+Size of the ADC data buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00059}{59}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a90cbfa2d30b53b54267566c665cde830}\label{main_8c_a90cbfa2d30b53b54267566c665cde830} 
+\index{main.c@{main.c}!ADC\_CURRENT\_RESOLUTION@{ADC\_CURRENT\_RESOLUTION}}
+\index{ADC\_CURRENT\_RESOLUTION@{ADC\_CURRENT\_RESOLUTION}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_CURRENT\_RESOLUTION}{ADC\_CURRENT\_RESOLUTION}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+CURRENT\+\_\+\+RESOLUTION~0.\+05}
+
+
+
+Current sensor resolution in volts per ampere. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00047}{47}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a3a63fb6f00694ff9f4318b4142c5c868}\label{main_8c_a3a63fb6f00694ff9f4318b4142c5c868} 
+\index{main.c@{main.c}!ADC\_MAX\_VAL@{ADC\_MAX\_VAL}}
+\index{ADC\_MAX\_VAL@{ADC\_MAX\_VAL}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_MAX\_VAL}{ADC\_MAX\_VAL}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+MAX\+\_\+\+VAL~4096}
+
+
+
+Maximum ADC digital value (12-\/bit resolution). 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00053}{53}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a827907ee6183e98bb8a50727540d4bb1}\label{main_8c_a827907ee6183e98bb8a50727540d4bb1} 
+\index{main.c@{main.c}!ADC\_OFFSET@{ADC\_OFFSET}}
+\index{ADC\_OFFSET@{ADC\_OFFSET}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_OFFSET}{ADC\_OFFSET}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+OFFSET~2421}
+
+
+
+Offset value for ADC measurements. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00056}{56}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_afc89a90f8514178f04427b7d29096390}\label{main_8c_afc89a90f8514178f04427b7d29096390} 
+\index{main.c@{main.c}!ADC\_VCC@{ADC\_VCC}}
+\index{ADC\_VCC@{ADC\_VCC}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_VCC}{ADC\_VCC}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+VCC~3.\+3}
+
+
+
+ADC supply voltage. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00050}{50}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a82ee9a95304128460364d63f0e613e03}\label{main_8c_a82ee9a95304128460364d63f0e613e03} 
+\index{main.c@{main.c}!PWM\_MAX\_VAL@{PWM\_MAX\_VAL}}
+\index{PWM\_MAX\_VAL@{PWM\_MAX\_VAL}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_MAX\_VAL}{PWM\_MAX\_VAL}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+MAX\+\_\+\+VAL~4250}
+
+
+
+Maximum PWM value, corresponding to TIM1-\/\texorpdfstring{$>$}{>}ARR. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00041}{41}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a338e171d482819a9b2b701e516c2c915}\label{main_8c_a338e171d482819a9b2b701e516c2c915} 
+\index{main.c@{main.c}!PWM\_VARIATION\_RATE@{PWM\_VARIATION\_RATE}}
+\index{PWM\_VARIATION\_RATE@{PWM\_VARIATION\_RATE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_VARIATION\_RATE}{PWM\_VARIATION\_RATE}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+VARIATION\+\_\+\+RATE~2}
+
+
+
+Rate of variation for PWM pulse adjustment. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00044}{44}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_abc513dd972081ae765b6949a62872eb7}\label{main_8c_abc513dd972081ae765b6949a62872eb7} 
+\index{main.c@{main.c}!\_\_io\_putchar@{\_\_io\_putchar}}
+\index{\_\_io\_putchar@{\_\_io\_putchar}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{\_\_io\_putchar()}{\_\_io\_putchar()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+io\+\_\+putchar (\begin{DoxyParamCaption}\item[{int}]{ch }\end{DoxyParamCaption})}
+
+
+
+Sends a character via UART (overrides default character transmission). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & Character to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sent character. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00082}{82}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a2532ff72b1a2ff82f65e8c2a5a4dde00}\label{main_8c_a2532ff72b1a2ff82f65e8c2a5a4dde00} 
+\index{main.c@{main.c}!assert\_failed@{assert\_failed}}
+\index{assert\_failed@{assert\_failed}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{assert\_failed()}{assert\_failed()}}
+{\footnotesize\ttfamily void assert\+\_\+failed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{file,  }\item[{uint32\+\_\+t}]{line }\end{DoxyParamCaption})}
+
+
+
+Assert failed callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & File where the assertion occurred. \\
+\hline
+{\em line} & Line number of the assertion. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00281}{281}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\label{main_8c_a1730ffe1e560465665eb47d9264826f9} 
+\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Error handler function. 
+
+Called in case of an unrecoverable error. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00268}{268}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{main_8c_af20a88180db1113be1e89266917d148b}\label{main_8c_af20a88180db1113be1e89266917d148b} 
+\index{main.c@{main.c}!HAL\_ADC\_ConvCpltCallback@{HAL\_ADC\_ConvCpltCallback}}
+\index{HAL\_ADC\_ConvCpltCallback@{HAL\_ADC\_ConvCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_ADC\_ConvCpltCallback()}{HAL\_ADC\_ConvCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+ADC\+\_\+\+Conv\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hadc }\end{DoxyParamCaption})}
+
+
+
+ADC conversion complete callback. Restarts DMA for continuous conversion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hadc} & ADC handle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00194}{194}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}\label{main_8c_a8a3b0ad512a6e6c6157440b68d395eac} 
+\index{main.c@{main.c}!HAL\_TIM\_PeriodElapsedCallback@{HAL\_TIM\_PeriodElapsedCallback}}
+\index{HAL\_TIM\_PeriodElapsedCallback@{HAL\_TIM\_PeriodElapsedCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_PeriodElapsedCallback()}{HAL\_TIM\_PeriodElapsedCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
+
+
+
+Timer period elapsed callback. Updates PWM when TIM2 interrupt occurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em htim} & Timer handle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00250}{250}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main entry point of the application. 
+
+Initializes peripherals, starts the PWM, and enters the infinite loop where the shell command interface runs. 
+\begin{DoxyRetVals}{Return values}
+{\em int} & Always returns 0. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00209}{209}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+\Hypertarget{main_8c_aa721b5468d6af9957f3b6d3064a61760}\label{main_8c_aa721b5468d6af9957f3b6d3064a61760} 
+\index{main.c@{main.c}!read\_current@{read\_current}}
+\index{read\_current@{read\_current}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{read\_current()}{read\_current()}}
+{\footnotesize\ttfamily void read\+\_\+current (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads and prints the measured current using the ADC. 
+
+Reads and prints the current value.
+
+Converts the ADC value to a voltage and calculates the current based on the sensor\textquotesingle{}s resolution. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00179}{179}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{main_8c_afa0edc0b7d3e2e6206177babb5dacee8}\label{main_8c_afa0edc0b7d3e2e6206177babb5dacee8} 
+\index{main.c@{main.c}!reset\_inverter@{reset\_inverter}}
+\index{reset\_inverter@{reset\_inverter}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{reset\_inverter()}{reset\_inverter()}}
+{\footnotesize\ttfamily void reset\+\_\+inverter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Resets the microcontroller. 
+
+Performs a system reset using the NVIC\+\_\+\+System\+Reset() function. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00168}{168}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{main_8c_ae4a663d85b1c26ea11de0fb08b00c027}\label{main_8c_ae4a663d85b1c26ea11de0fb08b00c027} 
+\index{main.c@{main.c}!set\_PWM@{set\_PWM}}
+\index{set\_PWM@{set\_PWM}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{set\_PWM()}{set\_PWM()}}
+{\footnotesize\ttfamily void set\+\_\+\+PWM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adjusts the PWM pulse for TIM1 channels. 
+
+This function modifies the {\ttfamily current\+\_\+speed\+\_\+\+PWM} to gradually approach {\ttfamily requested\+\_\+speed\+\_\+\+PWM} and sets the appropriate pulse widths for TIM1 channels. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00094}{94}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{main_8c_ab5c61f6cca95944497de9d5c1a7a0e53}\label{main_8c_ab5c61f6cca95944497de9d5c1a7a0e53} 
+\index{main.c@{main.c}!set\_PWM\_ratio@{set\_PWM\_ratio}}
+\index{set\_PWM\_ratio@{set\_PWM\_ratio}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{set\_PWM\_ratio()}{set\_PWM\_ratio()}}
+{\footnotesize\ttfamily void set\+\_\+\+PWM\+\_\+ratio (\begin{DoxyParamCaption}\item[{double}]{ratio }\end{DoxyParamCaption})}
+
+
+
+Sets the PWM duty cycle ratio for TIM1 channels. 
+
+Sets the PWM duty cycle ratio.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ratio} & Duty cycle ratio (0.\+0 to 1.\+0). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00116}{116}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{main_8c_a53873ca97f4eff976cda4093424c60b1}\label{main_8c_a53873ca97f4eff976cda4093424c60b1} 
+\index{main.c@{main.c}!set\_PWM\_speed@{set\_PWM\_speed}}
+\index{set\_PWM\_speed@{set\_PWM\_speed}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{set\_PWM\_speed()}{set\_PWM\_speed()}}
+{\footnotesize\ttfamily void set\+\_\+\+PWM\+\_\+speed (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Sets a specific PWM pulse width for TIM1 channels. 
+
+Sets the PWM speed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & Desired PWM pulse width (0 to PWM\+\_\+\+MAX\+\_\+\+VAL). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00128}{128}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{main_8c_acc0471f81d01eeb7ce92087321f5d7d7}\label{main_8c_acc0471f81d01eeb7ce92087321f5d7d7} 
+\index{main.c@{main.c}!start\_PWM@{start\_PWM}}
+\index{start\_PWM@{start\_PWM}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{start\_PWM()}{start\_PWM()}}
+{\footnotesize\ttfamily void start\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Starts PWM on TIM1 channels. 
+
+Starts the PWM generation.
+
+Initializes the PWM channels with a base speed corresponding to a 50\% duty cycle. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00141}{141}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{main_8c_a46410d8579351c44306a0986025f244a}\label{main_8c_a46410d8579351c44306a0986025f244a} 
+\index{main.c@{main.c}!stop\_PWM@{stop\_PWM}}
+\index{stop\_PWM@{stop\_PWM}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{stop\_PWM()}{stop\_PWM()}}
+{\footnotesize\ttfamily void stop\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stops PWM on TIM1 channels. 
+
+Stops the PWM generation. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00156}{156}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920} 
+\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configures the system clock. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00241}{241}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 12
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a3324bf9b8e65e0644a99dc82744d01de}\label{main_8c_a3324bf9b8e65e0644a99dc82744d01de} 
+\index{main.c@{main.c}!current\_speed\_PWM@{current\_speed\_PWM}}
+\index{current\_speed\_PWM@{current\_speed\_PWM}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{current\_speed\_PWM}{current\_speed\_PWM}}
+{\footnotesize\ttfamily int current\+\_\+speed\+\_\+\+PWM}
+
+
+
+Current PWM speed value. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00063}{63}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}\label{main_8c_adfc43c37d10368eeef2e68bb7bd1da63} 
+\index{main.c@{main.c}!pData@{pData}}
+\index{pData@{pData}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{pData}{pData}}
+{\footnotesize\ttfamily uint32\+\_\+t p\+Data\mbox{[}\mbox{\hyperlink{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}{ADC\+\_\+\+BUFF\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Buffer to store ADC data. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00069}{69}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a5ac7bf439f479d7cf7106cef76006654}\label{main_8c_a5ac7bf439f479d7cf7106cef76006654} 
+\index{main.c@{main.c}!requested\_speed\_PWM@{requested\_speed\_PWM}}
+\index{requested\_speed\_PWM@{requested\_speed\_PWM}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{requested\_speed\_PWM}{requested\_speed\_PWM}}
+{\footnotesize\ttfamily int requested\+\_\+speed\+\_\+\+PWM}
+
+
+
+Requested PWM speed value. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00066}{66}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__STM32G4xx__System__Private__Functions" xml:lang="en-US">
+<title>STM32G4xx_System_Private_Functions</title>
+<indexterm><primary>STM32G4xx_System_Private_Functions</primary></indexterm>
+Collaboration diagram for STM32G4xx_System_Private_Functions:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__STM32G4xx__System__Private__Functions.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_group__STM32G4xx__System__Private__Functions_1ga93f514700ccf00d08dbdcff7f1224eb2">SystemInit</link> (void)</para>
+
+<para>Setup the microcontroller system. </para>
+</listitem>
+            <listitem><para>void <link linkend="_group__STM32G4xx__System__Private__Functions_1gae0c36a9591fe6e9c45ecb21a794f0f0f">SystemCoreClockUpdate</link> (void)</para>
+
+<para>Update SystemCoreClock variable according to Clock Register Values. The SystemCoreClock variable contains the core clock (HCLK), it can be used by the user application to setup the SysTick timer or configure other parameters. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group__STM32G4xx__System__Private__Functions_1gae0c36a9591fe6e9c45ecb21a794f0f0f"/><section>
+    <title>SystemCoreClockUpdate()</title>
+<indexterm><primary>SystemCoreClockUpdate</primary><secondary>STM32G4xx_System_Private_Functions</secondary></indexterm>
+<indexterm><primary>STM32G4xx_System_Private_Functions</primary><secondary>SystemCoreClockUpdate</secondary></indexterm>
+<para><computeroutput>void SystemCoreClockUpdate (void )</computeroutput></para><para>
+
+<para>Update SystemCoreClock variable according to Clock Register Values. The SystemCoreClock variable contains the core clock (HCLK), it can be used by the user application to setup the SysTick timer or configure other parameters. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>Each time the core clock (HCLK) changes, this function must be called to update SystemCoreClock variable value. Otherwise, any configuration based on this variable will be incorrect.</para>
+
+<para>- The system frequency computed by this function is not the real frequency in the chip. It is calculated based on the predefined constant and the selected clock source:</para>
+</note>
+<itemizedlist>
+<listitem>
+<para>If SYSCLK source is HSI, SystemCoreClock will contain the <link linkend="_group__STM32G4xx__System__Private__Includes_1gaaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE(**)</link></para>
+</listitem><listitem>
+<para>If SYSCLK source is HSE, SystemCoreClock will contain the <link linkend="_group__STM32G4xx__System__Private__Includes_1gaeafcff4f57440c60e64812dddd13e7cb">HSE_VALUE(***)</link></para>
+</listitem><listitem>
+<para>If SYSCLK source is PLL, SystemCoreClock will contain the <link linkend="_group__STM32G4xx__System__Private__Includes_1gaeafcff4f57440c60e64812dddd13e7cb">HSE_VALUE(***)</link> or <link linkend="_group__STM32G4xx__System__Private__Includes_1gaaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE(*)</link> multiplied/divided by the PLL factors.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>(**) HSI_VALUE is a constant defined in stm32g4xx_hal.h file (default value 16 MHz) but the real value may vary depending on the variations in voltage and temperature.</para>
+
+<para>(***) HSE_VALUE is a constant defined in stm32g4xx_hal.h file (default value 24 MHz), user has to ensure that HSE_VALUE is same as the real frequency of the crystal used. Otherwise, this function may have wrong result.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>The result of this function could be not correct when using fractional value for HSE crystal.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Return values</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_system__stm32g4xx_8c_source_1l00228">228</link> of file <link linkend="_system__stm32g4xx_8c_source">system_stm32g4xx.c</link>.</para>
+</section>
+<anchor xml:id="_group__STM32G4xx__System__Private__Functions_1ga93f514700ccf00d08dbdcff7f1224eb2"/><section>
+    <title>SystemInit()</title>
+<indexterm><primary>SystemInit</primary><secondary>STM32G4xx_System_Private_Functions</secondary></indexterm>
+<indexterm><primary>STM32G4xx_System_Private_Functions</primary><secondary>SystemInit</secondary></indexterm>
+<para><computeroutput>void SystemInit (void )</computeroutput></para><para>
+
+<para>Setup the microcontroller system. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Return values</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_system__stm32g4xx_8c_source_1l00179">179</link> of file <link linkend="_system__stm32g4xx_8c_source">system_stm32g4xx.c</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gpio_8c_source" xml:lang="en-US">
+<title>gpio.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/gpio.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_gpio_8c_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00019"/>00019 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00020"/>00020 
+<anchor xml:id="_gpio_8c_source_1l00021"/>00021 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00022"/>00022 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gpio_8h">gpio.h</link>&quot;</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00023"/>00023 
+<anchor xml:id="_gpio_8c_source_1l00024"/>00024 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;0&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00025"/>00025 
+<anchor xml:id="_gpio_8c_source_1l00026"/>00026 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;0&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00027"/>00027 
+<anchor xml:id="_gpio_8c_source_1l00028"/>00028 <emphasis role="comment">/*----------------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00029"/>00029 <emphasis role="comment">/*&#32;Configure&#32;GPIO&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00030"/>00030 <emphasis role="comment">/*----------------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00031"/>00031 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;1&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00032"/>00032 
+<anchor xml:id="_gpio_8c_source_1l00033"/>00033 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;1&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00034"/>00034 
+<anchor xml:id="_gpio_8c_source_1l00042"/><link linkend="_gpio_8h_1ac724e431d2af879252de35615be2bdea">00042</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_gpio_8c_1ac724e431d2af879252de35615be2bdea">MX_GPIO_Init</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_gpio_8c_source_1l00043"/>00043 {
+<anchor xml:id="_gpio_8c_source_1l00044"/>00044 
+<anchor xml:id="_gpio_8c_source_1l00045"/>00045 &#32;&#32;GPIO_InitTypeDef&#32;GPIO_InitStruct&#32;=&#32;{0};
+<anchor xml:id="_gpio_8c_source_1l00046"/>00046 
+<anchor xml:id="_gpio_8c_source_1l00047"/>00047 &#32;&#32;<emphasis role="comment">/*&#32;GPIO&#32;Ports&#32;Clock&#32;Enable&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00048"/>00048 &#32;&#32;__HAL_RCC_GPIOC_CLK_ENABLE();
+<anchor xml:id="_gpio_8c_source_1l00049"/>00049 &#32;&#32;__HAL_RCC_GPIOF_CLK_ENABLE();
+<anchor xml:id="_gpio_8c_source_1l00050"/>00050 &#32;&#32;__HAL_RCC_GPIOA_CLK_ENABLE();
+<anchor xml:id="_gpio_8c_source_1l00051"/>00051 &#32;&#32;__HAL_RCC_GPIOB_CLK_ENABLE();
+<anchor xml:id="_gpio_8c_source_1l00052"/>00052 &#32;&#32;__HAL_RCC_GPIOD_CLK_ENABLE();
+<anchor xml:id="_gpio_8c_source_1l00053"/>00053 
+<anchor xml:id="_gpio_8c_source_1l00054"/>00054 &#32;&#32;<emphasis role="comment">/*Configure&#32;GPIO&#32;pin&#32;Output&#32;Level&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00055"/>00055 &#32;&#32;HAL_GPIO_WritePin(<link linkend="_main_8h_1a0b60cb7e96ec15462f633f32f5fb197a">USR_LED_GPIO_Port</link>,&#32;<link linkend="_main_8h_1a0aa7801f202f2b77085347074a1f2948">USR_LED_Pin</link>,&#32;GPIO_PIN_RESET);
+<anchor xml:id="_gpio_8c_source_1l00056"/>00056 
+<anchor xml:id="_gpio_8c_source_1l00057"/>00057 &#32;&#32;<emphasis role="comment">/*Configure&#32;GPIO&#32;pin&#32;Output&#32;Level&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00058"/>00058 &#32;&#32;HAL_GPIO_WritePin(<link linkend="_main_8h_1a772b3d279496291b8571727e70b28e5f">NRST_SafetyUC_GPIO_Port</link>,&#32;<link linkend="_main_8h_1af92be3f05c2e7de721bfc1b218e5b855">NRST_SafetyUC_Pin</link>,&#32;GPIO_PIN_RESET);
+<anchor xml:id="_gpio_8c_source_1l00059"/>00059 
+<anchor xml:id="_gpio_8c_source_1l00060"/>00060 &#32;&#32;<emphasis role="comment">/*Configure&#32;GPIO&#32;pin&#32;:&#32;PtPin&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00061"/>00061 &#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1a158931264dc3c964aeb8282d0755b665">USR_BTN_Pin</link>;
+<anchor xml:id="_gpio_8c_source_1l00062"/>00062 &#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_IT_RISING;
+<anchor xml:id="_gpio_8c_source_1l00063"/>00063 &#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_gpio_8c_source_1l00064"/>00064 &#32;&#32;HAL_GPIO_Init(<link linkend="_main_8h_1aff83915dc06a1ac4ee242533045c6f43">USR_BTN_GPIO_Port</link>,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_gpio_8c_source_1l00065"/>00065 
+<anchor xml:id="_gpio_8c_source_1l00066"/>00066 &#32;&#32;<emphasis role="comment">/*Configure&#32;GPIO&#32;pin&#32;:&#32;PtPin&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00067"/>00067 &#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1a0aa7801f202f2b77085347074a1f2948">USR_LED_Pin</link>;
+<anchor xml:id="_gpio_8c_source_1l00068"/>00068 &#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_OUTPUT_PP;
+<anchor xml:id="_gpio_8c_source_1l00069"/>00069 &#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_gpio_8c_source_1l00070"/>00070 &#32;&#32;GPIO_InitStruct.Speed&#32;=&#32;GPIO_SPEED_FREQ_LOW;
+<anchor xml:id="_gpio_8c_source_1l00071"/>00071 &#32;&#32;HAL_GPIO_Init(<link linkend="_main_8h_1a0b60cb7e96ec15462f633f32f5fb197a">USR_LED_GPIO_Port</link>,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_gpio_8c_source_1l00072"/>00072 
+<anchor xml:id="_gpio_8c_source_1l00073"/>00073 &#32;&#32;<emphasis role="comment">/*Configure&#32;GPIO&#32;pin&#32;:&#32;PtPin&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00074"/>00074 &#32;&#32;GPIO_InitStruct.Pin&#32;=&#32;<link linkend="_main_8h_1af92be3f05c2e7de721bfc1b218e5b855">NRST_SafetyUC_Pin</link>;
+<anchor xml:id="_gpio_8c_source_1l00075"/>00075 &#32;&#32;GPIO_InitStruct.Mode&#32;=&#32;GPIO_MODE_OUTPUT_PP;
+<anchor xml:id="_gpio_8c_source_1l00076"/>00076 &#32;&#32;GPIO_InitStruct.Pull&#32;=&#32;GPIO_NOPULL;
+<anchor xml:id="_gpio_8c_source_1l00077"/>00077 &#32;&#32;GPIO_InitStruct.Speed&#32;=&#32;GPIO_SPEED_FREQ_LOW;
+<anchor xml:id="_gpio_8c_source_1l00078"/>00078 &#32;&#32;HAL_GPIO_Init(<link linkend="_main_8h_1a772b3d279496291b8571727e70b28e5f">NRST_SafetyUC_GPIO_Port</link>,&#32;&amp;GPIO_InitStruct);
+<anchor xml:id="_gpio_8c_source_1l00079"/>00079 
+<anchor xml:id="_gpio_8c_source_1l00080"/>00080 &#32;&#32;<emphasis role="comment">/*&#32;EXTI&#32;interrupt&#32;init*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00081"/>00081 &#32;&#32;HAL_NVIC_SetPriority(EXTI15_10_IRQn,&#32;0,&#32;0);
+<anchor xml:id="_gpio_8c_source_1l00082"/>00082 &#32;&#32;HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+<anchor xml:id="_gpio_8c_source_1l00083"/>00083 
+<anchor xml:id="_gpio_8c_source_1l00084"/>00084 }
+<anchor xml:id="_gpio_8c_source_1l00085"/>00085 
+<anchor xml:id="_gpio_8c_source_1l00086"/>00086 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;2&#32;*/</emphasis>
+<anchor xml:id="_gpio_8c_source_1l00087"/>00087 
+<anchor xml:id="_gpio_8c_source_1l00088"/>00088 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;2&#32;*/</emphasis>
+</programlisting></section>

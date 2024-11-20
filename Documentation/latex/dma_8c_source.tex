@@ -1,0 +1,42 @@
+\doxysection{dma.\+c}
+\hypertarget{dma_8c_source}{}\label{dma_8c_source}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/dma.c@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/dma.c}}
+\mbox{\hyperlink{dma_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00001}00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00019}00019\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00021}00021\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dma_8h}{dma.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00024}00024\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ 0\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00026}00026\ \textcolor{comment}{/*\ USER\ CODE\ END\ 0\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00028}00028\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00029}00029\ \textcolor{comment}{/*\ Configure\ DMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00030}00030\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00032}00032\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ 1\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00034}00034\ \textcolor{comment}{/*\ USER\ CODE\ END\ 1\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00039}\mbox{\hyperlink{dma_8h_a323249dac769f9855c10b4ec9446b707}{00039}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dma_8c_a323249dac769f9855c10b4ec9446b707}{MX\_DMA\_Init}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00042}00042\ \ \ \textcolor{comment}{/*\ DMA\ controller\ clock\ enable\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00043}00043\ \ \ \_\_HAL\_RCC\_DMAMUX1\_CLK\_ENABLE();}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00044}00044\ \ \ \_\_HAL\_RCC\_DMA1\_CLK\_ENABLE();}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00046}00046\ \ \ \textcolor{comment}{/*\ DMA\ interrupt\ init\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00047}00047\ \ \ \textcolor{comment}{/*\ DMA1\_Channel1\_IRQn\ interrupt\ configuration\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00048}00048\ \ \ HAL\_NVIC\_SetPriority(DMA1\_Channel1\_IRQn,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00049}00049\ \ \ HAL\_NVIC\_EnableIRQ(DMA1\_Channel1\_IRQn);}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00053}00053\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ 2\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00055}00055\ \textcolor{comment}{/*\ USER\ CODE\ END\ 2\ */}}
+\DoxyCodeLine{\Hypertarget{dma_8c_source_l00056}00056\ }
+
+\end{DoxyCode}

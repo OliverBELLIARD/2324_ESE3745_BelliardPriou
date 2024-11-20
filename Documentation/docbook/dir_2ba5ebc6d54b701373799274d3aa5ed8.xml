@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_2ba5ebc6d54b701373799274d3aa5ed8" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc Directory Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc Directory Reference</primary></indexterm>
+Directory dependency graph for Inc:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_2ba5ebc6d54b701373799274d3aa5ed8_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_7b9f4364b1014383142a095e3883472d">mylibs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_adc_8h">adc.h</link></para>
+
+<para>This file contains all the function prototypes for the <link linkend="_adc_8c">adc.c</link> file. </para>
+</listitem>
+            <listitem><para>file <link linkend="_dma_8h">dma.h</link></para>
+
+<para>This file contains all the function prototypes for the <link linkend="_dma_8c">dma.c</link> file. </para>
+</listitem>
+            <listitem><para>file <link linkend="_gpio_8h">gpio.h</link></para>
+
+<para>This file contains all the function prototypes for the <link linkend="_gpio_8c">gpio.c</link> file. </para>
+</listitem>
+            <listitem><para>file <link linkend="_main_8h">main.h</link></para>
+
+<para>: Header for <link linkend="_main_8c">main.c</link> file. This file contains the common defines of the application. </para>
+</listitem>
+            <listitem><para>file <link linkend="_stm32g4xx__hal__conf_8h">stm32g4xx_hal_conf.h</link></para>
+
+<para>HAL configuration file. </para>
+</listitem>
+            <listitem><para>file <link linkend="_stm32g4xx__it_8h">stm32g4xx_it.h</link></para>
+
+<para>This file contains the headers of the interrupt handlers. </para>
+</listitem>
+            <listitem><para>file <link linkend="_tim_8h">tim.h</link></para>
+
+<para>This file contains all the function prototypes for the <link linkend="_tim_8c">tim.c</link> file. </para>
+</listitem>
+            <listitem><para>file <link linkend="_usart_8h">usart.h</link></para>
+
+<para>This file contains all the function prototypes for the <link linkend="_usart_8c">usart.c</link> file. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

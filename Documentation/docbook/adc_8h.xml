@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_adc_8h" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/adc.h File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/adc.h</primary></indexterm>
+<para>
+
+<para>This file contains all the function prototypes for the <link linkend="_adc_8c">adc.c</link> file. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;main.h&quot;<?linebreak?></programlisting>Include dependency graph for adc.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_adc_8h_1acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_adc_8h_1a101e2e3433dfe72bbbd0ae3a84489263">MX_ADC2_Init</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>ADC_HandleTypeDef <link linkend="_adc_8h_1a22b804736f5648d52f639b2647d4ed13">hadc1</link></para>
+</listitem>
+            <listitem><para>ADC_HandleTypeDef <link linkend="_adc_8h_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file contains all the function prototypes for the <link linkend="_adc_8c">adc.c</link> file. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_adc_8h_source">adc.h</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_adc_8h_1acccd58aa70215a6b184ad242312ffd0c"/><section>
+    <title>MX_ADC1_Init()</title>
+<indexterm><primary>MX_ADC1_Init</primary><secondary>adc.h</secondary></indexterm>
+<indexterm><primary>adc.h</primary><secondary>MX_ADC1_Init</secondary></indexterm>
+<para><computeroutput>void MX_ADC1_Init (void )</computeroutput></para>
+<para>Common config</para>
+
+<para>Configure the ADC multi-mode</para>
+
+<para>Configure Regular Channel</para>
+<para>
+Definition at line <link linkend="_adc_8c_source_1l00032">32</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8h_acccd58aa70215a6b184ad242312ffd0c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8h_acccd58aa70215a6b184ad242312ffd0c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_adc_8h_1a101e2e3433dfe72bbbd0ae3a84489263"/><section>
+    <title>MX_ADC2_Init()</title>
+<indexterm><primary>MX_ADC2_Init</primary><secondary>adc.h</secondary></indexterm>
+<indexterm><primary>adc.h</primary><secondary>MX_ADC2_Init</secondary></indexterm>
+<para><computeroutput>void MX_ADC2_Init (void )</computeroutput></para>
+<para>Common config</para>
+
+<para>Configure Regular Channel</para>
+<para>
+Definition at line <link linkend="_adc_8c_source_1l00095">95</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8h_a101e2e3433dfe72bbbd0ae3a84489263_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8h_a101e2e3433dfe72bbbd0ae3a84489263_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_adc_8h_1a22b804736f5648d52f639b2647d4ed13"/><section>
+    <title>hadc1</title>
+<indexterm><primary>hadc1</primary><secondary>adc.h</secondary></indexterm>
+<indexterm><primary>adc.h</primary><secondary>hadc1</secondary></indexterm>
+<para><computeroutput>ADC_HandleTypeDef hadc1<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_adc_8c_source_1l00027">27</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+</section>
+<anchor xml:id="_adc_8h_1acd9221f1aa19aebfe0b744947f2daf49"/><section>
+    <title>hadc2</title>
+<indexterm><primary>hadc2</primary><secondary>adc.h</secondary></indexterm>
+<indexterm><primary>adc.h</primary><secondary>hadc2</secondary></indexterm>
+<para><computeroutput>ADC_HandleTypeDef hadc2<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_adc_8c_source_1l00028">28</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+</section>
+</section>
+</section>

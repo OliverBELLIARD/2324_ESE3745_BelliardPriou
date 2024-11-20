@@ -1,0 +1,636 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stm32g4xx__hal__conf_8h" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/stm32g4xx_hal_conf.h File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/stm32g4xx_hal_conf.h</primary></indexterm>
+<para>
+
+<para>HAL configuration file. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;stm32g4xx_hal_rcc.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_gpio.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_dma.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_cortex.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_adc.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_exti.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_flash.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_pwr.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_tim.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_uart.h&quot;<?linebreak?></programlisting>Include dependency graph for stm32g4xx_hal_conf.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="stm32g4xx__hal__conf_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a877ae99e8c47a609ea97c888912bf75f">HAL_MODULE_ENABLED</link></para>
+
+<para>This is the list of modules to be used in the HAL driver. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a476f1655c969ae57e89a74d98c75f43f">HAL_ADC_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a23382b8f04b3e6db2c59dfa1ef5ea4a2">HAL_TIM_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a167269406e73327b95c3bb7b9cfe6d89">HAL_UART_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a86165f80d6078719ee0715afe13febf5">HAL_GPIO_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1aeb359e861d8a92c233c3229657dbcd74">HAL_EXTI_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a6552186102a1131b2849ac55a582945d">HAL_DMA_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1ac3dd74314ed62ac8575e2f9f48b3ac48">HAL_RCC_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a7112575efe3740911f19a13e6b170fee">HAL_FLASH_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1ab51923c3716977d7923f49cc9d081aa8">HAL_PWR_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1aa9b5a3a425901e097de70092dbe31e0f">HAL_CORTEX_MODULE_ENABLED</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1acc33abd5393affd16cc4a1397839dfe4">USE_HAL_ADC_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+
+<para>This is the list of modules where register callback can be used. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a94f0f5f870b8e45eab42cfe77e4210ed">USE_HAL_COMP_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a382744674caee964d227d41574fe2b73">USE_HAL_CORDIC_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1aab15bfcb9198618bda3d7e914193b466">USE_HAL_CRYP_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1af9580ae862dcc02cee7822030c48d6b8">USE_HAL_DAC_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1aa51881ed9e9d2aaa7d6f0d598d723e46">USE_HAL_EXTI_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a5d191a50c40ac4b4e38f9f614e37e48c">USE_HAL_FDCAN_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a34a796bea8a48187716b99c6f14b14f2">USE_HAL_FMAC_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a0c281b7bdebecbe9715d556f0f374fea">USE_HAL_HRTIM_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a99be773f7f62b6277d1c87658e085725">USE_HAL_I2C_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a1bdc791c35b20c7188b3d74fd6c30ebf">USE_HAL_I2S_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a4a459bcaa046998e6939fc66b0831e96">USE_HAL_IRDA_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a5b148dcae2bf8f576fc69a349794df4c">USE_HAL_LPTIM_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a80498b459859528918535b88fed54b28">USE_HAL_NAND_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a7b38c01bd6621f3da5993d71eb5ff42e">USE_HAL_NOR_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a2c51d4e89cd75f4629092d46ca26a750">USE_HAL_OPAMP_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1afd18c04aa4a4a54446df8083be875a00">USE_HAL_PCD_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a95cbcf73c2ae3aea55fb62502ed224a2">USE_HAL_QSPI_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a9b01c64d19f0d4839b7da08bd61c7ff7">USE_HAL_RNG_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a54badbcdb096ce802d2eed981cbbc31a">USE_HAL_RTC_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a0e2ac47c259fc72ef188c0406a2af803">USE_HAL_SAI_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a43bb2335641440326db0f05526c1bff9">USE_HAL_SMARTCARD_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a74cae3ff25398b4a06a579a7164a8518">USE_HAL_SMBUS_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a8d8be2d7e4ed5bfc7b64f60ba604c749">USE_HAL_SPI_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a5c7c04d57c22f5301f1ea589abc6f35f">USE_HAL_SRAM_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a5ef4d67cd7630f6e2e67d17370fbffdb">USE_HAL_TIM_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a68c6c7c633e6cb378824020ef00a5701">USE_HAL_UART_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1ac79983d623c7f760c5077618a453561b">USE_HAL_USART_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a6879802837c27d8761d8a8fdab626891">USE_HAL_WWDG_REGISTER_CALLBACKS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1aeafcff4f57440c60e64812dddd13e7cb">HSE_VALUE</link>&#160;&#160;&#160;(24000000UL)</para>
+
+<para>Adjust the value of External High Speed oscillator (HSE) used in your application. This value is used by the RCC HAL module to compute the system frequency (when HSE is used as system clock source, directly or through the PLL). </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a68ecbc9b0a1a40a1ec9d18d5e9747c4f">HSE_STARTUP_TIMEOUT</link>&#160;&#160;&#160;(100UL)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1aaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE</link>&#160;&#160;&#160;(16000000UL)</para>
+
+<para>Internal High Speed oscillator (HSI) value. This value is used by the RCC HAL module to compute the system frequency (when HSI is used as system clock source, directly or through the PLL). </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a47f01e5e3f2edfa94bf74c08835f3875">HSI48_VALUE</link>&#160;&#160;&#160;(48000000UL)</para>
+
+<para>Internal High Speed oscillator (HSI48) value for USB FS and RNG. This internal oscillator is mainly dedicated to provide a high precision clock to the USB peripheral by means of a special Clock Recovery System (CRS) circuitry. When the CRS is not used, the HSI48 RC oscillator runs on it default frequency which is subject to manufacturing process variations. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a4872023e65449c0506aac3ea6bec99e9">LSI_VALUE</link>&#160;&#160;&#160;(32000UL)</para>
+
+<para>Internal Low Speed oscillator (LSI) value. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a7bbb9d19e5189a6ccd0fb6fa6177d20d">LSE_VALUE</link>&#160;&#160;&#160;(32768UL)</para>
+
+<para>External Low Speed oscillator (LSE) value. This value is used by the UART, RTC HAL module to compute the system frequency. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a85e6fc812dc26f7161a04be2568a5462">LSE_STARTUP_TIMEOUT</link>&#160;&#160;&#160;(5000UL)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a8c47c935e91e70569098b41718558648">EXTERNAL_CLOCK_VALUE</link>&#160;&#160;&#160;(12288000UL)</para>
+
+<para>External clock source for I2S and SAI peripherals This value is used by the I2S and SAI HAL modules to compute the I2S and SAI clock source frequency, this source is inserted directly through I2S_CKIN pad. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1aae550dad9f96d52cfce5e539adadbbb4">VDD_VALUE</link>&#160;&#160;&#160;(3300UL)</para>
+
+<para>This is the HAL system configuration section. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1ae27809d4959b9fd5b5d974e3e1c77d2e">TICK_INT_PRIORITY</link>&#160;&#160;&#160;(15UL)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1ad048ac737242c2c2cb9f4a72953d10ce">USE_RTOS</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a13fc0d5e7bb925385c0cc0772ba6a391">PREFETCH_ENABLE</link>&#160;&#160;&#160;0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a3379989d46599c7e19a43f42e9145a4a">INSTRUCTION_CACHE_ENABLE</link>&#160;&#160;&#160;1U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a5b4c32a40cf49b06c0d761e385949a6b">DATA_CACHE_ENABLE</link>&#160;&#160;&#160;1U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a4c6fab687afc7ba4469b1b2d34472358">USE_SPI_CRC</link>&#160;&#160;&#160;0U</para>
+
+<para>Uncomment the line below to expanse the &quot;assert_param&quot; macro in the HAL drivers code. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_stm32g4xx__hal__conf_8h_1a631dea7b230e600555f979c62af1de21">assert_param</link>(expr)&#160;&#160;&#160;((void)0U)</para>
+
+<para>Include module&apos;s header file. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>HAL configuration file. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>MCD Application Team </para>
+</formalpara>
+<caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2019 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a631dea7b230e600555f979c62af1de21"/><section>
+    <title>assert_param</title>
+<indexterm><primary>assert_param</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>assert_param</secondary></indexterm>
+<para><computeroutput>#define assert_param( expr)&#160;&#160;&#160;((void)0U)</computeroutput></para><para>
+
+<para>Include module&apos;s header file. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00373">373</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a5b4c32a40cf49b06c0d761e385949a6b"/><section>
+    <title>DATA_CACHE_ENABLE</title>
+<indexterm><primary>DATA_CACHE_ENABLE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>DATA_CACHE_ENABLE</secondary></indexterm>
+<para><computeroutput>#define DATA_CACHE_ENABLE&#160;&#160;&#160;1U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00188">188</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a8c47c935e91e70569098b41718558648"/><section>
+    <title>EXTERNAL_CLOCK_VALUE</title>
+<indexterm><primary>EXTERNAL_CLOCK_VALUE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>EXTERNAL_CLOCK_VALUE</secondary></indexterm>
+<para><computeroutput>#define EXTERNAL_CLOCK_VALUE&#160;&#160;&#160;(12288000UL)</computeroutput></para><para>
+
+<para>External clock source for I2S and SAI peripherals This value is used by the I2S and SAI HAL modules to compute the I2S and SAI clock source frequency, this source is inserted directly through I2S_CKIN pad. </para>
+</para>
+
+<para>Value of the External oscillator in Hz </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00172">172</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a476f1655c969ae57e89a74d98c75f43f"/><section>
+    <title>HAL_ADC_MODULE_ENABLED</title>
+<indexterm><primary>HAL_ADC_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_ADC_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_ADC_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00039">39</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1aa9b5a3a425901e097de70092dbe31e0f"/><section>
+    <title>HAL_CORTEX_MODULE_ENABLED</title>
+<indexterm><primary>HAL_CORTEX_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_CORTEX_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_CORTEX_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00075">75</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a6552186102a1131b2849ac55a582945d"/><section>
+    <title>HAL_DMA_MODULE_ENABLED</title>
+<indexterm><primary>HAL_DMA_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_DMA_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_DMA_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00071">71</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1aeb359e861d8a92c233c3229657dbcd74"/><section>
+    <title>HAL_EXTI_MODULE_ENABLED</title>
+<indexterm><primary>HAL_EXTI_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_EXTI_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_EXTI_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00070">70</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a7112575efe3740911f19a13e6b170fee"/><section>
+    <title>HAL_FLASH_MODULE_ENABLED</title>
+<indexterm><primary>HAL_FLASH_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_FLASH_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_FLASH_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00073">73</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a86165f80d6078719ee0715afe13febf5"/><section>
+    <title>HAL_GPIO_MODULE_ENABLED</title>
+<indexterm><primary>HAL_GPIO_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_GPIO_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_GPIO_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00069">69</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a877ae99e8c47a609ea97c888912bf75f"/><section>
+    <title>HAL_MODULE_ENABLED</title>
+<indexterm><primary>HAL_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_MODULE_ENABLED</computeroutput></para><para>
+
+<para>This is the list of modules to be used in the HAL driver. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00037">37</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1ab51923c3716977d7923f49cc9d081aa8"/><section>
+    <title>HAL_PWR_MODULE_ENABLED</title>
+<indexterm><primary>HAL_PWR_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_PWR_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_PWR_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00074">74</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1ac3dd74314ed62ac8575e2f9f48b3ac48"/><section>
+    <title>HAL_RCC_MODULE_ENABLED</title>
+<indexterm><primary>HAL_RCC_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_RCC_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_RCC_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00072">72</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a23382b8f04b3e6db2c59dfa1ef5ea4a2"/><section>
+    <title>HAL_TIM_MODULE_ENABLED</title>
+<indexterm><primary>HAL_TIM_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_TIM_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_TIM_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00065">65</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a167269406e73327b95c3bb7b9cfe6d89"/><section>
+    <title>HAL_UART_MODULE_ENABLED</title>
+<indexterm><primary>HAL_UART_MODULE_ENABLED</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HAL_UART_MODULE_ENABLED</secondary></indexterm>
+<para><computeroutput>#define HAL_UART_MODULE_ENABLED</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00066">66</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a68ecbc9b0a1a40a1ec9d18d5e9747c4f"/><section>
+    <title>HSE_STARTUP_TIMEOUT</title>
+<indexterm><primary>HSE_STARTUP_TIMEOUT</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HSE_STARTUP_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define HSE_STARTUP_TIMEOUT&#160;&#160;&#160;(100UL)</computeroutput></para>
+<para>Time out for HSE start up, in ms </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00122">122</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1aeafcff4f57440c60e64812dddd13e7cb"/><section>
+    <title>HSE_VALUE</title>
+<indexterm><primary>HSE_VALUE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HSE_VALUE</secondary></indexterm>
+<para><computeroutput>#define HSE_VALUE&#160;&#160;&#160;(24000000UL)</computeroutput></para><para>
+
+<para>Adjust the value of External High Speed oscillator (HSE) used in your application. This value is used by the RCC HAL module to compute the system frequency (when HSE is used as system clock source, directly or through the PLL). </para>
+</para>
+
+<para>Value of the External oscillator in Hz </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00118">118</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a47f01e5e3f2edfa94bf74c08835f3875"/><section>
+    <title>HSI48_VALUE</title>
+<indexterm><primary>HSI48_VALUE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HSI48_VALUE</secondary></indexterm>
+<para><computeroutput>#define HSI48_VALUE&#160;&#160;&#160;(48000000UL)</computeroutput></para><para>
+
+<para>Internal High Speed oscillator (HSI48) value for USB FS and RNG. This internal oscillator is mainly dedicated to provide a high precision clock to the USB peripheral by means of a special Clock Recovery System (CRS) circuitry. When the CRS is not used, the HSI48 RC oscillator runs on it default frequency which is subject to manufacturing process variations. </para>
+</para>
+
+<para>Value of the Internal High Speed oscillator for USB FS/RNG in Hz. The real value my vary depending on manufacturing process variations. </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00143">143</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1aaa8c76e274d0f6dd2cefb5d0b17fbc37"/><section>
+    <title>HSI_VALUE</title>
+<indexterm><primary>HSI_VALUE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>HSI_VALUE</secondary></indexterm>
+<para><computeroutput>#define HSI_VALUE&#160;&#160;&#160;(16000000UL)</computeroutput></para><para>
+
+<para>Internal High Speed oscillator (HSI) value. This value is used by the RCC HAL module to compute the system frequency (when HSI is used as system clock source, directly or through the PLL). </para>
+</para>
+
+<para>Value of the Internal oscillator in Hz </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00131">131</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a3379989d46599c7e19a43f42e9145a4a"/><section>
+    <title>INSTRUCTION_CACHE_ENABLE</title>
+<indexterm><primary>INSTRUCTION_CACHE_ENABLE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>INSTRUCTION_CACHE_ENABLE</secondary></indexterm>
+<para><computeroutput>#define INSTRUCTION_CACHE_ENABLE&#160;&#160;&#160;1U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00187">187</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a85e6fc812dc26f7161a04be2568a5462"/><section>
+    <title>LSE_STARTUP_TIMEOUT</title>
+<indexterm><primary>LSE_STARTUP_TIMEOUT</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>LSE_STARTUP_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define LSE_STARTUP_TIMEOUT&#160;&#160;&#160;(5000UL)</computeroutput></para>
+<para>Time out for LSE start up, in ms </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00163">163</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a7bbb9d19e5189a6ccd0fb6fa6177d20d"/><section>
+    <title>LSE_VALUE</title>
+<indexterm><primary>LSE_VALUE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>LSE_VALUE</secondary></indexterm>
+<para><computeroutput>#define LSE_VALUE&#160;&#160;&#160;(32768UL)</computeroutput></para><para>
+
+<para>External Low Speed oscillator (LSE) value. This value is used by the UART, RTC HAL module to compute the system frequency. </para>
+</para>
+
+<para>Value of the External Low Speed oscillator in Hz </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00159">159</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a4872023e65449c0506aac3ea6bec99e9"/><section>
+    <title>LSI_VALUE</title>
+<indexterm><primary>LSI_VALUE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>LSI_VALUE</secondary></indexterm>
+<para><computeroutput>#define LSI_VALUE&#160;&#160;&#160;(32000UL)</computeroutput></para><para>
+
+<para>Internal Low Speed oscillator (LSI) value. </para>
+</para>
+
+<para>&lt; Value of the Internal Low Speed oscillator in Hz The real value may vary depending on the variations in voltage and temperature. LSI Typical Value in Hz </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00152">152</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a13fc0d5e7bb925385c0cc0772ba6a391"/><section>
+    <title>PREFETCH_ENABLE</title>
+<indexterm><primary>PREFETCH_ENABLE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>PREFETCH_ENABLE</secondary></indexterm>
+<para><computeroutput>#define PREFETCH_ENABLE&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00186">186</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1ae27809d4959b9fd5b5d974e3e1c77d2e"/><section>
+    <title>TICK_INT_PRIORITY</title>
+<indexterm><primary>TICK_INT_PRIORITY</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>TICK_INT_PRIORITY</secondary></indexterm>
+<para><computeroutput>#define TICK_INT_PRIORITY&#160;&#160;&#160;(15UL)</computeroutput></para>
+<para>tick interrupt priority (lowest by default) <?linebreak?> </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00184">184</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1acc33abd5393affd16cc4a1397839dfe4"/><section>
+    <title>USE_HAL_ADC_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_ADC_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_ADC_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_ADC_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+
+<para>This is the list of modules where register callback can be used. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00081">81</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a94f0f5f870b8e45eab42cfe77e4210ed"/><section>
+    <title>USE_HAL_COMP_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_COMP_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_COMP_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_COMP_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00082">82</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a382744674caee964d227d41574fe2b73"/><section>
+    <title>USE_HAL_CORDIC_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_CORDIC_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_CORDIC_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_CORDIC_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00083">83</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1aab15bfcb9198618bda3d7e914193b466"/><section>
+    <title>USE_HAL_CRYP_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_CRYP_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_CRYP_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_CRYP_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00084">84</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1af9580ae862dcc02cee7822030c48d6b8"/><section>
+    <title>USE_HAL_DAC_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_DAC_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_DAC_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_DAC_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00085">85</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1aa51881ed9e9d2aaa7d6f0d598d723e46"/><section>
+    <title>USE_HAL_EXTI_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_EXTI_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_EXTI_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_EXTI_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00086">86</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a5d191a50c40ac4b4e38f9f614e37e48c"/><section>
+    <title>USE_HAL_FDCAN_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_FDCAN_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_FDCAN_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_FDCAN_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00087">87</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a34a796bea8a48187716b99c6f14b14f2"/><section>
+    <title>USE_HAL_FMAC_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_FMAC_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_FMAC_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_FMAC_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00088">88</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a0c281b7bdebecbe9715d556f0f374fea"/><section>
+    <title>USE_HAL_HRTIM_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_HRTIM_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_HRTIM_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_HRTIM_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00089">89</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a99be773f7f62b6277d1c87658e085725"/><section>
+    <title>USE_HAL_I2C_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_I2C_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_I2C_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_I2C_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00090">90</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a1bdc791c35b20c7188b3d74fd6c30ebf"/><section>
+    <title>USE_HAL_I2S_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_I2S_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_I2S_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_I2S_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00091">91</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a4a459bcaa046998e6939fc66b0831e96"/><section>
+    <title>USE_HAL_IRDA_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_IRDA_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_IRDA_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_IRDA_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00092">92</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a5b148dcae2bf8f576fc69a349794df4c"/><section>
+    <title>USE_HAL_LPTIM_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_LPTIM_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_LPTIM_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_LPTIM_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00093">93</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a80498b459859528918535b88fed54b28"/><section>
+    <title>USE_HAL_NAND_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_NAND_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_NAND_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_NAND_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00094">94</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a7b38c01bd6621f3da5993d71eb5ff42e"/><section>
+    <title>USE_HAL_NOR_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_NOR_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_NOR_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_NOR_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00095">95</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a2c51d4e89cd75f4629092d46ca26a750"/><section>
+    <title>USE_HAL_OPAMP_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_OPAMP_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_OPAMP_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_OPAMP_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00096">96</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1afd18c04aa4a4a54446df8083be875a00"/><section>
+    <title>USE_HAL_PCD_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_PCD_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_PCD_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_PCD_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00097">97</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a95cbcf73c2ae3aea55fb62502ed224a2"/><section>
+    <title>USE_HAL_QSPI_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_QSPI_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_QSPI_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_QSPI_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00098">98</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a9b01c64d19f0d4839b7da08bd61c7ff7"/><section>
+    <title>USE_HAL_RNG_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_RNG_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_RNG_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_RNG_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00099">99</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a54badbcdb096ce802d2eed981cbbc31a"/><section>
+    <title>USE_HAL_RTC_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_RTC_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_RTC_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_RTC_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00100">100</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a0e2ac47c259fc72ef188c0406a2af803"/><section>
+    <title>USE_HAL_SAI_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_SAI_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_SAI_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_SAI_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00101">101</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a43bb2335641440326db0f05526c1bff9"/><section>
+    <title>USE_HAL_SMARTCARD_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_SMARTCARD_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_SMARTCARD_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_SMARTCARD_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00102">102</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a74cae3ff25398b4a06a579a7164a8518"/><section>
+    <title>USE_HAL_SMBUS_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_SMBUS_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_SMBUS_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_SMBUS_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00103">103</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a8d8be2d7e4ed5bfc7b64f60ba604c749"/><section>
+    <title>USE_HAL_SPI_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_SPI_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_SPI_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_SPI_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00104">104</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a5c7c04d57c22f5301f1ea589abc6f35f"/><section>
+    <title>USE_HAL_SRAM_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_SRAM_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_SRAM_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_SRAM_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00105">105</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a5ef4d67cd7630f6e2e67d17370fbffdb"/><section>
+    <title>USE_HAL_TIM_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_TIM_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_TIM_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_TIM_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00106">106</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a68c6c7c633e6cb378824020ef00a5701"/><section>
+    <title>USE_HAL_UART_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_UART_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_UART_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_UART_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00107">107</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1ac79983d623c7f760c5077618a453561b"/><section>
+    <title>USE_HAL_USART_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_USART_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_USART_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_USART_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00108">108</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a6879802837c27d8761d8a8fdab626891"/><section>
+    <title>USE_HAL_WWDG_REGISTER_CALLBACKS</title>
+<indexterm><primary>USE_HAL_WWDG_REGISTER_CALLBACKS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_HAL_WWDG_REGISTER_CALLBACKS</secondary></indexterm>
+<para><computeroutput>#define USE_HAL_WWDG_REGISTER_CALLBACKS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00109">109</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1ad048ac737242c2c2cb9f4a72953d10ce"/><section>
+    <title>USE_RTOS</title>
+<indexterm><primary>USE_RTOS</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_RTOS</secondary></indexterm>
+<para><computeroutput>#define USE_RTOS&#160;&#160;&#160;0U</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00185">185</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1a4c6fab687afc7ba4469b1b2d34472358"/><section>
+    <title>USE_SPI_CRC</title>
+<indexterm><primary>USE_SPI_CRC</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>USE_SPI_CRC</secondary></indexterm>
+<para><computeroutput>#define USE_SPI_CRC&#160;&#160;&#160;0U</computeroutput></para><para>
+
+<para>Uncomment the line below to expanse the &quot;assert_param&quot; macro in the HAL drivers code. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00204">204</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_1aae550dad9f96d52cfce5e539adadbbb4"/><section>
+    <title>VDD_VALUE</title>
+<indexterm><primary>VDD_VALUE</primary><secondary>stm32g4xx_hal_conf.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_conf.h</primary><secondary>VDD_VALUE</secondary></indexterm>
+<para><computeroutput>#define VDD_VALUE&#160;&#160;&#160;(3300UL)</computeroutput></para><para>
+
+<para>This is the HAL system configuration section. </para>
+</para>
+
+<para>Value of VDD in mv </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__conf_8h_source_1l00183">183</link> of file <link linkend="_stm32g4xx__hal__conf_8h_source">stm32g4xx_hal_conf.h</link>.</para>
+</section>
+</section>
+</section>

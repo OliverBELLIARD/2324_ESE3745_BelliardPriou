@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stm32g4xx__it_8c_source" xml:lang="en-US">
+<title>stm32g4xx_it.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/stm32g4xx_it.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_stm32g4xx__it_8c_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00018"/>00018 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00019"/>00019 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00020"/>00020 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00021"/>00021 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_main_8h">main.h</link>&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00022"/>00022 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_stm32g4xx__it_8h">stm32g4xx_it.h</link>&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00023"/>00023 <emphasis role="comment">/*&#32;Private&#32;includes&#32;----------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00024"/>00024 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00025"/>00025 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00026"/>00026 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00027"/>00027 <emphasis role="comment">/*&#32;Private&#32;typedef&#32;-----------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00028"/>00028 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TD&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00029"/>00029 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00030"/>00030 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TD&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00031"/>00031 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00032"/>00032 <emphasis role="comment">/*&#32;Private&#32;define&#32;------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00033"/>00033 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;PD&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00034"/>00034 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00035"/>00035 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;PD&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00036"/>00036 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00037"/>00037 <emphasis role="comment">/*&#32;Private&#32;macro&#32;-------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00038"/>00038 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;PM&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00039"/>00039 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00040"/>00040 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;PM&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00041"/>00041 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00042"/>00042 <emphasis role="comment">/*&#32;Private&#32;variables&#32;---------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00043"/>00043 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;PV&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00044"/>00044 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00045"/>00045 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;PV&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00046"/>00046 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00047"/>00047 <emphasis role="comment">/*&#32;Private&#32;function&#32;prototypes&#32;-----------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00048"/>00048 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;PFP&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00049"/>00049 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00050"/>00050 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;PFP&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00051"/>00051 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00052"/>00052 <emphasis role="comment">/*&#32;Private&#32;user&#32;code&#32;---------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00053"/>00053 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00054"/>00054 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00055"/>00055 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00056"/>00056 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00057"/>00057 <emphasis role="comment">/*&#32;External&#32;variables&#32;--------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00058"/>00058 <emphasis role="keyword">extern</emphasis>&#32;DMA_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00059"/>00059 <emphasis role="keyword">extern</emphasis>&#32;ADC_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00060"/>00060 <emphasis role="keyword">extern</emphasis>&#32;ADC_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00061"/>00061 <emphasis role="keyword">extern</emphasis>&#32;TIM_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00062"/>00062 <emphasis role="keyword">extern</emphasis>&#32;TIM_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00063"/>00063 <emphasis role="keyword">extern</emphasis>&#32;UART_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00064"/>00064 <emphasis role="keyword">extern</emphasis>&#32;UART_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00065"/>00065 <emphasis role="keyword">extern</emphasis>&#32;TIM_HandleTypeDef&#32;<link linkend="_stm32g4xx__it_8c_1a1564492831a79fa18466467c3420c3c3">htim6</link>;
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00066"/>00066 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00067"/>00067 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;EV&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00068"/>00068 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00069"/>00069 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;EV&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00070"/>00070 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00071"/>00071 <emphasis role="comment">/******************************************************************************/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00072"/>00072 <emphasis role="comment">/*&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Cortex-M4&#32;Processor&#32;Interruption&#32;and&#32;Exception&#32;Handlers&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00073"/>00073 <emphasis role="comment">/******************************************************************************/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00077"/><link linkend="_stm32g4xx__it_8h_1a6ad7a5e3ee69cb6db6a6b9111ba898bc">00077</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a6ad7a5e3ee69cb6db6a6b9111ba898bc">NMI_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00078"/>00078 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00079"/>00079 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;NonMaskableInt_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00080"/>00080 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00081"/>00081 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;NonMaskableInt_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00082"/>00082 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;NonMaskableInt_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00083"/>00083 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00084"/>00084 &#32;&#32;{
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00085"/>00085 &#32;&#32;}
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00086"/>00086 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;NonMaskableInt_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00087"/>00087 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00088"/>00088 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00092"/><link linkend="_stm32g4xx__it_8h_1a2bffc10d5bd4106753b7c30e86903bea">00092</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a2bffc10d5bd4106753b7c30e86903bea">HardFault_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00093"/>00093 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00094"/>00094 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;HardFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00095"/>00095 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00096"/>00096 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;HardFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00097"/>00097 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00098"/>00098 &#32;&#32;{
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;W1_HardFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;W1_HardFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00101"/>00101 &#32;&#32;}
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00102"/>00102 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00103"/>00103 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00107"/><link linkend="_stm32g4xx__it_8h_1a3150f74512510287a942624aa9b44cc5">00107</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a3150f74512510287a942624aa9b44cc5">MemManage_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00108"/>00108 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00109"/>00109 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;MemoryManagement_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00110"/>00110 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00111"/>00111 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;MemoryManagement_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00112"/>00112 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00113"/>00113 &#32;&#32;{
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;W1_MemoryManagement_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;W1_MemoryManagement_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00116"/>00116 &#32;&#32;}
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00117"/>00117 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00118"/>00118 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00122"/><link linkend="_stm32g4xx__it_8h_1a850cefb17a977292ae5eb4cafa9976c3">00122</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a850cefb17a977292ae5eb4cafa9976c3">BusFault_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00123"/>00123 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00124"/>00124 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;BusFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00125"/>00125 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00126"/>00126 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;BusFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00127"/>00127 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00128"/>00128 &#32;&#32;{
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00129"/>00129 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;W1_BusFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;W1_BusFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00131"/>00131 &#32;&#32;}
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00132"/>00132 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00133"/>00133 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00137"/><link linkend="_stm32g4xx__it_8h_1a1d98923de2ed6b7309b66f9ba2971647">00137</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a1d98923de2ed6b7309b66f9ba2971647">UsageFault_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00138"/>00138 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00139"/>00139 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;UsageFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00140"/>00140 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00141"/>00141 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;UsageFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00142"/>00142 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00143"/>00143 &#32;&#32;{
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;W1_UsageFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;W1_UsageFault_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00146"/>00146 &#32;&#32;}
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00147"/>00147 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00148"/>00148 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00152"/><link linkend="_stm32g4xx__it_8h_1a3e5ddb3df0d62f2dc357e64a3f04a6ce">00152</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a3e5ddb3df0d62f2dc357e64a3f04a6ce">SVC_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00153"/>00153 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00154"/>00154 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;SVCall_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00155"/>00155 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00156"/>00156 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;SVCall_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00157"/>00157 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;SVCall_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00158"/>00158 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00159"/>00159 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;SVCall_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00160"/>00160 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00161"/>00161 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00165"/><link linkend="_stm32g4xx__it_8h_1adbdfb05858cc36fc520974df37ec3cb0">00165</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1adbdfb05858cc36fc520974df37ec3cb0">DebugMon_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00166"/>00166 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00167"/>00167 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;DebugMonitor_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00168"/>00168 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00169"/>00169 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;DebugMonitor_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00170"/>00170 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;DebugMonitor_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00171"/>00171 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00172"/>00172 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;DebugMonitor_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00173"/>00173 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00174"/>00174 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00178"/><link linkend="_stm32g4xx__it_8h_1a6303e1f258cbdc1f970ce579cc015623">00178</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a6303e1f258cbdc1f970ce579cc015623">PendSV_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00179"/>00179 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00180"/>00180 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;PendSV_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00181"/>00181 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00182"/>00182 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;PendSV_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00183"/>00183 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;PendSV_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00184"/>00184 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00185"/>00185 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;PendSV_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00186"/>00186 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00187"/>00187 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00191"/><link linkend="_stm32g4xx__it_8h_1ab5e09814056d617c521549e542639b7e">00191</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1ab5e09814056d617c521549e542639b7e">SysTick_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00192"/>00192 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00193"/>00193 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;SysTick_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00194"/>00194 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00195"/>00195 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;SysTick_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00196"/>00196 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00197"/>00197 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;SysTick_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00198"/>00198 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00199"/>00199 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;SysTick_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00200"/>00200 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00201"/>00201 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00202"/>00202 <emphasis role="comment">/******************************************************************************/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00203"/>00203 <emphasis role="comment">/*&#32;STM32G4xx&#32;Peripheral&#32;Interrupt&#32;Handlers&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00204"/>00204 <emphasis role="comment">/*&#32;Add&#32;here&#32;the&#32;Interrupt&#32;Handlers&#32;for&#32;the&#32;used&#32;peripherals.&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00205"/>00205 <emphasis role="comment">/*&#32;For&#32;the&#32;available&#32;peripheral&#32;interrupt&#32;handler&#32;names,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00206"/>00206 <emphasis role="comment">/*&#32;please&#32;refer&#32;to&#32;the&#32;startup&#32;file&#32;(startup_stm32g4xx.s).&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00207"/>00207 <emphasis role="comment">/******************************************************************************/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00208"/>00208 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00212"/><link linkend="_stm32g4xx__it_8h_1a7b6fac3d670a4860ebec8a961d5c4a73">00212</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a7b6fac3d670a4860ebec8a961d5c4a73">DMA1_Channel1_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00213"/>00213 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00214"/>00214 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;DMA1_Channel1_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00215"/>00215 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00216"/>00216 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;DMA1_Channel1_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00217"/>00217 &#32;&#32;HAL_DMA_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00218"/>00218 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;DMA1_Channel1_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00219"/>00219 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00220"/>00220 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;DMA1_Channel1_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00221"/>00221 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00222"/>00222 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00226"/><link linkend="_stm32g4xx__it_8h_1a3e8fca6e2f18e433a9fbc3d2dcc0b411">00226</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a3e8fca6e2f18e433a9fbc3d2dcc0b411">ADC1_2_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00227"/>00227 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00228"/>00228 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_2_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00229"/>00229 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00230"/>00230 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_2_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00231"/>00231 &#32;&#32;HAL_ADC_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00232"/>00232 &#32;&#32;HAL_ADC_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00233"/>00233 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ADC1_2_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00234"/>00234 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00235"/>00235 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ADC1_2_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00236"/>00236 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00237"/>00237 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00241"/><link linkend="_stm32g4xx__it_8h_1aa96795d8fb4793f60135fad74ecb1d70">00241</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1aa96795d8fb4793f60135fad74ecb1d70">TIM1_TRG_COM_TIM17_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00242"/>00242 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00243"/>00243 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_TRG_COM_TIM17_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00244"/>00244 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00245"/>00245 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_TRG_COM_TIM17_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00246"/>00246 &#32;&#32;HAL_TIM_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00247"/>00247 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM1_TRG_COM_TIM17_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00248"/>00248 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00249"/>00249 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM1_TRG_COM_TIM17_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00250"/>00250 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00251"/>00251 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00255"/><link linkend="_stm32g4xx__it_8h_1a38ad4725462bdc5e86c4ead4f04b9fc2">00255</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a38ad4725462bdc5e86c4ead4f04b9fc2">TIM2_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00256"/>00256 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00257"/>00257 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00258"/>00258 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00259"/>00259 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00260"/>00260 &#32;&#32;HAL_TIM_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00261"/>00261 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM2_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00262"/>00262 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00263"/>00263 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM2_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00264"/>00264 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00265"/>00265 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00269"/><link linkend="_stm32g4xx__it_8h_1a0ca6fd0e6f77921dd1123539857ba0a8">00269</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a0ca6fd0e6f77921dd1123539857ba0a8">USART2_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00270"/>00270 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00271"/>00271 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;USART2_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00272"/>00272 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00273"/>00273 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;USART2_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00274"/>00274 &#32;&#32;HAL_UART_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00275"/>00275 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;USART2_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00276"/>00276 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00277"/>00277 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;USART2_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00278"/>00278 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00279"/>00279 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00283"/><link linkend="_stm32g4xx__it_8h_1a0d108a3468b2051548183ee5ca2158a0">00283</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a0d108a3468b2051548183ee5ca2158a0">USART3_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00284"/>00284 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00285"/>00285 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;USART3_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00286"/>00286 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00287"/>00287 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;USART3_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00288"/>00288 &#32;&#32;HAL_UART_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00289"/>00289 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;USART3_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00290"/>00290 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00291"/>00291 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;USART3_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00292"/>00292 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00293"/>00293 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00297"/><link linkend="_stm32g4xx__it_8h_1a738473a5b43f6c92b80ce1d3d6f77ed9">00297</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a738473a5b43f6c92b80ce1d3d6f77ed9">EXTI15_10_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00298"/>00298 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00299"/>00299 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;EXTI15_10_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00300"/>00300 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00301"/>00301 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;EXTI15_10_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00302"/>00302 &#32;&#32;HAL_GPIO_EXTI_IRQHandler(<link linkend="_main_8h_1a158931264dc3c964aeb8282d0755b665">USR_BTN_Pin</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00303"/>00303 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;EXTI15_10_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00304"/>00304 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00305"/>00305 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;EXTI15_10_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00306"/>00306 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00307"/>00307 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00311"/><link linkend="_stm32g4xx__it_8h_1a0839a45f331c4c067939b9c4533bbf4d">00311</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_stm32g4xx__it_8c_1a0839a45f331c4c067939b9c4533bbf4d">TIM6_DAC_IRQHandler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00312"/>00312 {
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00313"/>00313 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM6_DAC_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00314"/>00314 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00315"/>00315 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM6_DAC_IRQn&#32;0&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00316"/>00316 &#32;&#32;HAL_TIM_IRQHandler(&amp;<link linkend="_stm32g4xx__it_8c_1a1564492831a79fa18466467c3420c3c3">htim6</link>);
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00317"/>00317 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;TIM6_DAC_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00318"/>00318 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00319"/>00319 &#32;&#32;<emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;TIM6_DAC_IRQn&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00320"/>00320 }
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00321"/>00321 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00322"/>00322 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;1&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00323"/>00323 
+<anchor xml:id="_stm32g4xx__it_8c_source_1l00324"/>00324 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;1&#32;*/</emphasis>
+</programlisting></section>

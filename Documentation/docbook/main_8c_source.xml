@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c_source" xml:lang="en-US">
+<title>main.c</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/main.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_main_8c_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00018"/>00018 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00019"/>00019 
+<anchor xml:id="_main_8c_source_1l00020"/>00020 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00021"/>00021 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_main_8h">main.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00022"/>00022 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_adc_8h">adc.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00023"/>00023 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_dma_8h">dma.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00024"/>00024 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_tim_8h">tim.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_usart_8h">usart.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gpio_8h">gpio.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00027"/>00027 
+<anchor xml:id="_main_8c_source_1l00028"/>00028 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00029"/>00029 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_shell_8h">mylibs/shell.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00030"/>00030 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00031"/>00031 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00032"/>00032 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00033"/>00033 
+<anchor xml:id="_main_8c_source_1l00039"/>00039 <emphasis role="comment">/*&#32;Private&#32;defines&#32;-----------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00041"/><link linkend="_main_8c_1a82ee9a95304128460364d63f0e613e03">00041</link> <emphasis role="preprocessor">#define&#32;PWM_MAX_VAL&#32;4250</emphasis>
+<anchor xml:id="_main_8c_source_1l00042"/>00042 
+<anchor xml:id="_main_8c_source_1l00044"/><link linkend="_main_8c_1a338e171d482819a9b2b701e516c2c915">00044</link> <emphasis role="preprocessor">#define&#32;PWM_VARIATION_RATE&#32;2</emphasis>
+<anchor xml:id="_main_8c_source_1l00045"/>00045 
+<anchor xml:id="_main_8c_source_1l00047"/><link linkend="_main_8c_1a90cbfa2d30b53b54267566c665cde830">00047</link> <emphasis role="preprocessor">#define&#32;ADC_CURRENT_RESOLUTION&#32;0.05</emphasis>
+<anchor xml:id="_main_8c_source_1l00048"/>00048 
+<anchor xml:id="_main_8c_source_1l00050"/><link linkend="_main_8c_1afc89a90f8514178f04427b7d29096390">00050</link> <emphasis role="preprocessor">#define&#32;ADC_VCC&#32;3.3</emphasis>
+<anchor xml:id="_main_8c_source_1l00051"/>00051 
+<anchor xml:id="_main_8c_source_1l00053"/><link linkend="_main_8c_1a3a63fb6f00694ff9f4318b4142c5c868">00053</link> <emphasis role="preprocessor">#define&#32;ADC_MAX_VAL&#32;4096</emphasis>
+<anchor xml:id="_main_8c_source_1l00054"/>00054 
+<anchor xml:id="_main_8c_source_1l00056"/><link linkend="_main_8c_1a827907ee6183e98bb8a50727540d4bb1">00056</link> <emphasis role="preprocessor">#define&#32;ADC_OFFSET&#32;2421</emphasis>
+<anchor xml:id="_main_8c_source_1l00057"/>00057 
+<anchor xml:id="_main_8c_source_1l00059"/><link linkend="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7">00059</link> <emphasis role="preprocessor">#define&#32;ADC_BUFF_SIZE&#32;1</emphasis>
+<anchor xml:id="_main_8c_source_1l00060"/>00060 
+<anchor xml:id="_main_8c_source_1l00061"/>00061 <emphasis role="comment">/*&#32;Private&#32;variables&#32;---------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00063"/><link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">00063</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>;
+<anchor xml:id="_main_8c_source_1l00064"/>00064 
+<anchor xml:id="_main_8c_source_1l00066"/><link linkend="_main_8c_1a5ac7bf439f479d7cf7106cef76006654">00066</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1a5ac7bf439f479d7cf7106cef76006654">requested_speed_PWM</link>;
+<anchor xml:id="_main_8c_source_1l00067"/>00067 
+<anchor xml:id="_main_8c_source_1l00069"/><link linkend="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63">00069</link> uint32_t&#32;<link linkend="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63">pData</link>[<link linkend="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7">ADC_BUFF_SIZE</link>];
+<anchor xml:id="_main_8c_source_1l00070"/>00070 
+<anchor xml:id="_main_8c_source_1l00072"/>00072 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;U_Imes&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00073"/>00073 
+<anchor xml:id="_main_8c_source_1l00075"/>00075 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;Uadc&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00076"/>00076 
+<anchor xml:id="_main_8c_source_1l00082"/><link linkend="_main_8c_1abc513dd972081ae765b6949a62872eb7">00082</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1abc513dd972081ae765b6949a62872eb7">__io_putchar</link>(<emphasis role="keywordtype">int</emphasis>&#32;ch)
+<anchor xml:id="_main_8c_source_1l00083"/>00083 {
+<anchor xml:id="_main_8c_source_1l00084"/>00084 &#32;&#32;&#32;&#32;HAL_UART_Transmit(&amp;<link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link>,&#32;(uint8_t&#32;*)&amp;ch,&#32;1,&#32;HAL_MAX_DELAY);
+<anchor xml:id="_main_8c_source_1l00085"/>00085 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ch;
+<anchor xml:id="_main_8c_source_1l00086"/>00086 }
+<anchor xml:id="_main_8c_source_1l00087"/>00087 
+<anchor xml:id="_main_8c_source_1l00094"/><link linkend="_main_8c_1ae4a663d85b1c26ea11de0fb08b00c027">00094</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1ae4a663d85b1c26ea11de0fb08b00c027">set_PWM</link>()
+<anchor xml:id="_main_8c_source_1l00095"/>00095 {
+<anchor xml:id="_main_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_main_8c_1a5ac7bf439f479d7cf7106cef76006654">requested_speed_PWM</link>&#32;&lt;&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>)
+<anchor xml:id="_main_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>&#32;-=&#32;1;
+<anchor xml:id="_main_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__HAL_TIM_SET_COMPARE(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_1,&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>);
+<anchor xml:id="_main_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__HAL_TIM_SET_COMPARE(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_2,
+<anchor xml:id="_main_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__HAL_TIM_GET_AUTORELOAD(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>)&#32;-&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>);
+<anchor xml:id="_main_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_main_8c_1a5ac7bf439f479d7cf7106cef76006654">requested_speed_PWM</link>&#32;&gt;&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>)
+<anchor xml:id="_main_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>&#32;+=&#32;1;
+<anchor xml:id="_main_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__HAL_TIM_SET_COMPARE(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_1,&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>);
+<anchor xml:id="_main_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__HAL_TIM_SET_COMPARE(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_2,
+<anchor xml:id="_main_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__HAL_TIM_GET_AUTORELOAD(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>)&#32;-&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>);
+<anchor xml:id="_main_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00110"/>00110 }
+<anchor xml:id="_main_8c_source_1l00111"/>00111 
+<anchor xml:id="_main_8c_source_1l00116"/><link linkend="_shell_8h_1ab5c61f6cca95944497de9d5c1a7a0e53">00116</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1ab5c61f6cca95944497de9d5c1a7a0e53">set_PWM_ratio</link>(<emphasis role="keywordtype">double</emphasis>&#32;ratio)
+<anchor xml:id="_main_8c_source_1l00117"/>00117 {
+<anchor xml:id="_main_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(ratio&#32;&gt;&#32;0&#32;&amp;&amp;&#32;ratio&#32;&lt;&#32;1)
+<anchor xml:id="_main_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1a5ac7bf439f479d7cf7106cef76006654">requested_speed_PWM</link>&#32;=&#32;(int)(ratio&#32;*&#32;<link linkend="_main_8c_1a82ee9a95304128460364d63f0e613e03">PWM_MAX_VAL</link>);
+<anchor xml:id="_main_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00122"/>00122 }
+<anchor xml:id="_main_8c_source_1l00123"/>00123 
+<anchor xml:id="_main_8c_source_1l00128"/><link linkend="_shell_8h_1a53873ca97f4eff976cda4093424c60b1">00128</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a53873ca97f4eff976cda4093424c60b1">set_PWM_speed</link>(<emphasis role="keywordtype">int</emphasis>&#32;speed)
+<anchor xml:id="_main_8c_source_1l00129"/>00129 {
+<anchor xml:id="_main_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(speed&#32;&gt;&#32;0&#32;&amp;&amp;&#32;speed&#32;&lt;&#32;<link linkend="_main_8c_1a82ee9a95304128460364d63f0e613e03">PWM_MAX_VAL</link>)
+<anchor xml:id="_main_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1a5ac7bf439f479d7cf7106cef76006654">requested_speed_PWM</link>&#32;=&#32;speed;
+<anchor xml:id="_main_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00134"/>00134 }
+<anchor xml:id="_main_8c_source_1l00135"/>00135 
+<anchor xml:id="_main_8c_source_1l00141"/><link linkend="_shell_8h_1a933ee4c92795bba0229662fbf0a8b144">00141</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1acc0471f81d01eeb7ce92087321f5d7d7">start_PWM</link>()
+<anchor xml:id="_main_8c_source_1l00142"/>00142 {
+<anchor xml:id="_main_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;HAL_TIM_PWM_Start(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_1);
+<anchor xml:id="_main_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;HAL_TIMEx_PWMN_Start(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_1);
+<anchor xml:id="_main_8c_source_1l00145"/>00145 
+<anchor xml:id="_main_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;HAL_TIM_PWM_Start(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_2);
+<anchor xml:id="_main_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;HAL_TIMEx_PWMN_Start(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_2);
+<anchor xml:id="_main_8c_source_1l00148"/>00148 
+<anchor xml:id="_main_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;<link linkend="_main_8c_1a3324bf9b8e65e0644a99dc82744d01de">current_speed_PWM</link>&#32;=&#32;<link linkend="_main_8c_1a82ee9a95304128460364d63f0e613e03">PWM_MAX_VAL</link>&#32;/&#32;2&#32;+&#32;1;
+<anchor xml:id="_main_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;<link linkend="_main_8c_1ab5c61f6cca95944497de9d5c1a7a0e53">set_PWM_ratio</link>(0.5);
+<anchor xml:id="_main_8c_source_1l00151"/>00151 }
+<anchor xml:id="_main_8c_source_1l00152"/>00152 
+<anchor xml:id="_main_8c_source_1l00156"/><link linkend="_shell_8h_1a5dbeee862c827ec0736b6e79c42859a9">00156</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a46410d8579351c44306a0986025f244a">stop_PWM</link>()
+<anchor xml:id="_main_8c_source_1l00157"/>00157 {
+<anchor xml:id="_main_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;HAL_TIM_PWM_Stop(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_1);
+<anchor xml:id="_main_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;HAL_TIMEx_PWMN_Stop(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_1);
+<anchor xml:id="_main_8c_source_1l00160"/>00160 
+<anchor xml:id="_main_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;HAL_TIM_PWM_Stop(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_2);
+<anchor xml:id="_main_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;HAL_TIMEx_PWMN_Stop(&amp;<link linkend="_tim_8h_1a25fc663547539bc49fecc0011bd76ab5">htim1</link>,&#32;TIM_CHANNEL_2);
+<anchor xml:id="_main_8c_source_1l00163"/>00163 }
+<anchor xml:id="_main_8c_source_1l00164"/>00164 
+<anchor xml:id="_main_8c_source_1l00168"/><link linkend="_shell_8h_1aca90e0598a78eabb24f644da77050761">00168</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1afa0edc0b7d3e2e6206177babb5dacee8">reset_inverter</link>()
+<anchor xml:id="_main_8c_source_1l00169"/>00169 {
+<anchor xml:id="_main_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;NVIC_SystemReset();
+<anchor xml:id="_main_8c_source_1l00171"/>00171 }
+<anchor xml:id="_main_8c_source_1l00172"/>00172 
+<anchor xml:id="_main_8c_source_1l00179"/><link linkend="_shell_8h_1ae52eb9986b1b73a2f95b46d26cd690b4">00179</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1aa721b5468d6af9957f3b6d3064a61760">read_current</link>()
+<anchor xml:id="_main_8c_source_1l00180"/>00180 {
+<anchor xml:id="_main_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\r\nRAW&#32;ADC&#32;value:&#32;%d\r\n&quot;</emphasis>,&#32;(<emphasis role="keywordtype">int</emphasis>)(<link linkend="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63">pData</link>[0]));
+<anchor xml:id="_main_8c_source_1l00182"/>00182 
+<anchor xml:id="_main_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;Uadc&#32;=&#32;<link linkend="_main_8c_1afc89a90f8514178f04427b7d29096390">ADC_VCC</link>&#32;*&#32;((int)(<link linkend="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63">pData</link>[0])&#32;-&#32;<link linkend="_main_8c_1a827907ee6183e98bb8a50727540d4bb1">ADC_OFFSET</link>)&#32;/&#32;<link linkend="_main_8c_1a3a63fb6f00694ff9f4318b4142c5c868">ADC_MAX_VAL</link>;
+<anchor xml:id="_main_8c_source_1l00184"/>00184 &#32;&#32;&#32;&#32;U_Imes&#32;=&#32;Uadc&#32;/&#32;<link linkend="_main_8c_1a90cbfa2d30b53b54267566c665cde830">ADC_CURRENT_RESOLUTION</link>;
+<anchor xml:id="_main_8c_source_1l00185"/>00185 
+<anchor xml:id="_main_8c_source_1l00186"/>00186 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\r\nMeasured&#32;tension:&#32;%f&#32;V\r\n&quot;</emphasis>,&#32;Uadc);
+<anchor xml:id="_main_8c_source_1l00187"/>00187 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\r\nMeasured&#32;current:&#32;%f&#32;A\r\n&quot;</emphasis>,&#32;U_Imes);
+<anchor xml:id="_main_8c_source_1l00188"/>00188 }
+<anchor xml:id="_main_8c_source_1l00189"/>00189 
+<anchor xml:id="_main_8c_source_1l00194"/><link linkend="_main_8c_1af20a88180db1113be1e89266917d148b">00194</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1af20a88180db1113be1e89266917d148b">HAL_ADC_ConvCpltCallback</link>(ADC_HandleTypeDef&#32;*hadc)
+<anchor xml:id="_main_8c_source_1l00195"/>00195 {
+<anchor xml:id="_main_8c_source_1l00196"/>00196 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(hadc-&gt;Instance&#32;==&#32;ADC1)
+<anchor xml:id="_main_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_ADC_Start_DMA(hadc,&#32;<link linkend="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63">pData</link>,&#32;<link linkend="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7">ADC_BUFF_SIZE</link>);
+<anchor xml:id="_main_8c_source_1l00199"/>00199 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00200"/>00200 }
+<anchor xml:id="_main_8c_source_1l00201"/>00201 
+<anchor xml:id="_main_8c_source_1l00209"/><link linkend="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe">00209</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe">main</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_main_8c_source_1l00210"/>00210 {
+<anchor xml:id="_main_8c_source_1l00211"/>00211 &#32;&#32;&#32;&#32;HAL_Init();
+<anchor xml:id="_main_8c_source_1l00212"/>00212 &#32;&#32;&#32;&#32;<link linkend="_main_8c_1a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</link>();
+<anchor xml:id="_main_8c_source_1l00213"/>00213 
+<anchor xml:id="_main_8c_source_1l00214"/>00214 &#32;&#32;&#32;&#32;<link linkend="_gpio_8h_1ac724e431d2af879252de35615be2bdea">MX_GPIO_Init</link>();
+<anchor xml:id="_main_8c_source_1l00215"/>00215 &#32;&#32;&#32;&#32;<link linkend="_dma_8h_1a323249dac769f9855c10b4ec9446b707">MX_DMA_Init</link>();
+<anchor xml:id="_main_8c_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<link linkend="_adc_8h_1a101e2e3433dfe72bbbd0ae3a84489263">MX_ADC2_Init</link>();
+<anchor xml:id="_main_8c_source_1l00217"/>00217 &#32;&#32;&#32;&#32;<link linkend="_adc_8h_1acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</link>();
+<anchor xml:id="_main_8c_source_1l00218"/>00218 &#32;&#32;&#32;&#32;<link linkend="_tim_8h_1ad1f9d42690163f73f73e5b820c81ca14">MX_TIM1_Init</link>();
+<anchor xml:id="_main_8c_source_1l00219"/>00219 &#32;&#32;&#32;&#32;<link linkend="_tim_8h_1a7912f2916786a2c33cb6fb8259ade58c">MX_TIM3_Init</link>();
+<anchor xml:id="_main_8c_source_1l00220"/>00220 &#32;&#32;&#32;&#32;<link linkend="_usart_8h_1a052088fe5bb3f807a4b2502e664fd4fd">MX_USART2_UART_Init</link>();
+<anchor xml:id="_main_8c_source_1l00221"/>00221 &#32;&#32;&#32;&#32;<link linkend="_usart_8h_1a3d04b903a77089f6ce08dd0bf1c81a81">MX_USART3_UART_Init</link>();
+<anchor xml:id="_main_8c_source_1l00222"/>00222 &#32;&#32;&#32;&#32;<link linkend="_tim_8h_1a4b8ff887fd3fdf26605e35927e4ff202">MX_TIM2_Init</link>();
+<anchor xml:id="_main_8c_source_1l00223"/>00223 
+<anchor xml:id="_main_8c_source_1l00224"/>00224 &#32;&#32;&#32;&#32;HAL_TIM_Base_Start_IT(&amp;<link linkend="_tim_8h_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link>);
+<anchor xml:id="_main_8c_source_1l00225"/>00225 
+<anchor xml:id="_main_8c_source_1l00226"/>00226 &#32;&#32;&#32;&#32;HAL_ADCEx_Calibration_Start(&amp;<link linkend="_adc_8h_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>,&#32;ADC_SINGLE_ENDED);
+<anchor xml:id="_main_8c_source_1l00227"/>00227 &#32;&#32;&#32;&#32;HAL_ADC_Start_DMA(&amp;<link linkend="_adc_8h_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>,&#32;<link linkend="_main_8c_1adfc43c37d10368eeef2e68bb7bd1da63">pData</link>,&#32;<link linkend="_main_8c_1a4de08020d60dad9bd7f6d5270ae5dbc7">ADC_BUFF_SIZE</link>);
+<anchor xml:id="_main_8c_source_1l00228"/>00228 
+<anchor xml:id="_main_8c_source_1l00229"/>00229 &#32;&#32;&#32;&#32;<link linkend="_main_8c_1acc0471f81d01eeb7ce92087321f5d7d7">start_PWM</link>();
+<anchor xml:id="_main_8c_source_1l00230"/>00230 &#32;&#32;&#32;&#32;<link linkend="_shell_8h_1a1e1a7212cd1e25d36ce85620f03f996e">Shell_Init</link>();
+<anchor xml:id="_main_8c_source_1l00231"/>00231 
+<anchor xml:id="_main_8c_source_1l00232"/>00232 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)
+<anchor xml:id="_main_8c_source_1l00233"/>00233 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_shell_8h_1a9f70d5542e7f7f470ff7cd7d482caeb7">Shell_Loop</link>();
+<anchor xml:id="_main_8c_source_1l00235"/>00235 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00236"/>00236 }
+<anchor xml:id="_main_8c_source_1l00237"/>00237 
+<anchor xml:id="_main_8c_source_1l00241"/><link linkend="_main_8c_1a70af21c671abfcc773614a9a4f63d920">00241</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_main_8c_source_1l00242"/>00242 {
+<anchor xml:id="_main_8c_source_1l00243"/>00243 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Clock&#32;configuration&#32;details&#32;omitted&#32;for&#32;brevity</emphasis>
+<anchor xml:id="_main_8c_source_1l00244"/>00244 }
+<anchor xml:id="_main_8c_source_1l00245"/>00245 
+<anchor xml:id="_main_8c_source_1l00250"/><link linkend="_main_8c_1a8a3b0ad512a6e6c6157440b68d395eac">00250</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a8a3b0ad512a6e6c6157440b68d395eac">HAL_TIM_PeriodElapsedCallback</link>(TIM_HandleTypeDef&#32;*htim)
+<anchor xml:id="_main_8c_source_1l00251"/>00251 {
+<anchor xml:id="_main_8c_source_1l00252"/>00252 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(htim-&gt;Instance&#32;==&#32;TIM2)
+<anchor xml:id="_main_8c_source_1l00253"/>00253 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1ae4a663d85b1c26ea11de0fb08b00c027">set_PWM</link>();
+<anchor xml:id="_main_8c_source_1l00255"/>00255 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00256"/>00256 
+<anchor xml:id="_main_8c_source_1l00257"/>00257 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(htim-&gt;Instance&#32;==&#32;TIM6)
+<anchor xml:id="_main_8c_source_1l00258"/>00258 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HAL_IncTick();
+<anchor xml:id="_main_8c_source_1l00260"/>00260 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00261"/>00261 }
+<anchor xml:id="_main_8c_source_1l00262"/>00262 
+<anchor xml:id="_main_8c_source_1l00268"/><link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">00268</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_main_8c_source_1l00269"/>00269 {
+<anchor xml:id="_main_8c_source_1l00270"/>00270 &#32;&#32;&#32;&#32;__disable_irq();
+<anchor xml:id="_main_8c_source_1l00271"/>00271 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)
+<anchor xml:id="_main_8c_source_1l00272"/>00272 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_main_8c_source_1l00273"/>00273 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00274"/>00274 }
+<anchor xml:id="_main_8c_source_1l00275"/>00275 
+<anchor xml:id="_main_8c_source_1l00281"/><link linkend="_main_8c_1a2532ff72b1a2ff82f65e8c2a5a4dde00">00281</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a2532ff72b1a2ff82f65e8c2a5a4dde00">assert_failed</link>(uint8_t&#32;*file,&#32;uint32_t&#32;line)
+<anchor xml:id="_main_8c_source_1l00282"/>00282 {
+<anchor xml:id="_main_8c_source_1l00283"/>00283 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Wrong&#32;parameter&#32;value:&#32;file&#32;%s&#32;on&#32;line&#32;%d\r\n&quot;</emphasis>,&#32;file,&#32;line);
+<anchor xml:id="_main_8c_source_1l00284"/>00284 }
+</programlisting></section>

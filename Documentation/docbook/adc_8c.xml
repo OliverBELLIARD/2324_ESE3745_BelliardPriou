@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_adc_8c" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/adc.c File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/adc.c</primary></indexterm>
+<para>
+
+<para>This file provides code for the configuration of the ADC instances. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;adc.h&quot;<?linebreak?></programlisting>Include dependency graph for adc.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_adc_8c_1acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_adc_8c_1a101e2e3433dfe72bbbd0ae3a84489263">MX_ADC2_Init</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_adc_8c_1ac3139540667c403c5dfd37a99c610b1c">HAL_ADC_MspInit</link> (ADC_HandleTypeDef *adcHandle)</para>
+</listitem>
+            <listitem><para>void <link linkend="_adc_8c_1a3f61f2c2af0f122f81a87af8ad7b4360">HAL_ADC_MspDeInit</link> (ADC_HandleTypeDef *adcHandle)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>ADC_HandleTypeDef <link linkend="_adc_8c_1a22b804736f5648d52f639b2647d4ed13">hadc1</link></para>
+</listitem>
+            <listitem><para>ADC_HandleTypeDef <link linkend="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link></para>
+</listitem>
+            <listitem><para>DMA_HandleTypeDef <link linkend="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f">hdma_adc1</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file provides code for the configuration of the ADC instances. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_adc_8c_source">adc.c</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_adc_8c_1a3f61f2c2af0f122f81a87af8ad7b4360"/><section>
+    <title>HAL_ADC_MspDeInit()</title>
+<indexterm><primary>HAL_ADC_MspDeInit</primary><secondary>adc.c</secondary></indexterm>
+<indexterm><primary>adc.c</primary><secondary>HAL_ADC_MspDeInit</secondary></indexterm>
+<para><computeroutput>void HAL_ADC_MspDeInit (ADC_HandleTypeDef * adcHandle)</computeroutput></para>
+<para>ADC1 GPIO Configuration PC2 ---&#8212;&gt; ADC1_IN8 PA1 ---&#8212;&gt; ADC1_IN2 PB0 ---&#8212;&gt; ADC1_IN15 PB1 ---&#8212;&gt; ADC1_IN12</para>
+
+<para>Uncomment the line below to disable the &quot;ADC1_2_IRQn&quot; interrupt Be aware, disabling shared interrupt may affect other IPs</para>
+
+<para>ADC2 GPIO Configuration PC0 ---&#8212;&gt; ADC2_IN6 PC1 ---&#8212;&gt; ADC2_IN7 PC3 ---&#8212;&gt; ADC2_IN9 PA0 ---&#8212;&gt; ADC2_IN1</para>
+
+<para>Uncomment the line below to disable the &quot;ADC1_2_IRQn&quot; interrupt Be aware, disabling shared interrupt may affect other IPs</para>
+<para>
+Definition at line <link linkend="_adc_8c_source_1l00274">274</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+</section>
+<anchor xml:id="_adc_8c_1ac3139540667c403c5dfd37a99c610b1c"/><section>
+    <title>HAL_ADC_MspInit()</title>
+<indexterm><primary>HAL_ADC_MspInit</primary><secondary>adc.c</secondary></indexterm>
+<indexterm><primary>adc.c</primary><secondary>HAL_ADC_MspInit</secondary></indexterm>
+<para><computeroutput>void HAL_ADC_MspInit (ADC_HandleTypeDef * adcHandle)</computeroutput></para>
+<para>Initializes the peripherals clocks</para>
+
+<para>ADC1 GPIO Configuration PC2 ---&#8212;&gt; ADC1_IN8 PA1 ---&#8212;&gt; ADC1_IN2 PB0 ---&#8212;&gt; ADC1_IN15 PB1 ---&#8212;&gt; ADC1_IN12</para>
+
+<para>Initializes the peripherals clocks</para>
+
+<para>ADC2 GPIO Configuration PC0 ---&#8212;&gt; ADC2_IN6 PC1 ---&#8212;&gt; ADC2_IN7 PC3 ---&#8212;&gt; ADC2_IN9 PA0 ---&#8212;&gt; ADC2_IN1</para>
+<para>
+Definition at line <link linkend="_adc_8c_source_1l00151">151</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8c_ac3139540667c403c5dfd37a99c610b1c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_adc_8c_1acccd58aa70215a6b184ad242312ffd0c"/><section>
+    <title>MX_ADC1_Init()</title>
+<indexterm><primary>MX_ADC1_Init</primary><secondary>adc.c</secondary></indexterm>
+<indexterm><primary>adc.c</primary><secondary>MX_ADC1_Init</secondary></indexterm>
+<para><computeroutput>void MX_ADC1_Init (void )</computeroutput></para>
+<para>Common config</para>
+
+<para>Configure the ADC multi-mode</para>
+
+<para>Configure Regular Channel</para>
+<para>
+Definition at line <link linkend="_adc_8c_source_1l00032">32</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8c_acccd58aa70215a6b184ad242312ffd0c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8c_acccd58aa70215a6b184ad242312ffd0c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_adc_8c_1a101e2e3433dfe72bbbd0ae3a84489263"/><section>
+    <title>MX_ADC2_Init()</title>
+<indexterm><primary>MX_ADC2_Init</primary><secondary>adc.c</secondary></indexterm>
+<indexterm><primary>adc.c</primary><secondary>MX_ADC2_Init</secondary></indexterm>
+<para><computeroutput>void MX_ADC2_Init (void )</computeroutput></para>
+<para>Common config</para>
+
+<para>Configure Regular Channel</para>
+<para>
+Definition at line <link linkend="_adc_8c_source_1l00095">95</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8c_a101e2e3433dfe72bbbd0ae3a84489263_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="adc_8c_a101e2e3433dfe72bbbd0ae3a84489263_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_adc_8c_1a22b804736f5648d52f639b2647d4ed13"/><section>
+    <title>hadc1</title>
+<indexterm><primary>hadc1</primary><secondary>adc.c</secondary></indexterm>
+<indexterm><primary>adc.c</primary><secondary>hadc1</secondary></indexterm>
+<para><computeroutput>ADC_HandleTypeDef hadc1</computeroutput></para><para>
+Definition at line <link linkend="_adc_8c_source_1l00027">27</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+</section>
+<anchor xml:id="_adc_8c_1acd9221f1aa19aebfe0b744947f2daf49"/><section>
+    <title>hadc2</title>
+<indexterm><primary>hadc2</primary><secondary>adc.c</secondary></indexterm>
+<indexterm><primary>adc.c</primary><secondary>hadc2</secondary></indexterm>
+<para><computeroutput>ADC_HandleTypeDef hadc2</computeroutput></para><para>
+Definition at line <link linkend="_adc_8c_source_1l00028">28</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+</section>
+<anchor xml:id="_adc_8c_1a1c126854bb1813d31ab4776b21dcc51f"/><section>
+    <title>hdma_adc1</title>
+<indexterm><primary>hdma_adc1</primary><secondary>adc.c</secondary></indexterm>
+<indexterm><primary>adc.c</primary><secondary>hdma_adc1</secondary></indexterm>
+<para><computeroutput>DMA_HandleTypeDef hdma_adc1</computeroutput></para><para>
+Definition at line <link linkend="_adc_8c_source_1l00029">29</link> of file <link linkend="_adc_8c_source">adc.c</link>.</para>
+</section>
+</section>
+</section>

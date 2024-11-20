@@ -1,0 +1,22 @@
+digraph "Shell_Loop"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="Shell_Loop",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Main loop for the shell interface."];
+  Node1 -> Node2 [id="edge15_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="read_current",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#aa721b5468d6af9957f3b6d3064a61760",tooltip="Reads and prints the current value."];
+  Node1 -> Node3 [id="edge16_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="reset_inverter",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#afa0edc0b7d3e2e6206177babb5dacee8",tooltip="Resets the microcontroller."];
+  Node1 -> Node4 [id="edge17_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="set_PWM_ratio",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#ab5c61f6cca95944497de9d5c1a7a0e53",tooltip="Sets the PWM duty cycle ratio."];
+  Node1 -> Node5 [id="edge18_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="set_PWM_speed",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#a53873ca97f4eff976cda4093424c60b1",tooltip="Sets the PWM speed."];
+  Node1 -> Node6 [id="edge19_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="start_PWM",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#acc0471f81d01eeb7ce92087321f5d7d7",tooltip="Starts the PWM generation."];
+  Node6 -> Node4 [id="edge20_Node000006_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node7 [id="edge21_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="stop_PWM",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html#a46410d8579351c44306a0986025f244a",tooltip="Stops the PWM generation."];
+}

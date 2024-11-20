@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_adc_8h_source" xml:lang="en-US">
+<title>adc.h</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/adc.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_adc_8h_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00019"/>00019 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00020"/>00020 <emphasis role="comment">/*&#32;Define&#32;to&#32;prevent&#32;recursive&#32;inclusion&#32;-------------------------------------*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00021"/>00021 <emphasis role="preprocessor">#ifndef&#32;__ADC_H__</emphasis>
+<anchor xml:id="_adc_8h_source_1l00022"/>00022 <emphasis role="preprocessor">#define&#32;__ADC_H__</emphasis>
+<anchor xml:id="_adc_8h_source_1l00023"/>00023 
+<anchor xml:id="_adc_8h_source_1l00024"/>00024 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_adc_8h_source_1l00025"/>00025 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="stringliteral">&quot;C&quot;</emphasis>&#32;{
+<anchor xml:id="_adc_8h_source_1l00026"/>00026 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_adc_8h_source_1l00027"/>00027 
+<anchor xml:id="_adc_8h_source_1l00028"/>00028 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00029"/>00029 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_main_8h">main.h</link>&quot;</emphasis>
+<anchor xml:id="_adc_8h_source_1l00030"/>00030 
+<anchor xml:id="_adc_8h_source_1l00031"/>00031 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00032"/>00032 
+<anchor xml:id="_adc_8h_source_1l00033"/>00033 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00034"/>00034 
+<anchor xml:id="_adc_8h_source_1l00035"/>00035 <emphasis role="keyword">extern</emphasis>&#32;ADC_HandleTypeDef&#32;<link linkend="_adc_8h_1a22b804736f5648d52f639b2647d4ed13">hadc1</link>;
+<anchor xml:id="_adc_8h_source_1l00036"/>00036 
+<anchor xml:id="_adc_8h_source_1l00037"/>00037 <emphasis role="keyword">extern</emphasis>&#32;ADC_HandleTypeDef&#32;<link linkend="_adc_8h_1acd9221f1aa19aebfe0b744947f2daf49">hadc2</link>;
+<anchor xml:id="_adc_8h_source_1l00038"/>00038 
+<anchor xml:id="_adc_8h_source_1l00039"/>00039 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Private&#32;defines&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00040"/>00040 
+<anchor xml:id="_adc_8h_source_1l00041"/>00041 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Private&#32;defines&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00042"/>00042 
+<anchor xml:id="_adc_8h_source_1l00043"/>00043 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_adc_8h_1acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_adc_8h_source_1l00044"/>00044 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_adc_8h_1a101e2e3433dfe72bbbd0ae3a84489263">MX_ADC2_Init</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_adc_8h_source_1l00045"/>00045 
+<anchor xml:id="_adc_8h_source_1l00046"/>00046 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Prototypes&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00047"/>00047 
+<anchor xml:id="_adc_8h_source_1l00048"/>00048 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Prototypes&#32;*/</emphasis>
+<anchor xml:id="_adc_8h_source_1l00049"/>00049 
+<anchor xml:id="_adc_8h_source_1l00050"/>00050 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_adc_8h_source_1l00051"/>00051 }
+<anchor xml:id="_adc_8h_source_1l00052"/>00052 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_adc_8h_source_1l00053"/>00053 
+<anchor xml:id="_adc_8h_source_1l00054"/>00054 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;__ADC_H__&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_adc_8h_source_1l00055"/>00055 
+</programlisting></section>

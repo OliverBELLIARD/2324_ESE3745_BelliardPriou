@@ -1,9 +1,15 @@
-/*
- * shell.c
+/**
+ * @file shell.c
+ * @brief Shell command interface for the Nucleo-STM32G474 microcontroller.
  *
- *  Created on: Oct 1, 2023
- *      Author: nicolas
+ * Provides a basic shell interface to execute commands via UART.
+ * Commands include setting PWM parameters, starting/stopping PWM, resetting
+ * the microcontroller, and measuring current.
+ *
+ * @author Nicolas
+ * @date October 1, 2023
  */
+
 #include "usart.h"
 #include "mylibs/shell.h"
 #include "tim.h"
@@ -11,37 +17,71 @@
 #include <string.h>
 #include <stdlib.h>
 
-uint8_t prompt[]="user@Nucleo-STM32G474RET6>>";
-uint8_t started[]=
-		"\r\n*-----------------------------*"
-		"\r\n| Welcome on Nucleo-STM32G474 |"
-		"\r\n*-----------------------------*"
-		"\r\n";
-uint8_t newline[]="\r\n";
-uint8_t backspace[]="\b \b";
-uint8_t cmdNotFound[]="Command not found\r\n";
-uint8_t brian[]="Brian is in the kitchen\r\n";
+/** @brief Shell prompt message. */
+uint8_t prompt[] = "user@Nucleo-STM32G474RET6>>";
+
+/** @brief Startup message displayed on UART when shell initializes. */
+uint8_t started[] =
+    "\r\n*-----------------------------*"
+    "\r\n| Welcome on Nucleo-STM32G474 |"
+    "\r\n*-----------------------------*\r\n";
+
+/** @brief Newline character sequence for UART. */
+uint8_t newline[] = "\r\n";
+
+/** @brief Backspace character sequence for UART. */
+uint8_t backspace[] = "\b \b";
+
+/** @brief Error message displayed when an unknown command is entered. */
+uint8_t cmdNotFound[] = "Command not found\r\n";
+
+/** @brief Response for the "WhereisBrian?" command. */
+uint8_t brian[] = "Brian is in the kitchen\r\n";
+
+/** @brief Flag indicating UART receive event. */
 uint8_t uartRxReceived;
+
+/** @brief UART receive buffer. */
 uint8_t uartRxBuffer[UART_RX_BUFFER_SIZE];
+
+/** @brief UART transmit buffer. */
 uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
-uint8_t helpMessage[]=
-		"\r\nAvailable commands:"
-		"\r\n- help\tDisplays this help message."
-		"\r\n- ratio\tSets a new cyclic ratio."
-		"\r\n- speed\tSets a new PWM speed."
-		"\r\n- start\tStarts the PWM generation."
-		"\r\n- stop\tStops the PWM generation."
-		"\r\n- reset\tResets the microcontroller."
-		"\r\n- current\tPrints the measured current of U."
-		"\r\n";
 
-char	 	cmdBuffer[CMD_BUFFER_SIZE];
-int 		idx_cmd;
-char* 		argv[MAX_ARGS];
-int		 	argc = 0;
-char*		token;
-int 		newCmdReady = 0;
+/** @brief Help message listing available commands. */
+uint8_t helpMessage[] =
+    "\r\nAvailable commands:"
+    "\r\n- help\tDisplays this help message."
+    "\r\n- ratio\tSets a new cyclic ratio."
+    "\r\n- speed\tSets a new PWM speed."
+    "\r\n- start\tStarts the PWM generation."
+    "\r\n- stop\tStops the PWM generation."
+    "\r\n- reset\tResets the microcontroller."
+    "\r\n- current\tPrints the measured current of U."
+    "\r\n";
 
+/** @brief Command buffer to store user input. */
+char cmdBuffer[CMD_BUFFER_SIZE];
+
+/** @brief Index for the command buffer. */
+int idx_cmd;
+
+/** @brief Argument vector storing parsed command arguments. */
+char *argv[MAX_ARGS];
+
+/** @brief Argument count for the parsed command. */
+int argc = 0;
+
+/** @brief Token for parsing commands. */
+char *token;
+
+/** @brief Flag indicating a new command is ready to process. */
+int newCmdReady = 0;
+
+/**
+ * @brief Initializes the shell interface.
+ *
+ * Sets up UART reception, clears buffers, and displays the startup message.
+ */
 void Shell_Init(void){
 	memset(argv, NULL, MAX_ARGS*sizeof(char*));
 	memset(cmdBuffer, NULL, CMD_BUFFER_SIZE*sizeof(char));
@@ -53,6 +93,11 @@ void Shell_Init(void){
 	HAL_UART_Transmit(&huart2, prompt, strlen((char *)prompt), HAL_MAX_DELAY);
 }
 
+/**
+ * @brief Main loop of the shell.
+ *
+ * Processes received UART data, parses commands, and executes them.
+ */
 void Shell_Loop(void){
 	if(uartRxReceived){
 		switch(uartRxBuffer[0]){
@@ -117,6 +162,13 @@ void Shell_Loop(void){
 	}
 }
 
+/**
+ * @brief UART receive complete callback.
+ *
+ * Handles reception of a single character from UART.
+ *
+ * @param huart UART handle
+ */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart){
 	uartRxReceived = 1;
 	HAL_UART_Receive_IT(&huart2, uartRxBuffer, UART_RX_BUFFER_SIZE);

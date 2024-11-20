@@ -1,0 +1,385 @@
+\doxysection{/home/oliver/\+Documents/3\+A/\+Actionneur\+\_\+\+Automatique\+\_\+appliqee/2324\+\_\+\+ESE3745\+\_\+\+Belliard\+Priou/\+NUCLEO-\/\+G474\+RET6-\/\+Inverter\+\_\+\+Pinout/\+Core/\+Src/mylibs/shell.c File Reference}
+\hypertarget{shell_8c}{}\label{shell_8c}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mylibs/shell.c@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/mylibs/shell.c}}
+
+
+Shell command interface for the Nucleo-\/\+STM32\+G474 microcontroller.  
+
+
+{\ttfamily \#include "{}usart.\+h"{}}\newline
+{\ttfamily \#include "{}mylibs/shell.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for shell.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shell_8c_a1e1a7212cd1e25d36ce85620f03f996e}{Shell\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the shell interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8c_a9f70d5542e7f7f470ff7cd7d482caeb7}{Shell\+\_\+\+Loop}} (void)
+\begin{DoxyCompactList}\small\item\em Main loop of the shell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shell_8c_ae494a9643f29b87d6d81e5264e60e57b}{HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
+\begin{DoxyCompactList}\small\item\em UART receive complete callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a8b893859891afe33d4bba72ba06fd381}{prompt}} \mbox{[}$\,$\mbox{]} = "{}user@Nucleo-\/STM32\+G474\+RET6$>$$>$"{}
+\begin{DoxyCompactList}\small\item\em Shell prompt message. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a835573497a60b314a9bf5a6fcac9602a}{started}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Startup message displayed on UART when shell initializes. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a98a2c452a5e7053154e9f49a4cad4e98}{newline}} \mbox{[}$\,$\mbox{]} = "{}\textbackslash{}r\textbackslash{}n"{}
+\begin{DoxyCompactList}\small\item\em Newline character sequence for UART. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a73072efaa96faae50fbceb96dc409a43}{backspace}} \mbox{[}$\,$\mbox{]} = "{}\textbackslash{}b \textbackslash{}b"{}
+\begin{DoxyCompactList}\small\item\em Backspace character sequence for UART. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a25205e7c6d817620c1d9f7351a817a04}{cmd\+Not\+Found}} \mbox{[}$\,$\mbox{]} = "{}Command not found\textbackslash{}r\textbackslash{}n"{}
+\begin{DoxyCompactList}\small\item\em Error message displayed when an unknown command is entered. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a438d322744fd2053e4b031aea2ad1cbe}{brian}} \mbox{[}$\,$\mbox{]} = "{}Brian is in the kitchen\textbackslash{}r\textbackslash{}n"{}
+\begin{DoxyCompactList}\small\item\em Response for the "{}\+Whereis\+Brian?"{} command. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc}{uart\+Rx\+Received}}
+\begin{DoxyCompactList}\small\item\em Flag indicating UART receive event. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}{uart\+Rx\+Buffer}} \mbox{[}\mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\+\_\+\+RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em UART receive buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a3f98e2db2fa0d8f0cfd87b887576207f}{uart\+Tx\+Buffer}} \mbox{[}\mbox{\hyperlink{shell_8h_a05f5d709605c6317c97e4974bec3402a}{UART\+\_\+\+TX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em UART transmit buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{shell_8c_a59e1969bb35fb5ddc69a02e5b3f7347b}{help\+Message}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Help message listing available commands. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{shell_8c_a755c320507955b333af8919b434c80dd}{cmd\+Buffer}} \mbox{[}\mbox{\hyperlink{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75}{CMD\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Command buffer to store user input. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{shell_8c_a53cf6ebd0848970afbf70c176bec9314}{idx\+\_\+cmd}}
+\begin{DoxyCompactList}\small\item\em Index for the command buffer. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{shell_8c_a097621c7310da407a3cc4a6ae4568c56}{argv}} \mbox{[}\mbox{\hyperlink{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc}{MAX\+\_\+\+ARGS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Argument vector storing parsed command arguments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{shell_8c_ad1447518f4372828b8435ae82e48499e}{argc}} = 0
+\begin{DoxyCompactList}\small\item\em Argument count for the parsed command. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{shell_8c_a1d71425d9df28667d528833a4db10432}{token}}
+\begin{DoxyCompactList}\small\item\em Token for parsing commands. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{shell_8c_a83a0d9b47b936e62d1d68aea902883ac}{new\+Cmd\+Ready}} = 0
+\begin{DoxyCompactList}\small\item\em Flag indicating a new command is ready to process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Shell command interface for the Nucleo-\/\+STM32\+G474 microcontroller. 
+
+Provides a basic shell interface to execute commands via UART. Commands include setting PWM parameters, starting/stopping PWM, resetting the microcontroller, and measuring current.
+
+\begin{DoxyAuthor}{Author}
+Nicolas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+October 1, 2023 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{shell_8c_ae494a9643f29b87d6d81e5264e60e57b}\label{shell_8c_ae494a9643f29b87d6d81e5264e60e57b} 
+\index{shell.c@{shell.c}!HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}}
+\index{HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_RxCpltCallback()}{HAL\_UART\_RxCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart }\end{DoxyParamCaption})}
+
+
+
+UART receive complete callback. 
+
+Handles reception of a single character from UART.
+
+
+\begin{DoxyParams}{Parameters}
+{\em huart} & UART handle \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00172}{172}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a1e1a7212cd1e25d36ce85620f03f996e}\label{shell_8c_a1e1a7212cd1e25d36ce85620f03f996e} 
+\index{shell.c@{shell.c}!Shell\_Init@{Shell\_Init}}
+\index{Shell\_Init@{Shell\_Init}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{Shell\_Init()}{Shell\_Init()}}
+{\footnotesize\ttfamily void Shell\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the shell interface. 
+
+Sets up UART reception, clears buffers, and displays the startup message. 
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00085}{85}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{shell_8c_a9f70d5542e7f7f470ff7cd7d482caeb7}\label{shell_8c_a9f70d5542e7f7f470ff7cd7d482caeb7} 
+\index{shell.c@{shell.c}!Shell\_Loop@{Shell\_Loop}}
+\index{Shell\_Loop@{Shell\_Loop}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{Shell\_Loop()}{Shell\_Loop()}}
+{\footnotesize\ttfamily void Shell\+\_\+\+Loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main loop of the shell. 
+
+Main loop for the shell interface.
+
+Processes received UART data, parses commands, and executes them. 
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00101}{101}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{shell_8c_ad1447518f4372828b8435ae82e48499e}\label{shell_8c_ad1447518f4372828b8435ae82e48499e} 
+\index{shell.c@{shell.c}!argc@{argc}}
+\index{argc@{argc}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{argc}{argc}}
+{\footnotesize\ttfamily int argc = 0}
+
+
+
+Argument count for the parsed command. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00072}{72}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a097621c7310da407a3cc4a6ae4568c56}\label{shell_8c_a097621c7310da407a3cc4a6ae4568c56} 
+\index{shell.c@{shell.c}!argv@{argv}}
+\index{argv@{argv}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{argv}{argv}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} argv\mbox{[}\mbox{\hyperlink{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc}{MAX\+\_\+\+ARGS}}\mbox{]}}
+
+
+
+Argument vector storing parsed command arguments. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00069}{69}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a73072efaa96faae50fbceb96dc409a43}\label{shell_8c_a73072efaa96faae50fbceb96dc409a43} 
+\index{shell.c@{shell.c}!backspace@{backspace}}
+\index{backspace@{backspace}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{backspace}{backspace}}
+{\footnotesize\ttfamily uint8\+\_\+t backspace\mbox{[}$\,$\mbox{]} = "{}\textbackslash{}b \textbackslash{}b"{}}
+
+
+
+Backspace character sequence for UART. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00033}{33}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a438d322744fd2053e4b031aea2ad1cbe}\label{shell_8c_a438d322744fd2053e4b031aea2ad1cbe} 
+\index{shell.c@{shell.c}!brian@{brian}}
+\index{brian@{brian}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{brian}{brian}}
+{\footnotesize\ttfamily uint8\+\_\+t brian\mbox{[}$\,$\mbox{]} = "{}Brian is in the kitchen\textbackslash{}r\textbackslash{}n"{}}
+
+
+
+Response for the "{}\+Whereis\+Brian?"{} command. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00039}{39}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a755c320507955b333af8919b434c80dd}\label{shell_8c_a755c320507955b333af8919b434c80dd} 
+\index{shell.c@{shell.c}!cmdBuffer@{cmdBuffer}}
+\index{cmdBuffer@{cmdBuffer}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{cmdBuffer}{cmdBuffer}}
+{\footnotesize\ttfamily char cmd\+Buffer\mbox{[}\mbox{\hyperlink{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75}{CMD\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Command buffer to store user input. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00063}{63}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a25205e7c6d817620c1d9f7351a817a04}\label{shell_8c_a25205e7c6d817620c1d9f7351a817a04} 
+\index{shell.c@{shell.c}!cmdNotFound@{cmdNotFound}}
+\index{cmdNotFound@{cmdNotFound}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{cmdNotFound}{cmdNotFound}}
+{\footnotesize\ttfamily uint8\+\_\+t cmd\+Not\+Found\mbox{[}$\,$\mbox{]} = "{}Command not found\textbackslash{}r\textbackslash{}n"{}}
+
+
+
+Error message displayed when an unknown command is entered. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00036}{36}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a59e1969bb35fb5ddc69a02e5b3f7347b}\label{shell_8c_a59e1969bb35fb5ddc69a02e5b3f7347b} 
+\index{shell.c@{shell.c}!helpMessage@{helpMessage}}
+\index{helpMessage@{helpMessage}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{helpMessage}{helpMessage}}
+{\footnotesize\ttfamily uint8\+\_\+t help\+Message\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)nAvailable\ commands:"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ help\(\backslash\)tDisplays\ this\ help\ message."{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ ratio\(\backslash\)tSets\ a\ new\ cyclic\ ratio."{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ speed\(\backslash\)tSets\ a\ new\ PWM\ speed."{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ start\(\backslash\)tStarts\ the\ PWM\ generation."{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ stop\(\backslash\)tStops\ the\ PWM\ generation."{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ reset\(\backslash\)tResets\ the\ microcontroller."{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n-\/\ current\(\backslash\)tPrints\ the\ measured\ current\ of\ U."{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}}}
+
+\end{DoxyCode}
+
+
+Help message listing available commands. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00051}{51}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a53cf6ebd0848970afbf70c176bec9314}\label{shell_8c_a53cf6ebd0848970afbf70c176bec9314} 
+\index{shell.c@{shell.c}!idx\_cmd@{idx\_cmd}}
+\index{idx\_cmd@{idx\_cmd}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{idx\_cmd}{idx\_cmd}}
+{\footnotesize\ttfamily int idx\+\_\+cmd}
+
+
+
+Index for the command buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00066}{66}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a83a0d9b47b936e62d1d68aea902883ac}\label{shell_8c_a83a0d9b47b936e62d1d68aea902883ac} 
+\index{shell.c@{shell.c}!newCmdReady@{newCmdReady}}
+\index{newCmdReady@{newCmdReady}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{newCmdReady}{newCmdReady}}
+{\footnotesize\ttfamily int new\+Cmd\+Ready = 0}
+
+
+
+Flag indicating a new command is ready to process. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00078}{78}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a98a2c452a5e7053154e9f49a4cad4e98}\label{shell_8c_a98a2c452a5e7053154e9f49a4cad4e98} 
+\index{shell.c@{shell.c}!newline@{newline}}
+\index{newline@{newline}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{newline}{newline}}
+{\footnotesize\ttfamily uint8\+\_\+t newline\mbox{[}$\,$\mbox{]} = "{}\textbackslash{}r\textbackslash{}n"{}}
+
+
+
+Newline character sequence for UART. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00030}{30}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a8b893859891afe33d4bba72ba06fd381}\label{shell_8c_a8b893859891afe33d4bba72ba06fd381} 
+\index{shell.c@{shell.c}!prompt@{prompt}}
+\index{prompt@{prompt}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{prompt}{prompt}}
+{\footnotesize\ttfamily uint8\+\_\+t prompt\mbox{[}$\,$\mbox{]} = "{}user@Nucleo-\/STM32\+G474\+RET6$>$$>$"{}}
+
+
+
+Shell prompt message. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00021}{21}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a835573497a60b314a9bf5a6fcac9602a}\label{shell_8c_a835573497a60b314a9bf5a6fcac9602a} 
+\index{shell.c@{shell.c}!started@{started}}
+\index{started@{started}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{started}{started}}
+{\footnotesize\ttfamily uint8\+\_\+t started\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n|\ Welcome\ on\ Nucleo-\/STM32G474\ |"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*\(\backslash\)r\(\backslash\)n"{}}}
+
+\end{DoxyCode}
+
+
+Startup message displayed on UART when shell initializes. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00024}{24}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a1d71425d9df28667d528833a4db10432}\label{shell_8c_a1d71425d9df28667d528833a4db10432} 
+\index{shell.c@{shell.c}!token@{token}}
+\index{token@{token}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{token}{token}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} token}
+
+
+
+Token for parsing commands. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00075}{75}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3}\label{shell_8c_a2542ac6d4440b9e1c4a6435c55c79df3} 
+\index{shell.c@{shell.c}!uartRxBuffer@{uartRxBuffer}}
+\index{uartRxBuffer@{uartRxBuffer}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{uartRxBuffer}{uartRxBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+Rx\+Buffer\mbox{[}\mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{UART\+\_\+\+RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+UART receive buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00045}{45}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc}\label{shell_8c_a9f01ffb72325e6328a2239d6de7f4abc} 
+\index{shell.c@{shell.c}!uartRxReceived@{uartRxReceived}}
+\index{uartRxReceived@{uartRxReceived}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{uartRxReceived}{uartRxReceived}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+Rx\+Received}
+
+
+
+Flag indicating UART receive event. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00042}{42}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+
+\Hypertarget{shell_8c_a3f98e2db2fa0d8f0cfd87b887576207f}\label{shell_8c_a3f98e2db2fa0d8f0cfd87b887576207f} 
+\index{shell.c@{shell.c}!uartTxBuffer@{uartTxBuffer}}
+\index{uartTxBuffer@{uartTxBuffer}!shell.c@{shell.c}}
+\doxysubsubsection{\texorpdfstring{uartTxBuffer}{uartTxBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+Tx\+Buffer\mbox{[}\mbox{\hyperlink{shell_8h_a05f5d709605c6317c97e4974bec3402a}{UART\+\_\+\+TX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+UART transmit buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{shell_8c_source_l00048}{48}} of file \mbox{\hyperlink{shell_8c_source}{shell.\+c}}.
+

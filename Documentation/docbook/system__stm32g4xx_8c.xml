@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_system__stm32g4xx_8c" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/system_stm32g4xx.c File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/system_stm32g4xx.c</primary></indexterm>
+<para>
+
+<para>CMSIS Cortex-M4 Device Peripheral Access Layer System Source File. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;stm32g4xx.h&quot;<?linebreak?></programlisting>Include dependency graph for system_stm32g4xx.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="system__stm32g4xx_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__STM32G4xx__System__Private__Includes_1gaeafcff4f57440c60e64812dddd13e7cb">HSE_VALUE</link>&#160;&#160;&#160;24000000U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__STM32G4xx__System__Private__Includes_1gaaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE</link>&#160;&#160;&#160;16000000U</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_group__STM32G4xx__System__Private__Functions_1ga93f514700ccf00d08dbdcff7f1224eb2">SystemInit</link> (void)</para>
+
+<para>Setup the microcontroller system. </para>
+</listitem>
+            <listitem><para>void <link linkend="_group__STM32G4xx__System__Private__Functions_1gae0c36a9591fe6e9c45ecb21a794f0f0f">SystemCoreClockUpdate</link> (void)</para>
+
+<para>Update SystemCoreClock variable according to Clock Register Values. The SystemCoreClock variable contains the core clock (HCLK), it can be used by the user application to setup the SysTick timer or configure other parameters. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_group__STM32G4xx__System__Private__Variables_1gaa3cd3e43291e81e795d642b79b6088e6">SystemCoreClock</link> = <link linkend="_stm32g4xx__hal__conf_8h_1aaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE</link></para>
+</listitem>
+            <listitem><para>const uint8_t <link linkend="_group__STM32G4xx__System__Private__Variables_1ga6e1d9cd666f0eacbfde31e9932a93466">AHBPrescTable</link> [16] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U}</para>
+</listitem>
+            <listitem><para>const uint8_t <link linkend="_group__STM32G4xx__System__Private__Variables_1ga5b4f8b768465842cf854a8f993b375e9">APBPrescTable</link> [8] = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U}</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>CMSIS Cortex-M4 Device Peripheral Access Layer System Source File. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>MCD Application Team </para>
+</formalpara>
+This file provides two functions and one global variable to be called from user application:<itemizedlist>
+<listitem>
+<para><link linkend="_group__STM32G4xx__System__Private__Functions_1ga93f514700ccf00d08dbdcff7f1224eb2">SystemInit()</link>: This function is called at startup just after reset and before branch to main program. This call is made inside the &quot;startup_stm32g4xx.s&quot; file.</para>
+</listitem><listitem>
+<para>SystemCoreClock variable: Contains the core clock (HCLK), it can be used by the user application to setup the SysTick timer or configure other parameters.</para>
+</listitem><listitem>
+<para><link linkend="_group__STM32G4xx__System__Private__Functions_1gae0c36a9591fe6e9c45ecb21a794f0f0f">SystemCoreClockUpdate()</link>: Updates the variable SystemCoreClock and must be called whenever the core clock is changed during program execution.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>After each device reset the HSI (16 MHz) is used as system clock source. Then <link linkend="_group__STM32G4xx__System__Private__Functions_1ga93f514700ccf00d08dbdcff7f1224eb2">SystemInit()</link> function is called, in &quot;startup_stm32g4xx.s&quot; file, to configure the system clock before to branch to main program.</para>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md0">
+<title>This file configures the system clock as follows:</title>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+ </para>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md1">
+<title>System Clock source                    | HSI</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md2">
+<title>SYSCLK(Hz)                             | 16000000</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md3">
+<title>HCLK(Hz)                               | 16000000</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md4">
+<title>AHB Prescaler                          | 1</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md5">
+<title>APB1 Prescaler                         | 1</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md6">
+<title>APB2 Prescaler                         | 1</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md7">
+<title>PLL_M                                  | 1</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md8">
+<title>PLL_N                                  | 16</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md9">
+<title>PLL_P                                  | 7</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md10">
+<title>PLL_Q                                  | 2</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md11">
+<title>PLL_R                                  | 2</title>
+</section>
+<section xml:id="_system__stm32g4xx_8c_1autotoc_md12">
+<title>Require 48MHz for RNG                  | Disabled</title>
+
+<para>=============================================================================</para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2019 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+</section>
+</section>
+<para>
+Definition in file <link linkend="_system__stm32g4xx_8c_source">system_stm32g4xx.c</link>.</para>
+</section>
+</section>

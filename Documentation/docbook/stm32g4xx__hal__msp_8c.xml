@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stm32g4xx__hal__msp_8c" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/stm32g4xx_hal_msp.c File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/stm32g4xx_hal_msp.c</primary></indexterm>
+<para>
+
+<para>This file provides code for the MSP Initialization and de-Initialization codes. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;main.h&quot;<?linebreak?></programlisting>Include dependency graph for stm32g4xx_hal_msp.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="stm32g4xx__hal__msp_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_stm32g4xx__hal__msp_8c_1ae4fb8e66865c87d0ebab74a726a6891f">HAL_MspInit</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file provides code for the MSP Initialization and de-Initialization codes. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_stm32g4xx__hal__msp_8c_source">stm32g4xx_hal_msp.c</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_stm32g4xx__hal__msp_8c_1ae4fb8e66865c87d0ebab74a726a6891f"/><section>
+    <title>HAL_MspInit()</title>
+<indexterm><primary>HAL_MspInit</primary><secondary>stm32g4xx_hal_msp.c</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_msp.c</primary><secondary>HAL_MspInit</secondary></indexterm>
+<para><computeroutput>void HAL_MspInit (void )</computeroutput></para>
+<para>Initializes the Global MSP. </para>
+
+<para>Disable the internal Pull-Up in Dead Battery pins of UCPD peripheral</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__msp_8c_source_1l00064">64</link> of file <link linkend="_stm32g4xx__hal__msp_8c_source">stm32g4xx_hal_msp.c</link>.</para>
+</section>
+</section>
+</section>

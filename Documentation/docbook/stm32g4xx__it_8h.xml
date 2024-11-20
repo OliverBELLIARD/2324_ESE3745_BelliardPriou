@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stm32g4xx__it_8h" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/stm32g4xx_it.h File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/stm32g4xx_it.h</primary></indexterm>
+<para>
+
+<para>This file contains the headers of the interrupt handlers. </para>
+ 
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="stm32g4xx__it_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a6ad7a5e3ee69cb6db6a6b9111ba898bc">NMI_Handler</link> (void)</para>
+
+<para>This function handles Non maskable interrupt. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a2bffc10d5bd4106753b7c30e86903bea">HardFault_Handler</link> (void)</para>
+
+<para>This function handles Hard fault interrupt. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a3150f74512510287a942624aa9b44cc5">MemManage_Handler</link> (void)</para>
+
+<para>This function handles Memory management fault. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a850cefb17a977292ae5eb4cafa9976c3">BusFault_Handler</link> (void)</para>
+
+<para>This function handles Prefetch fault, memory access fault. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a1d98923de2ed6b7309b66f9ba2971647">UsageFault_Handler</link> (void)</para>
+
+<para>This function handles Undefined instruction or illegal state. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a3e5ddb3df0d62f2dc357e64a3f04a6ce">SVC_Handler</link> (void)</para>
+
+<para>This function handles System service call via SWI instruction. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1adbdfb05858cc36fc520974df37ec3cb0">DebugMon_Handler</link> (void)</para>
+
+<para>This function handles Debug monitor. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a6303e1f258cbdc1f970ce579cc015623">PendSV_Handler</link> (void)</para>
+
+<para>This function handles Pendable request for system service. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1ab5e09814056d617c521549e542639b7e">SysTick_Handler</link> (void)</para>
+
+<para>This function handles System tick timer. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a7b6fac3d670a4860ebec8a961d5c4a73">DMA1_Channel1_IRQHandler</link> (void)</para>
+
+<para>This function handles DMA1 channel1 global interrupt. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a3e8fca6e2f18e433a9fbc3d2dcc0b411">ADC1_2_IRQHandler</link> (void)</para>
+
+<para>This function handles ADC1 and ADC2 global interrupt. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1aa96795d8fb4793f60135fad74ecb1d70">TIM1_TRG_COM_TIM17_IRQHandler</link> (void)</para>
+
+<para>This function handles TIM1 trigger and commutation interrupts and TIM17 global interrupt. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a38ad4725462bdc5e86c4ead4f04b9fc2">TIM2_IRQHandler</link> (void)</para>
+
+<para>This function handles TIM2 global interrupt. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a0ca6fd0e6f77921dd1123539857ba0a8">USART2_IRQHandler</link> (void)</para>
+
+<para>This function handles USART2 global interrupt / USART2 wake-up interrupt through EXTI line 26. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a0d108a3468b2051548183ee5ca2158a0">USART3_IRQHandler</link> (void)</para>
+
+<para>This function handles USART3 global interrupt / USART3 wake-up interrupt through EXTI line 28. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a738473a5b43f6c92b80ce1d3d6f77ed9">EXTI15_10_IRQHandler</link> (void)</para>
+
+<para>This function handles EXTI line[15:10] interrupts. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__it_8h_1a0839a45f331c4c067939b9c4533bbf4d">TIM6_DAC_IRQHandler</link> (void)</para>
+
+<para>This function handles TIM6 global interrupt, DAC1 and DAC3 channel underrun error interrupts. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file contains the headers of the interrupt handlers. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_stm32g4xx__it_8h_source">stm32g4xx_it.h</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_stm32g4xx__it_8h_1a3e8fca6e2f18e433a9fbc3d2dcc0b411"/><section>
+    <title>ADC1_2_IRQHandler()</title>
+<indexterm><primary>ADC1_2_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>ADC1_2_IRQHandler</secondary></indexterm>
+<para><computeroutput>void ADC1_2_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles ADC1 and ADC2 global interrupt. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00226">226</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a850cefb17a977292ae5eb4cafa9976c3"/><section>
+    <title>BusFault_Handler()</title>
+<indexterm><primary>BusFault_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>BusFault_Handler</secondary></indexterm>
+<para><computeroutput>void BusFault_Handler (void )</computeroutput></para><para>
+
+<para>This function handles Prefetch fault, memory access fault. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00122">122</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1adbdfb05858cc36fc520974df37ec3cb0"/><section>
+    <title>DebugMon_Handler()</title>
+<indexterm><primary>DebugMon_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>DebugMon_Handler</secondary></indexterm>
+<para><computeroutput>void DebugMon_Handler (void )</computeroutput></para><para>
+
+<para>This function handles Debug monitor. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00165">165</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a7b6fac3d670a4860ebec8a961d5c4a73"/><section>
+    <title>DMA1_Channel1_IRQHandler()</title>
+<indexterm><primary>DMA1_Channel1_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>DMA1_Channel1_IRQHandler</secondary></indexterm>
+<para><computeroutput>void DMA1_Channel1_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles DMA1 channel1 global interrupt. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00212">212</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a738473a5b43f6c92b80ce1d3d6f77ed9"/><section>
+    <title>EXTI15_10_IRQHandler()</title>
+<indexterm><primary>EXTI15_10_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>EXTI15_10_IRQHandler</secondary></indexterm>
+<para><computeroutput>void EXTI15_10_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles EXTI line[15:10] interrupts. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00297">297</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a2bffc10d5bd4106753b7c30e86903bea"/><section>
+    <title>HardFault_Handler()</title>
+<indexterm><primary>HardFault_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>HardFault_Handler</secondary></indexterm>
+<para><computeroutput>void HardFault_Handler (void )</computeroutput></para><para>
+
+<para>This function handles Hard fault interrupt. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00092">92</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a3150f74512510287a942624aa9b44cc5"/><section>
+    <title>MemManage_Handler()</title>
+<indexterm><primary>MemManage_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>MemManage_Handler</secondary></indexterm>
+<para><computeroutput>void MemManage_Handler (void )</computeroutput></para><para>
+
+<para>This function handles Memory management fault. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00107">107</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a6ad7a5e3ee69cb6db6a6b9111ba898bc"/><section>
+    <title>NMI_Handler()</title>
+<indexterm><primary>NMI_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>NMI_Handler</secondary></indexterm>
+<para><computeroutput>void NMI_Handler (void )</computeroutput></para><para>
+
+<para>This function handles Non maskable interrupt. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00077">77</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a6303e1f258cbdc1f970ce579cc015623"/><section>
+    <title>PendSV_Handler()</title>
+<indexterm><primary>PendSV_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>PendSV_Handler</secondary></indexterm>
+<para><computeroutput>void PendSV_Handler (void )</computeroutput></para><para>
+
+<para>This function handles Pendable request for system service. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00178">178</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a3e5ddb3df0d62f2dc357e64a3f04a6ce"/><section>
+    <title>SVC_Handler()</title>
+<indexterm><primary>SVC_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>SVC_Handler</secondary></indexterm>
+<para><computeroutput>void SVC_Handler (void )</computeroutput></para><para>
+
+<para>This function handles System service call via SWI instruction. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00152">152</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1ab5e09814056d617c521549e542639b7e"/><section>
+    <title>SysTick_Handler()</title>
+<indexterm><primary>SysTick_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>SysTick_Handler</secondary></indexterm>
+<para><computeroutput>void SysTick_Handler (void )</computeroutput></para><para>
+
+<para>This function handles System tick timer. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00191">191</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1aa96795d8fb4793f60135fad74ecb1d70"/><section>
+    <title>TIM1_TRG_COM_TIM17_IRQHandler()</title>
+<indexterm><primary>TIM1_TRG_COM_TIM17_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>TIM1_TRG_COM_TIM17_IRQHandler</secondary></indexterm>
+<para><computeroutput>void TIM1_TRG_COM_TIM17_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles TIM1 trigger and commutation interrupts and TIM17 global interrupt. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00241">241</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a38ad4725462bdc5e86c4ead4f04b9fc2"/><section>
+    <title>TIM2_IRQHandler()</title>
+<indexterm><primary>TIM2_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>TIM2_IRQHandler</secondary></indexterm>
+<para><computeroutput>void TIM2_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles TIM2 global interrupt. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00255">255</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a0839a45f331c4c067939b9c4533bbf4d"/><section>
+    <title>TIM6_DAC_IRQHandler()</title>
+<indexterm><primary>TIM6_DAC_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>TIM6_DAC_IRQHandler</secondary></indexterm>
+<para><computeroutput>void TIM6_DAC_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles TIM6 global interrupt, DAC1 and DAC3 channel underrun error interrupts. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00311">311</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a1d98923de2ed6b7309b66f9ba2971647"/><section>
+    <title>UsageFault_Handler()</title>
+<indexterm><primary>UsageFault_Handler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>UsageFault_Handler</secondary></indexterm>
+<para><computeroutput>void UsageFault_Handler (void )</computeroutput></para><para>
+
+<para>This function handles Undefined instruction or illegal state. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00137">137</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a0ca6fd0e6f77921dd1123539857ba0a8"/><section>
+    <title>USART2_IRQHandler()</title>
+<indexterm><primary>USART2_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>USART2_IRQHandler</secondary></indexterm>
+<para><computeroutput>void USART2_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles USART2 global interrupt / USART2 wake-up interrupt through EXTI line 26. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00269">269</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__it_8h_1a0d108a3468b2051548183ee5ca2158a0"/><section>
+    <title>USART3_IRQHandler()</title>
+<indexterm><primary>USART3_IRQHandler</primary><secondary>stm32g4xx_it.h</secondary></indexterm>
+<indexterm><primary>stm32g4xx_it.h</primary><secondary>USART3_IRQHandler</secondary></indexterm>
+<para><computeroutput>void USART3_IRQHandler (void )</computeroutput></para><para>
+
+<para>This function handles USART3 global interrupt / USART3 wake-up interrupt through EXTI line 28. </para>
+</para>
+<para>
+Definition at line <link linkend="_stm32g4xx__it_8c_source_1l00283">283</link> of file <link linkend="_stm32g4xx__it_8c_source">stm32g4xx_it.c</link>.</para>
+</section>
+</section>
+</section>

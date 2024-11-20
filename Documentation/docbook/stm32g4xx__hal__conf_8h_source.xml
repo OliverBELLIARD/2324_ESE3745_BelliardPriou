@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stm32g4xx__hal__conf_8h_source" xml:lang="en-US">
+<title>stm32g4xx_hal_conf.h</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/stm32g4xx_hal_conf.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00019"/>00019 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00020"/>00020 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00021"/>00021 <emphasis role="comment">/*&#32;Define&#32;to&#32;prevent&#32;recursive&#32;inclusion&#32;-------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00022"/>00022 <emphasis role="preprocessor">#ifndef&#32;STM32G4xx_HAL_CONF_H</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00023"/>00023 <emphasis role="preprocessor">#define&#32;STM32G4xx_HAL_CONF_H</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00024"/>00024 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00025"/>00025 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00026"/>00026 &#32;<emphasis role="keyword">extern</emphasis>&#32;<emphasis role="stringliteral">&quot;C&quot;</emphasis>&#32;{
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00027"/>00027 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00028"/>00028 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00029"/>00029 <emphasis role="comment">/*&#32;Exported&#32;types&#32;------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00030"/>00030 <emphasis role="comment">/*&#32;Exported&#32;constants&#32;--------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00031"/>00031 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00032"/>00032 <emphasis role="comment">/*&#32;##########################&#32;Module&#32;Selection&#32;##############################&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00037"/><link linkend="_stm32g4xx__hal__conf_8h_1a877ae99e8c47a609ea97c888912bf75f">00037</link> <emphasis role="preprocessor">#define&#32;HAL_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00038"/>00038 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00039"/><link linkend="_stm32g4xx__hal__conf_8h_1a476f1655c969ae57e89a74d98c75f43f">00039</link> <emphasis role="preprocessor">&#32;&#32;#define&#32;HAL_ADC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00040"/>00040 <emphasis role="comment">/*#define&#32;HAL_COMP_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00041"/>00041 <emphasis role="comment">/*#define&#32;HAL_CORDIC_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00042"/>00042 <emphasis role="comment">/*#define&#32;HAL_CRC_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00043"/>00043 <emphasis role="comment">/*#define&#32;HAL_CRYP_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00044"/>00044 <emphasis role="comment">/*#define&#32;HAL_DAC_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00045"/>00045 <emphasis role="comment">/*#define&#32;HAL_FDCAN_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00046"/>00046 <emphasis role="comment">/*#define&#32;HAL_FMAC_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00047"/>00047 <emphasis role="comment">/*#define&#32;HAL_HRTIM_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00048"/>00048 <emphasis role="comment">/*#define&#32;HAL_IRDA_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00049"/>00049 <emphasis role="comment">/*#define&#32;HAL_IWDG_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00050"/>00050 <emphasis role="comment">/*#define&#32;HAL_I2C_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00051"/>00051 <emphasis role="comment">/*#define&#32;HAL_I2S_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00052"/>00052 <emphasis role="comment">/*#define&#32;HAL_LPTIM_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00053"/>00053 <emphasis role="comment">/*#define&#32;HAL_NAND_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00054"/>00054 <emphasis role="comment">/*#define&#32;HAL_NOR_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00055"/>00055 <emphasis role="comment">/*#define&#32;HAL_OPAMP_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00056"/>00056 <emphasis role="comment">/*#define&#32;HAL_PCD_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00057"/>00057 <emphasis role="comment">/*#define&#32;HAL_QSPI_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00058"/>00058 <emphasis role="comment">/*#define&#32;HAL_RNG_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00059"/>00059 <emphasis role="comment">/*#define&#32;HAL_RTC_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00060"/>00060 <emphasis role="comment">/*#define&#32;HAL_SAI_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00061"/>00061 <emphasis role="comment">/*#define&#32;HAL_SMARTCARD_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00062"/>00062 <emphasis role="comment">/*#define&#32;HAL_SMBUS_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00063"/>00063 <emphasis role="comment">/*#define&#32;HAL_SPI_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00064"/>00064 <emphasis role="comment">/*#define&#32;HAL_SRAM_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00065"/><link linkend="_stm32g4xx__hal__conf_8h_1a23382b8f04b3e6db2c59dfa1ef5ea4a2">00065</link> <emphasis role="preprocessor">#define&#32;HAL_TIM_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00066"/><link linkend="_stm32g4xx__hal__conf_8h_1a167269406e73327b95c3bb7b9cfe6d89">00066</link> <emphasis role="preprocessor">#define&#32;HAL_UART_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00067"/>00067 <emphasis role="comment">/*#define&#32;HAL_USART_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00068"/>00068 <emphasis role="comment">/*#define&#32;HAL_WWDG_MODULE_ENABLED&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00069"/><link linkend="_stm32g4xx__hal__conf_8h_1a86165f80d6078719ee0715afe13febf5">00069</link> <emphasis role="preprocessor">#define&#32;HAL_GPIO_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00070"/><link linkend="_stm32g4xx__hal__conf_8h_1aeb359e861d8a92c233c3229657dbcd74">00070</link> <emphasis role="preprocessor">#define&#32;HAL_EXTI_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00071"/><link linkend="_stm32g4xx__hal__conf_8h_1a6552186102a1131b2849ac55a582945d">00071</link> <emphasis role="preprocessor">#define&#32;HAL_DMA_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00072"/><link linkend="_stm32g4xx__hal__conf_8h_1ac3dd74314ed62ac8575e2f9f48b3ac48">00072</link> <emphasis role="preprocessor">#define&#32;HAL_RCC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00073"/><link linkend="_stm32g4xx__hal__conf_8h_1a7112575efe3740911f19a13e6b170fee">00073</link> <emphasis role="preprocessor">#define&#32;HAL_FLASH_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00074"/><link linkend="_stm32g4xx__hal__conf_8h_1ab51923c3716977d7923f49cc9d081aa8">00074</link> <emphasis role="preprocessor">#define&#32;HAL_PWR_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00075"/><link linkend="_stm32g4xx__hal__conf_8h_1aa9b5a3a425901e097de70092dbe31e0f">00075</link> <emphasis role="preprocessor">#define&#32;HAL_CORTEX_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00076"/>00076 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00077"/>00077 <emphasis role="comment">/*&#32;##########################&#32;Register&#32;Callbacks&#32;selection&#32;##############################&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00081"/><link linkend="_stm32g4xx__hal__conf_8h_1acc33abd5393affd16cc4a1397839dfe4">00081</link> <emphasis role="preprocessor">#define&#32;USE_HAL_ADC_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00082"/><link linkend="_stm32g4xx__hal__conf_8h_1a94f0f5f870b8e45eab42cfe77e4210ed">00082</link> <emphasis role="preprocessor">#define&#32;USE_HAL_COMP_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00083"/><link linkend="_stm32g4xx__hal__conf_8h_1a382744674caee964d227d41574fe2b73">00083</link> <emphasis role="preprocessor">#define&#32;USE_HAL_CORDIC_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00084"/><link linkend="_stm32g4xx__hal__conf_8h_1aab15bfcb9198618bda3d7e914193b466">00084</link> <emphasis role="preprocessor">#define&#32;USE_HAL_CRYP_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00085"/><link linkend="_stm32g4xx__hal__conf_8h_1af9580ae862dcc02cee7822030c48d6b8">00085</link> <emphasis role="preprocessor">#define&#32;USE_HAL_DAC_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00086"/><link linkend="_stm32g4xx__hal__conf_8h_1aa51881ed9e9d2aaa7d6f0d598d723e46">00086</link> <emphasis role="preprocessor">#define&#32;USE_HAL_EXTI_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00087"/><link linkend="_stm32g4xx__hal__conf_8h_1a5d191a50c40ac4b4e38f9f614e37e48c">00087</link> <emphasis role="preprocessor">#define&#32;USE_HAL_FDCAN_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00088"/><link linkend="_stm32g4xx__hal__conf_8h_1a34a796bea8a48187716b99c6f14b14f2">00088</link> <emphasis role="preprocessor">#define&#32;USE_HAL_FMAC_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00089"/><link linkend="_stm32g4xx__hal__conf_8h_1a0c281b7bdebecbe9715d556f0f374fea">00089</link> <emphasis role="preprocessor">#define&#32;USE_HAL_HRTIM_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00090"/><link linkend="_stm32g4xx__hal__conf_8h_1a99be773f7f62b6277d1c87658e085725">00090</link> <emphasis role="preprocessor">#define&#32;USE_HAL_I2C_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00091"/><link linkend="_stm32g4xx__hal__conf_8h_1a1bdc791c35b20c7188b3d74fd6c30ebf">00091</link> <emphasis role="preprocessor">#define&#32;USE_HAL_I2S_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00092"/><link linkend="_stm32g4xx__hal__conf_8h_1a4a459bcaa046998e6939fc66b0831e96">00092</link> <emphasis role="preprocessor">#define&#32;USE_HAL_IRDA_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00093"/><link linkend="_stm32g4xx__hal__conf_8h_1a5b148dcae2bf8f576fc69a349794df4c">00093</link> <emphasis role="preprocessor">#define&#32;USE_HAL_LPTIM_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00094"/><link linkend="_stm32g4xx__hal__conf_8h_1a80498b459859528918535b88fed54b28">00094</link> <emphasis role="preprocessor">#define&#32;USE_HAL_NAND_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00095"/><link linkend="_stm32g4xx__hal__conf_8h_1a7b38c01bd6621f3da5993d71eb5ff42e">00095</link> <emphasis role="preprocessor">#define&#32;USE_HAL_NOR_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00096"/><link linkend="_stm32g4xx__hal__conf_8h_1a2c51d4e89cd75f4629092d46ca26a750">00096</link> <emphasis role="preprocessor">#define&#32;USE_HAL_OPAMP_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00097"/><link linkend="_stm32g4xx__hal__conf_8h_1afd18c04aa4a4a54446df8083be875a00">00097</link> <emphasis role="preprocessor">#define&#32;USE_HAL_PCD_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00098"/><link linkend="_stm32g4xx__hal__conf_8h_1a95cbcf73c2ae3aea55fb62502ed224a2">00098</link> <emphasis role="preprocessor">#define&#32;USE_HAL_QSPI_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00099"/><link linkend="_stm32g4xx__hal__conf_8h_1a9b01c64d19f0d4839b7da08bd61c7ff7">00099</link> <emphasis role="preprocessor">#define&#32;USE_HAL_RNG_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00100"/><link linkend="_stm32g4xx__hal__conf_8h_1a54badbcdb096ce802d2eed981cbbc31a">00100</link> <emphasis role="preprocessor">#define&#32;USE_HAL_RTC_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00101"/><link linkend="_stm32g4xx__hal__conf_8h_1a0e2ac47c259fc72ef188c0406a2af803">00101</link> <emphasis role="preprocessor">#define&#32;USE_HAL_SAI_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00102"/><link linkend="_stm32g4xx__hal__conf_8h_1a43bb2335641440326db0f05526c1bff9">00102</link> <emphasis role="preprocessor">#define&#32;USE_HAL_SMARTCARD_REGISTER_CALLBACKS&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00103"/><link linkend="_stm32g4xx__hal__conf_8h_1a74cae3ff25398b4a06a579a7164a8518">00103</link> <emphasis role="preprocessor">#define&#32;USE_HAL_SMBUS_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00104"/><link linkend="_stm32g4xx__hal__conf_8h_1a8d8be2d7e4ed5bfc7b64f60ba604c749">00104</link> <emphasis role="preprocessor">#define&#32;USE_HAL_SPI_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00105"/><link linkend="_stm32g4xx__hal__conf_8h_1a5c7c04d57c22f5301f1ea589abc6f35f">00105</link> <emphasis role="preprocessor">#define&#32;USE_HAL_SRAM_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00106"/><link linkend="_stm32g4xx__hal__conf_8h_1a5ef4d67cd7630f6e2e67d17370fbffdb">00106</link> <emphasis role="preprocessor">#define&#32;USE_HAL_TIM_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00107"/><link linkend="_stm32g4xx__hal__conf_8h_1a68c6c7c633e6cb378824020ef00a5701">00107</link> <emphasis role="preprocessor">#define&#32;USE_HAL_UART_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00108"/><link linkend="_stm32g4xx__hal__conf_8h_1ac79983d623c7f760c5077618a453561b">00108</link> <emphasis role="preprocessor">#define&#32;USE_HAL_USART_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00109"/><link linkend="_stm32g4xx__hal__conf_8h_1a6879802837c27d8761d8a8fdab626891">00109</link> <emphasis role="preprocessor">#define&#32;USE_HAL_WWDG_REGISTER_CALLBACKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00110"/>00110 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00111"/>00111 <emphasis role="comment">/*&#32;##########################&#32;Oscillator&#32;Values&#32;adaptation&#32;####################*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00117"/>00117 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(HSE_VALUE)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00118"/><link linkend="_stm32g4xx__hal__conf_8h_1aeafcff4f57440c60e64812dddd13e7cb">00118</link> <emphasis role="preprocessor">&#32;&#32;#define&#32;HSE_VALUE&#32;&#32;&#32;&#32;(24000000UL)&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00119"/>00119 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HSE_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00120"/>00120 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00121"/>00121 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(HSE_STARTUP_TIMEOUT)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00122"/><link linkend="_stm32g4xx__hal__conf_8h_1a68ecbc9b0a1a40a1ec9d18d5e9747c4f">00122</link> <emphasis role="preprocessor">&#32;&#32;#define&#32;HSE_STARTUP_TIMEOUT&#32;&#32;&#32;&#32;(100UL)&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00123"/>00123 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HSE_STARTUP_TIMEOUT&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00124"/>00124 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00130"/>00130 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(HSI_VALUE)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00131"/><link linkend="_stm32g4xx__hal__conf_8h_1aaa8c76e274d0f6dd2cefb5d0b17fbc37">00131</link> <emphasis role="preprocessor">&#32;&#32;#define&#32;HSI_VALUE&#32;&#32;&#32;&#32;(16000000UL)&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00132"/>00132 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HSI_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00133"/>00133 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00141"/>00141 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(HSI48_VALUE)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00142"/>00142 <emphasis role="preprocessor">&#32;&#32;#define&#32;HSI48_VALUE&#32;&#32;&#32;(48000000UL)&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00144"/>00144 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HSI48_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00145"/>00145 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00149"/>00149 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(LSI_VALUE)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00152"/><link linkend="_stm32g4xx__hal__conf_8h_1a4872023e65449c0506aac3ea6bec99e9">00152</link> <emphasis role="preprocessor">#define&#32;LSI_VALUE&#32;&#32;(32000UL)&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00153"/>00153 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;LSI_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00158"/>00158 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(LSE_VALUE)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00159"/><link linkend="_stm32g4xx__hal__conf_8h_1a7bbb9d19e5189a6ccd0fb6fa6177d20d">00159</link> <emphasis role="preprocessor">#define&#32;LSE_VALUE&#32;&#32;(32768UL)&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00160"/>00160 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;LSE_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00161"/>00161 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00162"/>00162 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(LSE_STARTUP_TIMEOUT)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00163"/><link linkend="_stm32g4xx__hal__conf_8h_1a85e6fc812dc26f7161a04be2568a5462">00163</link> <emphasis role="preprocessor">#define&#32;LSE_STARTUP_TIMEOUT&#32;&#32;&#32;&#32;(5000UL)&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00164"/>00164 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;LSE_STARTUP_TIMEOUT&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00165"/>00165 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00171"/>00171 <emphasis role="preprocessor">#if&#32;!defined&#32;&#32;(EXTERNAL_CLOCK_VALUE)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00172"/><link linkend="_stm32g4xx__hal__conf_8h_1a8c47c935e91e70569098b41718558648">00172</link> <emphasis role="preprocessor">#define&#32;EXTERNAL_CLOCK_VALUE&#32;&#32;&#32;&#32;(12288000UL)&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00173"/>00173 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;EXTERNAL_CLOCK_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00174"/>00174 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00175"/>00175 <emphasis role="comment">/*&#32;Tip:&#32;To&#32;avoid&#32;modifying&#32;this&#32;file&#32;each&#32;time&#32;you&#32;need&#32;to&#32;use&#32;different&#32;HSE,</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00176"/>00176 <emphasis role="comment">&#32;&#32;&#32;===&#32;&#32;you&#32;can&#32;define&#32;the&#32;HSE&#32;value&#32;in&#32;your&#32;toolchain&#32;compiler&#32;preprocessor.&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00177"/>00177 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00178"/>00178 <emphasis role="comment">/*&#32;###########################&#32;System&#32;Configuration&#32;#########################&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00183"/><link linkend="_stm32g4xx__hal__conf_8h_1aae550dad9f96d52cfce5e539adadbbb4">00183</link> <emphasis role="preprocessor">#define&#32;&#32;VDD_VALUE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(3300UL)&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00184"/><link linkend="_stm32g4xx__hal__conf_8h_1ae27809d4959b9fd5b5d974e3e1c77d2e">00184</link> <emphasis role="preprocessor">#define&#32;&#32;TICK_INT_PRIORITY&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(15UL)&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00185"/><link linkend="_stm32g4xx__hal__conf_8h_1ad048ac737242c2c2cb9f4a72953d10ce">00185</link> <emphasis role="preprocessor">#define&#32;&#32;USE_RTOS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00186"/><link linkend="_stm32g4xx__hal__conf_8h_1a13fc0d5e7bb925385c0cc0772ba6a391">00186</link> <emphasis role="preprocessor">#define&#32;&#32;PREFETCH_ENABLE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00187"/><link linkend="_stm32g4xx__hal__conf_8h_1a3379989d46599c7e19a43f42e9145a4a">00187</link> <emphasis role="preprocessor">#define&#32;&#32;INSTRUCTION_CACHE_ENABLE&#32;&#32;&#32;&#32;&#32;1U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00188"/><link linkend="_stm32g4xx__hal__conf_8h_1a5b4c32a40cf49b06c0d761e385949a6b">00188</link> <emphasis role="preprocessor">#define&#32;&#32;DATA_CACHE_ENABLE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00189"/>00189 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00190"/>00190 <emphasis role="comment">/*&#32;##########################&#32;Assert&#32;Selection&#32;##############################&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00195"/>00195 <emphasis role="comment">/*&#32;#define&#32;USE_FULL_ASSERT&#32;&#32;&#32;&#32;1U&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00196"/>00196 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00197"/>00197 <emphasis role="comment">/*&#32;##################&#32;SPI&#32;peripheral&#32;configuration&#32;##########################&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00198"/>00198 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00199"/>00199 <emphasis role="comment">/*&#32;CRC&#32;FEATURE:&#32;Use&#32;to&#32;activate&#32;CRC&#32;feature&#32;inside&#32;HAL&#32;SPI&#32;Driver</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00200"/>00200 <emphasis role="comment">&#32;*&#32;Activated:&#32;CRC&#32;code&#32;is&#32;present&#32;inside&#32;driver</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00201"/>00201 <emphasis role="comment">&#32;*&#32;Deactivated:&#32;CRC&#32;code&#32;cleaned&#32;from&#32;driver</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00202"/>00202 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00203"/>00203 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00204"/><link linkend="_stm32g4xx__hal__conf_8h_1a4c6fab687afc7ba4469b1b2d34472358">00204</link> <emphasis role="preprocessor">#define&#32;USE_SPI_CRC&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0U</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00205"/>00205 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00206"/>00206 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00211"/>00211 <emphasis role="preprocessor">#ifdef&#32;HAL_RCC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00212"/>00212 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_rcc.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00213"/>00213 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_RCC_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00214"/>00214 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00215"/>00215 <emphasis role="preprocessor">#ifdef&#32;HAL_GPIO_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00216"/>00216 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_gpio.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00217"/>00217 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_GPIO_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00218"/>00218 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00219"/>00219 <emphasis role="preprocessor">#ifdef&#32;HAL_DMA_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00220"/>00220 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_dma.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00221"/>00221 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_DMA_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00222"/>00222 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00223"/>00223 <emphasis role="preprocessor">#ifdef&#32;HAL_CORTEX_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00224"/>00224 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_cortex.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00225"/>00225 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_CORTEX_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00226"/>00226 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00227"/>00227 <emphasis role="preprocessor">#ifdef&#32;HAL_ADC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00228"/>00228 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_adc.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00229"/>00229 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_ADC_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00230"/>00230 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00231"/>00231 <emphasis role="preprocessor">#ifdef&#32;HAL_COMP_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00232"/>00232 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_comp.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00233"/>00233 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_COMP_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00234"/>00234 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00235"/>00235 <emphasis role="preprocessor">#ifdef&#32;HAL_CORDIC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00236"/>00236 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_cordic.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00237"/>00237 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_CORDIC_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00238"/>00238 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00239"/>00239 <emphasis role="preprocessor">#ifdef&#32;HAL_CRC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00240"/>00240 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_crc.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00241"/>00241 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_CRC_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00242"/>00242 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00243"/>00243 <emphasis role="preprocessor">#ifdef&#32;HAL_CRYP_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00244"/>00244 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_cryp.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00245"/>00245 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_CRYP_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00246"/>00246 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00247"/>00247 <emphasis role="preprocessor">#ifdef&#32;HAL_DAC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00248"/>00248 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_dac.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00249"/>00249 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_DAC_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00250"/>00250 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00251"/>00251 <emphasis role="preprocessor">#ifdef&#32;HAL_EXTI_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00252"/>00252 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_exti.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00253"/>00253 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_EXTI_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00254"/>00254 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00255"/>00255 <emphasis role="preprocessor">#ifdef&#32;HAL_FDCAN_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00256"/>00256 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_fdcan.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00257"/>00257 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_FDCAN_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00258"/>00258 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00259"/>00259 <emphasis role="preprocessor">#ifdef&#32;HAL_FLASH_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00260"/>00260 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_flash.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00261"/>00261 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_FLASH_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00262"/>00262 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00263"/>00263 <emphasis role="preprocessor">#ifdef&#32;HAL_FMAC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00264"/>00264 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_fmac.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00265"/>00265 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_FMAC_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00266"/>00266 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00267"/>00267 <emphasis role="preprocessor">#ifdef&#32;HAL_HRTIM_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00268"/>00268 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_hrtim.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00269"/>00269 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_HRTIM_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00270"/>00270 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00271"/>00271 <emphasis role="preprocessor">#ifdef&#32;HAL_IRDA_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00272"/>00272 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_irda.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00273"/>00273 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_IRDA_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00274"/>00274 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00275"/>00275 <emphasis role="preprocessor">#ifdef&#32;HAL_IWDG_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00276"/>00276 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_iwdg.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00277"/>00277 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_IWDG_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00278"/>00278 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00279"/>00279 <emphasis role="preprocessor">#ifdef&#32;HAL_I2C_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00280"/>00280 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_i2c.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00281"/>00281 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_I2C_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00282"/>00282 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00283"/>00283 <emphasis role="preprocessor">#ifdef&#32;HAL_I2S_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00284"/>00284 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_i2s.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00285"/>00285 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_I2S_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00286"/>00286 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00287"/>00287 <emphasis role="preprocessor">#ifdef&#32;HAL_LPTIM_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00288"/>00288 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_lptim.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00289"/>00289 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_LPTIM_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00290"/>00290 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00291"/>00291 <emphasis role="preprocessor">#ifdef&#32;HAL_NAND_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00292"/>00292 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_nand.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00293"/>00293 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_NAND_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00294"/>00294 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00295"/>00295 <emphasis role="preprocessor">#ifdef&#32;HAL_NOR_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00296"/>00296 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_nor.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00297"/>00297 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_NOR_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00298"/>00298 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00299"/>00299 <emphasis role="preprocessor">#ifdef&#32;HAL_OPAMP_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00300"/>00300 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_opamp.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00301"/>00301 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_OPAMP_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00302"/>00302 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00303"/>00303 <emphasis role="preprocessor">#ifdef&#32;HAL_PCD_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00304"/>00304 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_pcd.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00305"/>00305 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_PCD_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00306"/>00306 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00307"/>00307 <emphasis role="preprocessor">#ifdef&#32;HAL_PWR_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00308"/>00308 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_pwr.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00309"/>00309 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_PWR_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00310"/>00310 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00311"/>00311 <emphasis role="preprocessor">#ifdef&#32;HAL_QSPI_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00312"/>00312 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_qspi.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00313"/>00313 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_QSPI_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00314"/>00314 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00315"/>00315 <emphasis role="preprocessor">#ifdef&#32;HAL_RNG_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00316"/>00316 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_rng.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00317"/>00317 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_RNG_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00318"/>00318 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00319"/>00319 <emphasis role="preprocessor">#ifdef&#32;HAL_RTC_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00320"/>00320 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_rtc.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00321"/>00321 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_RTC_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00322"/>00322 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00323"/>00323 <emphasis role="preprocessor">#ifdef&#32;HAL_SAI_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00324"/>00324 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_sai.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00325"/>00325 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_SAI_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00326"/>00326 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00327"/>00327 <emphasis role="preprocessor">#ifdef&#32;HAL_SMARTCARD_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00328"/>00328 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_smartcard.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00329"/>00329 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_SMARTCARD_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00330"/>00330 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00331"/>00331 <emphasis role="preprocessor">#ifdef&#32;HAL_SMBUS_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00332"/>00332 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_smbus.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00333"/>00333 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_SMBUS_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00334"/>00334 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00335"/>00335 <emphasis role="preprocessor">#ifdef&#32;HAL_SPI_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00336"/>00336 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_spi.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00337"/>00337 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_SPI_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00338"/>00338 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00339"/>00339 <emphasis role="preprocessor">#ifdef&#32;HAL_SRAM_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00340"/>00340 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_sram.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00341"/>00341 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_SRAM_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00342"/>00342 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00343"/>00343 <emphasis role="preprocessor">#ifdef&#32;HAL_TIM_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00344"/>00344 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_tim.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00345"/>00345 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_TIM_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00346"/>00346 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00347"/>00347 <emphasis role="preprocessor">#ifdef&#32;HAL_UART_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00348"/>00348 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_uart.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00349"/>00349 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_UART_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00350"/>00350 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00351"/>00351 <emphasis role="preprocessor">#ifdef&#32;HAL_USART_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00352"/>00352 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_usart.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00353"/>00353 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_USART_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00354"/>00354 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00355"/>00355 <emphasis role="preprocessor">#ifdef&#32;HAL_WWDG_MODULE_ENABLED</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00356"/>00356 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal_wwdg.h&quot;</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00357"/>00357 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;HAL_WWDG_MODULE_ENABLED&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00358"/>00358 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00359"/>00359 <emphasis role="comment">/*&#32;Exported&#32;macro&#32;------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00360"/>00360 <emphasis role="preprocessor">#ifdef&#32;&#32;USE_FULL_ASSERT</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00369"/>00369 <emphasis role="preprocessor">#define&#32;assert_param(expr)&#32;((expr)&#32;?&#32;(void)0U&#32;:&#32;assert_failed((uint8_t&#32;*)__FILE__,&#32;__LINE__))</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00370"/>00370 <emphasis role="comment">/*&#32;Exported&#32;functions&#32;-------------------------------------------------------&#32;*/</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00371"/>00371 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a2532ff72b1a2ff82f65e8c2a5a4dde00">assert_failed</link>(uint8_t&#32;*file,&#32;uint32_t&#32;line);
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00372"/>00372 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00373"/><link linkend="_stm32g4xx__hal__conf_8h_1a631dea7b230e600555f979c62af1de21">00373</link> <emphasis role="preprocessor">#define&#32;assert_param(expr)&#32;((void)0U)</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00374"/>00374 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;USE_FULL_ASSERT&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00375"/>00375 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00376"/>00376 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00377"/>00377 }
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00378"/>00378 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00379"/>00379 
+<anchor xml:id="_stm32g4xx__hal__conf_8h_source_1l00380"/>00380 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;STM32G4xx_HAL_CONF_H&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+</programlisting></section>

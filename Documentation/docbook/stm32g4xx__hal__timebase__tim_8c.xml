@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stm32g4xx__hal__timebase__tim_8c" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/stm32g4xx_hal_timebase_tim.c File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/stm32g4xx_hal_timebase_tim.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;stm32g4xx_hal.h&quot;<?linebreak?>#include &quot;stm32g4xx_hal_tim.h&quot;<?linebreak?></programlisting>Include dependency graph for stm32g4xx_hal_timebase_tim.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="stm32g4xx__hal__timebase__tim_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>HAL_StatusTypeDef <link linkend="_stm32g4xx__hal__timebase__tim_8c_1a879cdb21ef051eb81ec51c18147397d5">HAL_InitTick</link> (uint32_t TickPriority)</para>
+
+<para>This function configures the TIM6 as a time base source. The time source is configured to have 1ms time base with a dedicated Tick interrupt priority. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__hal__timebase__tim_8c_1aaf651af2afe688a991c657f64f8fa5f9">HAL_SuspendTick</link> (void)</para>
+
+<para>Suspend Tick increment. </para>
+</listitem>
+            <listitem><para>void <link linkend="_stm32g4xx__hal__timebase__tim_8c_1a24e0ee9dae1ec0f9d19200f5575ff790">HAL_ResumeTick</link> (void)</para>
+
+<para>Resume Tick increment. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>TIM_HandleTypeDef <link linkend="_stm32g4xx__hal__timebase__tim_8c_1a1564492831a79fa18466467c3420c3c3">htim6</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_stm32g4xx__hal__timebase__tim_8c_1a879cdb21ef051eb81ec51c18147397d5"/><section>
+    <title>HAL_InitTick()</title>
+<indexterm><primary>HAL_InitTick</primary><secondary>stm32g4xx_hal_timebase_tim.c</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_timebase_tim.c</primary><secondary>HAL_InitTick</secondary></indexterm>
+<para><computeroutput>HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority)</computeroutput></para><para>
+
+<para>This function configures the TIM6 as a time base source. The time source is configured to have 1ms time base with a dedicated Tick interrupt priority. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>This function is called automatically at the beginning of program after reset by HAL_Init() or at any time when clock is configured, by HAL_RCC_ClockConfig(). </para>
+</note>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>TickPriority</entry><entry>
+<para>Tick interrupt priority. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Return values</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>HAL</entry><entry>
+<para>status </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__timebase__tim_8c_source_1l00041">41</link> of file <link linkend="_stm32g4xx__hal__timebase__tim_8c_source">stm32g4xx_hal_timebase_tim.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__timebase__tim_8c_1a24e0ee9dae1ec0f9d19200f5575ff790"/><section>
+    <title>HAL_ResumeTick()</title>
+<indexterm><primary>HAL_ResumeTick</primary><secondary>stm32g4xx_hal_timebase_tim.c</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_timebase_tim.c</primary><secondary>HAL_ResumeTick</secondary></indexterm>
+<para><computeroutput>void HAL_ResumeTick (void )</computeroutput></para><para>
+
+<para>Resume Tick increment. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>Enable the tick increment by Enabling TIM6 update interrupt. </para>
+</note>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Return values</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__timebase__tim_8c_source_1l00121">121</link> of file <link linkend="_stm32g4xx__hal__timebase__tim_8c_source">stm32g4xx_hal_timebase_tim.c</link>.</para>
+</section>
+<anchor xml:id="_stm32g4xx__hal__timebase__tim_8c_1aaf651af2afe688a991c657f64f8fa5f9"/><section>
+    <title>HAL_SuspendTick()</title>
+<indexterm><primary>HAL_SuspendTick</primary><secondary>stm32g4xx_hal_timebase_tim.c</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_timebase_tim.c</primary><secondary>HAL_SuspendTick</secondary></indexterm>
+<para><computeroutput>void HAL_SuspendTick (void )</computeroutput></para><para>
+
+<para>Suspend Tick increment. </para>
+</para>
+
+<para><note><title>Note</title>
+
+<para>Disable the tick increment by disabling TIM6 update interrupt. </para>
+</note>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Return values</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>None</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_stm32g4xx__hal__timebase__tim_8c_source_1l00109">109</link> of file <link linkend="_stm32g4xx__hal__timebase__tim_8c_source">stm32g4xx_hal_timebase_tim.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_stm32g4xx__hal__timebase__tim_8c_1a1564492831a79fa18466467c3420c3c3"/><section>
+    <title>htim6</title>
+<indexterm><primary>htim6</primary><secondary>stm32g4xx_hal_timebase_tim.c</secondary></indexterm>
+<indexterm><primary>stm32g4xx_hal_timebase_tim.c</primary><secondary>htim6</secondary></indexterm>
+<para><computeroutput>TIM_HandleTypeDef htim6</computeroutput></para><para>
+Definition at line <link linkend="_stm32g4xx__hal__timebase__tim_8c_source_1l00028">28</link> of file <link linkend="_stm32g4xx__hal__timebase__tim_8c_source">stm32g4xx_hal_timebase_tim.c</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_usart_8h" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/usart.h File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/usart.h</primary></indexterm>
+<para>
+
+<para>This file contains all the function prototypes for the <link linkend="_usart_8c">usart.c</link> file. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;main.h&quot;<?linebreak?></programlisting>Include dependency graph for usart.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="usart_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="usart_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_usart_8h_1a052088fe5bb3f807a4b2502e664fd4fd">MX_USART2_UART_Init</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_usart_8h_1a3d04b903a77089f6ce08dd0bf1c81a81">MX_USART3_UART_Init</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>UART_HandleTypeDef <link linkend="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c">huart2</link></para>
+</listitem>
+            <listitem><para>UART_HandleTypeDef <link linkend="_usart_8h_1ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file contains all the function prototypes for the <link linkend="_usart_8c">usart.c</link> file. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_usart_8h_source">usart.h</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_usart_8h_1a052088fe5bb3f807a4b2502e664fd4fd"/><section>
+    <title>MX_USART2_UART_Init()</title>
+<indexterm><primary>MX_USART2_UART_Init</primary><secondary>usart.h</secondary></indexterm>
+<indexterm><primary>usart.h</primary><secondary>MX_USART2_UART_Init</secondary></indexterm>
+<para><computeroutput>void MX_USART2_UART_Init (void )</computeroutput></para><para>
+Definition at line <link linkend="_usart_8c_source_1l00032">32</link> of file <link linkend="_usart_8c_source">usart.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="usart_8h_a052088fe5bb3f807a4b2502e664fd4fd_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="usart_8h_a052088fe5bb3f807a4b2502e664fd4fd_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_usart_8h_1a3d04b903a77089f6ce08dd0bf1c81a81"/><section>
+    <title>MX_USART3_UART_Init()</title>
+<indexterm><primary>MX_USART3_UART_Init</primary><secondary>usart.h</secondary></indexterm>
+<indexterm><primary>usart.h</primary><secondary>MX_USART3_UART_Init</secondary></indexterm>
+<para><computeroutput>void MX_USART3_UART_Init (void )</computeroutput></para><para>
+Definition at line <link linkend="_usart_8c_source_1l00076">76</link> of file <link linkend="_usart_8c_source">usart.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="usart_8h_a3d04b903a77089f6ce08dd0bf1c81a81_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="usart_8h_a3d04b903a77089f6ce08dd0bf1c81a81_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_usart_8h_1aa9479c261d65eecedd3d9582f7f0f89c"/><section>
+    <title>huart2</title>
+<indexterm><primary>huart2</primary><secondary>usart.h</secondary></indexterm>
+<indexterm><primary>usart.h</primary><secondary>huart2</secondary></indexterm>
+<para><computeroutput>UART_HandleTypeDef huart2<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_usart_8c_source_1l00027">27</link> of file <link linkend="_usart_8c_source">usart.c</link>.</para>
+</section>
+<anchor xml:id="_usart_8h_1ab7c63c1b0f65db92b6a4ea19edf957e1"/><section>
+    <title>huart3</title>
+<indexterm><primary>huart3</primary><secondary>usart.h</secondary></indexterm>
+<indexterm><primary>usart.h</primary><secondary>huart3</secondary></indexterm>
+<para><computeroutput>UART_HandleTypeDef huart3<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_usart_8c_source_1l00028">28</link> of file <link linkend="_usart_8c_source">usart.c</link>.</para>
+</section>
+</section>
+</section>

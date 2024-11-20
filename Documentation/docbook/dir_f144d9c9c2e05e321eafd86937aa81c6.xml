@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_f144d9c9c2e05e321eafd86937aa81c6" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src Directory Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src Directory Reference</primary></indexterm>
+Directory dependency graph for Src:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_f144d9c9c2e05e321eafd86937aa81c6_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_763ac04e8351171d824bcf12b275d2cc">mylibs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_adc_8c">adc.c</link></para>
+
+<para>This file provides code for the configuration of the ADC instances. </para>
+</listitem>
+            <listitem><para>file <link linkend="_dma_8c">dma.c</link></para>
+
+<para>This file provides code for the configuration of all the requested memory to memory DMA transfers. </para>
+</listitem>
+            <listitem><para>file <link linkend="_gpio_8c">gpio.c</link></para>
+
+<para>This file provides code for the configuration of all used GPIO pins. </para>
+</listitem>
+            <listitem><para>file <link linkend="_main_8c">main.c</link></para>
+
+<para>: Main program body </para>
+</listitem>
+            <listitem><para>file <link linkend="_stm32g4xx__hal__msp_8c">stm32g4xx_hal_msp.c</link></para>
+
+<para>This file provides code for the MSP Initialization and de-Initialization codes. </para>
+</listitem>
+            <listitem><para>file <link linkend="_stm32g4xx__hal__timebase__tim_8c">stm32g4xx_hal_timebase_tim.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_stm32g4xx__it_8c">stm32g4xx_it.c</link></para>
+
+<para>Interrupt Service Routines. </para>
+</listitem>
+            <listitem><para>file <link linkend="_syscalls_8c">syscalls.c</link></para>
+
+<para>STM32CubeIDE Minimal System calls file. </para>
+</listitem>
+            <listitem><para>file <link linkend="_sysmem_8c">sysmem.c</link></para>
+
+<para>STM32CubeIDE System Memory calls file. </para>
+</listitem>
+            <listitem><para>file <link linkend="_system__stm32g4xx_8c">system_stm32g4xx.c</link></para>
+
+<para>CMSIS Cortex-M4 Device Peripheral Access Layer System Source File. </para>
+</listitem>
+            <listitem><para>file <link linkend="_tim_8c">tim.c</link></para>
+
+<para>This file provides code for the configuration of the TIM instances. </para>
+</listitem>
+            <listitem><para>file <link linkend="_usart_8c">usart.c</link></para>
+
+<para>This file provides code for the configuration of the USART instances. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

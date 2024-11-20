@@ -1,0 +1,193 @@
+\doxysection{main.\+c}
+\hypertarget{main_8c_source}{}\label{main_8c_source}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/main.c@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Src/main.c}}
+\mbox{\hyperlink{main_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{adc_8h}{adc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dma_8h}{dma.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tim_8h}{tim.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{usart_8h}{usart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio_8h}{gpio.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Includes\ */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shell_8h}{mylibs/shell.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00032}00032\ \textcolor{comment}{/*\ USER\ CODE\ END\ Includes\ */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039\ \textcolor{comment}{/*\ Private\ defines\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}\mbox{\hyperlink{main_8c_a82ee9a95304128460364d63f0e613e03}{00041}}\ \textcolor{preprocessor}{\#define\ PWM\_MAX\_VAL\ 4250}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}\mbox{\hyperlink{main_8c_a338e171d482819a9b2b701e516c2c915}{00044}}\ \textcolor{preprocessor}{\#define\ PWM\_VARIATION\_RATE\ 2}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}\mbox{\hyperlink{main_8c_a90cbfa2d30b53b54267566c665cde830}{00047}}\ \textcolor{preprocessor}{\#define\ ADC\_CURRENT\_RESOLUTION\ 0.05}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}\mbox{\hyperlink{main_8c_afc89a90f8514178f04427b7d29096390}{00050}}\ \textcolor{preprocessor}{\#define\ ADC\_VCC\ 3.3}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}\mbox{\hyperlink{main_8c_a3a63fb6f00694ff9f4318b4142c5c868}{00053}}\ \textcolor{preprocessor}{\#define\ ADC\_MAX\_VAL\ 4096}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}\mbox{\hyperlink{main_8c_a827907ee6183e98bb8a50727540d4bb1}{00056}}\ \textcolor{preprocessor}{\#define\ ADC\_OFFSET\ 2421}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}\mbox{\hyperlink{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}{00059}}\ \textcolor{preprocessor}{\#define\ ADC\_BUFF\_SIZE\ 1}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}\mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{00063}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}\mbox{\hyperlink{main_8c_a5ac7bf439f479d7cf7106cef76006654}{00066}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_a5ac7bf439f479d7cf7106cef76006654}{requested\_speed\_PWM}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}\mbox{\hyperlink{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}{00069}}\ uint32\_t\ \mbox{\hyperlink{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}{pData}}[\mbox{\hyperlink{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}{ADC\_BUFF\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00072}00072\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ U\_Imes\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00075}00075\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ Uadc\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00082}\mbox{\hyperlink{main_8c_abc513dd972081ae765b6949a62872eb7}{00082}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_abc513dd972081ae765b6949a62872eb7}{\_\_io\_putchar}}(\textcolor{keywordtype}{int}\ ch)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00083}00083\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00084}00084\ \ \ \ \ HAL\_UART\_Transmit(\&\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}},\ (uint8\_t\ *)\&ch,\ 1,\ HAL\_MAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ ch;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00094}\mbox{\hyperlink{main_8c_ae4a663d85b1c26ea11de0fb08b00c027}{00094}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_ae4a663d85b1c26ea11de0fb08b00c027}{set\_PWM}}()}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8c_a5ac7bf439f479d7cf7106cef76006654}{requested\_speed\_PWM}}\ <\ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00097}00097\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}}\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1,\ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2,}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_GET\_AUTORELOAD(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}})\ -\/\ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8c_a5ac7bf439f479d7cf7106cef76006654}{requested\_speed\_PWM}}\ >\ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00104}00104\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}}\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1,\ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2,}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_GET\_AUTORELOAD(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}})\ -\/\ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00116}\mbox{\hyperlink{shell_8h_ab5c61f6cca95944497de9d5c1a7a0e53}{00116}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_ab5c61f6cca95944497de9d5c1a7a0e53}{set\_PWM\_ratio}}(\textcolor{keywordtype}{double}\ ratio)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00117}00117\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (ratio\ >\ 0\ \&\&\ ratio\ <\ 1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00119}00119\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5ac7bf439f479d7cf7106cef76006654}{requested\_speed\_PWM}}\ =\ (int)(ratio\ *\ \mbox{\hyperlink{main_8c_a82ee9a95304128460364d63f0e613e03}{PWM\_MAX\_VAL}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00122}00122\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00128}\mbox{\hyperlink{shell_8h_a53873ca97f4eff976cda4093424c60b1}{00128}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a53873ca97f4eff976cda4093424c60b1}{set\_PWM\_speed}}(\textcolor{keywordtype}{int}\ speed)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00129}00129\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (speed\ >\ 0\ \&\&\ speed\ <\ \mbox{\hyperlink{main_8c_a82ee9a95304128460364d63f0e613e03}{PWM\_MAX\_VAL}})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00131}00131\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5ac7bf439f479d7cf7106cef76006654}{requested\_speed\_PWM}}\ =\ speed;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00134}00134\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00141}\mbox{\hyperlink{shell_8h_a933ee4c92795bba0229662fbf0a8b144}{00141}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_acc0471f81d01eeb7ce92087321f5d7d7}{start\_PWM}}()}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00142}00142\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00143}00143\ \ \ \ \ HAL\_TIM\_PWM\_Start(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00144}00144\ \ \ \ \ HAL\_TIMEx\_PWMN\_Start(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00146}00146\ \ \ \ \ HAL\_TIM\_PWM\_Start(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00147}00147\ \ \ \ \ HAL\_TIMEx\_PWMN\_Start(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00149}00149\ \ \ \ \ \mbox{\hyperlink{main_8c_a3324bf9b8e65e0644a99dc82744d01de}{current\_speed\_PWM}}\ =\ \mbox{\hyperlink{main_8c_a82ee9a95304128460364d63f0e613e03}{PWM\_MAX\_VAL}}\ /\ 2\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00150}00150\ \ \ \ \ \mbox{\hyperlink{main_8c_ab5c61f6cca95944497de9d5c1a7a0e53}{set\_PWM\_ratio}}(0.5);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00151}00151\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00156}\mbox{\hyperlink{shell_8h_a5dbeee862c827ec0736b6e79c42859a9}{00156}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a46410d8579351c44306a0986025f244a}{stop\_PWM}}()}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00157}00157\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00158}00158\ \ \ \ \ HAL\_TIM\_PWM\_Stop(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00159}00159\ \ \ \ \ HAL\_TIMEx\_PWMN\_Stop(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_1);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00161}00161\ \ \ \ \ HAL\_TIM\_PWM\_Stop(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00162}00162\ \ \ \ \ HAL\_TIMEx\_PWMN\_Stop(\&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ TIM\_CHANNEL\_2);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00163}00163\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00168}\mbox{\hyperlink{shell_8h_aca90e0598a78eabb24f644da77050761}{00168}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_afa0edc0b7d3e2e6206177babb5dacee8}{reset\_inverter}}()}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00169}00169\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00170}00170\ \ \ \ \ NVIC\_SystemReset();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00171}00171\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00179}\mbox{\hyperlink{shell_8h_ae52eb9986b1b73a2f95b46d26cd690b4}{00179}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_aa721b5468d6af9957f3b6d3064a61760}{read\_current}}()}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00180}00180\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00181}00181\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)nRAW\ ADC\ value:\ \%d\(\backslash\)r\(\backslash\)n"{}},\ (\textcolor{keywordtype}{int})(\mbox{\hyperlink{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}{pData}}[0]));}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00183}00183\ \ \ \ \ Uadc\ =\ \mbox{\hyperlink{main_8c_afc89a90f8514178f04427b7d29096390}{ADC\_VCC}}\ *\ ((int)(\mbox{\hyperlink{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}{pData}}[0])\ -\/\ \mbox{\hyperlink{main_8c_a827907ee6183e98bb8a50727540d4bb1}{ADC\_OFFSET}})\ /\ \mbox{\hyperlink{main_8c_a3a63fb6f00694ff9f4318b4142c5c868}{ADC\_MAX\_VAL}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00184}00184\ \ \ \ \ U\_Imes\ =\ Uadc\ /\ \mbox{\hyperlink{main_8c_a90cbfa2d30b53b54267566c665cde830}{ADC\_CURRENT\_RESOLUTION}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00186}00186\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)nMeasured\ tension:\ \%f\ V\(\backslash\)r\(\backslash\)n"{}},\ Uadc);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00187}00187\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)nMeasured\ current:\ \%f\ A\(\backslash\)r\(\backslash\)n"{}},\ U\_Imes);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00188}00188\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00194}\mbox{\hyperlink{main_8c_af20a88180db1113be1e89266917d148b}{00194}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_af20a88180db1113be1e89266917d148b}{HAL\_ADC\_ConvCpltCallback}}(ADC\_HandleTypeDef\ *hadc)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00195}00195\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00196}00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (hadc-\/>Instance\ ==\ ADC1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00197}00197\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ HAL\_ADC\_Start\_DMA(hadc,\ \mbox{\hyperlink{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}{pData}},\ \mbox{\hyperlink{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}{ADC\_BUFF\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00200}00200\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00209}\mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{00209}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00210}00210\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00211}00211\ \ \ \ \ HAL\_Init();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00212}00212\ \ \ \ \ \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{SystemClock\_Config}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00214}00214\ \ \ \ \ \mbox{\hyperlink{gpio_8h_ac724e431d2af879252de35615be2bdea}{MX\_GPIO\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00215}00215\ \ \ \ \ \mbox{\hyperlink{dma_8h_a323249dac769f9855c10b4ec9446b707}{MX\_DMA\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00216}00216\ \ \ \ \ \mbox{\hyperlink{adc_8h_a101e2e3433dfe72bbbd0ae3a84489263}{MX\_ADC2\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00217}00217\ \ \ \ \ \mbox{\hyperlink{adc_8h_acccd58aa70215a6b184ad242312ffd0c}{MX\_ADC1\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00218}00218\ \ \ \ \ \mbox{\hyperlink{tim_8h_ad1f9d42690163f73f73e5b820c81ca14}{MX\_TIM1\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00219}00219\ \ \ \ \ \mbox{\hyperlink{tim_8h_a7912f2916786a2c33cb6fb8259ade58c}{MX\_TIM3\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00220}00220\ \ \ \ \ \mbox{\hyperlink{usart_8h_a052088fe5bb3f807a4b2502e664fd4fd}{MX\_USART2\_UART\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00221}00221\ \ \ \ \ \mbox{\hyperlink{usart_8h_a3d04b903a77089f6ce08dd0bf1c81a81}{MX\_USART3\_UART\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00222}00222\ \ \ \ \ \mbox{\hyperlink{tim_8h_a4b8ff887fd3fdf26605e35927e4ff202}{MX\_TIM2\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00224}00224\ \ \ \ \ HAL\_TIM\_Base\_Start\_IT(\&\mbox{\hyperlink{tim_8h_a2c80fd5510e2990a59a5c90d745c716c}{htim2}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00226}00226\ \ \ \ \ HAL\_ADCEx\_Calibration\_Start(\&\mbox{\hyperlink{adc_8h_a22b804736f5648d52f639b2647d4ed13}{hadc1}},\ ADC\_SINGLE\_ENDED);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00227}00227\ \ \ \ \ HAL\_ADC\_Start\_DMA(\&\mbox{\hyperlink{adc_8h_a22b804736f5648d52f639b2647d4ed13}{hadc1}},\ \mbox{\hyperlink{main_8c_adfc43c37d10368eeef2e68bb7bd1da63}{pData}},\ \mbox{\hyperlink{main_8c_a4de08020d60dad9bd7f6d5270ae5dbc7}{ADC\_BUFF\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00229}00229\ \ \ \ \ \mbox{\hyperlink{main_8c_acc0471f81d01eeb7ce92087321f5d7d7}{start\_PWM}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00230}00230\ \ \ \ \ \mbox{\hyperlink{shell_8h_a1e1a7212cd1e25d36ce85620f03f996e}{Shell\_Init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00232}00232\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00233}00233\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shell_8h_a9f70d5542e7f7f470ff7cd7d482caeb7}{Shell\_Loop}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00235}00235\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00236}00236\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00241}\mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{00241}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{SystemClock\_Config}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00242}00242\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00243}00243\ \ \ \ \ \textcolor{comment}{//\ Clock\ configuration\ details\ omitted\ for\ brevity}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00244}00244\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00250}\mbox{\hyperlink{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}{00250}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}{HAL\_TIM\_PeriodElapsedCallback}}(TIM\_HandleTypeDef\ *htim)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00251}00251\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00252}00252\ \ \ \ \ \textcolor{keywordflow}{if}\ (htim-\/>Instance\ ==\ TIM2)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00253}00253\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_ae4a663d85b1c26ea11de0fb08b00c027}{set\_PWM}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00255}00255\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00257}00257\ \ \ \ \ \textcolor{keywordflow}{if}\ (htim-\/>Instance\ ==\ TIM6)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00258}00258\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ HAL\_IncTick();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00260}00260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00261}00261\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00268}\mbox{\hyperlink{main_8h_a1730ffe1e560465665eb47d9264826f9}{00268}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00269}00269\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00270}00270\ \ \ \ \ \_\_disable\_irq();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00271}00271\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00272}00272\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00273}00273\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00274}00274\ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00281}\mbox{\hyperlink{main_8c_a2532ff72b1a2ff82f65e8c2a5a4dde00}{00281}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a2532ff72b1a2ff82f65e8c2a5a4dde00}{assert\_failed}}(uint8\_t\ *file,\ uint32\_t\ line)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00282}00282\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00283}00283\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Wrong\ parameter\ value:\ file\ \%s\ on\ line\ \%d\(\backslash\)r\(\backslash\)n"{}},\ file,\ line);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00284}00284\ \}}
+
+\end{DoxyCode}

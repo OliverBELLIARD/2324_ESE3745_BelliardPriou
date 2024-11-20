@@ -1,0 +1,47 @@
+\doxysection{shell.\+h}
+\hypertarget{shell_8h_source}{}\label{shell_8h_source}\index{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Inc/mylibs/shell.h@{/home/oliver/Documents/3A/Actionneur\_Automatique\_appliqee/2324\_ESE3745\_BelliardPriou/NUCLEO-\/G474RET6-\/Inverter\_Pinout/Core/Inc/mylibs/shell.h}}
+\mbox{\hyperlink{shell_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00002}00002\ \textcolor{comment}{\ *\ shell.h}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00004}00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Oct\ 1,\ 2023}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00005}00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ nicolas}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ INC\_MYLIBS\_SHELL\_H\_}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ INC\_MYLIBS\_SHELL\_H\_}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00025}\mbox{\hyperlink{shell_8h_a5bdd6772c246436bb14377095de79b31}{00025}}\ \textcolor{preprocessor}{\#define\ UART\_RX\_BUFFER\_SIZE\ 1}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00032}\mbox{\hyperlink{shell_8h_a05f5d709605c6317c97e4974bec3402a}{00032}}\ \textcolor{preprocessor}{\#define\ UART\_TX\_BUFFER\_SIZE\ 64}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00039}\mbox{\hyperlink{shell_8h_a8a0465f8e8bbe71e4d6e8011e975bf75}{00039}}\ \textcolor{preprocessor}{\#define\ CMD\_BUFFER\_SIZE\ 64}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00046}\mbox{\hyperlink{shell_8h_a29b7451465deac204c5f7cb1f9c6e1fc}{00046}}\ \textcolor{preprocessor}{\#define\ MAX\_ARGS\ 9}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00053}\mbox{\hyperlink{shell_8h_aca3b498f5936dbe4f3076a47c3e1810d}{00053}}\ \textcolor{preprocessor}{\#define\ ASCII\_LF\ 0x0A}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00060}\mbox{\hyperlink{shell_8h_a089ed4925403ab02a05e603967c74579}{00060}}\ \textcolor{preprocessor}{\#define\ ASCII\_CR\ 0x0D}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00067}\mbox{\hyperlink{shell_8h_a681f208df4071753dd6a7a71d0f5780e}{00067}}\ \textcolor{preprocessor}{\#define\ ASCII\_BACK\ 0x08}}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00075}00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_a1e1a7212cd1e25d36ce85620f03f996e}{Shell\_Init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00084}00084\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_a9f70d5542e7f7f470ff7cd7d482caeb7}{Shell\_Loop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00091}00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_ab5c61f6cca95944497de9d5c1a7a0e53}{set\_PWM\_ratio}}(\textcolor{keywordtype}{double}\ ratio);}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00098}00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_a53873ca97f4eff976cda4093424c60b1}{set\_PWM\_speed}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00105}00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_a933ee4c92795bba0229662fbf0a8b144}{start\_PWM}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00112}00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_a5dbeee862c827ec0736b6e79c42859a9}{stop\_PWM}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00119}00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_aca90e0598a78eabb24f644da77050761}{reset\_inverter}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00127}00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shell_8h_ae52eb9986b1b73a2f95b46d26cd690b4}{read\_current}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{shell_8h_source_l00129}00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_MYLIBS\_SHELL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

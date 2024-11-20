@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8h_source" xml:lang="en-US">
+<title>main.h</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Inc/main.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_main_8h_source_1l00001"/>00001 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00019"/>00019 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Header&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00020"/>00020 
+<anchor xml:id="_main_8h_source_1l00021"/>00021 <emphasis role="comment">/*&#32;Define&#32;to&#32;prevent&#32;recursive&#32;inclusion&#32;-------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00022"/>00022 <emphasis role="preprocessor">#ifndef&#32;__MAIN_H</emphasis>
+<anchor xml:id="_main_8h_source_1l00023"/>00023 <emphasis role="preprocessor">#define&#32;__MAIN_H</emphasis>
+<anchor xml:id="_main_8h_source_1l00024"/>00024 
+<anchor xml:id="_main_8h_source_1l00025"/>00025 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_main_8h_source_1l00026"/>00026 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="stringliteral">&quot;C&quot;</emphasis>&#32;{
+<anchor xml:id="_main_8h_source_1l00027"/>00027 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_main_8h_source_1l00028"/>00028 
+<anchor xml:id="_main_8h_source_1l00029"/>00029 <emphasis role="comment">/*&#32;Includes&#32;------------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00030"/>00030 <emphasis role="preprocessor">#include&#32;&quot;stm32g4xx_hal.h&quot;</emphasis>
+<anchor xml:id="_main_8h_source_1l00031"/>00031 
+<anchor xml:id="_main_8h_source_1l00032"/>00032 <emphasis role="comment">/*&#32;Private&#32;includes&#32;----------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00033"/>00033 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00034"/>00034 
+<anchor xml:id="_main_8h_source_1l00035"/>00035 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Includes&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00036"/>00036 
+<anchor xml:id="_main_8h_source_1l00037"/>00037 <emphasis role="comment">/*&#32;Exported&#32;types&#32;------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00038"/>00038 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;ET&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00039"/>00039 
+<anchor xml:id="_main_8h_source_1l00040"/>00040 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;ET&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00041"/>00041 
+<anchor xml:id="_main_8h_source_1l00042"/>00042 <emphasis role="comment">/*&#32;Exported&#32;constants&#32;--------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00043"/>00043 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;EC&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00044"/>00044 
+<anchor xml:id="_main_8h_source_1l00045"/>00045 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;EC&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00046"/>00046 
+<anchor xml:id="_main_8h_source_1l00047"/>00047 <emphasis role="comment">/*&#32;Exported&#32;macro&#32;------------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00048"/>00048 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;EM&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00049"/>00049 
+<anchor xml:id="_main_8h_source_1l00050"/>00050 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;EM&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00051"/>00051 
+<anchor xml:id="_main_8h_source_1l00052"/>00052 <emphasis role="comment">/*&#32;Exported&#32;functions&#32;prototypes&#32;---------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00053"/>00053 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8h_1a1730ffe1e560465665eb47d9264826f9">Error_Handler</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_main_8h_source_1l00054"/>00054 
+<anchor xml:id="_main_8h_source_1l00055"/>00055 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;EFP&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00056"/>00056 
+<anchor xml:id="_main_8h_source_1l00057"/>00057 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;EFP&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00058"/>00058 
+<anchor xml:id="_main_8h_source_1l00059"/>00059 <emphasis role="comment">/*&#32;Private&#32;defines&#32;-----------------------------------------------------------*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00060"/><link linkend="_main_8h_1a158931264dc3c964aeb8282d0755b665">00060</link> <emphasis role="preprocessor">#define&#32;USR_BTN_Pin&#32;GPIO_PIN_13</emphasis>
+<anchor xml:id="_main_8h_source_1l00061"/><link linkend="_main_8h_1aff83915dc06a1ac4ee242533045c6f43">00061</link> <emphasis role="preprocessor">#define&#32;USR_BTN_GPIO_Port&#32;GPIOC</emphasis>
+<anchor xml:id="_main_8h_source_1l00062"/><link linkend="_main_8h_1a0d56b69f5247cccd56940c5f01d99521">00062</link> <emphasis role="preprocessor">#define&#32;USR_BTN_EXTI_IRQn&#32;EXTI15_10_IRQn</emphasis>
+<anchor xml:id="_main_8h_source_1l00063"/><link linkend="_main_8h_1a5b096511c8f8e1c2b1e53aacd0b476e8">00063</link> <emphasis role="preprocessor">#define&#32;U_VPh_Pin&#32;GPIO_PIN_0</emphasis>
+<anchor xml:id="_main_8h_source_1l00064"/><link linkend="_main_8h_1a694f3f2a7762e5346582a34a84fc70d1">00064</link> <emphasis role="preprocessor">#define&#32;U_VPh_GPIO_Port&#32;GPIOC</emphasis>
+<anchor xml:id="_main_8h_source_1l00065"/><link linkend="_main_8h_1a27faebf82c8e12ddccb0a5ff98f8c7fd">00065</link> <emphasis role="preprocessor">#define&#32;W_VPh_Pin&#32;GPIO_PIN_1</emphasis>
+<anchor xml:id="_main_8h_source_1l00066"/><link linkend="_main_8h_1a6c8d2416e77da856269129f83f224674">00066</link> <emphasis role="preprocessor">#define&#32;W_VPh_GPIO_Port&#32;GPIOC</emphasis>
+<anchor xml:id="_main_8h_source_1l00067"/><link linkend="_main_8h_1a3f5d378c3afdbf9ad6f63a412f2f8913">00067</link> <emphasis role="preprocessor">#define&#32;Bus_Imes_Pin&#32;GPIO_PIN_2</emphasis>
+<anchor xml:id="_main_8h_source_1l00068"/><link linkend="_main_8h_1a825e3f437e6ae14b4f602b59d5a26767">00068</link> <emphasis role="preprocessor">#define&#32;Bus_Imes_GPIO_Port&#32;GPIOC</emphasis>
+<anchor xml:id="_main_8h_source_1l00069"/><link linkend="_main_8h_1a6dc981b6346185b1302c57dbbf5a65fa">00069</link> <emphasis role="preprocessor">#define&#32;V_VPh_Pin&#32;GPIO_PIN_3</emphasis>
+<anchor xml:id="_main_8h_source_1l00070"/><link linkend="_main_8h_1aeb7e9d19e04d93b06f348717b3f205c2">00070</link> <emphasis role="preprocessor">#define&#32;V_VPh_GPIO_Port&#32;GPIOC</emphasis>
+<anchor xml:id="_main_8h_source_1l00071"/><link linkend="_main_8h_1a3ecf27242083c046aa6cdc2258b4444a">00071</link> <emphasis role="preprocessor">#define&#32;Bus_V_Pin&#32;GPIO_PIN_0</emphasis>
+<anchor xml:id="_main_8h_source_1l00072"/><link linkend="_main_8h_1ad6d947a22b3a7605abdd773e431fd52f">00072</link> <emphasis role="preprocessor">#define&#32;Bus_V_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00073"/><link linkend="_main_8h_1a6ce1aad5e7bc4002cbc27a683994c484">00073</link> <emphasis role="preprocessor">#define&#32;U_Imes_Pin&#32;GPIO_PIN_1</emphasis>
+<anchor xml:id="_main_8h_source_1l00074"/><link linkend="_main_8h_1a2f2cb22ae33ad64d46d21fd7076e1403">00074</link> <emphasis role="preprocessor">#define&#32;U_Imes_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00075"/><link linkend="_main_8h_1a0aa7801f202f2b77085347074a1f2948">00075</link> <emphasis role="preprocessor">#define&#32;USR_LED_Pin&#32;GPIO_PIN_5</emphasis>
+<anchor xml:id="_main_8h_source_1l00076"/><link linkend="_main_8h_1a0b60cb7e96ec15462f633f32f5fb197a">00076</link> <emphasis role="preprocessor">#define&#32;USR_LED_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00077"/><link linkend="_main_8h_1abda004ed89d7aabfddf6498f5cd0f110">00077</link> <emphasis role="preprocessor">#define&#32;U_PWM_L_Pin&#32;GPIO_PIN_13</emphasis>
+<anchor xml:id="_main_8h_source_1l00078"/><link linkend="_main_8h_1abe6439e47b2efacdc3b35670b999772f">00078</link> <emphasis role="preprocessor">#define&#32;U_PWM_L_GPIO_Port&#32;GPIOB</emphasis>
+<anchor xml:id="_main_8h_source_1l00079"/><link linkend="_main_8h_1a8ebdcf94a58c2a3d79df0351f1ab33e2">00079</link> <emphasis role="preprocessor">#define&#32;V_PWM_L_Pin&#32;GPIO_PIN_14</emphasis>
+<anchor xml:id="_main_8h_source_1l00080"/><link linkend="_main_8h_1a4021d0a4208c3a520e5e1d89f1280957">00080</link> <emphasis role="preprocessor">#define&#32;V_PWM_L_GPIO_Port&#32;GPIOB</emphasis>
+<anchor xml:id="_main_8h_source_1l00081"/><link linkend="_main_8h_1af45b9ee0b8d6ec6f565c53f29a283fe5">00081</link> <emphasis role="preprocessor">#define&#32;W_PWM_L_Pin&#32;GPIO_PIN_15</emphasis>
+<anchor xml:id="_main_8h_source_1l00082"/><link linkend="_main_8h_1a642a780428f3c5d141730a84fdcd27aa">00082</link> <emphasis role="preprocessor">#define&#32;W_PWM_L_GPIO_Port&#32;GPIOB</emphasis>
+<anchor xml:id="_main_8h_source_1l00083"/><link linkend="_main_8h_1aa0bbdc58329bf9aee4bfe9d4c35d4ebc">00083</link> <emphasis role="preprocessor">#define&#32;U_PWM_H_Pin&#32;GPIO_PIN_8</emphasis>
+<anchor xml:id="_main_8h_source_1l00084"/><link linkend="_main_8h_1a373a1411575bccb8d3a2d58daf0d6284">00084</link> <emphasis role="preprocessor">#define&#32;U_PWM_H_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00085"/><link linkend="_main_8h_1a040066f224c282af6e6eb94777ae42c3">00085</link> <emphasis role="preprocessor">#define&#32;V_PWM_H_Pin&#32;GPIO_PIN_9</emphasis>
+<anchor xml:id="_main_8h_source_1l00086"/><link linkend="_main_8h_1a09cd18e04822ef5490b612492e7f6059">00086</link> <emphasis role="preprocessor">#define&#32;V_PWM_H_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00087"/><link linkend="_main_8h_1a94d00a00a533573ad4a6ac07b833fa6b">00087</link> <emphasis role="preprocessor">#define&#32;W_PWM_H_Pin&#32;GPIO_PIN_10</emphasis>
+<anchor xml:id="_main_8h_source_1l00088"/><link linkend="_main_8h_1a1d0b8b15cb3e5f45444b5233c4b8cc5b">00088</link> <emphasis role="preprocessor">#define&#32;W_PWM_H_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00089"/><link linkend="_main_8h_1a20d0c61c6be06f9e3dd0476996f108ad">00089</link> <emphasis role="preprocessor">#define&#32;T_SWDIO_Pin&#32;GPIO_PIN_13</emphasis>
+<anchor xml:id="_main_8h_source_1l00090"/><link linkend="_main_8h_1a5b133bbad2494c84e7268b552def76d1">00090</link> <emphasis role="preprocessor">#define&#32;T_SWDIO_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00091"/><link linkend="_main_8h_1a3c891e8c1436da67e20c097ed3ae73cf">00091</link> <emphasis role="preprocessor">#define&#32;T_SWCLK_Pin&#32;GPIO_PIN_14</emphasis>
+<anchor xml:id="_main_8h_source_1l00092"/><link linkend="_main_8h_1aa13afc64c30db4eed10d4747f962a5b0">00092</link> <emphasis role="preprocessor">#define&#32;T_SWCLK_GPIO_Port&#32;GPIOA</emphasis>
+<anchor xml:id="_main_8h_source_1l00093"/><link linkend="_main_8h_1af92be3f05c2e7de721bfc1b218e5b855">00093</link> <emphasis role="preprocessor">#define&#32;NRST_SafetyUC_Pin&#32;GPIO_PIN_2</emphasis>
+<anchor xml:id="_main_8h_source_1l00094"/><link linkend="_main_8h_1a772b3d279496291b8571727e70b28e5f">00094</link> <emphasis role="preprocessor">#define&#32;NRST_SafetyUC_GPIO_Port&#32;GPIOD</emphasis>
+<anchor xml:id="_main_8h_source_1l00095"/><link linkend="_main_8h_1a8a7de51b6e3a34adee7ad40319fa24bd">00095</link> <emphasis role="preprocessor">#define&#32;T_SWO_Pin&#32;GPIO_PIN_3</emphasis>
+<anchor xml:id="_main_8h_source_1l00096"/><link linkend="_main_8h_1a92aa264efbd0d858501f267e64b03140">00096</link> <emphasis role="preprocessor">#define&#32;T_SWO_GPIO_Port&#32;GPIOB</emphasis>
+<anchor xml:id="_main_8h_source_1l00097"/>00097 
+<anchor xml:id="_main_8h_source_1l00098"/>00098 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;BEGIN&#32;Private&#32;defines&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00099"/>00099 
+<anchor xml:id="_main_8h_source_1l00100"/>00100 <emphasis role="comment">/*&#32;USER&#32;CODE&#32;END&#32;Private&#32;defines&#32;*/</emphasis>
+<anchor xml:id="_main_8h_source_1l00101"/>00101 
+<anchor xml:id="_main_8h_source_1l00102"/>00102 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_main_8h_source_1l00103"/>00103 }
+<anchor xml:id="_main_8h_source_1l00104"/>00104 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_main_8h_source_1l00105"/>00105 
+<anchor xml:id="_main_8h_source_1l00106"/>00106 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;__MAIN_H&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+</programlisting></section>

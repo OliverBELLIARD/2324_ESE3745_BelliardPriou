@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_tim_8c" xml:lang="en-US">
+<title>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/tim.c File Reference</title>
+<indexterm><primary>/home/oliver/Documents/3A/Actionneur_Automatique_appliqee/2324_ESE3745_BelliardPriou/NUCLEO-G474RET6-Inverter_Pinout/Core/Src/tim.c</primary></indexterm>
+<para>
+
+<para>This file provides code for the configuration of the TIM instances. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;tim.h&quot;<?linebreak?></programlisting>Include dependency graph for tim.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_tim_8c_1ad1f9d42690163f73f73e5b820c81ca14">MX_TIM1_Init</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1a4b8ff887fd3fdf26605e35927e4ff202">MX_TIM2_Init</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1a7912f2916786a2c33cb6fb8259ade58c">MX_TIM3_Init</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1acc04a9bb2813334b6e3585d1f16e5199">HAL_TIM_PWM_MspInit</link> (TIM_HandleTypeDef *tim_pwmHandle)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1a59716af159bfbbb6023b31354fb23af8">HAL_TIM_Base_MspInit</link> (TIM_HandleTypeDef *tim_baseHandle)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1a6af1ce8c30614bff6202b8320cd6c9e0">HAL_TIMEx_HallSensor_MspInit</link> (TIM_HandleTypeDef *timex_hallsensorHandle)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1a708f19bbc41b292fccf38f2d9796c46a">HAL_TIM_MspPostInit</link> (TIM_HandleTypeDef *timHandle)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1ab862d9bf6ab68a9201719c992c3f4b43">HAL_TIM_PWM_MspDeInit</link> (TIM_HandleTypeDef *tim_pwmHandle)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1adee8ed7d3ebb3a217c27ac10af86ce2f">HAL_TIM_Base_MspDeInit</link> (TIM_HandleTypeDef *tim_baseHandle)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tim_8c_1ae662978799bfda775e08d9baf88252f4">HAL_TIMEx_HallSensor_MspDeInit</link> (TIM_HandleTypeDef *timex_hallsensorHandle)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>TIM_HandleTypeDef <link linkend="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5">htim1</link></para>
+</listitem>
+            <listitem><para>TIM_HandleTypeDef <link linkend="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c">htim2</link></para>
+</listitem>
+            <listitem><para>TIM_HandleTypeDef <link linkend="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62">htim3</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file provides code for the configuration of the TIM instances. </para>
+
+<para><caution><title>Attention</title>
+
+<para></para>
+</caution>
+Copyright (c) 2023 STMicroelectronics. All rights reserved.</para>
+
+<para>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </para>
+<para>
+Definition in file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_tim_8c_1adee8ed7d3ebb3a217c27ac10af86ce2f"/><section>
+    <title>HAL_TIM_Base_MspDeInit()</title>
+<indexterm><primary>HAL_TIM_Base_MspDeInit</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>HAL_TIM_Base_MspDeInit</secondary></indexterm>
+<para><computeroutput>void HAL_TIM_Base_MspDeInit (TIM_HandleTypeDef * tim_baseHandle)</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00333">333</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1a59716af159bfbbb6023b31354fb23af8"/><section>
+    <title>HAL_TIM_Base_MspInit()</title>
+<indexterm><primary>HAL_TIM_Base_MspInit</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>HAL_TIM_Base_MspInit</secondary></indexterm>
+<para><computeroutput>void HAL_TIM_Base_MspInit (TIM_HandleTypeDef * tim_baseHandle)</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00208">208</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1a708f19bbc41b292fccf38f2d9796c46a"/><section>
+    <title>HAL_TIM_MspPostInit()</title>
+<indexterm><primary>HAL_TIM_MspPostInit</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>HAL_TIM_MspPostInit</secondary></indexterm>
+<para><computeroutput>void HAL_TIM_MspPostInit (TIM_HandleTypeDef * timHandle)</computeroutput></para>
+<para>TIM1 GPIO Configuration PB13 ---&#8212;&gt; TIM1_CH1N PB14 ---&#8212;&gt; TIM1_CH2N PB15 ---&#8212;&gt; TIM1_CH3N PA8 ---&#8212;&gt; TIM1_CH1 PA9 ---&#8212;&gt; TIM1_CH2 PA10 ---&#8212;&gt; TIM1_CH3</para>
+<para>
+Definition at line <link linkend="_tim_8c_source_1l00266">266</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c_a708f19bbc41b292fccf38f2d9796c46a_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_tim_8c_1ab862d9bf6ab68a9201719c992c3f4b43"/><section>
+    <title>HAL_TIM_PWM_MspDeInit()</title>
+<indexterm><primary>HAL_TIM_PWM_MspDeInit</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>HAL_TIM_PWM_MspDeInit</secondary></indexterm>
+<para><computeroutput>void HAL_TIM_PWM_MspDeInit (TIM_HandleTypeDef * tim_pwmHandle)</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00314">314</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1acc04a9bb2813334b6e3585d1f16e5199"/><section>
+    <title>HAL_TIM_PWM_MspInit()</title>
+<indexterm><primary>HAL_TIM_PWM_MspInit</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>HAL_TIM_PWM_MspInit</secondary></indexterm>
+<para><computeroutput>void HAL_TIM_PWM_MspInit (TIM_HandleTypeDef * tim_pwmHandle)</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00188">188</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1ae662978799bfda775e08d9baf88252f4"/><section>
+    <title>HAL_TIMEx_HallSensor_MspDeInit()</title>
+<indexterm><primary>HAL_TIMEx_HallSensor_MspDeInit</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>HAL_TIMEx_HallSensor_MspDeInit</secondary></indexterm>
+<para><computeroutput>void HAL_TIMEx_HallSensor_MspDeInit (TIM_HandleTypeDef * timex_hallsensorHandle)</computeroutput></para>
+<para>TIM3 GPIO Configuration PA4 ---&#8212;&gt; TIM3_CH2 PA6 ---&#8212;&gt; TIM3_CH1 PC8 ---&#8212;&gt; TIM3_CH3</para>
+<para>
+Definition at line <link linkend="_tim_8c_source_1l00352">352</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1a6af1ce8c30614bff6202b8320cd6c9e0"/><section>
+    <title>HAL_TIMEx_HallSensor_MspInit()</title>
+<indexterm><primary>HAL_TIMEx_HallSensor_MspInit</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>HAL_TIMEx_HallSensor_MspInit</secondary></indexterm>
+<para><computeroutput>void HAL_TIMEx_HallSensor_MspInit (TIM_HandleTypeDef * timex_hallsensorHandle)</computeroutput></para>
+<para>TIM3 GPIO Configuration PA4 ---&#8212;&gt; TIM3_CH2 PA6 ---&#8212;&gt; TIM3_CH1 PC8 ---&#8212;&gt; TIM3_CH3</para>
+<para>
+Definition at line <link linkend="_tim_8c_source_1l00228">228</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1ad1f9d42690163f73f73e5b820c81ca14"/><section>
+    <title>MX_TIM1_Init()</title>
+<indexterm><primary>MX_TIM1_Init</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>MX_TIM1_Init</secondary></indexterm>
+<para><computeroutput>void MX_TIM1_Init (void )</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00032">32</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c_ad1f9d42690163f73f73e5b820c81ca14_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c_ad1f9d42690163f73f73e5b820c81ca14_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_tim_8c_1a4b8ff887fd3fdf26605e35927e4ff202"/><section>
+    <title>MX_TIM2_Init()</title>
+<indexterm><primary>MX_TIM2_Init</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>MX_TIM2_Init</secondary></indexterm>
+<para><computeroutput>void MX_TIM2_Init (void )</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00109">109</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c_a4b8ff887fd3fdf26605e35927e4ff202_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c_a4b8ff887fd3fdf26605e35927e4ff202_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_tim_8c_1a7912f2916786a2c33cb6fb8259ade58c"/><section>
+    <title>MX_TIM3_Init()</title>
+<indexterm><primary>MX_TIM3_Init</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>MX_TIM3_Init</secondary></indexterm>
+<para><computeroutput>void MX_TIM3_Init (void )</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00149">149</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c_a7912f2916786a2c33cb6fb8259ade58c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="tim_8c_a7912f2916786a2c33cb6fb8259ade58c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_tim_8c_1a25fc663547539bc49fecc0011bd76ab5"/><section>
+    <title>htim1</title>
+<indexterm><primary>htim1</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>htim1</secondary></indexterm>
+<para><computeroutput>TIM_HandleTypeDef htim1</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00027">27</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1a2c80fd5510e2990a59a5c90d745c716c"/><section>
+    <title>htim2</title>
+<indexterm><primary>htim2</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>htim2</secondary></indexterm>
+<para><computeroutput>TIM_HandleTypeDef htim2</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00028">28</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+<anchor xml:id="_tim_8c_1aac3d2c59ee0e3bbae1b99529a154eb62"/><section>
+    <title>htim3</title>
+<indexterm><primary>htim3</primary><secondary>tim.c</secondary></indexterm>
+<indexterm><primary>tim.c</primary><secondary>htim3</secondary></indexterm>
+<para><computeroutput>TIM_HandleTypeDef htim3</computeroutput></para><para>
+Definition at line <link linkend="_tim_8c_source_1l00029">29</link> of file <link linkend="_tim_8c_source">tim.c</link>.</para>
+</section>
+</section>
+</section>
