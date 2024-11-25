@@ -450,3 +450,5 @@ Nous pouvons mesurer la vitesse grâce à l'encodeur présent sur le Moteur.
 Dans cette partie vous devez :
 - Etablir l'asservissement en vitesse du moteur,
 - Etablir l'asservissement en courant du moteur.
+
+Ayant effectué correctement la mesure de courant a des intervalles de temps periodiques, a la même fréquence que nos PWM, la seule chose qu'il nous restait a mesurer, c'était la vitesse. On aurait alors pu mettre en place, grâce a la boucle d'asservissement étudié en TD machine. Nous avions déjà la boucle mise en place et la boucle de changement de vitesse progressif du moteur.
